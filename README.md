@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website designed to showcase software engineering projects, technical skills, and professional experience.
 
-🚀 **Live Demo:** [https://joe-h.netlify.app](https://joe-h.netlify.app)
+🚀 **Live Demo:** [https://michiana.dev](https://michiana.dev)
 
 ## ✨ Features
 
