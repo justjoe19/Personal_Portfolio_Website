@@ -72,7 +72,7 @@ html {
 }
 
 .nav-logo {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -121,7 +121,8 @@ html {
 /* Hero Section */
 .hero {
   min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100); /* Fallback for mobile browsers */
+  /* Fallback for mobile browsers */
+  min-height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,7 +159,7 @@ img {
 }
 
 .hero-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   color: var(--color-accent);
@@ -239,12 +240,12 @@ img {
 
 .hero-scroll {
   position: absolute;
-  bottom: 3rem;
+  bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: 0.75rem;
   color: var(--color-text-secondary);
   animation: fadeInUp 0.8s ease-out 1.2s both;
@@ -270,7 +271,7 @@ img {
 
 /* Section Styles */
 .section-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   color: var(--color-accent);
@@ -442,7 +443,7 @@ img {
 }
 
 .project-number {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: 3rem;
   font-weight: 700;
   color: var(--color-border);
@@ -484,7 +485,7 @@ img {
   border: 1px solid var(--color-border);
   border-radius: 20px;
   font-size: 0.85rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   color: var(--color-text-secondary);
   transition: var(--transition);
 }
@@ -552,7 +553,7 @@ img {
 
 .contact-label {
   font-size: 0.85rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   color: var(--color-text-secondary);
 }
 
@@ -594,7 +595,7 @@ img {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   color: var(--color-text);
-  font-family: var(--font-display);
+  font-family: var(--font-display), sans-serif;
   font-size: 1rem;
   transition: var(--transition);
 }
@@ -632,7 +633,7 @@ img {
 }
 
 .footer-text {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: 0.9rem;
   color: var(--color-text-secondary);
 }
@@ -729,6 +730,8 @@ img {
   
   .hero-scroll {
     bottom: 2rem;
+    position: relative;
+    margin-top: 2rem;
   }
 
   /* Sections */
