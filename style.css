@@ -379,13 +379,7 @@ img {
   height: 100%;
   background: linear-gradient(90deg, var(--color-accent), #00ddff);
   border-radius: 2px;
-  animation: fillBar 1.5s ease-out;
-}
-
-@keyframes fillBar {
-  from {
-    width: 0;
-  }
+  transition: width 1.5s ease-out;
 }
 
 /* Work Section */

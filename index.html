@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
@@ -9,12 +10,16 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="Joe Hollenbach is a software engineer with AAS in Software Development and BS in Software Engineering, seeking voluntary project opportunities in the Michiana area. Specializing in mobile and web applications." />
   <meta name="author" content="Joe Hollenbach" />
-  
+
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Joe | Software Engineer" />
   <meta property="og:url" content="https://michiana.dev" />
   <meta property="og:description" content="Software engineer with AAS in Software Development and BS in Software Engineering, seeking voluntary project opportunities in the Michiana area. Specializing in mobile and web applications." />
-  <meta property="og:image" content="assets/profile.jpg" />
+  <meta property="og:image" content="assets/profile.webp" />
+  <!-- Retaining Open Graph image dimensions and type from remote, adjust if profile.webp dimensions are different -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/webp" /> <!-- Changed type to webp -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,7 +30,13 @@
     "sameAs": [
       "https://github.com/justjoe19",
       "https://www.linkedin.com/in/joe-hollenbach"
-    ]
+    ],
+    "description": "Software developer based in Northern Indiana, serving Southwest Michigan and the South Bend area.",
+    "keywords": "software developer, software engineer, web developer, mobile app developer, Southwest Michigan, South Bend Indiana, Northern Indiana, Michiana",
+    "location": {
+      "@type": "Place",
+      "name": "Michiana"
+    }
   }
   </script>
   <title>Joe | Software Engineer</title>
@@ -33,8 +44,11 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
   <!-- Navigation -->
@@ -77,7 +91,7 @@
     <div class="about-grid">
       <div class="about-image-container">
         <div class="about-image-bg"></div>
-        <img src="assets/profile.webp" alt="Headshot of Joe Hollenbach, a software engineer" class="about-image" />
+        <img src="assets/profile.webp" alt="Headshot of Joe Hollenbach, a software engineer" class="about-image" loading="lazy" decoding="async" />
         <div class="about-decoration"></div>
       </div>
       <div class="about-content">
@@ -86,7 +100,7 @@
                             <p class="about-text">
                               With an Associate of Applied Science in Software Development and a Bachelor of Science in Software Engineering, I am a software engineer based in the Michiana area. I am seeking opportunities to build my portfolio by offering my skills on a voluntary basis, eager to apply my knowledge to real-world challenges and create robust, user-centered applications.
                             </p>        <p class="about-text">
-          My approach combines technical precision with thoughtful design, ensuring that every 
+          My approach combines technical precision with thoughtful design, ensuring that every
           project not only functions flawlessly but delivers an exceptional user experience.
         </p>
         <div class="about-skills">
@@ -166,7 +180,7 @@
         <div class="project-content">
           <h3 class="project-title">Employee Time Clock</h3>
           <p class="project-description">
-            A secure web application for tracking employee work hours, featuring user authentication, 
+            A secure web application for tracking employee work hours, featuring user authentication,
             real-time clock functionality, and an administrative dashboard for payroll management.
           </p>
           <div class="project-tags">
@@ -228,7 +242,8 @@
         </div>
       </div>
       <div class="contact-form-container">
-        <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true"
+          data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <!-- Honeypot field for spam protection -->
           <p class="hidden">
@@ -258,10 +273,12 @@
       <div class="footer-text">© Joe Hollenbach. Built with passion.</div>
       <div class="footer-links">
         <a href="#about">About</a>
-                <a href="#work">Work</a>
+        <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
+  <script src="script.js" defer></script>
 </body>
+
 </html>

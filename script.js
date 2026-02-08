@@ -91,13 +91,14 @@ const skillBars = document.querySelectorAll('.skill-fill');
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.animation = 'fillBar 1.5s ease-out forwards';
+      entry.target.style.width = entry.target.dataset.originalWidth;
       skillObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
 
 skillBars.forEach(bar => {
+  bar.dataset.originalWidth = bar.style.width;
   bar.style.width = '0';
   skillObserver.observe(bar);
 });
