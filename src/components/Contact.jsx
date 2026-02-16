@@ -5,36 +5,63 @@ export default function Contact() {
     <section id="contact" className="container">
       <div className="section-header">
         <span className="line"></span>
-        <h2>Initialize Connection</h2>
+        <h2>Connect</h2>
       </div>
-      
-      <div className="contact-wrapper">
-        <form 
-          name="contact" 
-          method="POST" 
-          data-netlify="true" 
-          data-netlify-honeypot="bot-field"
-        >
-          {/* This hidden input is required for Netlify + React forms */}
-          <input type="hidden" name="form-name" value="contact" />
-          
-          <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input type="text" name="name" id="name" placeholder="John Doe" required />
-          </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input type="email" name="email" id="email" placeholder="john@example.com" required />
-          </div>
+      <div className="contact-grid">
+        {/* LEFT SIDE: Socials & Info */}
+        <div className="contact-info">
+          <h3>Let's work together</h3>
+          <p className="contact-desc">
+            I am actively seeking new projects in the Michiana area. 
+            Reach out via the form or through my professional links.
+          </p>
 
-          <div className="form-group">
-            <label htmlFor="message">Project Brief</label>
-            <textarea name="message" id="message" rows="5" placeholder="Tell me about your software needs..." required></textarea>
+          <div className="link-boxes">
+            <div className="link-card">
+              <label>GitHub</label>
+              <a href="https://github.com/justjoe19" target="_blank" rel="noreferrer">
+                github.com/justjoe19
+              </a>
+            </div>
+            <div className="link-card">
+              <label>LinkedIn</label>
+              <a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noreferrer">
+                linkedin.com/in/joe-hollenbach
+              </a>
+            </div>
+            <div className="link-card">
+              <label>Location</label>
+              <p>Northern Indiana / Southwest Michigan</p>
+            </div>
           </div>
+        </div>
 
-          <button type="submit" className="btn-primary">Send Message</button>
-        </form>
+        {/* RIGHT SIDE: The Form */}
+        <div className="contact-form-wrapper">
+          <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Your Name" required />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Your Email" required />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea name="message" id="message" rows="6" placeholder="Project details..." required></textarea>
+            </div>
+
+            <button type="submit" className="btn-primary">
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

@@ -44,7 +44,7 @@ section[id] {
 }
 
 main {
-  padding-top: 20px; /* Base padding for content below header */
+  padding-top: 20px; 
 }
 
 /* --- Sticky Navigation & Hamburger --- */
@@ -90,13 +90,11 @@ nav {
   position: relative;
 }
 
-/* Standard Link Hover & Active */
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--accent-blue);
 }
 
-/* Contact Button Styling */
 .btn-cta {
   border: 1px solid var(--accent-blue);
   padding: 0.5rem 1rem;
@@ -105,7 +103,6 @@ nav {
   transition: all 0.3s ease;
 }
 
-/* Contact Button - Active (Scrolled to) and Hover */
 .nav-links a.btn-cta:hover,
 .nav-links a.btn-cta.active {
   background-color: var(--accent-blue);
@@ -143,7 +140,7 @@ nav {
 
 .hero-content {
   flex: 1;
-  min-width: 500px;
+  min-width: 600px;
 }
 
 .hero-visual {
@@ -310,25 +307,84 @@ h1 span { color: var(--accent-blue); }
   margin-bottom: 0.5rem;
 }
 
-/* --- Contact Form Polish --- */
-.contact-wrapper {
-  max-width: 700px;
-  margin: 4rem auto;
-  background: linear-gradient(145deg, #1c2128, #161b22);
-  padding: 3.5rem;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+/* --- New Contact Section Layout --- */
+.contact-grid {
+  display: flex;
+  gap: 60px;
+  margin-top: 30px;
+  align-items: flex-start;
 }
 
-.form-group { margin-bottom: 1.5rem; }
+.contact-info {
+  flex: 1;
+}
 
+.contact-form-wrapper .btn-primary {
+  width: 100%;
+}
+
+.contact-info h3 {
+  font-size: 2rem;
+  color: var(--text-white);
+  margin-bottom: 15px;
+}
+
+.contact-desc {
+  color: var(--text-dim);
+  margin-bottom: 35px;
+  max-width: 400px;
+}
+
+/* Social Link Cards */
+.link-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.link-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 27px;
+  border-radius: 8px;
+}
+
+.link-card label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-blue);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.link-card a, .link-card p {
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Form Container on the Right */
+.contact-form-wrapper {
+  flex: 1.2;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+/* Form Styling within wrapper */
 .form-group label {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--accent-blue);
   margin-bottom: 0.6rem;
+}
+
+.form-group {
+  margin-bottom: 1rem; 
 }
 
 .form-group input, 
@@ -349,24 +405,25 @@ h1 span { color: var(--accent-blue); }
   box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
 }
 
-/* --- Footer Polish --- */
+/* --- Footer Fix --- */
 footer {
-  margin-top: 8rem;
-  padding: 6rem 0 3rem;
+  margin-top: 100px;
+  padding: 60px 0 30px;
   background: #0d1117;
   border-top: 1px solid var(--border);
+  width: 100%;
 }
 
 .footer-flex {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   gap: 4rem;
 }
 
 .footer-bottom {
-  margin-top: 6rem;
+  margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
   text-align: center;
@@ -389,9 +446,13 @@ footer {
   .terminal { max-width: 700px; }
 }
 
-@media (max-width: 850px) {
-  .about-flex { flex-direction: column; text-align: center; }
-  .about-image { margin: 0 auto; }
+@media (max-width: 900px) {
+  .contact-grid {
+    flex-direction: column;
+  }
+  .contact-info, .contact-form-wrapper {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -415,13 +476,5 @@ footer {
   .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .menu-toggle.active .bar:nth-child(2) { transform: rotate(-45deg); }
 
-  .contact-wrapper { padding: 2.5rem 1.5rem; }
   .footer-flex { flex-direction: column; align-items: center; text-align: center; }
-}
-
-@media (max-width: 600px) {
-  h1 { font-size: 2.2rem; }
-  .hero-btns { flex-direction: column; width: 100%; align-items: center; }
-  .btn-primary, .btn-secondary { width: 80%; }
-  .terminal-body { padding: 25px; font-size: 0.85rem; }
 }

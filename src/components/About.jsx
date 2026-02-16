@@ -19,7 +19,7 @@ export default function About() {
         {/* Biography Section */}
         <div className="about-text">
           <p>
-            Hi, I’m <strong>Joe Hollenbach</strong>, a software engineer with an Associate of Applied Science degree in Software Development and a Bachelor of Science degree in Software Engineering. I’m in the Michiana area and really enjoy turning ideas into strong, user-friendly applications. I’m excited to work on new projects with you!
+            Hi, I’m <strong>Joe Hollenbach</strong>, a software engineer with an Associate of Applied Science degree in Software Development and a Bachelor of Science degree in Software Engineering. I am located in the Michiana area and really enjoy turning ideas into strong, user-friendly applications. I’m excited to work on new projects with you!
           </p>
           <br />
           <p>
