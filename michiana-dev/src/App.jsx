@@ -21,13 +21,13 @@ function App() {
       title: "Site Modernization & Migration", 
       description: "I transform outdated web presences into modern, high-performance experiences. Leveraging my background in technical hardware and software engineering, I specialize in migrating legacy site data to modern frameworks, improving load times, and ensuring your older site works perfectly on today’s latest devices."
     },
-    { 
+    /*{ 
       id: "03", 
       title: "Advanced Website Integrations", 
       description: "I specialize in making your website work harder for you. Using secure backend connections, I can integrate your site with the tools you already use—like syncing your live inventory, automating customer contact flows, or building custom data displays that keep your site content fresh and accurate without manual updates."
-    },
+    },*/
     { 
-      id: "04", 
+      id: "03", 
       title: "Technical Strategy & Support", 
       description: "Professional guidance to ensure your digital presence is scalable, secure, and future-proof. From optimizing your hosting environment to implementing secure data handling, I provide the technical expertise needed to keep your business running smoothly as you grow."
     }
