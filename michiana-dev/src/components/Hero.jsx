@@ -8,10 +8,9 @@ export default function Hero() {
           <div className="status-badge">
             <span className="status-dot"></span> Available for Michiana Projects
           </div>
-          <h1>Custom <br /><span>Software Solutions</span></h1>
+          <h1>Precision-Engineered <br /><span>Websites</span></h1>
           <p>
-            I build modern websites and custom business tools that help local companies 
-            streamline operations and grow their digital presence.
+            Modern web solutions for Michiana businesses that need more than just a template.
           </p>
           <div className="hero-btns">
             <a href="#contact" className="btn-primary">Get a Free Quote</a>   
@@ -31,19 +30,19 @@ export default function Hero() {
             <div className="terminal-body">
               <p>
                 <span className="p-blue">joe@michiana.dev:</span>
-                <span className="p-gray">~#</span> fetch engineer_profile
+                <span className="p-gray">~#</span> check --site performance
               </p>
               <p className="p-yellow">
-                &gt; B.S. Software Engineering <br />
-                &gt; Certified Hardware Specialist <br />
-                &gt; Full-Stack Specialist
+                &gt; Speed Score: 99/100 <br />
+                &gt; SEO Health: Optimized <br />
+                &gt; Mobile Ready: Yes
               </p>
               <p>
                 <span className="p-blue">joe@michiana.dev:</span>
-                <span className="p-gray">~#</span> list tech_stack --verified
+                <span className="p-gray">~#</span> list capabilities
               </p>
               <p className="p-green">
-                ["Java", "Spring Boot", "Python", "Django", "React", "SQL"]
+                ["Modern Web Design", "Legacy Migrations", "Data Integration"]
               </p>
               <p>
                 <span className="p-blue">joe@michiana.dev:</span>

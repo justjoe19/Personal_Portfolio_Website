@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About'; 
 import ServiceCard from './components/ServiceCard';
+import ProjectCarousel from './components/ProjectCarousel';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './index.css';
@@ -12,18 +13,23 @@ function App() {
   const services = [
     { 
       id: "01", 
-      title: "Local Web Design", 
-      description: "Mobile-first, high-performance websites tailored for Northern Indiana businesses to help you stand out in local search results." 
+      title: "High-Performance Web Design", 
+      description: "I build mobile-first, high-performance websites tailored for Northern Indiana and Southwest Michigan businesses. By focusing on clean code and modern SEO practices, I ensure your business stands out in local search results and provides a seamless experience for every visitor."
     },
     { 
       id: "02", 
-      title: "Business Automation", 
-      description: "Custom Java and Python tools to automate inventory, scheduling, and data management, eliminating manual errors in your daily workflow." 
+      title: "Site Modernization & Migration", 
+      description: "I transform outdated web presences into modern, high-performance experiences. Leveraging my background in technical hardware and software engineering, I specialize in migrating legacy site data to modern frameworks, improving load times, and ensuring your older site works perfectly on today’s latest devices."
     },
     { 
       id: "03", 
-      title: "Technical Consulting", 
-      description: "Professional advice on software architecture and system upgrades to ensure your business tech is scalable and secure." 
+      title: "Advanced Website Integrations", 
+      description: "I specialize in making your website work harder for you. Using secure backend connections, I can integrate your site with the tools you already use—like syncing your live inventory, automating customer contact flows, or building custom data displays that keep your site content fresh and accurate without manual updates."
+    },
+    { 
+      id: "04", 
+      title: "Technical Strategy & Support", 
+      description: "Professional guidance to ensure your digital presence is scalable, secure, and future-proof. From optimizing your hosting environment to implementing secure data handling, I provide the technical expertise needed to keep your business running smoothly as you grow."
     }
   ];
 
@@ -33,15 +39,19 @@ function App() {
       id: "p1",
       name: "TriStorm Restoration",
       type: "Client Web Development",
-      tech: "React / CSS",
-      desc: "A professional service site developed to support a local business's digital presence."
+      tech: "HTML / CSS / Bootstrap",
+      desc: "A professional service site developed to support a local business's digital presence.",
+      image: "assets/tristorm.webp", // Placeholder
+      link: "https://tristormrestoration.com" // Link to project
     },
     {
       id: "p2",
       name: "HSC-Portal",
       type: "WGU Capstone Project",
       tech: "Java / Spring Boot / React",
-      desc: "A full-stack application managing complex system data with a secure backend."
+      desc: "A full-stack application managing complex system data with a secure backend.",
+      image: "https://via.placeholder.com/800x450?text=HSC-Portal", // Placeholder
+      link: "#" // Link to project
     }
   ];
 
@@ -80,17 +90,7 @@ function App() {
             <span className="line"></span>
             <h2>Recent Builds</h2>
           </div>
-          <div className="portfolio-grid">
-            {projects.map(project => (
-              <div key={project.id} className="project-card">
-                <div className="project-content">
-                  <span className="project-tech">{project.tech}</span>
-                  <h3>{project.name}</h3>
-                  <p>{project.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProjectCarousel projects={projects} />
         </section>
 
         {/* Contact form integrated for Netlify processing */}
