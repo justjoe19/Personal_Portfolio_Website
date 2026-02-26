@@ -30,7 +30,7 @@ export default function ProjectCarousel({ projects }) {
           >
             <div className="carousel-card">
               <div className="carousel-image">
-                <img src={project.image} alt={project.name} />
+                <img src={project.image} alt={`${project.name} - Web Development Project by Michiana.dev`} />
                 <div className="carousel-overlay">
                   <a href={project.link} className="btn-primary" target="_blank" rel="noopener noreferrer">
                     View Project

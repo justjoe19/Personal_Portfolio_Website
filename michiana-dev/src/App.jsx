@@ -63,9 +63,10 @@ function App() {
 
   return (
     <div className="app-wrapper">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
       
-      <main>
+      <main id="main-content">
         {/* Hero introduces the Michiana.dev brand and engineer focus */}
         <Hero />
 
