@@ -7,10 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-michiana-dev/node_modules
-michiana-dev/dist
-michiana-dev/dist-ssr
-michiana-dev/*.local
+node_modules
+dist
+dist-ssr
+*.local
 
 # Editor directories and files
 .vscode/*
