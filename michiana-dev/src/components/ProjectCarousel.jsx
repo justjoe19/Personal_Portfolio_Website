@@ -13,7 +13,7 @@ export default function ProjectCarousel({ projects }) {
 
   // Optional: Auto-play
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 

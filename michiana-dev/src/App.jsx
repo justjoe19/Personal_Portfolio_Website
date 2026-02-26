@@ -38,20 +38,26 @@ function App() {
     {
       id: "p1",
       name: "TriStorm Restoration",
-      type: "Client Web Development",
-      tech: "HTML / CSS / Bootstrap",
-      desc: "A professional service site developed to support a local business's digital presence.",
-      image: "assets/tristorm.webp", // Placeholder
-      link: "https://tristormrestoration.com" // Link to project
+      tech: "Semantic HTML / CSS / Javascript / Responsive Architecture",
+      desc: "A specialized service platform optimized for local restoration traffic. Features a streamlined conversion path for emergency inquiries and high-resolution asset management to showcase professional project outcomes.",
+      image: "assets/tristorm.webp", 
+      link: "https://tristormrestoration.com" 
     },
     {
       id: "p2",
-      name: "HSC-Portal",
-      type: "WGU Capstone Project",
-      tech: "Java / Spring Boot / React",
-      desc: "A full-stack application managing complex system data with a secure backend.",
-      image: "https://via.placeholder.com/800x450?text=HSC-Portal", // Placeholder
-      link: "#" // Link to project
+      name: "Ironpipe Plumbing",
+      tech: "High-Performance HTML / CSS / Javascript",
+      desc: "A conversion-optimized service platform for a local plumbing enterprise. Built with a mobile-first UI designed for rapid emergency service inquiries and a custom lead-capture flow to streamline customer intake and dispatch.",
+      image: "assets/ironpipe.webp", 
+      link: "https://justjoe19.github.io/IronPipe/" 
+    },
+    {
+      id: "p3",
+      name: "Haven",
+      tech: "Modern Javascript / Optimized Asset Delivery",
+      desc: "A high-performance portfolio site optimized for high-resolution architectural assets. Built with a focus on core web vitals and seamless image delivery to ensure a luxury experience on any device.",
+      image: "assets/haven.webp",
+      link: "https://justjoe19.github.io/haven/" 
     }
   ];
 

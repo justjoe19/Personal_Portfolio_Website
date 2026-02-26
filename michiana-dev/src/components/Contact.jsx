@@ -19,20 +19,22 @@ export default function Contact() {
 
           <div className="link-boxes">
             <div className="link-card">
-              <label>LinkedIn</label>
-              <a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noreferrer">
-                linkedin.com/in/joe-hollenbach
-              </a>
+              <label>Service Area</label>
+              <p>Providing professional web development for <strong>South Bend, Elkhart, Mishawaka</strong>, and businesses across <strong>Northern Indiana and Southwest Michigan</strong>.</p>
             </div>
+
             <div className="link-card">
-              <label>GitHub</label>
-              <a href="https://github.com/justjoe19" target="_blank" rel="noreferrer">
-                github.com/justjoe19
-              </a>
-            </div>           
+              <label>Specialties</label>
+              <p>Custom <strong>React</strong> applications, site migrations, and <strong>Local SEO</strong> strategies engineered for performance and growth.</p>
+            </div>
+
             <div className="link-card">
-              <label>Location</label>
-              <p>Northern Indiana / Southwest Michigan</p>
+              <label>Professional Links</label>
+              <div className="social-links-compact">
+                <a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noreferrer">LinkedIn</a>
+                <span className="separator">/</span>
+                <a href="https://github.com/justjoe19" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
             </div>
           </div>
         </div>

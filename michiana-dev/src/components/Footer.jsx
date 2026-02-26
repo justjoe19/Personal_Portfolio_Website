@@ -6,18 +6,13 @@ export default function Footer() {
       <div className="container footer-content">
         <div className="footer-brand">
           <div className="logo">MICHIANA<span>.DEV</span></div>
-          <p>Modern software solutions with a local touch.</p>
-        </div>
-        
-        <div className="footer-cta">
-          <p>Ready to start?</p>
-          <a href="mailto:hello@michiana.dev" className="footer-email">hello@michiana.dev</a>
+          <p>Precision-engineered web solutions for local businesses.</p>
         </div>
       </div>
       
       <div className="footer-bottom">
         <div className="container">
-          <p>© {new Date().getFullYear()} Michiana.dev | Engineered with precision.</p>
+          <p>© {new Date().getFullYear()} Joe Hollenbach | Software Engineer</p>
         </div>
       </div>
     </footer>
