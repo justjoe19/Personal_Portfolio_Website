@@ -827,7 +827,7 @@ h1 span { color: var(--accent-blue); }
 
   .nav-links.show { 
     height: auto;
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 
   .nav-links li {
@@ -852,12 +852,12 @@ h1 span { color: var(--accent-blue); }
 
   .nav-links a {
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 0.6rem 1rem;
     display: block;
   }
 
   .btn-cta {
-    margin: 1rem auto;
+    margin: 0.75rem auto;
     width: fit-content;
   }
 
