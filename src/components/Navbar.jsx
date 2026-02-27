@@ -66,11 +66,11 @@ export default function Navbar() {
           </li>
           <li>
             <a 
-              href="#about" 
-              className={activeSection === 'about' ? 'active' : ''} 
+              href="#portfolio" 
+              className={activeSection === 'portfolio' ? 'active' : ''} 
               onClick={handleNavLinkClick}
             >
-              /about
+              /projects
             </a>
           </li>
           <li>
@@ -84,11 +84,11 @@ export default function Navbar() {
           </li>
           <li>
             <a 
-              href="#portfolio" 
-              className={activeSection === 'portfolio' ? 'active' : ''} 
+              href="#about" 
+              className={activeSection === 'about' ? 'active' : ''} 
               onClick={handleNavLinkClick}
             >
-              /projects
+              /about
             </a>
           </li>
           <li>

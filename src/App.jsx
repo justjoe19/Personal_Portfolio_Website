@@ -70,8 +70,14 @@ function App() {
         {/* Hero introduces the Michiana.dev brand and engineer focus */}
         <Hero />
 
-        {/* The About section establishes your credibility as an engineer with a hardware/inventory background */}
-        <About />
+        {/* Projects Section: Highlighting your specific engineering builds */}
+        <section id="portfolio" className="container">
+          <div className="section-header">
+            <span className="line"></span>
+            <h2>Recent Builds</h2>
+          </div>
+          <ProjectCarousel projects={projects} />
+        </section>
 
         {/* Services Section: Dynamically rendered using the ServiceCard component */}
         <section id="services" className="container">
@@ -91,14 +97,8 @@ function App() {
           </div>
         </section>
 
-        {/* Projects Section: Highlighting your specific engineering builds */}
-        <section id="portfolio" className="container">
-          <div className="section-header">
-            <span className="line"></span>
-            <h2>Recent Builds</h2>
-          </div>
-          <ProjectCarousel projects={projects} />
-        </section>
+        {/* The About section establishes your credibility as an engineer with a hardware/inventory background */}
+        <About />
 
         {/* Contact form integrated for Netlify processing */}
         <Contact />
