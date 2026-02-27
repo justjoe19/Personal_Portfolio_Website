@@ -33,7 +33,7 @@ export default function ProjectCarousel({ projects }) {
                 <img src={project.image} alt={`${project.name} - Web Development Project by Michiana.dev`} />
                 <div className="carousel-overlay">
                   <a href={project.link} className="btn-primary" target="_blank" rel="noopener noreferrer">
-                    View Project
+                    View Website
                   </a>
                 </div>
               </div>
