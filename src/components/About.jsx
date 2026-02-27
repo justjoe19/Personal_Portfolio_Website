@@ -12,7 +12,7 @@ export default function About() {
         {/* Profile Photo Section */}
         <div className="about-image">
           <div className="photo-frame">
-             <img src="/assets/photo.webp" alt="Joe Hollenbach - Software Engineer in South Bend, IN" />
+             <img src="/assets/photo.webp" alt="Joe Hollenbach - Software Engineer in Mishawaka, IN" />
           </div>
         </div>
 
