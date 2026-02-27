@@ -172,10 +172,17 @@ nav {
   background-image: url('/assets/hero.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Default to scroll for mobile compatibility */
   padding: 100px 0;
   overflow: hidden;
   text-align: center;
+}
+
+/* Only apply fixed background on devices that support it well (non-touch) */
+@media (min-width: 1025px) {
+  .hero {
+    background-attachment: fixed;
+  }
 }
 
 .hero-overlay {
