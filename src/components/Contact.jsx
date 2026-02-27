@@ -63,7 +63,7 @@ export default function Contact() {
               <button onClick={() => setSubmitted(false)} className="btn-primary">Send another message</button>
             </div>
           ) : (
-            <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+            <form name="contact" method="POST" onSubmit={handleSubmit}>
               <input type="hidden" name="form-name" value="contact" />
               
               <div className="form-group">
