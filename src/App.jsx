@@ -62,30 +62,33 @@ function App() {
   ];
 
   return (
-    <div className="app-wrapper">
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+    <div className="min-h-screen bg-brand-bg text-brand-text relative">
+      {/* Global Background Depth */}
+      <div className="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
+      
+      <a href="#main-content" className="absolute -top-[100px] left-0 bg-brand-blue text-brand-bg p-4 z-[10000] font-bold transition-[top] duration-300 focus:top-0">Skip to main content</a>
       <Navbar />
       
-      <main id="main-content">
+      <main id="main-content" className="pt-5 relative z-10">
         {/* Hero introduces the Michiana.dev brand and engineer focus */}
         <Hero />
 
         {/* Projects Section: Highlighting your specific engineering builds */}
-        <section id="portfolio" className="container">
-          <div className="section-header">
-            <span className="line"></span>
-            <h2>Recent Builds</h2>
+        <section id="portfolio" className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center gap-3 my-16">
+            <span className="h-[1px] w-[35px] bg-brand-blue"></span>
+            <h2 className="text-2xl font-bold text-white">Recent Builds</h2>
           </div>
           <ProjectCarousel projects={projects} />
         </section>
 
         {/* Services Section: Dynamically rendered using the ServiceCard component */}
-        <section id="services" className="container">
-          <div className="section-header">
-            <span className="line"></span>
-            <h2>Services</h2>
+        <section id="services" className="max-w-[1200px] mx-auto px-6">
+          <div className="flex items-center gap-3 my-16">
+            <span className="h-[1px] w-[35px] bg-brand-blue"></span>
+            <h2 className="text-2xl font-bold text-white">Services</h2>
           </div>
-          <div className="grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map(service => (
               <ServiceCard 
                 key={service.id} 
