@@ -41,23 +41,13 @@ export default function About() {
           </p>
         </div>
 
-        {/* Row 2, Col 1: CTA Button (Aligned under Photo) */}
-        <div className="flex justify-center">
-          <a 
-            href="#contact" 
-            className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
-          >
-            <span className="relative z-10 text-center">Get a Free Consultation</span>
-            <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
-          </a>
-        </div>
 
-        {/* Row 2, Col 2: Highlights (Aligned with Button) */}
+        {/* Row 2, Col 1: Highlights (Aligned under Photo) */}
         <div className="pt-2 border-t lg:border-none border-white/5">
           <h3 className="text-white text-xl font-bold mb-6">Why Work With Me</h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <ul className="grid grid-cols-1 gap-4">
             {[
-              "WGU Software Engineering Graduate",
+              "Software Engineering Degree",
               "Custom-built websites",
               "Local Michiana developer",
               "SEO-ready websites"
@@ -68,6 +58,17 @@ export default function About() {
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Row 2, Col 2: CTA Button (Aligned under Bio) */}
+        <div className="flex justify-center">
+          <a 
+            href="#contact" 
+            className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
+          >
+            <span className="relative z-10 text-center">Get a Free Consultation</span>
+            <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
+          </a>
         </div>
       </div>
     </section>
