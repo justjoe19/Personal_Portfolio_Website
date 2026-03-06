@@ -5,19 +5,23 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         {/* Base Background */}
         <div className="absolute inset-0 bg-brand-bg"></div>
-        
+
         {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        
+
         {/* Dynamic Mesh Glows */}
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-blue/10 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-blue/5 rounded-full blur-[100px]"></div>
-        
-        {/* Hero Image Overlay (Subtle) */}
-        <div 
-          className="absolute inset-0 bg-[url('/assets/hero.webp')] bg-cover bg-center opacity-20 mix-blend-luminosity lg:bg-fixed brightness-125"
-        ></div>
-        
+
+        {/* Hero Image Overlay (Optimized for LCP) */}
+        <img 
+          src="/assets/hero.webp" 
+          alt="" 
+          fetchpriority="high"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity brightness-125 pointer-events-none"
+        />
+
         {/* Bottom Fade to Content */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-bg to-transparent"></div>
       </div>
