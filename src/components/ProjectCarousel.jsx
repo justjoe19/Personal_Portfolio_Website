@@ -13,9 +13,9 @@ export default function ProjectCarousel({ projects }) {
 
   // Optional: Auto-play
   useEffect(() => {
-    const interval = setInterval(nextSlide, 8000);
+    const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [nextSlide, currentIndex]);
 
   if (!projects || projects.length === 0) return null;
 

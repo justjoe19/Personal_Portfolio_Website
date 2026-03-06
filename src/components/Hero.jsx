@@ -40,7 +40,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-[clamp(1.1rem,2vw,1.25rem)] text-brand-dim max-w-[600px] mx-auto leading-relaxed mb-10 font-medium">
-            Bridging the gap between high-level engineering and human-centric design for Michiana businesses.
+            Fast, modern websites designed to help your business look professional and attract more customers online.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -48,7 +48,7 @@ export default function Hero() {
               href="#contact" 
               className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
             >
-              <span className="relative z-10">Start a Project</span>
+              <span className="relative z-10">Get a Free Quote </span>
               <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
             </a>   
 
@@ -56,7 +56,7 @@ export default function Hero() {
               href="#portfolio" 
               className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-white/5 border border-white/10 text-white py-4 rounded-lg font-bold text-base transition-all duration-300 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] overflow-hidden"
             >
-              <span className="relative z-10">View Recent Builds</span>
+              <span className="relative z-10">View Recent Projects</span>
               <div className="absolute inset-0 bg-white/5 translate-y-full transition-transform group-hover:translate-y-0"></div>
             </a>
           </div>

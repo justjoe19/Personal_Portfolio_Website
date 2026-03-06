@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="mt-[100px] py-[60px] pb-[30px] bg-brand-bg border-t border-brand-border w-full">
+    <footer className="py-[60px] pb-[30px] bg-brand-bg border-t border-brand-border w-full">
       <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
         <div className="mb-4">
           <div className="font-main font-bold text-lg text-white mb-4 flex justify-center">MICHIANA<span className="text-brand-blue">.DEV</span></div>
