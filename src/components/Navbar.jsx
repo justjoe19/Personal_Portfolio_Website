@@ -40,9 +40,9 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full bg-brand-bg/95 backdrop-blur-md border-b border-brand-border z-[2000] py-3">
       <nav className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
-        <div className="font-main font-bold text-lg text-white">
+        <a href="#hero" className="font-main font-bold text-lg text-white hover:opacity-80 transition-opacity">
           MICHIANA<span className="text-brand-blue">.DEV</span>
-        </div>
+        </a>
 
         {/* Hamburger Menu Toggle */}
         <button 

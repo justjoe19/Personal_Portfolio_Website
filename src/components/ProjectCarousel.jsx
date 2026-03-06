@@ -55,12 +55,23 @@ export default function ProjectCarousel({ projects }) {
         ))}
       </div>
 
-      <button className="absolute top-[40%] left-0 -translate-y-1/2 bg-brand-card border border-brand-border text-white p-[1.2rem] cursor-pointer z-10 rounded-none w-[60px] h-[60px] flex items-center justify-center transition-all duration-200 hover:bg-brand-blue hover:text-brand-bg hover:border-brand-blue hover:shadow-[0_0_15px_rgba(121,192,255,0.3)] md:top-1/2" onClick={prevSlide} aria-label="Previous Slide">
-        &#10094;
-      </button>
-      <button className="absolute top-[40%] right-0 -translate-y-1/2 bg-brand-card border border-brand-border text-white p-[1.2rem] cursor-pointer z-10 rounded-none w-[60px] h-[60px] flex items-center justify-center transition-all duration-200 hover:bg-brand-blue hover:text-brand-bg hover:border-brand-blue hover:shadow-[0_0_15px_rgba(121,192,255,0.3)] md:top-1/2" onClick={nextSlide} aria-label="Next Slide">
-        &#10095;
-      </button>
+      {/* Navigation Arrows - Centered on Image Area */}
+      <div className="absolute top-0 left-0 w-full aspect-video pointer-events-none z-20">
+        <button 
+          className="absolute top-1/2 left-4 -translate-y-1/2 text-white/40 text-4xl cursor-pointer pointer-events-auto flex items-center justify-center transition-all duration-300 hover:text-brand-blue hover:scale-110 active:scale-95" 
+          onClick={prevSlide} 
+          aria-label="Previous Slide"
+        >
+          &#10094;
+        </button>
+        <button 
+          className="absolute top-1/2 right-4 -translate-y-1/2 text-white/40 text-4xl cursor-pointer pointer-events-auto flex items-center justify-center transition-all duration-300 hover:text-brand-blue hover:scale-110 active:scale-95" 
+          onClick={nextSlide} 
+          aria-label="Next Slide"
+        >
+          &#10095;
+        </button>
+      </div>
 
       <div className="absolute bottom-[25px] left-1/2 -translate-x-1/2 flex gap-3">
         {projects.map((_, index) => (
