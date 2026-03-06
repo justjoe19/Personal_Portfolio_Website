@@ -15,7 +15,7 @@ export default function Hero() {
         
         {/* Hero Image Overlay (Subtle) */}
         <div 
-          className="absolute inset-0 bg-[url('/assets/hero.webp')] bg-cover bg-center opacity-10 mix-blend-luminosity lg:bg-fixed"
+          className="absolute inset-0 bg-[url('/assets/hero.webp')] bg-cover bg-center opacity-20 mix-blend-luminosity lg:bg-fixed brightness-125"
         ></div>
         
         {/* Bottom Fade to Content */}

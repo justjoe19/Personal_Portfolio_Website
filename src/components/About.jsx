@@ -42,10 +42,10 @@ export default function About() {
         </div>
 
 
-        {/* Row 2, Col 1: Highlights (Aligned under Photo) */}
-        <div className="pt-2 border-t lg:border-none border-white/5">
-          <h3 className="text-white text-xl font-bold mb-6">Why Work With Me</h3>
-          <ul className="grid grid-cols-1 gap-4">
+        {/* Row 2: Highlights and CTA (Centered below) */}
+        <div className="lg:col-span-2 mt-8 lg:mt-12 pt-12 border-t border-white/5 flex flex-col items-center">
+          <h3 className="text-white text-xl font-bold mb-8">Why Work With Me?</h3>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 mb-12">
             {[
               "Software Engineering Degree",
               "Custom-built websites",
@@ -58,10 +58,7 @@ export default function About() {
               </li>
             ))}
           </ul>
-        </div>
 
-        {/* Row 2, Col 2: CTA Button (Aligned under Bio) */}
-        <div className="flex justify-center">
           <a 
             href="#contact" 
             className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
