@@ -4,9 +4,21 @@ import '../index.css';
 interface Props {
 	title: string;
 	description?: string;
+	image?: string;
+	type?: 'website' | 'article';
+	isHome?: boolean;
 }
 
-const { title, description = "Professional web development and software engineering for Northern Indiana and Southwest Michigan businesses." } = Astro.props;
+const { 
+	title, 
+	description = "Professional web development and software engineering for Northern Indiana and Southwest Michigan businesses.",
+	image = "/assets/hero.webp",
+	type = "website",
+	isHome = false
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -20,8 +32,10 @@ const { title, description = "Professional web development and software engineer
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<meta name="generator" content={Astro.generator} />
 		
-		<!-- Preloads -->
-		<link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high">
+		<!-- Preloads: Only on Homepage for LCP optimization -->
+		{isHome && (
+			<link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high">
+		)}
 		
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,22 +53,61 @@ const { title, description = "Professional web development and software engineer
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="keywords" content="Web Developer Mishawaka, Software Engineer Michiana, React Developer Indiana, Local SEO Mishawaka, Web Design South Bend, Custom Software Michiana, Mishawaka Web Development, South Bend React Developer" />
-		<link rel="canonical" href="https://michiana.dev" />
+		<link rel="canonical" href={canonicalURL} />
 		<meta name="theme-color" content="#0d1117" />
 
 		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://michiana.dev" />
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="https://michiana.dev/assets/hero.webp" />
+		<meta property="og:image" content={socialImageURL} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://michiana.dev" />
+		<meta property="twitter:url" content={canonicalURL} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content="https://michiana.dev/assets/hero.webp" />
+		<meta property="twitter:image" content={socialImageURL} />
+
+		<!-- Structured Data (JSON-LD) for Local Business: Only on Homepage -->
+		{isHome && (
+			<script type="application/ld+json" is:inline>
+				{
+					"@context": "https://schema.org",
+					"@type": "ProfessionalService",
+					"name": "Michiana.dev",
+					"image": "https://michiana.dev/assets/hero.webp",
+					"@id": "https://michiana.dev",
+					"url": "https://michiana.dev",
+					"telephone": "",
+					"address": {
+						"@type": "PostalAddress",
+						"streetAddress": "",
+						"addressLocality": "Mishawaka",
+						"addressRegion": "IN",
+						"postalCode": "46544",
+						"addressCountry": "US"
+					},
+					"geo": {
+						"@type": "GeoCoordinates",
+						"latitude": 41.6611,
+						"longitude": -86.1706
+					},
+					"servesArea": [
+						"South Bend, IN",
+						"Mishawaka, IN",
+						"Elkhart, IN",
+						"Granger, IN",
+						"Niles, MI"
+					],
+					"description": "High-performance web development and software engineering for Northern Indiana and Southwest Michigan businesses."
+				}
+			</script>
+		)}
+
+		<!-- Netlify Identity Widget -->
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</head>
 	<body>
 		<slot />
