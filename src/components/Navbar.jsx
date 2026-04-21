@@ -3,33 +3,38 @@ import React, { useState, useEffect } from 'react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isBlogPage, setIsBlogPage] = useState(false);
 
-  // Intersection Observer to track which section is in view
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    
-    const options = {
-      root: null,
-      // Margin adjustment so the active state triggers when 
-      // the section is near the top of the viewport
-      // Relaxed bottom margin to better handle the last section (Contact)
-      rootMargin: '-20% 0px -20% 0px',
-      threshold: 0.1
-    };
+    // Check if we are on a blog page
+    const path = window.location.pathname;
+    const isBlog = path.startsWith('/blog');
+    setIsBlogPage(isBlog);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
+    // Only track sections if we are on the homepage
+    if (!isBlog) {
+      const sections = document.querySelectorAll('section[id]');
+      
+      const options = {
+        root: null,
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: 0.1
+      };
 
-    sections.forEach((section) => observer.observe(section));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      }, options);
 
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
+      sections.forEach((section) => observer.observe(section));
+
+      return () => {
+        sections.forEach((section) => observer.unobserve(section));
+      };
+    }
   }, []);
 
   // Helper function to handle link clicks (close mobile menu)
@@ -63,7 +68,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[100ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/#hero" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               Home
@@ -72,7 +77,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[150ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/#portfolio" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'portfolio' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'portfolio' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               Projects
@@ -81,7 +86,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[200ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/#services" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'services' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'services' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               Services
@@ -90,7 +95,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[250ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/#about" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               About
@@ -99,7 +104,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[300ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/blog" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${isBlogPage ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               Blog
@@ -110,7 +115,7 @@ export default function Navbar() {
               href="/#contact" 
               className={`
                 block mx-auto my-3 w-fit py-2 px-4 rounded border border-brand-blue text-[0.85rem] font-medium transition-all duration-300 md:inline md:m-0 
-                ${activeSection === 'contact' ? 'bg-brand-blue text-brand-bg shadow-[0_0_15px_rgba(121,192,255,0.4)]' : 'text-brand-blue hover:bg-brand-blue hover:text-brand-bg hover:shadow-[0_0_15px_rgba(121,192,255,0.4)]'}
+                ${!isBlogPage && activeSection === 'contact' ? 'bg-brand-blue text-brand-bg shadow-[0_0_15px_rgba(121,192,255,0.4)]' : 'text-brand-blue hover:bg-brand-blue hover:text-brand-bg hover:shadow-[0_0_15px_rgba(121,192,255,0.4)]'}
               `} 
               onClick={handleNavLinkClick}
             >
