@@ -21,7 +21,7 @@ export default function BlogCTA() {
               href="/#contact" 
               className="group relative w-full max-w-[280px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
             >
-              <span className="relative z-10">Start a Conversation</span>
+              <span className="relative z-10">Schedule a Consultation</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
             </a>
           </div>
