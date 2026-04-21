@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full bg-brand-bg/95 backdrop-blur-md border-b border-brand-border z-[2000] py-3">
       <nav className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
-        <a href="#hero" className="font-main font-bold text-lg text-white hover:opacity-80 transition-opacity">
+        <a href="/#hero" className="font-main font-bold text-lg text-white hover:opacity-80 transition-opacity">
           MICHIANA<span className="text-brand-blue">.DEV</span>
         </a>
 
@@ -62,7 +62,7 @@ export default function Navbar() {
         `}>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[100ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
-              href="#hero" 
+              href="/#hero" 
               className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
@@ -71,7 +71,7 @@ export default function Navbar() {
           </li>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[150ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
-              href="#portfolio" 
+              href="/#portfolio" 
               className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'portfolio' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
@@ -80,7 +80,7 @@ export default function Navbar() {
           </li>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[200ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
-              href="#services" 
+              href="/#services" 
               className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'services' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
@@ -89,7 +89,7 @@ export default function Navbar() {
           </li>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[250ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
-              href="#about" 
+              href="/#about" 
               className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
@@ -98,7 +98,16 @@ export default function Navbar() {
           </li>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[300ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
-              href="#contact" 
+              href="/blog" 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4`} 
+              onClick={handleNavLinkClick}
+            >
+              Blog
+            </a>
+          </li>
+          <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[350ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
+            <a 
+              href="/#contact" 
               className={`
                 block mx-auto my-3 w-fit py-2 px-4 rounded border border-brand-blue text-[0.85rem] font-medium transition-all duration-300 md:inline md:m-0 
                 ${activeSection === 'contact' ? 'bg-brand-blue text-brand-bg shadow-[0_0_15px_rgba(121,192,255,0.4)]' : 'text-brand-blue hover:bg-brand-blue hover:text-brand-bg hover:shadow-[0_0_15px_rgba(121,192,255,0.4)]'}

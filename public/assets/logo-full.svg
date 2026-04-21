@@ -1,0 +1,18 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Grouped for scaling -->
+  <g transform="translate(0, -40)">
+    <!-- Hexagonal Frame -->
+    <path d="M250 60L414.545 155V345L250 440L85.4552 345V155L250 60Z" stroke="#79c0ff" stroke-width="12" stroke-linejoin="round"/>
+    
+    <!-- Stylized 'M' -->
+    <path d="M170 310V190L250 270L330 190V310" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Cursor -->
+    <rect x="235" y="350" width="30" height="8" rx="2" fill="#79c0ff"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="250" y="445" text-anchor="middle" style="font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: 42px; letter-spacing: 0.1em;" fill="white">
+    MICHIANA<tspan fill="#79c0ff">.DEV</tspan>
+  </text>
+</svg>

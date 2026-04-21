@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog | Michiana.dev" description="Insights on web development, local SEO, and technical strategy for Michiana businesses.">
+	<div class="min-h-screen bg-brand-bg text-brand-text relative">
+		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
+		
+		<Navbar client:load />
+		
+		<main class="pt-32 pb-16 max-w-[1200px] mx-auto px-6 relative z-10">
+			<div class="flex items-center gap-3 mb-8">
+				<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+				<h1 class="text-4xl font-bold text-white tracking-tight">The Blog</h1>
+			</div>
+			
+			<p class="text-brand-dim text-lg max-w-2xl mb-16">
+				Sharing technical insights, local SEO strategies, and modernization tips for business owners and developers in Northern Indiana and Southwest Michigan.
+			</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				{posts.length > 0 ? (
+					posts.map((post) => (
+						<a href={`/blog/${post.id}/`} class="group block glass-card rounded-2xl overflow-hidden transition-all duration-500 hover:bg-brand-card/60 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(121,192,255,0.15)] border border-white/5">
+							{post.data.heroImage && (
+								<div class="aspect-video overflow-hidden border-b border-brand-border">
+									<img width={720} height={360} src={post.data.heroImage} alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+								</div>
+							)}
+							<div class="p-8">
+								<div class="flex items-center gap-3 mb-4">
+									<span class="text-brand-blue text-sm font-mono">
+										{post.data.pubDate.toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</span>
+								</div>
+								<h2 class="text-2xl font-bold text-white mb-4 group-hover:text-brand-blue transition-colors">
+									{post.data.title}
+								</h2>
+								<p class="text-brand-dim line-clamp-2">
+									{post.data.description}
+								</p>
+							</div>
+						</a>
+					))
+				) : (
+					<div class="col-span-full py-20 text-center glass-card rounded-2xl">
+						<p class="text-brand-dim">No posts yet. Check back soon!</p>
+					</div>
+				)}
+			</div>
+		</main>
+
+		<Footer />
+	</div>
+</Layout>
