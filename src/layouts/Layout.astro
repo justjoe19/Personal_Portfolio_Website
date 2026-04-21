@@ -55,9 +55,6 @@ const { title, description = "Professional web development and software engineer
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content="https://michiana.dev/assets/hero.webp" />
-
-		<!-- Netlify Identity Widget -->
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</head>
 	<body>
 		<slot />
@@ -70,30 +67,24 @@ const { title, description = "Professional web development and software engineer
 			<textarea name="message"></textarea>
 		</form>
 
-		<script is:inline>
-			// Fail-safe Netlify Identity Initialization
-			(function() {
-				function init() {
-					if (window.netlifyIdentity) {
-						window.netlifyIdentity.on("init", user => {
-							if (!user) {
-								window.netlifyIdentity.on("login", () => {
-									document.location.href = "/admin/";
-								});
-							}
-						});
-						
-						// If the URL has an invite or recovery token, force the widget to open
-						if (location.hash.includes("invite_token") || location.hash.includes("recovery_token")) {
-							window.netlifyIdentity.open();
-						}
-					} else {
-						// Wait for the script to load if it hasn't yet
-						setTimeout(init, 200);
-					}
-				}
-				init();
-			})();
+		<script>
+			import netlifyIdentity from 'netlify-identity-widget';
+
+			// Initialize Netlify Identity
+			netlifyIdentity.init();
+
+			// Handle login and redirects
+			netlifyIdentity.on('login', () => {
+				document.location.href = "/admin/";
+			});
+
+			// If the URL has an invite or recovery token, force the widget to open
+			if (window.location.hash.includes("invite_token") || window.location.hash.includes("recovery_token")) {
+				netlifyIdentity.open();
+			}
+
+			// Make it available globally for the admin page if needed
+			(window as any).netlifyIdentity = netlifyIdentity;
 		</script>
 	</body>
 </html>
