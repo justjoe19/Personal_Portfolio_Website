@@ -40,7 +40,7 @@ const posts = (await getCollection('blog')).sort(
 							)}
 							<div class="p-8">
 								<div class="flex items-center gap-3 mb-4">
-									<span class="text-brand-blue text-sm font-mono">
+									<span class="text-brand-blue text-sm font-bold">
 										{post.data.pubDate.toLocaleDateString('en-us', {
 											year: 'numeric',
 											month: 'short',
