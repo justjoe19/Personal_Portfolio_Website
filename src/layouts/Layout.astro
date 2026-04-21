@@ -71,22 +71,20 @@ const { title, description = "Professional web development and software engineer
 		</form>
 
 		<script is:inline>
-			(function() {
-				function initIdentity() {
-					if (window.netlifyIdentity) {
-						window.netlifyIdentity.on("init", (user) => {
-							if (!user) {
-								window.netlifyIdentity.on("login", () => {
-									document.location.href = "/admin/";
-								});
-							}
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on("init", (user) => {
+					if (!user) {
+						window.netlifyIdentity.on("login", () => {
+							document.location.href = "/admin/";
 						});
-					} else {
-						setTimeout(initIdentity, 100);
 					}
+				});
+				
+				// Force open the widget if we have an invite or recovery token in the URL
+				if (window.location.hash.includes("invite_token") || window.location.hash.includes("recovery_token")) {
+					window.netlifyIdentity.open();
 				}
-				initIdentity();
-			})();
+			}
 		</script>
 	</body>
 </html>
