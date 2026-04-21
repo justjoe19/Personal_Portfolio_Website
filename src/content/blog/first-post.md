@@ -1,10 +1,10 @@
 ---
 title: Why South Bend Businesses are Trading WordPress for Custom React Sites
-pubDate: 2026-04-21T19:31:00.000-04:00
+pubDate: 2026-04-21T19:37:00.000-04:00
 description: Is your website slowing down your business? Discover why Michiana
   companies are switching to custom React development for unmatched speed,
   security, and local SEO performance.
-heroImage: "../../public/assets/gemini_generated_image_y0k4r3y0k4r3y0k4.webp"
+heroImage: /assets/gemini_generated_image_y0k4r3y0k4r3y0k4.webp
 ---
 ## Why Local Michiana Businesses are Switching from WordPress to Custom React Sites
 
