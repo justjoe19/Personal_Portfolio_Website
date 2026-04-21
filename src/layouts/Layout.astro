@@ -71,15 +71,22 @@ const { title, description = "Professional web development and software engineer
 		</form>
 
 		<script is:inline>
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on("init", (user) => {
-					if (!user) {
-						window.netlifyIdentity.on("login", () => {
-							document.location.href = "/admin/";
+			(function() {
+				function initIdentity() {
+					if (window.netlifyIdentity) {
+						window.netlifyIdentity.on("init", (user) => {
+							if (!user) {
+								window.netlifyIdentity.on("login", () => {
+									document.location.href = "/admin/";
+								});
+							}
 						});
+					} else {
+						setTimeout(initIdentity, 100);
 					}
-				});
-			}
+				}
+				initIdentity();
+			})();
 		</script>
 	</body>
 </html>
