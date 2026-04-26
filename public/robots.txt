@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://michiana.dev/sitemap.xml
+Sitemap: https://michiana.dev/sitemap-index.xml
