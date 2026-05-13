@@ -29,28 +29,28 @@ export default function About() {
         {/* Row 1, Col 2: Biography Text */}
         <div className="text-[1.15rem] leading-[1.8] font-medium text-brand-dim">
           <p>
-            Businesses today need fast, professional websites that convert visitors into customers.
+            Local businesses shouldn't have to settle for slow, outdated templates that hide their value from potential customers.
           </p>
           <br />
           <p>
-            Hi, I'm Joe Hollenbach, a software engineer with a Bachelor of Science in Software Engineering and a background in high-level technical support. I build high-performance websites for businesses in the Michiana area.
+            Hi, I'm Joe Hollenbach, a software engineer specializing in high-performance web engineering and local SEO. With a B.S. in Software Engineering, I build digital assets for Northern Indiana and Southwest Michigan businesses that are optimized for speed, search visibility, and conversion.
           </p>
           <br />
           <p>
-            I bridge the gap between powerful engineering and clean, user-friendly design. My goal is to create websites that are not only technically solid but also effective tools that help your business grow.
+            I don't just "make websites"—I engineer high-performance tools that bridge the gap between complex software and clean, user-focused design, ensuring your business stands out where it matters most: at the top of the search results.
           </p>
         </div>
 
 
         {/* Row 2: Highlights and CTA (Centered below) */}
         <div className="lg:col-span-2 mt-8 lg:mt-12 pt-12 border-t border-white/5 flex flex-col items-center">
-          <h3 className="text-white text-xl font-bold mb-8">Why Work With Me?</h3>
+          <h3 className="text-white text-xl font-bold mb-8">The Competitive Advantage</h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 mb-12">
             {[
-              "Software Engineering Degree",
-              "Custom-built websites",
-              "Local Michiana developer",
-              "SEO-ready websites"
+              "Technical SEO Engineering",
+              "100/100 Core Web Vitals",
+              "Local Michiana Market Expertise",
+              "Conversion-Focused Architecture"
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-3 text-brand-dim">
                 <span className="text-brand-green font-bold">✓</span>
@@ -63,7 +63,7 @@ export default function About() {
             href="#contact" 
             className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
           >
-            <span className="relative z-10 text-center">Get a Free Consultation</span>
+            <span className="relative z-10 text-center">Get a Free Performance Audit</span>
             <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
           </a>
         </div>
