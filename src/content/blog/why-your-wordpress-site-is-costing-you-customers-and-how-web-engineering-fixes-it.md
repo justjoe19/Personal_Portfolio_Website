@@ -5,6 +5,7 @@ pubDate: 2026-05-15T09:30:00.000-04:00
 description: Stop losing business to slow, bloated templates. Discover why
   Michiana.dev uses modern web engineering and headless architecture to outpace
   traditional WordPress sites.
+heroImage: /assets/183028.webp
 ---
 ## The "Easy" Choice Often Comes with a Hidden Cost
 
