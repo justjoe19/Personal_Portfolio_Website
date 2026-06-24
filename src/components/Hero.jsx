@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="hero" className="relative h-[700px] flex items-center justify-center py-20 overflow-hidden">
+    <section id="hero" className="relative h-[700px] flex flex-col items-center justify-start pt-20 sm:justify-center sm:py-20 overflow-hidden">
       {/* Background Layers */}
       <div className="absolute inset-0 z-0">
         {/* Base Background */}
