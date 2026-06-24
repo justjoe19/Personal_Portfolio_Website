@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
         <div className="mb-4">
           <div className="font-main font-bold text-lg text-white mb-4 flex justify-center">MICHIANA<span className="text-brand-blue">.DEV</span></div>
-          <p className="text-brand-dim text-[0.95rem] max-w-[400px]">Precision-engineered web solutions for local businesses.</p>
+          <p className="text-brand-dim text-[0.95rem] max-w-[400px]">Building software that performs, ranks, and grows with your business.</p>
         </div>
       </div>
       

@@ -11,7 +11,7 @@ interface Props {
 
 const { 
 	title, 
-	description = "Professional web development and software engineering for Northern Indiana and Southwest Michigan businesses.",
+	description = "Custom software engineering, SaaS development, and high-performance web solutions for businesses in Northern Indiana and nationwide.",
 	image = "/assets/hero.webp",
 	type = "website",
 	isHome = false
@@ -52,7 +52,7 @@ const socialImageURL = new URL(image, Astro.site);
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="Web Developer Mishawaka, Software Engineer Michiana, React Developer Indiana, Local SEO Mishawaka, Web Design South Bend, Custom Software Michiana, Mishawaka Web Development, South Bend React Developer" />
+		<meta name="keywords" content="Software Engineer Michiana, SaaS Developer Indiana, Custom Software Development South Bend, Full-Stack Developer Mishawaka, React Developer Indiana, Web Application Development Michiana, Local SEO South Bend, High-Performance Web Engineering" />
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="theme-color" content="#0d1117" />
 
@@ -80,7 +80,6 @@ const socialImageURL = new URL(image, Astro.site);
 					"image": "https://michiana.dev/assets/hero.webp",
 					"@id": "https://michiana.dev",
 					"url": "https://michiana.dev",
-					"telephone": "",
 					"address": {
 						"@type": "PostalAddress",
 						"streetAddress": "",
@@ -101,13 +100,11 @@ const socialImageURL = new URL(image, Astro.site);
 						"Granger, IN",
 						"Niles, MI"
 					],
-					"description": "High-performance web development and software engineering for Northern Indiana and Southwest Michigan businesses."
+					"description": "Custom software engineering, SaaS development, and high-performance web solutions for Northern Indiana businesses and clients nationwide."
 				}
 			</script>
 		)}
 
-		<!-- Netlify Identity Widget -->
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</head>
 	<body>
 		<slot />

@@ -8,24 +8,23 @@ import ProjectCarousel from '../components/ProjectCarousel';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
-// Service data focused on local business needs
 const services = [
-  { 
-    id: "01", 
-    title: "Search-Optimized Engineering", 
-    description: "I don't just build websites; I engineer digital assets for the Google algorithm. By integrating technical SEO into the core architecture, I ensure your business outranks the competition and captures high-intent local traffic.",
-    icon: "monitor"
+  {
+    id: "01",
+    title: "Custom Software & SaaS Development",
+    description: "I build full-stack web applications and SaaS platforms from the ground up — custom tools, internal dashboards, and client-facing products engineered for performance, scalability, and clean architecture.",
+    icon: "code"
   },
-  { 
-    id: "02", 
-    title: "Core Web Vitals Performance", 
-    description: "Speed is a ranking factor. I eliminate bounce rates by building sub-second experiences that pass every Core Web Vital test, ensuring your customers never wait and your search rankings never slip.",
+  {
+    id: "02",
+    title: "High-Performance Web Engineering",
+    description: "Every site I deliver is custom-built for speed. No bloated templates, no plugins — just clean, efficient code that scores 100/100 on Core Web Vitals and keeps your users engaged from the first byte.",
     icon: "zap"
   },
-  { 
-    id: "03", 
-    title: "Conversion-Driven SEO", 
-    description: "Visibility is useless without conversion. I engineer SEO strategies that target high-intent customers in the South Bend and Elkhart regions, ensuring that the traffic your site receives actually leads to phone calls and sales.",
+  {
+    id: "03",
+    title: "Local SEO & Search Strategy",
+    description: "Technical SEO is engineered into the architecture of every project — not bolted on after the fact. For Michiana businesses and clients nationwide, this means higher rankings, qualified traffic, and real conversions.",
     icon: "settings"
   }
 ];
@@ -61,7 +60,7 @@ const projects = [
 ];
 ---
 
-<Layout title="Michiana.dev | Precision Web Development & Software Engineering" isHome={true}>
+<Layout title="Michiana.dev | Software Engineering & Web Development" isHome={true}>
 	<div class="min-h-screen bg-brand-bg text-brand-text relative">
 		{/* Global Background Depth */}
 		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
@@ -116,19 +115,19 @@ const projects = [
                 <span class="h-[1px] w-[35px] bg-brand-green"></span>
                 <span class="text-brand-green font-mono text-sm tracking-widest uppercase">The Competitive Edge</span>
               </div>
-              <h2 class="text-4xl font-bold text-white mb-6 leading-tight tracking-tight">Web Engineering <br/><span class="text-brand-blue">vs. Agency Templates</span></h2>
+              <h2 class="text-4xl font-bold text-white mb-6 leading-tight tracking-tight">Custom Engineering <br/><span class="text-brand-blue">vs. Off-the-Shelf Solutions</span></h2>
               <p class="text-brand-dim text-lg mb-8 max-w-xl font-medium">
-                Most local agencies sell bloated, slow templates that frustrate users and get buried by Google. I engineer high-performance digital assets from the ground up.
+                Generic platforms and no-code tools have ceilings. When your business needs software that actually fits — fast, secure, and built to rank — engineering from scratch is the only answer.
               </p>
-              
+
               <div class="space-y-6">
                 <div class="flex gap-4">
                   <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-blue/10 flex items-center justify-center border border-brand-blue/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                   </div>
                   <div>
-                    <h3 class="text-white font-bold mb-1">SEO Dominance</h3>
-                    <p class="text-brand-dim text-sm font-medium">Google's "Core Web Vitals" algorithm favors speed. My 100/100 performance scores ensure you outrank the competition.</p>
+                    <h3 class="text-white font-bold mb-1">Purpose-Built Software</h3>
+                    <p class="text-brand-dim text-sm font-medium">Every application is built to your exact requirements — no plugin dependencies, no licensing fees, no feature ceilings.</p>
                   </div>
                 </div>
                 <div class="flex gap-4">
@@ -136,8 +135,8 @@ const projects = [
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                   </div>
                   <div>
-                    <h3 class="text-white font-bold mb-1">Unmatched Security</h3>
-                    <p class="text-brand-dim text-sm font-medium">By using a headless architecture (Astro + React), I eliminate the vulnerabilities inherent in WordPress and other common platforms.</p>
+                    <h3 class="text-white font-bold mb-1">Secure by Architecture</h3>
+                    <p class="text-brand-dim text-sm font-medium">Headless, decoupled builds eliminate the attack surface of WordPress and template platforms — no database, no vulnerabilities to patch.</p>
                   </div>
                 </div>
               </div>

@@ -39,12 +39,12 @@ export default function Hero() {
         {/* Headline */}
         <div className="max-w-[1000px] px-4">
           <h1 className="text-[clamp(3rem,10vw,6rem)] font-black text-white leading-[0.95] mb-6 tracking-tight pb-2">
-            Engineered for <br />
-            <span className="text-brand-blue">Search & Speed</span>
+            Software Engineering<br />
+            <span className="text-brand-blue">Built for Business.</span>
           </h1>
-          
+
           <p className="text-[clamp(1.1rem,2vw,1.25rem)] text-brand-dim max-w-[650px] mx-auto leading-relaxed mb-10 font-medium">
-            High-performance web development and local SEO strategies designed to help your Michiana business outrank the competition and convert more customers.
+            From custom SaaS applications to search-optimized websites, I build high-performance digital products for Michiana businesses and clients nationwide.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

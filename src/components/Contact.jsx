@@ -25,21 +25,21 @@ export default function Contact() {
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-[60px] items-stretch">
         {/* LEFT SIDE: Socials & Info */}
         <div className="flex-1">
-          <h3 className="text-[2rem] text-white mb-[15px] font-bold tracking-tight">Claim your free technical audit</h3>
+          <h3 className="text-[2rem] text-white mb-[15px] font-bold tracking-tight">Start with a free consultation</h3>
           <p className="text-brand-dim mb-[35px] max-w-[400px]">
-            Ready to see how your current site measures up? I provide free performance and SEO audits for Michiana businesses. 
+            Whether you need a custom SaaS application, a high-performance website, or a local SEO strategy, let's talk through your project — no commitment required.
             Fill out the form or call <a href="tel:5742138502" className="text-white font-bold hover:text-brand-blue"><strong>(574) 213-8502</strong></a>.
           </p>
 
           <div className="flex flex-col gap-[25px]">
             <div className="glass-card p-[27px] rounded-lg h-full transition-all duration-300 hover:border-brand-blue/30 hover:-translate-y-[5px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
-              <label className="block font-main text-[0.75rem] text-brand-blue mb-2 uppercase tracking-[0.2em] font-bold">SEO Audit Includes</label>
-              <p>A comprehensive report on your <strong>Core Web Vitals</strong>, mobile performance, accessibility, and a <strong>Competitor SEO Analysis</strong> for your local market.</p>
+              <label className="block font-main text-[0.75rem] text-brand-blue mb-2 uppercase tracking-[0.2em] font-bold">Free Consultation Includes</label>
+              <p>A focused conversation covering your <strong>project requirements</strong>, recommended tech stack, architecture approach, and a clear scope with realistic <strong>timeline and budget</strong>.</p>
             </div>
 
             <div className="glass-card p-[27px] rounded-lg h-full transition-all duration-300 hover:border-brand-blue/30 hover:-translate-y-[5px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
               <label className="block font-main text-[0.75rem] text-brand-blue mb-2 uppercase tracking-[0.2em] font-bold">Specialties</label>
-              <p>Custom <strong>React</strong> applications, site migrations, and <strong>Local SEO</strong> strategies engineered for performance and growth.</p>
+              <p>Custom <strong>SaaS & web applications</strong>, full-stack React development, site migrations, and <strong>Local SEO</strong> strategies engineered for performance and growth.</p>
             </div>
 
             <div className="glass-card p-[27px] rounded-lg h-full transition-all duration-300 hover:border-brand-blue/30 hover:-translate-y-[5px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
