@@ -2,11 +2,46 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import About from '../components/About'; 
+import About from '../components/About';
 import ServiceCard from '../components/ServiceCard';
 import ProjectCarousel from '../components/ProjectCarousel';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+
+const serviceAreas = ["South Bend, IN", "Mishawaka, IN", "Elkhart, IN", "Granger, IN", "Goshen, IN", "Niles, MI"];
+
+const faqs = [
+  {
+    q: "How much does a custom website or software project cost for a South Bend or Mishawaka business?",
+    a: "Every project is scoped individually based on your specific requirements and goals. I offer a free consultation to provide a clear, no-obligation estimate. My rates reflect the value of purpose-built software — not the overhead of larger agencies using generic templates."
+  },
+  {
+    q: "What is the difference between a web developer and a software engineer?",
+    a: "A web developer typically builds sites using pre-made templates and page builders. A software engineer writes custom code from the ground up — optimized specifically for your performance, security, and business requirements. The result is a faster, more secure, and more scalable digital product with no unnecessary overhead."
+  },
+  {
+    q: "Do you work with businesses outside the Michiana area?",
+    a: "Yes. While I'm based in Mishawaka, IN, and specialize in the local South Bend, Elkhart, and Michiana markets, I work with clients nationwide for software engineering, SaaS development, and web application projects."
+  },
+  {
+    q: "How long does it take to build a custom website?",
+    a: "Timelines vary by project scope — I've delivered custom websites in as little as two weeks. SaaS applications and more complex software projects are scoped individually with a clear timeline established upfront. You'll always know what to expect and when."
+  },
+  {
+    q: "What is local SEO and why does my Michiana business need it?",
+    a: "Local SEO is the practice of optimizing your online presence so your business appears at the top of Google when customers in your area search for your services. For businesses in South Bend, Mishawaka, and Elkhart, strong local SEO is often the most cost-effective marketing available — and it starts with a technically sound, fast-loading website."
+  }
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+});
 
 const services = [
   {
@@ -34,9 +69,6 @@ const services = [
     icon: "cpu"
   }
 ];
-
-// Note: Icons are handled differently in React components, 
-// I'll check ServiceCard to see how it uses them.
 
 const projects = [
   {
@@ -66,7 +98,8 @@ const projects = [
 ];
 ---
 
-<Layout title="Michiana.dev | Software Engineering & Web Development" isHome={true}>
+<Layout title="Software Engineer & Web Developer — Mishawaka, IN | Michiana.dev" isHome={true}>
+	<script type="application/ld+json" is:inline set:html={faqSchema} />
 	<div class="min-h-screen bg-brand-bg text-brand-text relative">
 		{/* Global Background Depth */}
 		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
@@ -78,14 +111,6 @@ const projects = [
 		<main id="main-content" class="pt-5 relative z-10">
 			<Hero client:visible />
 
-			<section id="portfolio" class="py-16 max-w-[1200px] mx-auto px-6">
-				<div class="flex items-center gap-3 mb-16">
-					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
-					<h2 class="text-2xl font-bold text-white">Recent Projects</h2>
-				</div>
-				<ProjectCarousel projects={projects} client:load />
-			</section>
-
 			<section id="services" class="py-16 max-w-[1200px] mx-auto px-6">
 				<div class="flex items-center gap-3 mb-16">
 					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
@@ -93,7 +118,7 @@ const projects = [
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
 					{services.map(service => (
-						<ServiceCard 
+						<ServiceCard
 							id={service.id}
 							title={service.title}
 							description={service.description}
@@ -102,9 +127,99 @@ const projects = [
 					))}
 				</div>
 
+				<div class="mt-16 pt-16 border-t border-brand-border/50 grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16">
+					<div>
+						<div class="flex items-center gap-3 mb-6">
+							<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+							<span class="text-brand-blue font-mono text-sm tracking-widest uppercase">The Competitive Edge</span>
+						</div>
+						<h2 class="text-4xl font-bold text-white mb-6 leading-tight tracking-tight">Custom Engineering <br/><span class="text-brand-blue">vs. Off-the-Shelf Solutions</span></h2>
+						<p class="text-brand-dim text-lg mb-8 max-w-xl font-medium">
+							Generic platforms and no-code tools have ceilings. When your business needs software that actually fits — fast, secure, and built to rank — engineering from scratch is the only answer.
+						</p>
+						<div class="space-y-6">
+							<div class="flex gap-4">
+								<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-blue/10 flex items-center justify-center border border-brand-blue/20">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+								</div>
+								<div>
+									<h3 class="text-white font-bold mb-1">Purpose-Built Software</h3>
+									<p class="text-brand-dim text-sm font-medium">Every application is built to your exact requirements — no plugin dependencies, no licensing fees, no feature ceilings.</p>
+								</div>
+							</div>
+							<div class="flex gap-4">
+								<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-green/10 flex items-center justify-center border border-brand-green/20">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+								</div>
+								<div>
+									<h3 class="text-white font-bold mb-1">Secure by Architecture</h3>
+									<p class="text-brand-dim text-sm font-medium">Headless, decoupled builds eliminate the attack surface of WordPress and template platforms — no database, no vulnerabilities to patch.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="relative">
+						<div id="score-widget" class="glass-card p-8 rounded-2xl border border-white/10 relative z-10 shadow-2xl">
+							<div class="flex justify-between items-center mb-8">
+								<span class="font-mono text-xs text-brand-dim tracking-widest uppercase opacity-70">Project_Audit.log</span>
+								<div class="flex gap-1.5">
+									<div class="w-2.5 h-2.5 rounded-full bg-red-500/30 border border-red-500/50"></div>
+									<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/30 border border-yellow-500/50"></div>
+									<div class="w-2.5 h-2.5 rounded-full bg-brand-green/30 border border-brand-green/50"></div>
+								</div>
+							</div>
+							<div class="space-y-8">
+								<div>
+									<div class="flex justify-between text-sm mb-2">
+										<span class="text-brand-blue font-bold tracking-tight">Performance</span>
+										<span class="text-brand-green font-mono font-bold">100/100</span>
+									</div>
+									<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+										<div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
+									</div>
+								</div>
+								<div>
+									<div class="flex justify-between text-sm mb-2">
+										<span class="text-brand-blue font-bold tracking-tight">Accessibility</span>
+										<span class="text-brand-green font-mono font-bold">100/100</span>
+									</div>
+									<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+										<div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
+									</div>
+								</div>
+								<div>
+									<div class="flex justify-between text-sm mb-2">
+										<span class="text-brand-blue font-bold tracking-tight">Best Practices</span>
+										<span class="text-brand-green font-mono font-bold">100/100</span>
+									</div>
+									<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+										<div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
+									</div>
+								</div>
+								<div>
+									<div class="flex justify-between text-sm mb-2">
+										<span class="text-brand-blue font-bold tracking-tight">SEO</span>
+										<span class="text-brand-green font-mono font-bold">100/100</span>
+									</div>
+									<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+										<div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-8 pt-8 border-t border-white/5 text-center">
+								<p class="text-[10px] font-mono text-brand-dim leading-relaxed uppercase tracking-[0.2em] opacity-60">
+									Verified Lighthouse Metrics
+								</p>
+							</div>
+						</div>
+						<div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-blue/10 rounded-full blur-[80px] -z-10"></div>
+						<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-green/10 rounded-full blur-[80px] -z-10"></div>
+					</div>
+				</div>
+
 				<div class="flex justify-center">
-					<a 
-						href="#contact" 
+					<a
+						href="#contact"
 						class="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
 					>
 						<span class="relative z-10">Schedule a Call</span>
@@ -113,107 +228,59 @@ const projects = [
 				</div>
 			</section>
 
-      <section id="why-engineering" class="py-16 bg-brand-card/30 border-y border-brand-border/50">
-        <div class="max-w-[1200px] mx-auto px-6">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div class="flex items-center gap-3 mb-6">
-                <span class="h-[1px] w-[35px] bg-brand-green"></span>
-                <span class="text-brand-green font-mono text-sm tracking-widest uppercase">The Competitive Edge</span>
-              </div>
-              <h2 class="text-4xl font-bold text-white mb-6 leading-tight tracking-tight">Custom Engineering <br/><span class="text-brand-blue">vs. Off-the-Shelf Solutions</span></h2>
-              <p class="text-brand-dim text-lg mb-8 max-w-xl font-medium">
-                Generic platforms and no-code tools have ceilings. When your business needs software that actually fits — fast, secure, and built to rank — engineering from scratch is the only answer.
-              </p>
+			<section id="portfolio" class="py-16 max-w-[1200px] mx-auto px-6">
+				<div class="flex items-center gap-3 mb-16">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<h2 class="text-2xl font-bold text-white">Recent Projects</h2>
+				</div>
+				<ProjectCarousel projects={projects} client:load />
+			</section>
 
-              <div class="space-y-6">
-                <div class="flex gap-4">
-                  <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-blue/10 flex items-center justify-center border border-brand-blue/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                  </div>
-                  <div>
-                    <h3 class="text-white font-bold mb-1">Purpose-Built Software</h3>
-                    <p class="text-brand-dim text-sm font-medium">Every application is built to your exact requirements — no plugin dependencies, no licensing fees, no feature ceilings.</p>
-                  </div>
-                </div>
-                <div class="flex gap-4">
-                  <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-green/10 flex items-center justify-center border border-brand-green/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
-                  <div>
-                    <h3 class="text-white font-bold mb-1">Secure by Architecture</h3>
-                    <p class="text-brand-dim text-sm font-medium">Headless, decoupled builds eliminate the attack surface of WordPress and template platforms — no database, no vulnerabilities to patch.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="relative">
-              <div id="score-widget" class="glass-card p-8 rounded-2xl border border-white/10 relative z-10 shadow-2xl">
-                <div class="flex justify-between items-center mb-8">
-                  <span class="font-mono text-xs text-brand-dim tracking-widest uppercase opacity-70">Project_Audit.log</span>
-                  <div class="flex gap-1.5">
-                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/30 border border-red-500/50"></div>
-                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/30 border border-yellow-500/50"></div>
-                    <div class="w-2.5 h-2.5 rounded-full bg-brand-green/30 border border-brand-green/50"></div>
-                  </div>
-                </div>
-                
-                <div class="space-y-8">
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span class="text-brand-blue font-bold tracking-tight">Performance</span>
-                      <span class="text-brand-green font-mono font-bold">100/100</span>
-                    </div>
-                    <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span class="text-brand-blue font-bold tracking-tight">Accessibility</span>
-                      <span class="text-brand-green font-mono font-bold">100/100</span>
-                    </div>
-                    <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span class="text-brand-blue font-bold tracking-tight">Best Practices</span>
-                      <span class="text-brand-green font-mono font-bold">100/100</span>
-                    </div>
-                    <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span class="text-brand-blue font-bold tracking-tight">SEO</span>
-                      <span class="text-brand-green font-mono font-bold">100/100</span>
-                    </div>
-                    <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div data-bar class="h-full bg-brand-green shadow-[0_0_15px_rgba(126,231,135,0.4)]" style="width:0%;transition:width 1.1s cubic-bezier(0.4,0,0.2,1)"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-8 pt-8 border-t border-white/5 text-center">
-                  <p class="text-[10px] font-mono text-brand-dim leading-relaxed uppercase tracking-[0.2em] opacity-60">
-                    Verified Lighthouse Metrics
-                  </p>
-                </div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-blue/10 rounded-full blur-[80px] -z-10"></div>
-              <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-green/10 rounded-full blur-[80px] -z-10"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+			<section id="service-areas" class="py-16 max-w-[1200px] mx-auto px-6">
+				<div class="flex items-center gap-3 mb-8">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<h2 class="text-2xl font-bold text-white tracking-tight">Service Areas</h2>
+				</div>
+				<p class="text-brand-dim text-lg mb-8 max-w-2xl">
+					Based in Mishawaka, IN — serving businesses across the Michiana region for web development, local SEO, and software engineering, with availability for SaaS and application projects nationwide.
+				</p>
+				<div class="flex flex-wrap gap-3">
+					{serviceAreas.map(city => (
+						<span class="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-sm font-semibold text-brand-text">
+							<span class="w-1.5 h-1.5 rounded-full bg-brand-blue flex-shrink-0"></span>
+							{city}
+						</span>
+					))}
+					<span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-brand-blue border border-brand-blue/30 bg-brand-blue/5">
+						<span class="w-1.5 h-1.5 rounded-full bg-brand-blue flex-shrink-0"></span>
+						Nationwide (Remote)
+					</span>
+				</div>
+			</section>
 
 			<About />
+
+			<section id="faq" class="py-16 max-w-[1200px] mx-auto px-6">
+				<div class="flex items-center gap-3 mb-10">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+				</div>
+				<div class="space-y-3 max-w-[800px]">
+					{faqs.map(faq => (
+						<details class="group glass-card rounded-xl overflow-hidden">
+							<summary class="flex justify-between items-center p-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-white font-semibold hover:text-brand-blue transition-colors duration-200">
+								{faq.q}
+								<svg class="w-5 h-5 text-brand-blue flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="m6 9 6 6 6-6"/>
+								</svg>
+							</summary>
+							<div class="px-6 pb-6 pt-4 text-brand-dim leading-relaxed border-t border-white/5">
+								{faq.a}
+							</div>
+						</details>
+					))}
+				</div>
+			</section>
 
 			<Contact client:visible />
 		</main>

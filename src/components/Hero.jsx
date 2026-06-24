@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="hero" className="relative h-[800px] flex items-center justify-center py-20 overflow-hidden">
+    <section id="hero" className="relative h-[700px] flex items-center justify-center py-20 overflow-hidden">
       {/* Background Layers */}
       <div className="absolute inset-0 z-0">
         {/* Base Background */}
@@ -52,7 +52,7 @@ export default function Hero() {
               href="#contact" 
               className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
             >
-              <span className="relative z-10">Get a Free Quote </span>
+              <span className="relative z-10">Get a Free Quote</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
             </a>   
 
