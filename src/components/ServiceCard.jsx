@@ -1,8 +1,20 @@
-export default function ServiceCard({ title, description, icon, iconType }) {
+export default function ServiceCard({ id, title, description, icon, iconType }) {
   const renderIcon = () => {
     if (icon) return icon;
 
     // Fallback icons based on iconType string
+    if (iconType === 'cpu') {
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2"/>
+          <rect x="9" y="9" width="6" height="6"/>
+          <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+          <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+          <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+          <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+        </svg>
+      );
+    }
     if (iconType === 'code') {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -40,6 +52,11 @@ export default function ServiceCard({ title, description, icon, iconType }) {
 
   return (
     <div className="group relative glass-card p-10 rounded-2xl transition-all duration-500 hover:bg-brand-card/60 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(121,192,255,0.15)] flex flex-col overflow-hidden">
+      {id && (
+        <span className="absolute bottom-3 right-5 text-[5.5rem] font-black leading-none select-none pointer-events-none text-white/[0.035] group-hover:text-white/[0.06] transition-colors duration-500">
+          {id}
+        </span>
+      )}
       {/* Background Accent Glow */}
       <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-blue/5 rounded-full blur-[60px] transition-all duration-500 group-hover:bg-brand-blue/10"></div>
 

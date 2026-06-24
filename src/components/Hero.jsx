@@ -64,6 +64,13 @@ export default function Hero() {
               <div className="absolute inset-0 bg-white/5 translate-y-full transition-transform group-hover:translate-y-0"></div>
             </a>
           </div>
+
+          <div className="flex flex-col items-center gap-1.5 mt-10 animate-bounce">
+            <span className="text-[0.55rem] font-mono tracking-[0.25em] uppercase text-brand-dim opacity-40">scroll</span>
+            <svg className="w-4 h-4 text-brand-dim opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
