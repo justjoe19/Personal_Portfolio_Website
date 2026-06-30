@@ -5,6 +5,7 @@ description: Stop being invisible. Learn the 3 critical technical SEO mistakes
   South Bend, Mishawaka, and Elkhart businesses make that kill their Google
   rankings.
 heroImage: /assets/blg.webp
+heroImageAlt: A laptop displaying a blog post titled "The 3 Biggest SEO Mistakes Michiana Small Businesses Make in 2026" alongside a perfect 100 Core Web Vitals score
 ---
 ### The Cost of Being Invisible
 

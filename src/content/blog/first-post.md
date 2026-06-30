@@ -5,6 +5,7 @@ description: Is your website slowing down your business? Discover why Michiana
   companies are switching to custom React development for unmatched speed,
   security, and local SEO performance.
 heroImage: /assets/gemini_generated_image_y0k4r3y0k4r3y0k4.webp
+heroImageAlt: A laptop on an office desk showing React code next to a live website preview reading "Premium Web Experiences," beside a Michiana.dev custom React solutions desk sign
 ---
 In the heart of the Michiana region—from the bustling corridors of South Bend to the growing business districts of Mishawaka and Elkhart—the digital landscape is shifting. For years, WordPress has been the "default" choice for local business owners looking to get online. It was easy, accessible, and "good enough."
 

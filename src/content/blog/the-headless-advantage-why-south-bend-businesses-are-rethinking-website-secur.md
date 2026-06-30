@@ -6,6 +6,7 @@ description: Is your business website exposing customer data? Learn how
   Michiana.dev uses decoupled "Headless" React architecture to build virtually
   unhackable sites for Indiana businesses.
 heroImage: /assets/img_1236.jpeg
+heroImageAlt: A laptop screen reading "100% Security Optimized: Headless Architecture Secured — Protecting Michiana Businesses in 2026"
 ---
 **Your Digital Storefront Needs Better Locks**
 

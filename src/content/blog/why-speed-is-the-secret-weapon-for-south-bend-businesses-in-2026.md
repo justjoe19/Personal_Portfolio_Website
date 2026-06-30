@@ -5,6 +5,7 @@ description: Performance is a ranking factor. Discover how custom React
   development gives Michiana businesses a "unfair" speed advantage over generic
   competitors.
 heroImage: /assets/gemini_generated_image_2xp3hk2xp3hk2xp3-2.webp
+heroImageAlt: A laptop displaying a perfect 100 Google Lighthouse Performance score next to a "Core Web Vitals Optimized" graphic with an upward growth arrow
 ---
 ### The 2-Second Rule: Why Performance is the New SEO
 

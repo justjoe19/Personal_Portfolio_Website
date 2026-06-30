@@ -6,6 +6,7 @@ description: Stop losing business to slow, bloated templates. Discover why
   Michiana.dev uses modern web engineering and headless architecture to outpace
   traditional WordPress sites.
 heroImage: /assets/183028.webp
+heroImageAlt: A frustrated business owner holding his head while looking at a WordPress dashboard showing declining revenue due to slow load times and failed conversions
 ---
 ## The "Easy" Choice Often Comes with a Hidden Cost
 

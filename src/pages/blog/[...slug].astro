@@ -18,6 +18,16 @@ const post = Astro.props;
 const { Content } = await render(post);
 
 // Dynamic Blog Schema
+const breadcrumbSchema = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://michiana.dev" },
+		{ "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://michiana.dev/blog" },
+		{ "@type": "ListItem", "position": 3, "name": post.data.title, "item": new URL(`/blog/${post.id}/`, Astro.site).toString() }
+	]
+});
+
 const articleSchema = JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
@@ -39,8 +49,8 @@ const articleSchema = JSON.stringify({
 	image={post.data.heroImage}
 	type="article"
 >
-	<!-- Dynamic Blog Posting Schema -->
 	<script type="application/ld+json" is:inline set:html={articleSchema} />
+	<script type="application/ld+json" is:inline set:html={breadcrumbSchema} />
 
 	<div class="min-h-screen bg-brand-bg text-brand-text relative">
 		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
@@ -49,10 +59,13 @@ const articleSchema = JSON.stringify({
 		
 		<main class="pt-32 pb-16 max-w-[800px] mx-auto px-6 relative z-10">
 			<article class="prose prose-invert prose-brand max-w-none">
-				<a href="/blog" class="inline-flex items-center gap-2 text-brand-blue hover:text-white transition-colors duration-300 font-bold text-sm mb-12 group no-underline">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="transition-transform duration-300 group-hover:-translate-x-1"><path d="m15 18-6-6 6-6"/></svg>
-					Back to Articles
-				</a>
+				<nav aria-label="Breadcrumb" class="not-prose flex items-center gap-2 text-sm mb-12 flex-wrap">
+					<a href="/" class="text-brand-dim hover:text-brand-blue transition-colors duration-200 no-underline">Home</a>
+					<span class="text-brand-dim/40">/</span>
+					<a href="/blog" class="text-brand-dim hover:text-brand-blue transition-colors duration-200 no-underline">Blog</a>
+					<span class="text-brand-dim/40">/</span>
+					<span class="text-brand-blue font-medium">{post.data.title}</span>
+				</nav>
 				<div class="mb-8">
 					<div class="flex items-center gap-3 mb-4">
 						<span class="h-[1px] w-[35px] bg-brand-blue"></span>
@@ -68,7 +81,7 @@ const articleSchema = JSON.stringify({
 						{post.data.title}
 					</h1>
 					{post.data.heroImage && (
-						<img width={1024} height={512} src={post.data.heroImage} alt="" class="rounded-2xl border border-brand-border mb-12 shadow-2xl" />
+						<img width={1024} height={512} src={post.data.heroImage} alt={post.data.heroImageAlt ?? post.data.title} class="rounded-2xl border border-brand-border mb-12 shadow-2xl" />
 					)}
 				</div>
 				<div class="text-brand-dim text-lg leading-relaxed space-y-6 blog-content">
