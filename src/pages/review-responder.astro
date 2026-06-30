@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import ReviewResponder from '../components/ReviewResponder';
+import Footer from '../components/Footer';
+
+const breadcrumbSchema = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://michiana.dev" },
+		{ "@type": "ListItem", "position": 2, "name": "AI Review Responder", "item": "https://michiana.dev/review-responder" }
+	]
+});
+
+const appSchema = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	"name": "AI Review Responder",
+	"applicationCategory": "BusinessApplication",
+	"operatingSystem": "Web",
+	"description": "A free AI tool that writes polished, on-brand replies to customer reviews for restaurants, salons, contractors, retail, and medical/dental businesses.",
+	"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+	"creator": { "@type": "Person", "name": "Joe Hollenbach", "url": "https://michiana.dev" }
+});
+
+const faqs = [
+	{
+		q: "Is the AI Review Responder free to use?",
+		a: "Yes. You get 5 free AI-generated review responses per day, no account or sign-up required. It's powered by Google Gemini."
+	},
+	{
+		q: "Do you store the reviews I paste in?",
+		a: "No. Reviews are sent to the AI model to generate a response in real time and are not saved or used for training."
+	},
+	{
+		q: "Can I edit the response before I post it?",
+		a: "Absolutely. Treat the generated reply as a strong first draft — copy it, tweak it to match your voice, and post it to Google, Yelp, or wherever the review appeared."
+	},
+	{
+		q: "Can this be built directly into my business's review workflow?",
+		a: "Yes. This tool is a live demo of the kind of AI integration I build into custom software for clients — automatically drafting responses, routing reviews to your team, or syncing with your CRM. Reach out and we'll scope it for your business."
+	},
+	{
+		q: "Why does responding to reviews matter for local SEO?",
+		a: "Engaging with reviews — especially negative ones — is one of the simplest, highest-leverage signals you control for local search visibility and customer trust. Prospective customers read responses as closely as they read the reviews themselves."
+	}
+];
+
+const faqSchema = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faqs.map(faq => ({
+		"@type": "Question",
+		"name": faq.q,
+		"acceptedAnswer": { "@type": "Answer", "text": faq.a }
+	}))
+});
+
+const steps = [
+	{ n: "01", title: "Paste the Review", desc: "Copy the customer review from Google, Yelp, Facebook, or anywhere else and paste it in." },
+	{ n: "02", title: "Set the Details", desc: "Add your business name, business type, the tone you want, and the star rating." },
+	{ n: "03", title: "Generate", desc: "Gemini writes a specific, human-sounding reply in seconds — not a generic template." },
+	{ n: "04", title: "Copy & Post", desc: "One click copies the response. Paste it wherever the review lives and you're done." }
+];
+
+const benefits = [
+	{ title: "Build Trust With Future Customers", desc: "A thoughtful reply shows prospective customers — not just the reviewer — that you're engaged and care about their experience." },
+	{ title: "Save Time Without Sounding Generic", desc: "Skip the blank reply box. Get a response that references specific details from the review instead of a copy-paste template." },
+	{ title: "Strengthen Your Local SEO", desc: "Responding to reviews, especially critical ones, is one of the simplest signals you control for local search visibility and reputation." },
+	{ title: "Keep Your Tone Consistent", desc: "Whoever is managing reviews that week, every response matches the voice you choose — professional, friendly, apologetic, or enthusiastic." }
+];
+---
+
+<Layout
+	title="AI Review Responder — Free Tool for Local Businesses | Michiana.dev"
+	description="Turn any customer review into a polished, on-brand reply in seconds. A free AI-powered review response generator for restaurants, salons, contractors, retail, and medical practices."
+	type="website"
+>
+	<script type="application/ld+json" is:inline set:html={breadcrumbSchema} />
+	<script type="application/ld+json" is:inline set:html={appSchema} />
+	<script type="application/ld+json" is:inline set:html={faqSchema} />
+
+	<div class="min-h-screen bg-brand-bg text-brand-text relative">
+		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
+
+		<Navbar client:load />
+
+		<main class="pt-32 pb-16 relative z-10">
+			<div class="max-w-[800px] mx-auto px-6">
+				<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm mb-10 flex-wrap">
+					<a href="/" class="text-brand-dim hover:text-brand-blue transition-colors duration-200 no-underline">Home</a>
+					<span class="text-brand-dim/40">/</span>
+					<span class="text-brand-blue font-medium">AI Review Responder</span>
+				</nav>
+
+				<div class="flex items-center gap-3 mb-4">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<span class="text-brand-blue font-mono text-sm tracking-widest uppercase">Live Demo</span>
+				</div>
+				<h1 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">AI Review Responder</h1>
+				<p class="text-brand-dim text-lg mb-12 max-w-xl font-medium">
+					Paste a customer review, pick a tone, and get a polished, ready-to-post reply in seconds — free, and built to show exactly how AI can be put to work inside a real business tool.
+				</p>
+			</div>
+
+			<ReviewResponder client:load />
+
+			<section id="how-it-works" class="max-w-[1000px] mx-auto px-6 py-16 border-t border-brand-border/50">
+				<div class="flex items-center gap-3 mb-12">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<h2 class="text-2xl font-bold text-white tracking-tight">How It Works</h2>
+				</div>
+				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+					{steps.map(step => (
+						<div class="glass-card rounded-xl p-6">
+							<span class="text-brand-blue font-mono text-sm font-bold opacity-60">{step.n}</span>
+							<h3 class="text-white font-bold mt-2 mb-2">{step.title}</h3>
+							<p class="text-brand-dim text-sm leading-relaxed">{step.desc}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section id="why-it-matters" class="max-w-[1000px] mx-auto px-6 py-16 border-t border-brand-border/50">
+				<div class="flex items-center gap-3 mb-12">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<h2 class="text-2xl font-bold text-white tracking-tight">Why Responding to Reviews Matters</h2>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{benefits.map(b => (
+						<div class="flex gap-4">
+							<div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-brand-blue mt-2.5"></div>
+							<div>
+								<h3 class="text-white font-bold mb-1">{b.title}</h3>
+								<p class="text-brand-dim text-sm font-medium leading-relaxed">{b.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section id="review-tool-faq" class="max-w-[800px] mx-auto px-6 py-16 border-t border-brand-border/50">
+				<div class="flex items-center gap-3 mb-10">
+					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
+					<h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+				</div>
+				<div class="space-y-3">
+					{faqs.map(faq => (
+						<details class="group glass-card rounded-xl overflow-hidden">
+							<summary class="flex justify-between items-center p-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-white font-semibold hover:text-brand-blue transition-colors duration-200">
+								{faq.q}
+								<svg class="w-5 h-5 text-brand-blue flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="m6 9 6 6 6-6"/>
+								</svg>
+							</summary>
+							<div class="px-6 pb-6 pt-4 text-brand-dim leading-relaxed border-t border-white/5">
+								{faq.a}
+							</div>
+						</details>
+					))}
+				</div>
+			</section>
+
+			<section class="max-w-[800px] mx-auto px-6 py-16 border-t border-brand-border/50 text-center">
+				<h2 class="text-2xl font-bold text-white mb-4 tracking-tight">Want This Built Into Your Business?</h2>
+				<p class="text-brand-dim text-lg mb-8 max-w-xl mx-auto">
+					This tool is a small example of the AI and automation work I build into custom software for clients. Let's talk about what it could look like for your business.
+				</p>
+				<a
+					href="/#contact"
+					class="group relative inline-flex items-center justify-center bg-brand-blue text-brand-bg py-4 px-8 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
+				>
+					<span class="relative z-10">Schedule a Call</span>
+					<div class="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
+				</a>
+			</section>
+		</main>
+
+		<Footer />
+	</div>
+</Layout>

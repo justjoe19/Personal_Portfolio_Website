@@ -4,15 +4,18 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [isBlogPage, setIsBlogPage] = useState(false);
+  const [isToolPage, setIsToolPage] = useState(false);
 
   useEffect(() => {
     // Check if we are on a blog page
     const path = window.location.pathname;
     const isBlog = path.startsWith('/blog');
+    const isTool = path.startsWith('/review-responder');
     setIsBlogPage(isBlog);
+    setIsToolPage(isTool);
 
     // Only track sections if we are on the homepage
-    if (!isBlog) {
+    if (!isBlog && !isTool) {
       const sections = document.querySelectorAll('section[id]');
       
       const options = {
@@ -68,7 +71,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[100ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/#hero" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               Home
@@ -77,7 +80,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[150ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a
               href="/#services"
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'services' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'services' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
               onClick={handleNavLinkClick}
             >
               Services
@@ -86,7 +89,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[200ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a
               href="/#portfolio"
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'portfolio' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'portfolio' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
               onClick={handleNavLinkClick}
             >
               Projects
@@ -95,7 +98,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[250ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a 
               href="/#about" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
               onClick={handleNavLinkClick}
             >
               About
@@ -104,7 +107,7 @@ export default function Navbar() {
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[300ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
             <a
               href="/#faq"
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && activeSection === 'faq' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'faq' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
               onClick={handleNavLinkClick}
             >
               FAQ
@@ -120,11 +123,20 @@ export default function Navbar() {
             </a>
           </li>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[400ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
-            <a 
-              href="/#contact" 
+            <a
+              href="/review-responder"
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${isToolPage ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
+              onClick={handleNavLinkClick}
+            >
+              Demo
+            </a>
+          </li>
+          <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[450ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
+            <a
+              href="/#contact"
               className={`
                 block mx-auto my-3 w-fit py-2 px-4 rounded border border-brand-blue text-[0.85rem] font-medium transition-all duration-300 md:inline md:m-0 
-                ${!isBlogPage && activeSection === 'contact' ? 'bg-brand-blue text-brand-bg shadow-[0_0_15px_rgba(121,192,255,0.4)]' : 'text-brand-blue hover:bg-brand-blue hover:text-brand-bg hover:shadow-[0_0_15px_rgba(121,192,255,0.4)]'}
+                ${!isBlogPage && !isToolPage && activeSection === 'contact' ? 'bg-brand-blue text-brand-bg shadow-[0_0_15px_rgba(121,192,255,0.4)]' : 'text-brand-blue hover:bg-brand-blue hover:text-brand-bg hover:shadow-[0_0_15px_rgba(121,192,255,0.4)]'}
               `} 
               onClick={handleNavLinkClick}
             >

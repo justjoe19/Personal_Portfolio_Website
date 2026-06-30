@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 .astro
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -23,3 +26,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Netlify folder
+.netlify
+deno.lock
