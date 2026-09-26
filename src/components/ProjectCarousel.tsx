@@ -4,6 +4,7 @@ export interface Project {
   id: string;
   name: string;
   tech: string;
+  badge?: string;
   desc: string;
   image: string;
   link: string;
@@ -52,13 +53,20 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-brand-bg/40 flex items-center justify-center transition-opacity duration-[400ms]">
                   <a href={project.link} className="bg-brand-blue text-[#000] py-3 px-6 rounded font-bold text-sm transition-all duration-300 hover:bg-white hover:-translate-y-[2px] hover:shadow-[0_5px_15px_rgba(121,192,255,0.2)]" target="_blank" rel="noopener noreferrer">
-                    View Website
+                    {project.name.includes("RankRadius") ? "Explore RankRadius.io" : project.name.includes("AI Review") ? "Try Live Demo" : "View Website"}
                   </a>
                 </div>
               </div>
               <div className={`p-8 lg:p-10 transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${index === currentIndex ? 'translate-x-0' : 'translate-x-5'}`}>
                 <div className="flex flex-col gap-2">
-                  <span className="font-main text-[0.75rem] text-brand-blue mb-1 block">{project.tech}</span>
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="font-main text-[0.75rem] text-brand-blue block">{project.tech}</span>
+                    {project.badge && (
+                      <span className="px-2.5 py-0.5 rounded-full text-[0.7rem] font-mono font-bold bg-brand-green/10 text-brand-green border border-brand-green/30">
+                        {project.badge}
+                      </span>
+                    )}
+                  </div>
                   <h3 className="text-[2rem] text-white mb-2 font-main tracking-tight">{project.name}</h3>
                   <p className="text-brand-dim text-[1.05rem] max-w-[800px]">{project.desc}</p>
                 </div>

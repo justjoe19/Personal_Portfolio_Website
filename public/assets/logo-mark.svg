@@ -1,10 +1,15 @@
 <svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Hexagonal Frame representing Engineering & Structure -->
-  <path d="M250 60L414.545 155V345L250 440L85.4552 345V155L250 60Z" stroke="#79c0ff" stroke-width="15" stroke-linejoin="round"/>
-  
-  <!-- Stylized 'M' that evokes code brackets < > -->
-  <path d="M160 320V180L250 270L340 180V320" stroke="white" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Terminal-style cursor / underscore at the base -->
-  <rect x="230" y="365" width="40" height="10" rx="2" fill="#79c0ff"/>
+  <defs>
+    <linearGradient id="slash1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5d8ff" />
+      <stop offset="100%" stop-color="#79c0ff" />
+    </linearGradient>
+    <linearGradient id="slash2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aff5b4" />
+      <stop offset="100%" stop-color="#7ee787" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="480" height="480" rx="100" fill="#161b22" stroke="#30363d" stroke-width="12"/>
+  <polygon points="212,115 274,115 182,385 120,385" fill="url(#slash1-grad)"/>
+  <polygon points="317,115 379,115 287,385 225,385" fill="url(#slash2-grad)"/>
 </svg>

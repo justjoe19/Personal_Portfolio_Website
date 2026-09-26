@@ -51,8 +51,14 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full bg-brand-bg/95 backdrop-blur-md border-b border-brand-border z-[2000] py-3">
       <nav className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
-        <a href="/#hero" className="font-main font-bold text-lg text-white hover:opacity-80 transition-opacity">
-          MICHIANA<span className="text-brand-blue">.DEV</span>
+        <a href="/#hero" className="flex items-center gap-2.5 font-main font-bold text-lg text-white hover:opacity-90 transition-opacity group">
+          <div className="w-7 h-7 rounded-lg bg-[#161b22] border border-brand-border flex items-center justify-center p-1 shadow-sm group-hover:border-brand-blue/50 transition-colors">
+            <svg viewBox="0 0 100 100" fill="none" className="w-full h-full" aria-hidden="true">
+              <polygon points="42.5,23 55,23 36.5,77 24,77" fill="#79c0ff" />
+              <polygon points="63.5,23 76,23 57.5,77 45,77" fill="#7ee787" />
+            </svg>
+          </div>
+          <span>MICHIANA<span className="text-brand-blue">.DEV</span></span>
         </a>
 
         {/* Hamburger Menu Toggle */}
