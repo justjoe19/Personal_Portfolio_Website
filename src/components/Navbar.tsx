@@ -10,11 +10,11 @@ const SearchIcon = ({ className = '' }: { className?: string }) => (
 );
 
 const LINKS = [
-  { href: '/work', label: 'Work' },
   { href: '/#services', label: 'Services' },
   { href: '/#rankradius', label: 'RankRadius' },
   { href: '/#pricing', label: 'Pricing' },
   { href: '/#about', label: 'About' },
+  { href: '/work', label: 'Work' },
   { href: '/blog', label: 'Blog' },
 ];
 
