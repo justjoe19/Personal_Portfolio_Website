@@ -1,0 +1,25 @@
+---
+const steps = [
+	{ n: '01', title: 'Free consultation', desc: 'We talk through your business, your customers, and what the site or software needs to do. You leave with a clear scope and quote.' },
+	{ n: '02', title: 'Design', desc: 'I design a visual system and key pages around your brand and how your customers actually decide, and you review before anything is built.' },
+	{ n: '03', title: 'Build', desc: 'Hand-coded, fast, and set up for search from day one. You see progress along the way, not just at the end.' },
+	{ n: '04', title: 'Launch & care', desc: 'I handle the launch, then keep things running on the hosting plan so updates are one email away.' },
+];
+---
+
+<section id="process" class="border-t border-line py-24 sm:py-32">
+	<div class="container-x">
+		<p class="eyebrow">How it works</p>
+		<h2 class="reveal display mt-5 max-w-3xl text-[clamp(2.4rem,5.4vw,4.4rem)]">A clear process, <span class="serif-accent text-gradient">start to finish.</span></h2>
+
+		<ol class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+			{steps.map((s) => (
+				<li class="spotlight bg-paper p-7">
+					<span class="font-mono text-sm text-accent">{s.n}</span>
+					<h3 class="mt-8 text-xl font-semibold">{s.title}</h3>
+					<p class="mt-3 text-[0.95rem] leading-relaxed text-body">{s.desc}</p>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>

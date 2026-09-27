@@ -1,0 +1,41 @@
+---
+export interface FaqItem {
+	q: string;
+	a: string;
+}
+
+interface Props {
+	faqs: FaqItem[];
+	title?: string;
+	id?: string;
+}
+
+const { faqs, title = 'Frequently asked questions', id = 'faq' } = Astro.props;
+---
+
+<section id={id} class="border-t border-line py-24 sm:py-32">
+	<div class="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+		<div>
+			<p class="eyebrow">FAQ</p>
+			<h2 class="display mt-5 text-[clamp(2.3rem,5vw,3.4rem)]">{title}</h2>
+			<p class="mt-5 text-body">
+				Don’t see your question? <a data-email data-email-label href="/#contact" class="link-arrow">Send me an email</a>
+			</p>
+		</div>
+
+		<div class="border-t border-line-strong">
+			{faqs.map((faq) => (
+				<details class="group border-b border-line">
+					<summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[1.08rem] font-semibold text-ink [&::-webkit-details-marker]:hidden hover:text-sky">
+						{faq.q}
+						<span aria-hidden="true" class="relative mt-1.5 h-3.5 w-3.5 shrink-0">
+							<span class="absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 bg-current"></span>
+							<span class="absolute top-0 left-1/2 h-full w-[1.5px] -translate-x-1/2 bg-current transition-transform duration-300 group-open:rotate-90 group-open:opacity-0"></span>
+						</span>
+					</summary>
+					<p class="max-w-2xl pb-7 leading-relaxed text-body">{faq.a}</p>
+				</details>
+			))}
+		</div>
+	</div>
+</section>

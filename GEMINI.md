@@ -18,7 +18,7 @@ Every code change must consider its impact on search visibility and user convers
 - **Metadata:** Maintain the JSON-LD schema in `Layout.astro` for LocalBusiness/ProfessionalService status.
 
 ### Conversion Optimization (CRO)
-- **Primary CTA:** "Schedule a Call" (links to #contact).
+- **Primary CTA:** "Start a project" (links to #contact).
 - **Secondary CTA:** Blog engagement and service exploration.
 - **Lead Capture:** All forms must utilize Netlify Forms for serverless handling.
 
@@ -42,7 +42,7 @@ Every code change must consider its impact on search visibility and user convers
 - **Islands Architecture:** Keep `client:load` to a minimum; prefer `client:visible` or static Astro components for content.
 
 ### Styling Conventions
-- **Theme:** Adhere to the brand palette defined in `src/index.css` (Dark mode/GitHub-inspired aesthetics).
+- **Theme:** Adhere to the brand palette defined in `src/index.css` (dark, product-grade aesthetic: OKLCH tokens, Geist + Geist Mono, Instrument Serif italic accents; utilities like `spotlight`, `glow-border`, `reveal`, `tilt-in` in `index.css`). The site doubles as a showcase of modern web techniques — keep it that way.
 - **Responsive:** Mobile-first is non-negotiable. Test all components at 320px width.
 
 ---
@@ -51,7 +51,7 @@ Every code change must consider its impact on search visibility and user convers
 
 ### Component Strategy
 - **Astro Components:** Use for layout, structural sections, and static content.
-- **React Components:** Use for complex state (Forms, Carousels, interactive Nav).
+- **React Components:** Use for complex state (Forms, interactive Nav, the ⌘K Command Palette, the Review Responder tool).
 - **Props:** Always define interfaces for props in both Astro and React components.
 
 ### Content Management

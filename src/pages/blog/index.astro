@@ -1,70 +1,71 @@
 ---
+import { srcsetFor } from '../../lib/images';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const [lead, ...rest] = posts;
+
+const fmt = (d: Date) => d.toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
-<Layout 
-	title="Blog | Michiana.dev" 
-	description="Insights on web development, local SEO, and technical strategy for business owners in South Bend, Mishawaka, and Elkhart."
+<Layout
+	title="Blog — Websites, Local SEO & Software for Service Businesses | Michiana Dev"
+	description="Practical advice on websites, local SEO, and software for contractors and small businesses in South Bend, Mishawaka, Elkhart, and across Michiana."
 	type="website"
 >
-	<div class="min-h-screen bg-brand-bg text-brand-text relative">
-		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
-		
-		<Navbar client:load />
-		
-		<main class="pt-32 pb-16 max-w-[1200px] mx-auto px-6 relative z-10">
-			<div class="flex items-center gap-3 mb-8">
-				<span class="h-[1px] w-[35px] bg-brand-blue"></span>
-				<h1 class="text-4xl font-bold text-white tracking-tight">The Blog</h1>
-			</div>
-			
-			<p class="text-brand-dim text-lg max-w-2xl mb-16">
-				Sharing technical insights, local SEO strategies, and modernization tips for business owners and developers in Northern Indiana and Southwest Michigan.
+	<Navbar client:load />
+
+	<main class="pt-36 pb-24 sm:pt-44">
+		<div class="container-x">
+			<p class="eyebrow">The blog</p>
+			<h1 class="display mt-5 max-w-4xl text-[clamp(2.8rem,7vw,5.6rem)]"><span class="text-fade">Notes on websites, SEO, and</span> <span class="serif-accent text-gradient">software.</span></h1>
+			<p class="mt-6 max-w-2xl text-lg text-body">
+				Plain-English advice for business owners on building a website and software that actually perform, from a studio in Mishawaka, Indiana.
 			</p>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-				{posts.length > 0 ? (
-					posts.map((post) => (
-						<a href={`/blog/${post.id}/`} class="group block glass-card rounded-2xl overflow-hidden transition-all duration-500 hover:bg-brand-card/60 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(121,192,255,0.15)] border border-white/5">
-							{post.data.heroImage && (
-								<div class="aspect-video overflow-hidden border-b border-brand-border">
-									<img width={720} height={360} src={post.data.heroImage} alt={post.data.heroImageAlt ?? post.data.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-								</div>
-							)}
-							<div class="p-8">
-								<div class="flex items-center gap-3 mb-4">
-									<span class="text-brand-blue text-sm font-bold">
-										{post.data.pubDate.toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-									</span>
-								</div>
-								<h2 class="text-2xl font-bold text-white mb-4 group-hover:text-brand-blue transition-colors">
-									{post.data.title}
-								</h2>
-								<p class="text-brand-dim line-clamp-2">
-									{post.data.description}
-								</p>
+			{lead ? (
+				<>
+					<a href={`/blog/${lead.id}/`} class="group mt-16 grid gap-8 border-t border-line-strong pt-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+						{lead.data.heroImage && (
+							<div class="overflow-hidden rounded-2xl border border-line">
+								<img width={1024} height={512} src={lead.data.heroImage} srcset={srcsetFor(lead.data.heroImage)} sizes="(min-width: 1024px) 640px, 100vw" fetchpriority="high" alt={lead.data.heroImageAlt ?? lead.data.title} class="aspect-[2/1] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
 							</div>
-						</a>
-					))
-				) : (
-					<div class="col-span-full py-20 text-center glass-card rounded-2xl">
-						<p class="text-brand-dim">No posts yet. Check back soon!</p>
-					</div>
-				)}
-			</div>
-		</main>
+						)}
+						<div>
+							<p class="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Latest · {fmt(lead.data.pubDate)}</p>
+							<h2 class="display mt-3 text-[clamp(2rem,3.6vw,2.8rem)] group-hover:text-sky">{lead.data.title}</h2>
+							<p class="mt-4 leading-relaxed text-body">{lead.data.description}</p>
+							<span class="link-arrow mt-6">Read article <span aria-hidden="true">→</span></span>
+						</div>
+					</a>
 
-		<Footer />
-	</div>
+					<ul class="mt-16 grid gap-x-8 gap-y-14 border-t border-line pt-12 md:grid-cols-2 lg:grid-cols-3">
+						{rest.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`} class="group block">
+									{post.data.heroImage && (
+										<div class="overflow-hidden rounded-xl border border-line">
+											<img width={720} height={360} loading="lazy" src={post.data.heroImage} srcset={srcsetFor(post.data.heroImage)} sizes="(min-width: 1024px) 380px, (min-width: 768px) 50vw, 100vw" alt={post.data.heroImageAlt ?? post.data.title} class="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+										</div>
+									)}
+									<p class="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">{fmt(post.data.pubDate)}</p>
+									<h2 class="mt-2 text-xl font-semibold leading-snug text-ink group-hover:text-accent">{post.data.title}</h2>
+									<p class="mt-2 line-clamp-3 text-[0.95rem] leading-relaxed text-body">{post.data.description}</p>
+								</a>
+							</li>
+						))}
+					</ul>
+				</>
+			) : (
+				<p class="mt-16 text-body">No posts yet. Check back soon.</p>
+			)}
+		</div>
+	</main>
+
+	<Footer />
 </Layout>

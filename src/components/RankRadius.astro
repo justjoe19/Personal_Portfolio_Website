@@ -1,0 +1,88 @@
+---
+const steps = [
+	{ n: '1', title: 'Sync completed jobs', desc: 'Jobs and photos flow in from the company’s CRM (via Zapier or Make) or a simple portal upload.' },
+	{ n: '2', title: 'AI writes the local story', desc: 'Short field notes become ~150-word, neighborhood-specific write-ups — the kind of content Google rewards.' },
+	{ n: '3', title: 'Approve and publish', desc: 'One click publishes to a widget on the company’s own website, plus Facebook and Instagram.' },
+];
+
+const features = [
+	{ title: 'Neighborhood snapping', desc: 'Jobs are pinned to the neighborhood, never the street address, so customer privacy stays intact.' },
+	{ title: 'Matched Google reviews', desc: '4- and 5-star reviews are paired with the job they’re about, turning each post into social proof.' },
+	{ title: 'Drop-in website widget', desc: 'Works on WordPress, Squarespace, Wix, Webflow, or a custom site — one embed code.' },
+	{ title: 'Built for the trades', desc: 'Roofing, HVAC, plumbing, restoration, pest control, tree service, and other location-based businesses.' },
+];
+
+const jobs = [
+	{ title: 'Furnace replacement in River Park, Mishawaka', note: '20-year-old unit swapped for a high-efficiency system before the first cold snap.', when: '2 days ago' },
+	{ title: 'Roof repair in Harter Heights, South Bend', note: 'Wind-lifted shingles along the ridge replaced and sealed the same afternoon.', when: '5 days ago' },
+	{ title: 'Water heater install in Granger', note: 'Leaking 40-gallon tank replaced with a 50-gallon unit, code-compliant venting.', when: '1 week ago' },
+];
+---
+
+<section id="rankradius" class="relative overflow-hidden border-y border-line bg-night py-24 text-white/75 sm:py-32">
+	<div aria-hidden="true" class="pointer-events-none absolute inset-0 [background:radial-gradient(50rem_28rem_at_100%_0%,rgba(140,200,255,0.12),transparent_60%),radial-gradient(40rem_24rem_at_0%_100%,rgba(134,227,154,0.08),transparent_60%)]"></div>
+
+	<div class="container-x relative">
+		<div class="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+			<div class="reveal">
+				<p class="eyebrow">Flagship product</p>
+				<h2 class="display mt-5 text-[clamp(2.4rem,5.2vw,4.2rem)]">
+					RankRadius turns everyday jobs into <span class="serif-accent text-gradient">local search visibility.</span>
+				</h2>
+				<p class="mt-6 max-w-xl text-lg leading-relaxed">
+					RankRadius is a local SEO platform for field-service businesses that I designed, built, and operate. It takes the jobs a field-service company already completes and publishes them as neighborhood-level content on the company’s own website — so they show up when people nearby search for their services.
+				</p>
+				<p class="mt-4 max-w-xl leading-relaxed text-white/60">
+					It’s proof of the kind of software I build for clients: a complete SaaS product with accounts, dashboards, AI in the loop, and integrations with the tools businesses already use.
+				</p>
+				<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+					<a href="https://rankradius.io" target="_blank" rel="noopener" class="btn-primary">
+						Visit rankradius.io
+						<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+					</a>
+					<a href="#contact" class="btn-ghost">Build something like this</a>
+				</div>
+			</div>
+
+			<!-- Widget mock -->
+			<div class="reveal glow-border rounded-2xl bg-night-2 p-5 shadow-[0_40px_100px_-30px_oklch(0.74_0.15_270/0.45)] sm:p-6">
+				<div class="flex items-center justify-between">
+					<p class="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-white/50">Website widget · example</p>
+					<span class="flex items-center gap-1.5 font-mono text-[0.65rem] text-leaf"><span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Live</span>
+				</div>
+				<p class="mt-4 text-lg font-semibold text-white">Recent work in your neighborhood</p>
+				<ul class="mt-4 space-y-3">
+					{jobs.map((j) => (
+						<li class="rounded-xl border border-night-line bg-night p-4">
+							<div class="flex items-start justify-between gap-3">
+								<p class="font-semibold leading-snug text-white">{j.title}</p>
+								<span class="shrink-0 font-mono text-[0.65rem] text-white/40">{j.when}</span>
+							</div>
+							<p class="mt-1.5 text-sm leading-relaxed text-white/55">{j.note}</p>
+							<p class="mt-2 text-[0.8rem] text-amber-300" aria-label="5 star matched review">★★★★★ <span class="text-white/40">matched review</span></p>
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+
+		<div class="mt-20 grid gap-10 border-t border-night-line pt-12 lg:grid-cols-3">
+			{steps.map((s) => (
+				<div>
+					<span class="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 font-mono text-sm text-sky">{s.n}</span>
+					<h3 class="mt-5 text-xl font-semibold">{s.title}</h3>
+					<p class="mt-2 leading-relaxed text-white/60">{s.desc}</p>
+				</div>
+			))}
+		</div>
+
+		<dl class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-night-line bg-night-line sm:grid-cols-2 lg:grid-cols-4">
+			{features.map((f) => (
+				<div class="spotlight bg-night-2 p-6">
+					<dt class="font-semibold text-white">{f.title}</dt>
+					<dd class="mt-2 text-sm leading-relaxed text-white/55">{f.desc}</dd>
+				</div>
+			))}
+		</dl>
+	</div>
+</section>

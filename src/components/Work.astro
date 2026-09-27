@@ -1,0 +1,50 @@
+---
+import { srcsetFor } from '../lib/images';
+import { projects } from '../data/projects';
+
+const teaser = projects.filter((p) => p.featured && p.kind === 'Website');
+---
+
+<section id="work" class="relative py-24 sm:py-32">
+	<div class="container-x">
+		<div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+			<div>
+				<p class="eyebrow">Selected work</p>
+				<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">Recent <span class="serif-accent text-gradient">projects.</span></h2>
+			</div>
+			<a href="/work" class="btn-ghost self-start sm:self-auto">
+				View all work
+				<span aria-hidden="true">→</span>
+			</a>
+		</div>
+
+		<div class="mt-14 grid gap-5 lg:grid-cols-2">
+			{teaser.map((p) => (
+				<a href={`/work#${p.slug}`} class="spotlight card reveal group block overflow-hidden p-2.5">
+					<div class="overflow-hidden rounded-xl border border-line">
+						<img
+							src={p.image}
+							srcset={srcsetFor(p.image)}
+							sizes="(min-width: 1024px) 600px, 100vw"
+							alt={`${p.name} — ${p.sector}`}
+							width={p.width}
+							height={p.height}
+							loading="lazy"
+							class="aspect-[16/10] w-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+						/>
+					</div>
+					<div class="flex items-end justify-between gap-6 p-5 sm:p-6">
+						<div>
+							<p class="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted">{p.kind} · {p.sector}</p>
+							<h3 class="mt-2 text-2xl font-semibold tracking-tight">{p.name}</h3>
+							<p class="mt-2 max-w-md text-[0.95rem] leading-relaxed text-body">{p.summary}</p>
+						</div>
+						<span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong text-ink transition-all duration-300 group-hover:bg-ink group-hover:text-paper" aria-hidden="true">
+							<svg class="h-4 w-4 -rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+						</span>
+					</div>
+				</a>
+			))}
+		</div>
+	</div>
+</section>

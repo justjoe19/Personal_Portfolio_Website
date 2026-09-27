@@ -1,65 +1,95 @@
 ---
-title: Why Your WordPress Site is Costing You Customers (and How Web Engineering
-  Fixes It)
+title: Why Your WordPress Site Is Costing You Customers (and How to Fix It)
 pubDate: 2026-05-15T09:30:00.000-04:00
-description: Stop losing business to slow, bloated templates. Discover why
-  Michiana.dev uses modern web engineering and headless architecture to outpace
-  traditional WordPress sites.
+updatedDate: 2026-09-26T09:00:00.000-04:00
+description: Is your WordPress website slow, hard to update, or not bringing in calls? Seven warning signs for Michiana service businesses, what's usually causing them, and how to decide between fixing and rebuilding.
 heroImage: /assets/183028.webp
 heroImageAlt: A frustrated business owner holding his head while looking at a WordPress dashboard showing declining revenue due to slow load times and failed conversions
 ---
-## The "Easy" Choice Often Comes with a Hidden Cost
+A lot of contractors and service businesses around South Bend, Mishawaka, and Elkhart have a WordPress website that was built a few years ago, looked fine at launch, and has slowly become a problem nobody wants to deal with.
 
-If you’ve looked for web design in the **South Bend** or **Mishawaka** area, you’ve likely noticed that many providers offer a standard template-based approach. It is often the "industry standard" because it allows for high-volume turnarounds using pre-made components.
+It still *exists*. But it might be quietly costing you calls every week.
 
-However, for a growing business in 2026, relying on these generic foundations can be a step backward. While a site might look fine on the surface, the underlying technology is frequently slow, difficult to secure, and poorly optimized for modern search algorithms.
+This isn't an anti-WordPress rant. WordPress can be a solid platform when it's well built and well maintained. The trouble is that many small-business WordPress sites are neither. Here are the warning signs, what's usually behind them, and how to decide whether to fix your site or replace it.
 
-At **Michiana Dev**, we shift the focus from simple assembly to **high-performance engineering**. Here is why the traditional template approach may be costing you revenue and how a modern engineering stack changes the game.
+## 7 signs your website is costing you customers
 
----
+1. **It takes more than a few seconds to load on your phone.** Try it on cellular data, not your office Wi-Fi.
+2. **Your phone number isn't tappable**, or it's buried in the footer.
+3. **You're afraid to click "Update."** The last time you did, something broke.
+4. **You're paying for plugins you don't understand**, or you've gotten renewal invoices for things you didn't know you had.
+5. **Your services have changed, but your site hasn't.** Old services, old photos, old hours.
+6. **Customers say "I couldn't find…"** on your site — pricing info, your service area, how to request a quote.
+7. **It doesn't bring in leads.** Your website should be one of your best salespeople. If you can't remember the last call that came from it, something is wrong.
 
-### 1. The "Bloat" Problem
+## What's usually behind the problems
 
-Traditional content management systems are often "monolithic," meaning they are designed to be everything for everyone. To achieve a specific look or function, extra "plugins" are frequently added to the pile.
+### Plugin pile-up
 
-*   **The Problem:** Every plugin adds extra lines of code that a customer's browser must download and execute. It is the digital equivalent of trying to run a marathon while wearing a heavy winter coat.
-*   **The Engineering Fix:** We utilize a **Headless Architecture** (specifically using tools like **Astro** and **React**). This ensures the site only ships the exact code needed for that specific page.
-*   **The Result:** Sub-second load times that feel instantaneous to your customers, regardless of their device.
+WordPress sites grow by adding plugins: one for forms, one for SEO, one for sliders, one for caching, one to fix a conflict between two other plugins. Each one adds code visitors have to download, another thing to update, and another possible security hole.
 
-### 2. The "Security" Risk
+### Heavy themes and page builders
 
-Because certain platforms power a massive portion of the web, they are primary targets for automated hacking bots. Without constant maintenance of core files and every individual plugin, business data remains at risk.
+Many themes and drag-and-drop page builders load large amounts of code on every page, even for features you don't use. It's one of the most common reasons WordPress sites score poorly on Google's [Core Web Vitals](/blog/why-speed-is-the-secret-weapon-for-south-bend-businesses-in-2026/) on mobile.
 
-*   **The Problem:** A single vulnerability in a "contact form" or "gallery" plugin can give an attacker access to your entire database.
-*   **The Engineering Fix:** By "decoupling" the front end from the back end, we remove the traditional database target. Your site becomes a collection of fast, secure, static files that are inherently more resilient against common threats.
+### Deferred maintenance
 
----
+When updates feel risky, they get skipped. Skipped updates are the most common way small-business sites get hacked. (More on that in [website security for South Bend businesses](/blog/the-headless-advantage-why-south-bend-businesses-are-rethinking-website-secur/).)
 
-### 3. The Performance Gap (Astro + React)
+### A design built for looks, not calls
 
-In 2026, performance is a primary ranking factor. Traditional sites often struggle to meet modern performance standards because they are fundamentally too "heavy."
+Many sites were designed to look impressive on a desktop monitor in a meeting. Your customers are on phones, often in a hurry, and they want three things: *Do you do what I need? Do you come to my area? How do I contact you?*
 
-| Feature | Traditional Template Sites | Michiana Dev Engineering |
+## Fix it or rebuild it?
+
+Not every struggling site needs to be replaced. Here's how I'd think about it.
+
+**Fixing is probably enough if:**
+
+- The site is reasonably modern and the design still fits your brand
+- Slowness is mostly from large images or a few unnecessary plugins
+- You have someone reliable to keep it updated
+
+Quick wins include compressing images, removing unused plugins, adding a tap-to-call button, and updating your service pages.
+
+**Rebuilding usually makes more sense if:**
+
+- The theme or page builder itself is the cause of the slowness
+- Updates regularly break things
+- Your services, branding, or market have changed significantly
+- You're spending more each year patching the site than a rebuild would cost
+
+## What a rebuild looks like with Michiana Dev
+
+When I rebuild a site, I start with how your customers actually choose a contractor, then build around it:
+
+- **Fast, custom-coded pages** built with [Astro](https://astro.build) and React. No plugin stack and no bloated theme.
+- **A page for each core service** and the areas you serve, structured for local search
+- **Tap-to-call and short quote forms** everywhere they belong
+- **Existing URLs preserved or redirected**, so you don't lose the rankings you've already earned
+- **Ongoing care** on a [$100/month hosting and maintenance plan](/#hosting) that includes SSL, backups, and an hour of content updates every month. No more "Update" button anxiety.
+
+| | Typical aging WordPress site | Rebuilt custom site |
 | :--- | :--- | :--- |
-| **Speed** | 3–7 Second Load Times | Sub-1 Second Load Times |
-| **Security** | High Maintenance / Vulnerable | Secure by Design |
-| **SEO** | Difficult to Optimize | Built-in Technical Excellence |
-| **Maintenance** | Frequent Manual Updates | Stable and Scalable |
+| **Mobile speed** | Often slow | Fast by design |
+| **Plugins to maintain** | Many | None |
+| **Content updates** | DIY, or wait for a freelancer | Included monthly |
+| **Built for calls** | Sometimes | Always |
+
+## Frequently asked questions
+
+### Will I lose my Google rankings if I leave WordPress?
+
+Not if the move is done carefully. Keeping your URL structure (or setting up proper redirects), carrying over your best content, and resubmitting your sitemap protects the rankings you've built.
+
+### Can you just fix my existing WordPress site?
+
+Sometimes that's the right answer. I'll tell you honestly if a cleanup will get you most of the way there instead of recommending a full rebuild.
+
+### How long does a rebuild take?
+
+Most small-business websites take about 2–4 weeks from kickoff to launch, depending on the number of pages and how quickly content comes together.
 
 ---
 
-## Why "Headless" is the Future of Local Business
-
-Choosing a custom-engineered site over a template is the difference between buying a suit off the rack and having one tailored specifically for you. A tailored site doesn't just look better; it performs better. It loads faster on a mobile device in **Granger**, stays more secure for a professional firm in **South Bend**, and ranks higher for a service provider in **Elkhart**.
-
-When you move away from templates and toward engineering, you aren't just buying a website—you’re investing in a competitive advantage.
-
-> **Ready to move beyond the template?** Let’s discuss how a custom-engineered build can put your business back on the map with sub-second speeds and enterprise-grade security.
-
----
-
-### SEO Strategy Breakdown
-
-*   **The "Wedge" Argument:** This article educates potential clients on *why* they should invest in a custom solution over a cheaper, generic alternative.
-*   **Technical Authority:** By citing **Astro**, **React**, and **Headless Architecture**, you establish yourself as a specialized software engineer.
-*   **Local Intent:** Naturally incorporates **South Bend, Mishawaka, Elkhart,** and **Granger** to maintain a strong local search footprint in the **Michiana** region.
+If your website feels like more of a liability than an asset, let's talk it through. [Start with a free consultation](/#contact) — whether the answer is a cleanup or a fresh build.

@@ -1,5 +1,11 @@
 ---
+import '@fontsource-variable/geist/wght.css';
+import '@fontsource-variable/geist-mono/wght.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
 import '../index.css';
+import geistLatin from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
+import serifItalicLatin from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
+import CommandPalette from '../components/CommandPalette';
 
 interface Props {
 	title: string;
@@ -7,14 +13,16 @@ interface Props {
 	image?: string;
 	type?: 'website' | 'article';
 	isHome?: boolean;
+	noindex?: boolean;
 }
 
 const { 
 	title, 
-	description = "Custom software engineering, SaaS development, and high-performance web solutions for businesses in Northern Indiana and nationwide.",
-	image = "/assets/hero.webp",
+	description = "Michiana Dev LLC is an independent design and engineering studio in Indiana building premium custom websites and software products for ambitious businesses.",
+	image = "/assets/work/jhclaims.webp",
 	type = "website",
-	isHome = false
+	isHome = false,
+	noindex = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -34,29 +42,15 @@ const socialImageURL = new URL(image, Astro.site);
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
 		
-		<!-- Preloads: Only on Homepage for LCP optimization -->
-		{isHome && (
-			<link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high">
-		)}
-		
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link 
-			rel="stylesheet" 
-			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-			media="print" 
-			onload="this.media='all'"
-		>
-		<noscript>
-			<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-		</noscript>
+		<!-- Fonts: self-hosted; preload the two faces used above the fold -->
+		<link rel="preload" href={geistLatin} as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href={serifItalicLatin} as="font" type="font/woff2" crossorigin />
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="Software Engineer Michiana, SaaS Developer Indiana, Custom Software Development South Bend, Full-Stack Developer Mishawaka, React Developer Indiana, Web Application Development Michiana, Local SEO South Bend, High-Performance Web Engineering" />
-		<link rel="canonical" href={canonicalURL} />
-		<meta name="theme-color" content="#0d1117" />
+		<meta name="keywords" content="Web Design Mishawaka, Web Developer South Bend, Custom Website Design Indiana, Premium Web Design, Custom Software Development Indiana, SaaS Development, Web Application Development Michiana, Website Hosting and Maintenance" />
+		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
+		<meta name="theme-color" content="#0b0c12" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content={type} />
@@ -78,35 +72,8 @@ const socialImageURL = new URL(image, Astro.site);
 				{
 					"@context": "https://schema.org",
 					"@type": "WebSite",
-					"name": "Michiana.dev",
-					"url": "https://michiana.dev",
-					"description": "Custom software engineering, SaaS development, and high-performance web solutions for businesses in Northern Indiana and nationwide."
-				}
-			</script>
-		)}
-		{isHome && (
-			<script type="application/ld+json" is:inline>
-				{
-					"@context": "https://schema.org",
-					"@type": "Person",
-					"name": "Joe Hollenbach",
-					"jobTitle": "Software Engineer",
-					"url": "https://michiana.dev",
-					"sameAs": [
-						"https://www.linkedin.com/in/joe-hollenbach",
-						"https://github.com/justjoe19"
-					],
-					"worksFor": {
-						"@type": "Organization",
-						"name": "Michiana Dev LLC",
-						"url": "https://michiana.dev"
-					},
-					"address": {
-						"@type": "PostalAddress",
-						"addressLocality": "Mishawaka",
-						"addressRegion": "IN",
-						"addressCountry": "US"
-					}
+					"name": "Michiana Dev",
+					"url": "https://michiana.dev"
 				}
 			</script>
 		)}
@@ -115,39 +82,55 @@ const socialImageURL = new URL(image, Astro.site);
 				{
 					"@context": "https://schema.org",
 					"@type": "ProfessionalService",
+					"@id": "https://michiana.dev/#business",
 					"name": "Michiana Dev LLC",
-					"alternateName": "Michiana.dev",
 					"legalName": "Michiana Dev LLC",
-					"image": "https://michiana.dev/assets/hero.webp",
-					"@id": "https://michiana.dev",
+					"alternateName": "Michiana.dev",
 					"url": "https://michiana.dev",
+					"logo": "https://michiana.dev/android-chrome-512x512.png",
+					"image": "https://michiana.dev/assets/work/jhclaims.webp",
 					"telephone": "+15742138502",
-					"sameAs": [
-						"https://www.linkedin.com/in/joe-hollenbach",
-						"https://github.com/justjoe19"
-					],
+					"founder": {
+						"@type": "Person",
+						"name": "Joe Hollenbach",
+						"jobTitle": "Software Engineer",
+						"sameAs": ["https://www.linkedin.com/in/joe-hollenbach", "https://github.com/justjoe19"]
+					},
+					"sameAs": ["https://www.linkedin.com/in/joe-hollenbach", "https://github.com/justjoe19"],
 					"address": {
 						"@type": "PostalAddress",
-						"streetAddress": "",
 						"addressLocality": "Mishawaka",
 						"addressRegion": "IN",
 						"postalCode": "46544",
 						"addressCountry": "US"
 					},
-					"geo": {
-						"@type": "GeoCoordinates",
-						"latitude": 41.6611,
-						"longitude": -86.1706
+					"geo": { "@type": "GeoCoordinates", "latitude": 41.6611, "longitude": -86.1706 },
+					"areaServed": ["South Bend, IN", "Mishawaka, IN", "Elkhart, IN", "Granger, IN", "Goshen, IN", "Niles, MI", "United States"],
+					"description": "Independent design and engineering studio building premium custom websites and software products, including RankRadius, a local SEO platform for field-service businesses.",
+					"hasOfferCatalog": {
+						"@type": "OfferCatalog",
+						"name": "Services",
+						"itemListElement": [
+							{
+								"@type": "Offer",
+								"itemOffered": { "@type": "Service", "name": "Website Design & Development", "description": "Custom-designed websites: $500 for the first page (including a contact form), plus $100 for each additional page." },
+								"priceSpecification": { "@type": "PriceSpecification", "minPrice": "500", "priceCurrency": "USD" }
+							},
+							{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Development" } },
+							{
+								"@type": "Offer",
+								"itemOffered": { "@type": "Service", "name": "Website Hosting & Maintenance" },
+								"priceSpecification": { "@type": "UnitPriceSpecification", "price": "100", "priceCurrency": "USD", "unitText": "MONTH" }
+							}
+						]
 					},
-					"servesArea": [
-						"South Bend, IN",
-						"Mishawaka, IN",
-						"Elkhart, IN",
-						"Granger, IN",
-						"Goshen, IN",
-						"Niles, MI"
-					],
-					"description": "Enterprise-grade software engineering, SaaS development, and high-performance local SEO powered by RankRadius.io for Michiana businesses and clients nationwide."
+					"owns": {
+						"@type": "SoftwareApplication",
+						"name": "RankRadius",
+						"url": "https://rankradius.io",
+						"applicationCategory": "BusinessApplication",
+						"operatingSystem": "Web"
+					}
 				}
 			</script>
 		)}
@@ -155,14 +138,34 @@ const socialImageURL = new URL(image, Astro.site);
 	</head>
 	<body>
 		<slot />
+		<CommandPalette client:idle />
 		<!-- Hidden form for Netlify field detection -->
-		<form name="contact" data-netlify="true" hidden>
+		<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
 			<input type="hidden" name="form-name" value="contact" />
+			<input type="text" name="bot-field" />
 			<input type="text" name="name" />
+			<input type="text" name="company" />
+			<input type="text" name="service" />
 			<input type="email" name="email" />
 			<input type="tel" name="phone" />
 			<textarea name="message"></textarea>
 		</form>
+
+		<script>
+			import { hydrateEmailLinks } from '../lib/email';
+			hydrateEmailLinks();
+		</script>
+
+		<script>
+			// Cursor spotlight: any element with the `spotlight` class gets --mx/--my set on hover.
+			document.addEventListener('pointermove', (e) => {
+				const el = (e.target as Element | null)?.closest?.('.spotlight') as HTMLElement | null;
+				if (!el) return;
+				const r = el.getBoundingClientRect();
+				el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+				el.style.setProperty('--my', `${e.clientY - r.top}px`);
+			}, { passive: true });
+		</script>
 
 		<script>
 			// Only fetch the identity widget bundle where it's actually needed:

@@ -1,0 +1,104 @@
+---
+const swatches = [
+	'oklch(0.82 0.10 235)',
+	'oklch(0.78 0.13 255)',
+	'oklch(0.74 0.15 270)',
+	'oklch(0.78 0.15 210)',
+	'oklch(0.82 0.15 175)',
+	'oklch(0.86 0.14 152)',
+];
+---
+
+<section id="craft" class="relative border-t border-line py-24 sm:py-32">
+	<div class="container-x">
+		<div class="reveal grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+			<div>
+				<p class="eyebrow">The craft</p>
+				<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
+					This site is <span class="serif-accent text-gradient">the demo.</span>
+				</h2>
+			</div>
+			<p class="max-w-lg text-lg leading-relaxed text-body lg:justify-self-end">
+				Everything you’re looking at was designed and hand-coded with current web platform features. Here’s what’s running on this page right now.
+			</p>
+		</div>
+
+		<div class="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+			<article class="spotlight card reveal overflow-hidden p-7">
+				<div class="relative h-28 overflow-hidden rounded-xl border border-line [background:radial-gradient(80%_120%_at_20%_0%,oklch(0.55_0.16_270/0.7),transparent_60%),radial-gradient(70%_100%_at_90%_40%,oklch(0.65_0.12_220/0.55),transparent_60%),radial-gradient(60%_90%_at_50%_120%,oklch(0.7_0.13_152/0.45),transparent_60%)]" aria-hidden="true"></div>
+				<h3 class="mt-6 font-semibold">WebGL shader</h3>
+				<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">The aurora behind the hero is a hand-written GPU fragment shader. It reacts to your cursor and pauses when it’s off-screen.</p>
+			</article>
+
+			<article class="spotlight card reveal p-7">
+				<div class="flex h-28 flex-col justify-center gap-3 rounded-xl border border-line bg-night px-5" aria-hidden="true">
+					<div class="h-1.5 overflow-hidden rounded-full bg-white/[0.06]"><div class="craft-progress h-full origin-left rounded-full bg-gradient-to-r from-sky via-accent to-leaf"></div></div>
+					<div class="h-1.5 w-2/3 overflow-hidden rounded-full bg-white/[0.06]"><div class="craft-progress h-full origin-left rounded-full bg-white/40"></div></div>
+				</div>
+				<h3 class="mt-6 font-semibold">Scroll-driven animation</h3>
+				<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">Reveals, the 3D showcase, and these bars run on CSS scroll timelines. No animation library, no scroll listeners.</p>
+			</article>
+
+			<article class="spotlight card reveal p-7">
+				<div class="flex h-28 items-center justify-center rounded-xl border border-line bg-night">
+					<button type="button" data-open-palette class="btn-ghost !py-2.5 !text-sm">
+						Try it: <kbd class="font-mono">⌘K</kbd> / <kbd class="font-mono">Ctrl K</kbd>
+					</button>
+				</div>
+				<h3 class="mt-6 font-semibold">Command palette</h3>
+				<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">The kind of keyboard-first UI you’d find in the best software products — fully accessible, on every page of this site.</p>
+			</article>
+
+			<article class="spotlight card reveal p-7">
+				<div class="glow-border flex h-28 items-center justify-center rounded-xl bg-night" aria-hidden="true">
+					<span class="font-mono text-xs text-muted">@property --border-angle</span>
+				</div>
+				<h3 class="mt-6 font-semibold">Houdini CSS properties</h3>
+				<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">Registered custom properties let CSS animate things it normally can’t, like this rotating gradient border.</p>
+			</article>
+
+			<article class="spotlight card reveal p-7">
+				<div class="flex h-28 overflow-hidden rounded-xl border border-line" aria-hidden="true">
+					{swatches.map((c) => <div class="flex-1" style={`background:${c}`}></div>)}
+				</div>
+				<h3 class="mt-6 font-semibold">OKLCH color</h3>
+				<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">The palette is defined in OKLCH, a perceptually even color space, so gradients stay vivid instead of turning muddy.</p>
+			</article>
+
+			<article class="spotlight card reveal p-7">
+				<div class="flex h-28 items-center justify-center gap-3 rounded-xl border border-line bg-night font-mono text-xs" aria-hidden="true">
+					<span class="rounded-md border border-line px-2.5 py-1.5 text-muted">/</span>
+					<span class="text-gradient text-base">→</span>
+					<span class="rounded-md border border-line-strong px-2.5 py-1.5 text-ink">/work</span>
+				</div>
+				<h3 class="mt-6 font-semibold">View transitions</h3>
+				<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">Moving between pages cross-fades natively in the browser, like an app, with zero JavaScript. Try opening <a href="/work" class="link-arrow">the work</a>.</p>
+			</article>
+		</div>
+
+		<p class="reveal mt-10 text-center font-mono text-[0.75rem] text-muted">
+			Also: pre-rendered HTML · JavaScript only for interactive islands · hover the cards for the cursor spotlight
+		</p>
+	</div>
+</section>
+
+<style>
+	@supports (animation-timeline: view()) {
+		.craft-progress {
+			animation: grow linear both;
+			animation-timeline: view();
+			animation-range: entry 20% cover 55%;
+		}
+	}
+	@keyframes grow {
+		from { transform: scaleX(0.04); }
+		to { transform: scaleX(1); }
+	}
+</style>
+
+<script>
+	import { OPEN_PALETTE_EVENT } from '../lib/events';
+	document.querySelectorAll('[data-open-palette]').forEach((b) =>
+		b.addEventListener('click', () => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT)))
+	);
+</script>

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import ShaderBackground from '../components/ShaderBackground.astro';
+
+const links = [
+	{ href: '/work', label: 'Selected work', desc: 'Websites, software, and products' },
+	{ href: '/#services', label: 'Services', desc: 'Design, development, and hosting' },
+	{ href: '/blog', label: 'Blog', desc: 'Notes on websites, SEO, and software' },
+];
+---
+
+<Layout title="Page not found | Michiana Dev" description="The page you're looking for doesn't exist." noindex>
+	<Navbar client:load />
+
+	<main class="relative overflow-hidden">
+		<section class="relative flex min-h-[88vh] items-center pt-32 pb-20">
+			<ShaderBackground />
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_55%_at_50%_40%,#000,transparent)]"></div>
+
+			<div class="container-x relative text-center">
+				<p class="eyebrow">Error 404</p>
+				<h1 class="display mx-auto mt-6 text-[clamp(6rem,22vw,15rem)] leading-[0.85]">
+					<span class="text-fade">4</span><span class="serif-accent text-gradient px-1">0</span><span class="text-fade">4</span>
+				</h1>
+				<p class="mx-auto mt-6 max-w-md text-lg leading-relaxed text-body">
+					This page doesn’t exist, or it moved. Let’s get you somewhere useful.
+				</p>
+				<div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+					<a href="/" class="btn-primary">Back to home</a>
+					<a href="/#contact" class="btn-ghost">Start a project</a>
+				</div>
+
+				<ul class="mx-auto mt-16 grid max-w-3xl gap-3 text-left sm:grid-cols-3">
+					{links.map((l) => (
+						<li>
+							<a href={l.href} class="spotlight card group block p-5">
+								<span class="flex items-center justify-between font-medium text-ink">
+									{l.label}
+									<span class="text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+								</span>
+								<span class="mt-1 block text-sm text-muted">{l.desc}</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>

@@ -107,10 +107,10 @@ export default function ReviewResponder() {
   };
 
   return (
-    <div id="tool" className="max-w-[800px] mx-auto px-6 pb-16 scroll-mt-[100px]">
-      <form onSubmit={handleGenerate} className="glass-card rounded-2xl p-6 md:p-8 space-y-6">
+    <div id="tool" className="container-x max-w-[800px] pb-20 scroll-mt-24">
+      <form onSubmit={handleGenerate} className="card p-6 sm:p-8 space-y-6 shadow-[0_30px_60px_-40px_rgba(17,21,28,0.35)]">
         <div>
-          <label htmlFor="review" className="block text-white font-semibold mb-2 text-sm">
+          <label htmlFor="review" className="block mb-2 block text-sm font-semibold text-ink">
             Customer Review
           </label>
           <textarea
@@ -120,13 +120,13 @@ export default function ReviewResponder() {
             required
             rows={5}
             placeholder="Paste the customer's review here..."
-            className="w-full bg-brand-bg border border-brand-border rounded-lg p-4 text-brand-text placeholder:text-brand-dim/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors resize-y"
+            className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-4 focus:ring-accent/10 resize-y"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="businessName" className="block text-white font-semibold mb-2 text-sm">
+            <label htmlFor="businessName" className="block mb-2 block text-sm font-semibold text-ink">
               Business Name
             </label>
             <input
@@ -136,19 +136,19 @@ export default function ReviewResponder() {
               onChange={(e) => setBusinessName(e.target.value)}
               required
               placeholder="e.g. Lakeside Bistro"
-              className="w-full bg-brand-bg border border-brand-border rounded-lg p-3 text-brand-text placeholder:text-brand-dim/60 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
+              className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-4 focus:ring-accent/10"
             />
           </div>
 
           <div>
-            <label htmlFor="businessType" className="block text-white font-semibold mb-2 text-sm">
+            <label htmlFor="businessType" className="block mb-2 block text-sm font-semibold text-ink">
               Business Type
             </label>
             <select
               id="businessType"
               value={businessType}
               onChange={(e) => setBusinessType(e.target.value as BusinessType)}
-              className="w-full bg-brand-bg border border-brand-border rounded-lg p-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
+              className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-4 focus:ring-accent/10"
             >
               {BUSINESS_TYPES.map((type) => (
                 <option key={type} value={type}>{type}</option>
@@ -157,14 +157,14 @@ export default function ReviewResponder() {
           </div>
 
           <div>
-            <label htmlFor="tone" className="block text-white font-semibold mb-2 text-sm">
+            <label htmlFor="tone" className="block mb-2 block text-sm font-semibold text-ink">
               Tone
             </label>
             <select
               id="tone"
               value={tone}
               onChange={(e) => setTone(e.target.value as Tone)}
-              className="w-full bg-brand-bg border border-brand-border rounded-lg p-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
+              className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-4 focus:ring-accent/10"
             >
               {TONES.map((t) => (
                 <option key={t} value={t}>{t}</option>
@@ -173,7 +173,7 @@ export default function ReviewResponder() {
           </div>
 
           <div>
-            <span className="block text-white font-semibold mb-2 text-sm">Star Rating</span>
+            <span className="block mb-2 block text-sm font-semibold text-ink">Star Rating</span>
             <div className="flex gap-1" role="radiogroup" aria-label="Star rating">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
@@ -187,7 +187,7 @@ export default function ReviewResponder() {
                   onMouseLeave={() => setHoverRating(0)}
                   className="text-2xl leading-none p-1 transition-transform hover:scale-110"
                 >
-                  <span className={(hoverRating || rating) >= star ? 'text-brand-blue' : 'text-brand-border'}>★</span>
+                  <span className={(hoverRating || rating) >= star ? 'text-amber-300' : 'text-white/15'}>★</span>
                 </button>
               ))}
             </div>
@@ -197,39 +197,39 @@ export default function ReviewResponder() {
         <button
           type="submit"
           disabled={loading || limitReached || !review.trim() || !businessName.trim()}
-          className="w-full md:w-auto group relative flex items-center justify-center bg-brand-blue text-brand-bg py-3 px-8 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none"
+          className="btn-primary w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-ink"
         >
           {loading ? 'Generating…' : 'Generate Response'}
         </button>
 
-        <p className="text-brand-dim text-xs font-mono">
+        <p className="text-muted text-xs font-mono">
           {usedToday} of {DAILY_LIMIT} free responses used today
         </p>
       </form>
 
       {error && (
-        <div className="mt-6 glass-card rounded-xl p-6 border border-red-500/30 bg-red-500/5">
+        <div className="mt-6 rounded-xl border border-red-400/30 bg-red-500/10 p-5">
           <p className="text-red-300 font-medium">{error}</p>
         </div>
       )}
 
       {result && (
-        <div className="mt-6 glass-card rounded-xl p-6 md:p-8">
+        <div className="card mt-6 p-6 sm:p-8">
           <div className="flex justify-between items-start gap-4 mb-4">
-            <span className="text-brand-blue font-mono text-xs tracking-widest uppercase opacity-70">Generated Response</span>
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Generated Response</span>
             <button
               type="button"
               onClick={handleCopy}
-              className="flex-shrink-0 text-xs font-semibold py-1.5 px-3 rounded border border-brand-blue/40 text-brand-blue hover:bg-brand-blue hover:text-brand-bg transition-all duration-200"
+              className="shrink-0 rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
             >
               {copied ? 'Copied!' : 'Copy to Clipboard'}
             </button>
           </div>
-          <p className="text-brand-text leading-relaxed whitespace-pre-wrap">{result}</p>
+          <p className="text-ink leading-relaxed whitespace-pre-wrap">{result}</p>
         </div>
       )}
 
-      <p className="mt-10 text-center text-brand-dim/80 text-xs font-mono">Powered by Gemini AI</p>
+      <p className="mt-8 text-center text-muted text-xs font-mono">Powered by Gemini AI</p>
     </div>
   );
 }
