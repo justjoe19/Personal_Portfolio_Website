@@ -19,7 +19,7 @@ interface Props {
 const { 
 	title, 
 	description = "Michiana Dev LLC is an independent design and engineering studio in Indiana building premium custom websites and software products for ambitious businesses.",
-	image = "/assets/work/jhclaims.webp",
+	image = "/og-image.jpg",
 	type = "website",
 	isHome = false,
 	noindex = false
@@ -58,13 +58,16 @@ const socialImageURL = new URL(image, Astro.site);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageURL} />
+		{image === "/og-image.jpg" && <meta property="og:image:width" content="1200" />}
+		{image === "/og-image.jpg" && <meta property="og:image:height" content="630" />}
+		<meta property="og:site_name" content="Michiana Dev" />
 
 		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={canonicalURL} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={socialImageURL} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageURL} />
 
 		<!-- Structured Data (JSON-LD): Only on Homepage -->
 		{isHome && (
@@ -88,7 +91,7 @@ const socialImageURL = new URL(image, Astro.site);
 					"alternateName": "Michiana.dev",
 					"url": "https://michiana.dev",
 					"logo": "https://michiana.dev/android-chrome-512x512.png",
-					"image": "https://michiana.dev/assets/work/jhclaims.webp",
+					"image": "https://michiana.dev/og-image.jpg",
 					"telephone": "+15742138502",
 					"founder": {
 						"@type": "Person",
@@ -105,7 +108,7 @@ const socialImageURL = new URL(image, Astro.site);
 						"addressCountry": "US"
 					},
 					"geo": { "@type": "GeoCoordinates", "latitude": 41.6611, "longitude": -86.1706 },
-					"areaServed": ["South Bend, IN", "Mishawaka, IN", "Elkhart, IN", "Granger, IN", "Goshen, IN", "Niles, MI", "United States"],
+					"areaServed": ["South Bend, IN", "Mishawaka, IN", "Elkhart, IN", "Granger, IN", "Goshen, IN", "Niles, MI", "Edwardsburg, MI", "Dowagiac, MI", "United States"],
 					"description": "Independent design and engineering studio building premium custom websites and software products, including RankRadius, a local SEO platform for field-service businesses.",
 					"hasOfferCatalog": {
 						"@type": "OfferCatalog",

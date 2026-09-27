@@ -16,6 +16,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "SEO Title (under 55 characters)", name: "seoTitle", widget: "string", required: false }
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
       - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
       - { label: "Description", name: "description", widget: "text" }

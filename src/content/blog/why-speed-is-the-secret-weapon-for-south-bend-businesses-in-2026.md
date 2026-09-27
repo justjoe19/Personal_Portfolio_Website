@@ -1,8 +1,9 @@
 ---
 title: Why Website Speed Is the Secret Weapon for South Bend Service Businesses
+seoTitle: "Why Website Speed Matters for South Bend Businesses"
 pubDate: 2026-04-26T04:19:00.000-04:00
 updatedDate: 2026-09-26T09:00:00.000-04:00
-description: A slow website costs you calls before a customer ever reads a word. Why speed matters for local service businesses in South Bend and Michiana, how to test yours, and what actually makes a site fast.
+description: "A slow website costs you calls. Why speed matters for South Bend service businesses, how to test your site for free, and what actually makes it fast."
 heroImage: /assets/gemini_generated_image_2xp3hk2xp3hk2xp3-2.webp
 heroImageAlt: A laptop displaying a perfect 100 Google Lighthouse Performance score next to a "Core Web Vitals Optimized" graphic with an upward growth arrow
 ---

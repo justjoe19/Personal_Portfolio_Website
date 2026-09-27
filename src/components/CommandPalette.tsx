@@ -106,7 +106,10 @@ export default function CommandPalette() {
   };
 
   const onInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'ArrowDown') {
+    if (e.key === 'Tab') {
+      // Focus trap: results are navigated with the arrow keys, so Tab never leaves the dialog.
+      e.preventDefault();
+    } else if (e.key === 'ArrowDown') {
       e.preventDefault();
       setActive((a) => Math.min(a + 1, filtered.length - 1));
     } else if (e.key === 'ArrowUp') {

@@ -1,8 +1,9 @@
 ---
 title: The 3 Biggest Local SEO Mistakes Michiana Small Businesses Make
+seoTitle: "3 Local SEO Mistakes Michiana Businesses Make"
 pubDate: 2026-05-13T18:18:00.000-04:00
 updatedDate: 2026-09-26T09:00:00.000-04:00
-description: Not showing up when people nearby search for your services? Here are the three local SEO mistakes I see most often from South Bend, Mishawaka, and Elkhart businesses — and how to fix each one.
+description: "Not showing up in local search? The three local SEO mistakes I see most from South Bend, Mishawaka, and Elkhart businesses, and how to fix each one."
 heroImage: /assets/blg.webp
 heroImageAlt: A laptop displaying a blog post titled "The 3 Biggest SEO Mistakes Michiana Small Businesses Make in 2026" alongside a perfect 100 Core Web Vitals score
 ---
