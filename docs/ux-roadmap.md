@@ -28,3 +28,21 @@ Recommendations from the September 2026 redesign review, ranked by expected impa
 
 - [ ] **Blog content aligned with the new positioning:** e.g. how a custom build works, a RankRadius behind-the-scenes. Existing posts stay aimed at local SEO traffic.
 - [ ] **Individual case study pages** (`/work/<slug>`) once each project has enough detail — better for SEO and for sharing with prospects.
+
+## Site audit — Sept 26 2026
+
+Fixed:
+- [x] Search titles/descriptions trimmed to fit results (blog posts gained an optional `seoTitle` field, also in the CMS).
+- [x] Branded 1200×630 social share image (`public/og-image.jpg`) for non-blog pages.
+- [x] Twitter/X card tags use `name=`; `og:site_name` added; web manifest colors updated.
+- [x] Escape closes the mobile menu; Tab no longer escapes the open ⌘K search.
+- [x] Security headers (nosniff, frame, referrer, permissions) and 1-year caching for fingerprinted `/_astro/` assets in `netlify.toml`.
+- [x] Removed unused `logo-black.svg`, `logo-full.svg`, `logo-mark.svg`.
+
+Suggestions:
+- [ ] **Live RankRadius proof:** TriStorm's site already runs the RankRadius widget ("See work near you"). Link to it from the RankRadius section as a live example, or capture a real widget screenshot to replace the example mock.
+- [x] **Blog call-to-action wording:** now matches the contact section ("The consultation is free.").
+- [ ] **"Now taking new projects" badge:** keep it accurate; remove or reword when booked up.
+- [ ] **Related posts + RSS feed** at the end of each blog post (`@astrojs/rss`).
+- [ ] **Content-Security-Policy:** start with a report-only policy; a strict one needs care around inline scripts, Netlify RUM, and the CMS.
+- [ ] **CMS login:** `/admin` uses Netlify Identity + Git Gateway, which Netlify has deprecated — plan a move (e.g. Decap's GitHub backend) before it stops working.

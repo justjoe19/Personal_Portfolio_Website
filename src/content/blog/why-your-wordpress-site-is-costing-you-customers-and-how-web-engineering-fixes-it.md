@@ -1,8 +1,9 @@
 ---
 title: Why Your WordPress Site Is Costing You Customers (and How to Fix It)
+seoTitle: "Is Your WordPress Site Costing You Customers?"
 pubDate: 2026-05-15T09:30:00.000-04:00
 updatedDate: 2026-09-26T09:00:00.000-04:00
-description: Is your WordPress website slow, hard to update, or not bringing in calls? Seven warning signs for Michiana service businesses, what's usually causing them, and how to decide between fixing and rebuilding.
+description: "Is your WordPress site slow or not bringing in calls? Seven warning signs, what usually causes them, and how to decide between fixing and rebuilding."
 heroImage: /assets/183028.webp
 heroImageAlt: A frustrated business owner holding his head while looking at a WordPress dashboard showing declining revenue due to slow load times and failed conversions
 ---

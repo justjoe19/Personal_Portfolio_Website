@@ -1,8 +1,9 @@
 ---
 title: "The Hidden Architecture of Ranking: A Technical SEO Checklist for Michiana Businesses"
+seoTitle: "Technical SEO Checklist for Michiana Businesses"
 pubDate: 2026-05-05T00:01:00.000-04:00
 updatedDate: 2026-09-26T09:00:00.000-04:00
-description: A practical technical SEO checklist for local business websites — crawling, page structure, schema markup, speed, and mobile usability — explained in plain English for Michiana business owners.
+description: "A practical technical SEO checklist for local business websites: crawling, page structure, schema, speed, and mobile, explained in plain English."
 heroImage: /assets/img_1349.webp
 heroImageAlt: "A laptop showing a draft blog post titled \"The Hidden Architecture of Ranking: Why Technical SEO is the New Standard in Michiana\""
 ---

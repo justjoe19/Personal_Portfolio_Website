@@ -34,7 +34,7 @@ const articleSchema = JSON.stringify({
 	"@type": "BlogPosting",
 	"headline": post.data.title,
 	"description": post.data.description,
-	"image": post.data.heroImage ? new URL(post.data.heroImage, Astro.site) : new URL("/assets/work/jhclaims.webp", Astro.site),
+	"image": post.data.heroImage ? new URL(post.data.heroImage, Astro.site) : new URL("/og-image.jpg", Astro.site),
 	"datePublished": post.data.pubDate.toISOString(),
 	"dateModified": (post.data.updatedDate ?? post.data.pubDate).toISOString(),
 	"publisher": { "@type": "Organization", "name": "Michiana Dev LLC", "url": "https://michiana.dev" },
@@ -45,13 +45,17 @@ const articleSchema = JSON.stringify({
 	}
 });
 
+// Append the brand only when the result still fits in a search result (~60 chars).
+const baseTitle = post.data.seoTitle ?? post.data.title;
+const pageTitle = `${baseTitle} | Michiana Dev`.length <= 60 ? `${baseTitle} | Michiana Dev` : baseTitle;
+
 const fmt = (d: Date) => d.toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' });
 const words = (post.body ?? '').split(/\s+/).length;
 const minutes = Math.max(1, Math.round(words / 230));
 ---
 
 <Layout
-	title={`${post.data.title} | Michiana Dev`}
+	title={pageTitle}
 	description={post.data.description}
 	image={post.data.heroImage}
 	type="article"

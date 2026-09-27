@@ -1,8 +1,9 @@
 ---
 title: "Custom Website vs. WordPress: What South Bend Businesses Should Know Before Building"
+seoTitle: "Custom Website vs. WordPress for South Bend Businesses"
 pubDate: 2026-04-21T23:18:00.000-04:00
 updatedDate: 2026-09-26T09:00:00.000-04:00
-description: Choosing between WordPress, a site builder, and a custom-built website? An honest comparison of cost, speed, security, and upkeep for South Bend and Mishawaka small businesses.
+description: "WordPress, a site builder, or a custom website? An honest comparison of cost, speed, security, and upkeep for South Bend and Mishawaka businesses."
 heroImage: /assets/gemini_generated_image_y0k4r3y0k4r3y0k4.webp
 heroImageAlt: A laptop on an office desk showing React code next to a live website preview reading "Premium Web Experiences," beside a Michiana.dev custom React solutions desk sign
 ---

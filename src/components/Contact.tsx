@@ -43,7 +43,7 @@ export default function Contact() {
             Let’s build <span className="serif-accent text-gradient">something great.</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-body">
-            Tell me about your business and what you want to build. I’ll come back with a clear scope, timeline, and quote. Websites start at $500, and the first conversation is free.
+            Tell me about your business and what you want to build. I’ll come back with a clear scope, timeline, and quote. Websites start at $500, and the consultation is free.
           </p>
 
           <dl className="mt-10 space-y-5">
