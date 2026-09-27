@@ -45,4 +45,4 @@ Suggestions:
 - [ ] **"Now taking new projects" badge:** keep it accurate; remove or reword when booked up.
 - [ ] **Related posts + RSS feed** at the end of each blog post (`@astrojs/rss`).
 - [ ] **Content-Security-Policy:** start with a report-only policy; a strict one needs care around inline scripts, Netlify RUM, and the CMS.
-- [ ] **CMS login:** `/admin` uses Netlify Identity + Git Gateway, which Netlify has deprecated — plan a move (e.g. Decap's GitHub backend) before it stops working.
+- [ ] **CMS login:** `/admin` uses Netlify Identity (still supported — Netlify reversed its deprecation on Feb 19, 2026) with Git Gateway, which *is* deprecated: it keeps working for existing sites and gets major security fixes, but no bug fixes and no sunset date yet. Low urgency; if it ever misbehaves, switch Decap to its GitHub backend. Sources: https://docs.netlify.com/manage/security/secure-access-to-sites/git-gateway/ and https://www.netlify.com/blog/auth0-extension-identity-changes/
