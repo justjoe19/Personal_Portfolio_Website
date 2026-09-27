@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import ReviewResponderTool from '../components/ReviewResponder';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
 
 const breadcrumbSchema = JSON.stringify({
 	"@context": "https://schema.org",
@@ -73,110 +74,76 @@ const benefits = [
 ---
 
 <Layout
-	title="AI Review Responder — Free Tool for Local Businesses | Michiana.dev"
-	description="Turn any customer review into a polished, on-brand reply in seconds. A free AI-powered review response generator for restaurants, salons, contractors, retail, and medical practices."
+	title="AI Review Responder — Free Tool for Local Businesses | Michiana Dev"
+	description="Turn any customer review into a polished, on-brand reply in seconds. A free AI-powered review response generator for contractors, restaurants, salons, retail, and medical practices."
 	type="website"
 >
 	<script type="application/ld+json" is:inline set:html={breadcrumbSchema} />
 	<script type="application/ld+json" is:inline set:html={appSchema} />
 	<script type="application/ld+json" is:inline set:html={faqSchema} />
 
-	<div class="min-h-screen bg-brand-bg text-brand-text relative">
-		<div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
+	<Navbar client:load />
 
-		<Navbar client:load />
+	<main class="pt-36 sm:pt-44">
+		<div class="container-x max-w-[800px]">
+			<nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-muted">
+				<a href="/" class="hover:text-ink">Home</a>
+				<span aria-hidden="true">/</span>
+				<span class="text-ink">AI Review Responder</span>
+			</nav>
+			<p class="eyebrow mt-10">Free tool · Live demo</p>
+			<h1 class="display mt-5 text-[clamp(2.6rem,6vw,4.4rem)]">AI Review Responder</h1>
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-body">
+				Paste a customer review, pick a tone, and get a polished, ready-to-post reply in seconds. Free to use — and a working example of the AI features I build into client software.
+			</p>
+		</div>
 
-		<main class="pt-32 pb-16 relative z-10">
-			<div class="max-w-[800px] mx-auto px-6">
-				<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm mb-10 flex-wrap">
-					<a href="/" class="text-brand-dim hover:text-brand-blue transition-colors duration-200 no-underline">Home</a>
-					<span class="text-brand-dim/40">/</span>
-					<span class="text-brand-blue font-medium">AI Review Responder</span>
-				</nav>
-
-				<div class="flex items-center gap-3 mb-4">
-					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
-					<span class="text-brand-blue font-mono text-sm tracking-widest uppercase">Live Demo</span>
-				</div>
-				<h1 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">AI Review Responder</h1>
-				<p class="text-brand-dim text-lg mb-12 max-w-xl font-medium">
-					Paste a customer review, pick a tone, and get a polished, ready-to-post reply in seconds — free, and built to show exactly how AI can be put to work inside a real business tool.
-				</p>
-			</div>
-
+		<div class="mt-12">
 			<ReviewResponderTool client:load />
+		</div>
 
-			<section id="how-it-works" class="max-w-[1000px] mx-auto px-6 py-16 border-t border-brand-border/50">
-				<div class="flex items-center gap-3 mb-12">
-					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
-					<h2 class="text-2xl font-bold text-white tracking-tight">How It Works</h2>
-				</div>
-				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-					{steps.map(step => (
-						<div class="glass-card rounded-xl p-6">
-							<span class="text-brand-blue font-mono text-sm font-bold opacity-80">{step.n}</span>
-							<h3 class="text-white font-bold mt-2 mb-2">{step.title}</h3>
-							<p class="text-brand-dim text-sm leading-relaxed">{step.desc}</p>
+		<section id="how-it-works" class="border-t border-line py-20">
+			<div class="container-x">
+				<p class="eyebrow">How it works</p>
+				<ol class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+					{steps.map((step) => (
+						<li class="bg-paper p-7">
+							<span class="font-mono text-sm text-accent">{step.n}</span>
+							<h2 class="mt-6 text-lg font-semibold">{step.title}</h2>
+							<p class="mt-2 text-[0.95rem] leading-relaxed text-body">{step.desc}</p>
+						</li>
+					))}
+				</ol>
+			</div>
+		</section>
+
+		<section id="why-it-matters" class="border-t border-line py-20">
+			<div class="container-x">
+				<p class="eyebrow">Why it matters</p>
+				<h2 class="display mt-5 max-w-2xl text-[clamp(2.2rem,4.5vw,3.2rem)]">Why responding to reviews matters.</h2>
+				<div class="mt-12 grid gap-10 md:grid-cols-2">
+					{benefits.map((b) => (
+						<div class="border-t border-line pt-6">
+							<h3 class="text-lg font-semibold">{b.title}</h3>
+							<p class="mt-2 leading-relaxed text-body">{b.desc}</p>
 						</div>
 					))}
 				</div>
-			</section>
+			</div>
+		</section>
 
-			<section id="why-it-matters" class="max-w-[1000px] mx-auto px-6 py-16 border-t border-brand-border/50">
-				<div class="flex items-center gap-3 mb-12">
-					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
-					<h2 class="text-2xl font-bold text-white tracking-tight">Why Responding to Reviews Matters</h2>
-				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					{benefits.map(b => (
-						<div class="flex gap-4">
-							<div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-brand-blue mt-2.5"></div>
-							<div>
-								<h3 class="text-white font-bold mb-1">{b.title}</h3>
-								<p class="text-brand-dim text-sm font-medium leading-relaxed">{b.desc}</p>
-							</div>
-						</div>
-					))}
-				</div>
-			</section>
+		<Faq faqs={faqs} id="review-tool-faq" title="Questions about the tool" />
 
-			<section id="review-tool-faq" class="max-w-[800px] mx-auto px-6 py-16 border-t border-brand-border/50">
-				<div class="flex items-center gap-3 mb-10">
-					<span class="h-[1px] w-[35px] bg-brand-blue"></span>
-					<h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
-				</div>
-				<div class="space-y-3">
-					{faqs.map(faq => (
-						<details class="group glass-card rounded-xl overflow-hidden">
-							<summary class="flex justify-between items-center p-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-white font-semibold hover:text-brand-blue transition-colors duration-200">
-								{faq.q}
-								<svg class="w-5 h-5 text-brand-blue flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="m6 9 6 6 6-6"/>
-								</svg>
-							</summary>
-							<div class="px-6 pb-6 pt-4 text-brand-dim leading-relaxed border-t border-white/5">
-								{faq.a}
-							</div>
-						</details>
-					))}
-				</div>
-			</section>
-
-			<section class="max-w-[800px] mx-auto px-6 py-16 border-t border-brand-border/50 text-center">
-				<h2 class="text-2xl font-bold text-white mb-4 tracking-tight">Want This Built Into Your Business?</h2>
-				<p class="text-brand-dim text-lg mb-8 max-w-xl mx-auto">
-					This tool is a small example of the AI and automation work I build into custom software for clients. Let's talk about what it could look like for your business.
+		<section class="border-t border-line py-20">
+			<div class="container-x max-w-[800px] text-center">
+				<h2 class="display text-[clamp(2.2rem,4.5vw,3.2rem)]">Want AI built into your business?</h2>
+				<p class="mx-auto mt-5 max-w-xl text-lg text-body">
+					This tool is a small example of the AI and automation work I build into custom software. Let’s talk about what it could look like for your business.
 				</p>
-				<a
-					href="/#contact"
-					class="group relative inline-flex items-center justify-center bg-brand-blue text-brand-bg py-4 px-8 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
-				>
-					<span class="relative z-10">Schedule a Call</span>
-					<div class="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
-				</a>
-			</section>
-		</main>
+				<a href="/#contact" class="btn-primary mt-8">Start a project</a>
+			</div>
+		</section>
+	</main>
 
-		<Footer />
-	</div>
+	<Footer />
 </Layout>

@@ -1,63 +1,275 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #0d1117;
-  --color-brand-card: #161b22;
-  --color-brand-blue: #79c0ff;
-  --color-brand-green: #7ee787;
-  --color-brand-text: #e6edf3;
-  --color-brand-dim: #adbac7;
-  --color-brand-border: #30363d;
+  /* Dark, product-grade palette in OKLCH. Token names are semantic:
+     paper = page background, ink = strongest text, body = paragraph text. */
+  --color-paper: oklch(0.13 0.012 275);
+  --color-surface: oklch(0.17 0.014 275);
+  --color-sand: oklch(0.21 0.016 275);
+  --color-ink: oklch(0.985 0.003 275);
+  --color-body: oklch(0.80 0.012 275);
+  --color-muted: oklch(0.63 0.018 275);
+  --color-line: oklch(1 0 0 / 0.08);
+  --color-line-strong: oklch(1 0 0 / 0.16);
+  --color-accent: oklch(0.74 0.15 270);
+  --color-accent-deep: oklch(0.64 0.18 275);
+  --color-accent-soft: oklch(0.74 0.15 270 / 0.14);
+  --color-sky: oklch(0.82 0.10 235);
+  --color-leaf: oklch(0.86 0.14 152);
+  --color-mint: oklch(0.86 0.14 152);
+  --color-night: oklch(0.105 0.01 275);
+  --color-night-2: oklch(0.15 0.012 275);
+  --color-night-line: oklch(1 0 0 / 0.07);
 
-  --font-main: "DM Sans", "system-ui", "-apple-system", "sans-serif";
-  --font-mono: "JetBrains Mono", "Fira Code", "monospace";
+  --font-display: "Geist Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Geist Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-spin-border: spin-border 6s linear infinite;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes spin-border {
+  to { --border-angle: 360deg; }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes flatten {
+  from { transform: perspective(1400px) rotateX(24deg) scale(0.92); }
+  to { transform: perspective(1400px) rotateX(0deg) scale(1); }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Smooth cross-page transitions (View Transitions API, no JS). */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
 }
 
 @layer base {
-  :root {
-    --bg-black: #0d1117;
-    --card-bg: #161b22;
-    --accent-blue: #79c0ff;
-    --accent-green: #7ee787;
-    --text-main: #e6edf3;
-    --text-white: #ffffff;
-    --text-dim: #adbac7;
-    --border: #30363d;
-  }
-
-  * {
-    @apply m-0 p-0 box-border scroll-smooth;
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   html, body {
-    @apply bg-brand-bg text-brand-text font-main leading-relaxed antialiased overflow-x-hidden w-full;
+    @apply bg-paper text-body font-sans antialiased overflow-x-hidden w-full;
   }
 
-  /* Focus states for accessibility */
+  h1, h2, h3, h4 {
+    @apply text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-blue ring-offset-4 ring-offset-brand-bg;
+    @apply outline-2 outline-offset-4 outline-accent rounded-sm;
   }
 
   a {
-    @apply text-brand-blue no-underline transition-colors duration-200;
+    @apply transition-colors duration-200;
   }
 
   section[id] {
-    @apply scroll-mt-[100px];
+    @apply scroll-mt-24;
+  }
+
+  ::selection {
+    background: oklch(0.74 0.15 270 / 0.45);
+    color: white;
+  }
+
+  /* Film grain over everything — a subtle, analog texture. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-@layer utilities {
-  .bg-grid-pattern {
-    background-image: radial-gradient(circle at 1px 1px, rgba(121, 192, 255, 0.05) 1px, transparent 0);
-    background-size: 40px 40px;
-  }
-  
-  .glass-card {
-    @apply bg-brand-card/40 backdrop-blur-xl border border-white/5;
-  }
+@utility container-x {
+  @apply max-w-[1240px] mx-auto px-4 sm:px-6;
+}
 
-  .text-glow {
-    text-shadow: 0 0 20px rgba(121, 192, 255, 0.3);
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.18em] text-muted;
+  &::before {
+    content: "//";
+    @apply font-semibold tracking-normal;
+    background: linear-gradient(90deg, var(--color-sky), var(--color-leaf));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
+}
+
+@utility display {
+  @apply font-display font-semibold text-ink tracking-[-0.045em] leading-[0.98];
+}
+
+/* Serif italic accent word inside a display headline. */
+@utility serif-accent {
+  @apply font-serif font-normal italic tracking-[-0.01em];
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--color-sky) 0%, var(--color-accent) 45%, var(--color-leaf) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-fade {
+  background: linear-gradient(180deg, var(--color-ink) 30%, oklch(0.985 0.003 275 / 0.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.95rem] font-medium transition-all duration-200 active:scale-[0.98];
+}
+
+@utility btn-primary {
+  @apply btn bg-ink text-paper hover:bg-white;
+  box-shadow: 0 0 0 1px oklch(1 0 0 / 0.2), 0 8px 30px -8px oklch(0.74 0.15 270 / 0.6);
+  &:hover {
+    box-shadow: 0 0 0 1px oklch(1 0 0 / 0.3), 0 10px 40px -6px oklch(0.74 0.15 270 / 0.85);
+  }
+}
+
+@utility btn-accent {
+  @apply btn btn-primary;
+}
+
+@utility btn-ghost {
+  @apply btn text-ink bg-white/[0.04] backdrop-blur-md;
+  box-shadow: inset 0 0 0 1px var(--color-line-strong);
+  &:hover {
+    @apply bg-white/[0.08];
+  }
+}
+
+@utility card {
+  @apply bg-surface/70 border border-line rounded-2xl backdrop-blur-xl;
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.06);
+}
+
+/* Cursor-following spotlight. Pair with the data-spotlight script in Layout. */
+@utility spotlight {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), oklch(0.74 0.15 270 / 0.14), transparent 60%);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
+    background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), oklch(0.82 0.10 235 / 0.7), transparent 60%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  }
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Animated conic-gradient border using a registered @property angle. */
+@utility glow-border {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    z-index: -1;
+    background: conic-gradient(from var(--border-angle), transparent 0 60%, var(--color-sky) 75%, var(--color-accent) 85%, var(--color-leaf) 95%, transparent);
+    -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation: var(--animate-spin-border);
+  }
+}
+
+/* Scroll-driven reveal; falls back to always-visible where unsupported. */
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+}
+
+@utility tilt-in {
+  @supports (animation-timeline: view()) {
+    transform-origin: 50% 0%;
+    animation: flatten linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+}
+
+@utility mask-fade-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility link-arrow {
+  @apply inline-flex items-center gap-1.5 font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-accent hover:text-accent;
 }

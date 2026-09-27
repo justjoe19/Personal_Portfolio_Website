@@ -1,120 +1,141 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
+import { getEmail } from '../lib/email';
+
+const SERVICES = ['New website', 'Custom software', 'Hosting & maintenance', 'Not sure yet'] as const;
+
+const inputClass =
+  'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[0.95rem] text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-4 focus:ring-accent/10';
+const labelClass = 'mb-2 block text-sm font-semibold text-ink';
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  // Set after hydration so the address never appears in the server-rendered HTML.
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setEmail(getEmail());
+  }, []);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    setStatus('sending');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
     })
-      .then(() => setSubmitted(true))
-      .catch((error) => alert(error));
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        setStatus('sent');
+        form.reset();
+      })
+      .catch(() => setStatus('error'));
   };
 
   return (
-    <section id="contact" className="py-16 max-w-[1200px] mx-auto px-6">
-      <div className="flex items-center gap-3 mb-16">
-        <span className="h-[1px] w-[35px] bg-brand-blue"></span>
-        <h2 className="text-2xl font-bold text-white">Connect</h2>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-[60px] items-stretch">
-        {/* LEFT SIDE: Socials & Info */}
-        <div className="flex-1">
-          <h3 className="text-[2rem] text-white mb-[15px] font-bold tracking-tight">Start with a free consultation</h3>
-          <p className="text-brand-dim mb-[35px] max-w-[400px]">
-            Whether you need a custom SaaS application, a high-performance website, or a local SEO strategy, let's talk through your project — no commitment required.
-            Fill out the form or call <a href="tel:5742138502" className="text-white font-bold hover:text-brand-blue"><strong>(574) 213-8502</strong></a>.
+    <section id="contact" className="relative border-t border-line py-24 sm:py-32">
+      <div className="container-x grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div>
+          <p className="eyebrow">Contact</p>
+          <h2 className="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">
+            Let’s build <span className="serif-accent text-gradient">something great.</span>
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-body">
+            Tell me about your business and what you want to build. I’ll come back with a clear scope, timeline, and quote. Websites start at $500, and the first conversation is free.
           </p>
 
-          <div className="flex flex-col gap-[25px]">
-            <div className="glass-card p-[27px] rounded-lg h-full transition-all duration-300 hover:border-brand-blue/30 hover:-translate-y-[5px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
-              <label className="block font-main text-[0.75rem] text-brand-blue mb-2 uppercase tracking-[0.2em] font-bold">Free Consultation Includes</label>
-              <p>A focused conversation covering your <strong>project requirements</strong>, recommended tech stack, architecture approach, and a clear scope with realistic <strong>timeline and budget</strong>.</p>
+          <dl className="mt-10 space-y-5">
+            <div>
+              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Email</dt>
+              <dd className="mt-1">
+                <a href={email ? `mailto:${email}` : '#contact'} className="text-xl font-semibold text-ink hover:text-accent">{email || 'Email me'}</a>
+              </dd>
             </div>
-
-            <div className="glass-card p-[27px] rounded-lg h-full transition-all duration-300 hover:border-brand-blue/30 hover:-translate-y-[5px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
-              <label className="block font-main text-[0.75rem] text-brand-blue mb-2 uppercase tracking-[0.2em] font-bold">Specialties</label>
-              <p>Custom <strong>SaaS & web applications</strong>, full-stack React development, site migrations, and <strong>Local SEO</strong> strategies engineered for performance and growth.</p>
+            <div>
+              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Phone</dt>
+              <dd className="mt-1">
+                <a href="tel:+15742138502" className="text-xl font-semibold text-ink hover:text-accent">(574) 213-8502</a>
+              </dd>
             </div>
-
-            <div className="glass-card p-[27px] rounded-lg h-full transition-all duration-300 hover:border-brand-blue/30 hover:-translate-y-[5px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]">
-              <label className="block font-main text-[0.75rem] text-brand-blue mb-2 uppercase tracking-[0.2em] font-bold">Professional links</label>
-              <div className="flex items-center gap-6 mt-2">
-                <a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-main text-[0.9rem] font-semibold text-white hover:text-brand-blue transition-colors group/link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/link:scale-110 transition-transform">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                    <rect width="4" height="12" x="2" y="9" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                  LinkedIn
-                </a>
-                <a href="https://github.com/justjoe19" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-main text-[0.9rem] font-semibold text-white hover:text-brand-blue transition-colors group/link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/link:scale-110 transition-transform">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                    <path d="M9 18c-4.51 2-5-2-7-2" />
-                  </svg>
-                  GitHub
-                </a>
-              </div>
+            <div>
+              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Elsewhere</dt>
+              <dd className="mt-1 flex gap-5">
+                <a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noopener noreferrer" className="link-arrow">LinkedIn</a>
+                <a href="https://github.com/justjoe19" target="_blank" rel="noopener noreferrer" className="link-arrow">GitHub</a>
+              </dd>
             </div>
-          </div>
+          </dl>
         </div>
 
-        {/* RIGHT SIDE: The Form */}
-        <div className="flex-[1.2] glass-card p-[30px] rounded-xl flex flex-col w-full lg:w-auto">
-          {submitted ? (
-            <div className="text-center py-12 px-4 flex flex-col items-center justify-center h-full">
-              <div className="w-[60px] h-[60px] bg-brand-green text-brand-bg rounded-full flex items-center justify-center text-[2rem] font-bold mb-6 shadow-[0_0_20px_rgba(126,231,135,0.3)]">✓</div>
-              <h3 className="text-white mb-4 text-[1.75rem] font-bold tracking-tight">Message sent!</h3>
-              <p className="text-brand-dim mb-[30px] max-w-[300px]">Thank you for reaching out. I'll review your inquiry and get back to you within 24-48 hours.</p>
-              <div className="flex justify-center w-full">
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
-                >
-                  <span className="relative z-10">Send another message</span>
-                  <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
-                </button>
+        <div className="card p-6 sm:p-10 shadow-[0_40px_100px_-40px_oklch(0.74_0.15_270/0.35)]">
+          {status === 'sent' ? (
+            <div className="flex h-full flex-col items-center justify-center py-12 text-center" role="status">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-mint/10 text-mint">
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
               </div>
+              <h3 className="display mt-6 text-4xl">Message sent.</h3>
+              <p className="mt-3 max-w-xs text-body">Thanks for reaching out — I’ll get back to you within 1–2 business days.</p>
+              <button type="button" onClick={() => setStatus('idle')} className="btn-ghost mt-8">Send another message</button>
             </div>
           ) : (
-            <form name="contact" method="POST" onSubmit={handleSubmit} className="flex flex-col h-full">
+            <form name="contact" method="POST" onSubmit={handleSubmit} className="grid gap-5">
               <input type="hidden" name="form-name" value="contact" />
+              {/* Honeypot: hidden from people, filled in by bots; Netlify drops those submissions. */}
+              <p className="hidden" aria-hidden="true">
+                <label>
+                  Don’t fill this out if you’re human: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                </label>
+              </p>
 
-              <div className="mb-[0.8rem]">
-                <label htmlFor="name" className="block font-main text-[0.75rem] text-brand-blue mb-[0.4rem] uppercase tracking-[0.2em] font-bold">Name</label>
-                <input type="text" name="name" id="name" placeholder="Your Name" required className="w-full p-4 bg-brand-bg border border-white/20 text-white rounded-lg text-[0.95rem] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]" />
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className={labelClass}>Name</label>
+                  <input type="text" name="name" id="name" autoComplete="name" required className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="company" className={labelClass}>Business <span className="font-normal text-muted">(optional)</span></label>
+                  <input type="text" name="company" id="company" autoComplete="organization" className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="email" className={labelClass}>Email</label>
+                  <input type="email" name="email" id="email" autoComplete="email" required className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="phone" className={labelClass}>Phone <span className="font-normal text-muted">(optional)</span></label>
+                  <input type="tel" name="phone" id="phone" autoComplete="tel" className={inputClass} />
+                </div>
               </div>
 
-              <div className="mb-[0.8rem]">
-                <label htmlFor="email" className="block font-main text-[0.75rem] text-brand-blue mb-[0.4rem] uppercase tracking-[0.2em] font-bold">Email</label>
-                <input type="email" name="email" id="email" placeholder="Your Email" required className="w-full p-4 bg-brand-bg border border-white/20 text-white rounded-lg text-[0.95rem] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]" />
+              <fieldset>
+                <legend className={labelClass}>What do you need?</legend>
+                <div className="flex flex-wrap gap-2">
+                  {SERVICES.map((s, i) => (
+                    <label key={s} className="cursor-pointer">
+                      <input type="radio" name="service" value={s} defaultChecked={i === 0} className="peer sr-only" />
+                      <span className="inline-block rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-body transition-colors peer-checked:border-transparent peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:ring-4 peer-focus-visible:ring-accent/20 hover:border-line-strong">
+                        {s}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
+              <div>
+                <label htmlFor="message" className={labelClass}>Tell me about the project</label>
+                <textarea name="message" id="message" rows={5} required placeholder="What does your business do, and what would you like the site or software to do?" className={`${inputClass} resize-y`}></textarea>
               </div>
 
-              <div className="mb-[0.8rem]">
-                <label htmlFor="phone" className="block font-main text-[0.75rem] text-brand-blue mb-[0.4rem] uppercase tracking-[0.2em] font-bold">Phone number</label>
-                <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" className="w-full p-4 bg-brand-bg border border-white/20 text-white rounded-lg text-[0.95rem] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]" />
-              </div>
+              {status === 'error' && (
+                <p className="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-300" role="alert">
+                  Something went wrong sending your message. Please try again, or email {email} directly.
+                </p>
+              )}
 
-              <div className="flex flex-col flex-grow mb-8">
-                <label htmlFor="message" className="block font-main text-[0.75rem] text-brand-blue mb-[0.4rem] uppercase tracking-[0.2em] font-bold">Message</label>
-                <textarea name="message" id="message" rows={4} placeholder="Project Details" required className="w-full p-4 bg-brand-bg border border-brand-border text-white rounded-lg text-[0.95rem] flex-grow min-h-[120px] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]"></textarea>
-              </div>
-
-              <div className="flex justify-center w-full">
-                <button
-                  type="submit"
-                  className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
-                >
-                  <span className="relative z-10">Send Message</span>
-                  <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
-                </button>
-              </div>
+              <button type="submit" disabled={status === 'sending'} className="btn-primary w-full disabled:opacity-60">
+                {status === 'sending' ? 'Sending…' : 'Send message'}
+              </button>
             </form>
           )}
         </div>

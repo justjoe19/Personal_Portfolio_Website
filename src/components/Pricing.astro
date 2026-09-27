@@ -1,0 +1,90 @@
+---
+const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
+const plans = [
+	{
+		id: 'website',
+		name: 'Website',
+		tagline: 'Custom design, priced simply by the page.',
+		prefix: '',
+		price: '$500',
+		unit: 'first page',
+		features: ['Custom design, no templates', 'Contact form', '+$100 for each additional page', 'Example: a 5-page site is $900'],
+		note: 'Features like a blog, online booking, or integrations are quoted after a free consultation.',
+		cta: 'Start a website',
+		featured: true,
+	},
+	{
+		id: 'software',
+		name: 'Custom Software',
+		tagline: 'Products and tools built around how your business works.',
+		prefix: '',
+		price: 'Quoted',
+		unit: 'per project',
+		features: ['SaaS products and client portals', 'Internal tools and dashboards', 'CRM and API integrations', 'AI features that save staff time'],
+		note: 'Scoped after a free consultation and delivered in milestones.',
+		cta: 'Discuss a project',
+		featured: false,
+	},
+	{
+		id: 'hosting',
+		name: 'Hosting & Maintenance',
+		tagline: 'Your site kept online, secure, and current.',
+		prefix: '',
+		price: '$100',
+		unit: '/ month',
+		features: ['Secure hosting with SSL certificate', 'Regular backups', '1 hour per month of minor updates', 'Direct support from me — no ticket queue'],
+		note: 'Minor updates: swapping photos, editing text, updating hours or prices. New pages, new features, and redesigns are quoted separately.',
+		cta: 'Ask about hosting',
+		featured: false,
+	},
+];
+---
+
+<section id="pricing" class="relative overflow-hidden border-t border-line py-24 sm:py-32">
+	<div aria-hidden="true" class="pointer-events-none absolute top-1/3 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent/10 blur-[140px]"></div>
+
+	<div class="container-x relative">
+		<div class="reveal mx-auto max-w-2xl text-center">
+			<p class="eyebrow">Pricing</p>
+			<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
+				Simple, <span class="serif-accent text-gradient">upfront</span> pricing.
+			</h2>
+			<p class="mt-6 text-lg leading-relaxed text-body">
+				Start small and grow from there. Every project begins with a free consultation and a clear quote before any work starts.
+			</p>
+		</div>
+
+		<div class="mt-16 grid gap-5 lg:grid-cols-3 lg:items-stretch">
+			{plans.map((p) => (
+				<article id={p.id === 'hosting' ? 'hosting' : undefined} class:list={['reveal flex scroll-mt-28 rounded-3xl', p.featured && 'glow-border']}>
+					<div class:list={['spotlight flex w-full flex-col rounded-3xl p-8', p.featured ? 'bg-surface/95' : 'card']}>
+						<div class="flex items-center justify-between gap-3">
+							<h3 class="text-lg font-semibold tracking-tight">{p.name}</h3>
+							{p.featured && <span class="rounded-full bg-leaf/15 px-2.5 py-1 font-mono text-[0.65rem] font-medium text-leaf">Starter</span>}
+						</div>
+						<p class="mt-2 text-sm leading-relaxed text-muted">{p.tagline}</p>
+
+						<p class="mt-8 flex items-baseline gap-2">
+							{p.prefix && <span class="text-muted">{p.prefix}</span>}
+							<span class="display text-6xl"><span class:list={[p.featured && 'text-gradient']}>{p.price}</span></span>
+							<span class="text-muted">{p.unit}</span>
+						</p>
+
+						<ul class="mt-8 space-y-3 border-t border-line pt-8">
+							{p.features.map((f) => (
+								<li class="flex gap-3 text-[0.95rem] text-ink"><Fragment set:html={check} />{f}</li>
+							))}
+						</ul>
+
+						<p class="mt-6 text-sm leading-relaxed text-muted">{p.note}</p>
+
+						<div class="mt-auto pt-8">
+							<a href="#contact" class:list={['w-full', p.featured ? 'btn-primary' : 'btn-ghost']}>{p.cta}</a>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>

@@ -17,6 +17,8 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Hero Image Alt Text", name: "heroImageAlt", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }

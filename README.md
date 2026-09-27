@@ -26,7 +26,7 @@ Michiana.dev is a high-performance, mobile-first marketing site built to showcas
 - **AI Review Responder:** A free live demo at [`/review-responder`](https://michiana.dev/review-responder) that uses Google Gemini to draft polished, on-brand replies to customer reviews. Backed by a Netlify Function with per-IP daily rate limiting via Netlify Blobs.
 - **Local SEO Optimized:** Structured data (JSON-LD), semantic HTML, automated sitemaps, and descriptive metadata across every page.
 - **Secure Contact Flow:** Netlify Forms for reliable, spam-resistant lead capture.
-- **Responsive, Modern UI:** Custom-built React components (Navbar, Project Carousel, Service Cards, Review Responder) styled with Tailwind CSS v4.
+- **Showcase UI:** Dark, product-grade design with a hand-written WebGL shader hero, CSS scroll-driven animations, cross-document View Transitions, a ⌘K command palette, cursor spotlights, and a `:has()`-powered portfolio filter on `/work`. Static sections are Astro components; React is used only for the Navbar, Contact form, Command Palette, and Review Responder.
 
 ## 📂 Project Structure
 

@@ -1,0 +1,122 @@
+---
+import { srcsetFor } from '../lib/images';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import BlogCTA from '../components/BlogCTA.astro';
+import { projects } from '../data/projects';
+
+const filters = [
+	{ id: 'all', label: 'All' },
+	{ id: 'Website', label: 'Websites' },
+	{ id: 'Software', label: 'Software' },
+	{ id: 'Product', label: 'Products' },
+];
+
+const itemListSchema = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Michiana Dev portfolio',
+	itemListElement: projects.map((p, i) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		name: p.name,
+		url: p.external ? p.href : new URL(p.href, 'https://michiana.dev').toString(),
+	})),
+});
+---
+
+<Layout
+	title="Work — Websites & Software Projects | Michiana Dev"
+	description="Selected websites, software, and products designed and built by Michiana Dev, including RankRadius, JH Claims Solution, TriStorm Restoration, and HSC Portal."
+>
+	<script type="application/ld+json" is:inline set:html={itemListSchema} />
+	<Navbar client:load />
+
+	<main class="pt-36 pb-24 sm:pt-44">
+		<div class="container-x">
+			<p class="eyebrow">Portfolio</p>
+			<h1 class="display mt-6 max-w-4xl text-[clamp(3rem,8vw,6.4rem)]">
+				<span class="text-fade">Selected</span> <span class="serif-accent text-gradient">work.</span>
+			</h1>
+			<p class="mt-7 max-w-2xl text-lg leading-relaxed text-body">
+				Client websites, full-stack software, and products I own and operate. Every project here was designed and hand-built from scratch.
+			</p>
+
+			<div class="work-list mt-14">
+				<fieldset class="flex flex-wrap gap-2 border-b border-line pb-8">
+					<legend class="sr-only">Filter projects</legend>
+					{filters.map((f, i) => (
+						<label class="cursor-pointer">
+							<input type="radio" name="work-filter" id={`f-${f.id}`} value={f.id} checked={i === 0} class="peer sr-only" />
+							<span class="inline-block rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:text-ink peer-checked:border-transparent peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-2 peer-focus-visible:outline-accent">
+								{f.label}
+							</span>
+						</label>
+					))}
+				</fieldset>
+
+				<div class="divide-y divide-line">
+					{projects.map((p, i) => (
+						<article id={p.slug} data-kind={p.kind} class="reveal grid scroll-mt-28 gap-10 py-16 lg:grid-cols-2 lg:gap-16 lg:py-20">
+							<div class:list={['spotlight card self-center overflow-hidden p-2.5', i % 2 === 1 && 'lg:order-2']}>
+								<a href={p.href} {...(p.external ? { target: '_blank', rel: 'noopener' } : {})} class="group block overflow-hidden rounded-xl border border-line" tabindex="-1" aria-hidden="true">
+									<img src={p.image} srcset={srcsetFor(p.image)} sizes="(min-width: 1024px) 580px, 100vw" alt="" width={p.width} height={p.height} loading={i < 2 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} class="aspect-[16/10] w-full object-cover object-top transition-transform duration-[900ms] group-hover:scale-[1.04]" />
+								</a>
+							</div>
+
+							<div class="flex flex-col justify-center">
+								<p class="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted">{p.kind} · {p.sector}</p>
+								<h2 class="display mt-3 text-[clamp(2.2rem,4vw,3.2rem)]">{p.name}</h2>
+								<p class="mt-4 text-lg leading-relaxed text-body">{p.summary}</p>
+
+								<dl class="mt-8 grid gap-6 sm:grid-cols-2">
+									<div>
+										<dt class="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted">The challenge</dt>
+										<dd class="mt-2 text-[0.95rem] leading-relaxed text-body">{p.challenge}</dd>
+									</div>
+									<div>
+										<dt class="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted">What I built</dt>
+										<dd class="mt-2 text-[0.95rem] leading-relaxed text-body">{p.solution}</dd>
+									</div>
+								</dl>
+
+								<ul class="mt-8 space-y-2.5 border-t border-line pt-6">
+									{p.highlights.map((h) => (
+										<li class="flex gap-3 text-[0.95rem] text-ink">
+											<span class="text-gradient font-mono" aria-hidden="true">//</span>{h}
+										</li>
+									))}
+								</ul>
+
+								<div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+									<ul class="flex flex-wrap gap-2" aria-label="Stack">
+										{p.stack.map((s) => <li class="rounded-full border border-line px-3 py-1 font-mono text-[0.7rem] text-muted">{s}</li>)}
+									</ul>
+									<a href={p.href} {...(p.external ? { target: '_blank', rel: 'noopener' } : {})} class="btn-ghost !py-2.5 !text-sm">
+										{p.linkLabel} <span aria-hidden="true">{p.external ? '↗' : '→'}</span>
+									</a>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+
+			<div class="mx-auto max-w-[900px]">
+				<BlogCTA />
+			</div>
+		</div>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	/* Filtering with :has() — no JavaScript. */
+	.work-list:has(#f-Website:checked) article:not([data-kind='Website']),
+	.work-list:has(#f-Software:checked) article:not([data-kind='Software']),
+	.work-list:has(#f-Product:checked) article:not([data-kind='Product']) {
+		display: none;
+	}
+</style>
