@@ -45,6 +45,27 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: 'no-limit-roofing',
+    name: 'No Limit Roofing',
+    kind: 'Website',
+    sector: 'Storm damage & roofing',
+    summary:
+      'A lead-focused site for a locally owned Michiana roofing contractor that specializes in roof repair and replacement.',
+    challenge:
+      'After a hailstorm, homeowners are stressed, comparing contractors, and unsure how an insurance claim works. The site had to earn trust quickly and make booking a free inspection effortless.',
+    solution:
+      'A bold, high-contrast design with a free-inspection request form beside the headline, a plain-language five-step process from inspection to installation, and structured data and service-area coverage across five Indiana and Michigan counties.',
+    highlights: ['Free-inspection form above the fold', 'Insurance-claim process explained step by step', 'Roofing contractor schema and multi-county service area'],
+    stack: ['Astro', 'Schema markup', 'Local SEO'],
+    image: '/assets/work/nolimit.webp',
+    width: 1600,
+    height: 1000,
+    href: 'https://nolimitroofingin.com',
+    linkLabel: 'Visit site',
+    external: true,
+    featured: true,
+  },
+  {
     slug: 'jh-claims',
     name: 'JH Claims Solution',
     kind: 'Website',
@@ -63,7 +84,6 @@ export const projects: Project[] = [
     href: 'https://jhclaim.com',
     linkLabel: 'Visit site',
     external: true,
-    featured: true,
   },
   {
     slug: 'tristorm',
@@ -77,7 +97,7 @@ export const projects: Project[] = [
     solution:
       'A site designed around the fastest possible path from search to phone call, with instant-call and estimate paths front and center and clear reassurance that TriStorm handles the insurance claim.',
     highlights: ['Tap-to-call and estimate paths on every screen', 'Mobile-first performance', 'Local SEO across Michiana'],
-    stack: ['Hand-coded HTML/CSS/JS', 'Netlify', 'GA4 conversion tracking'],
+    stack: ['Hand-coded HTML/CSS/JS', 'Local SEO', 'GA4 conversion tracking'],
     image: '/assets/work/tristorm.webp',
     width: 1600,
     height: 1000,
@@ -117,7 +137,7 @@ export const projects: Project[] = [
     solution:
       'A lightweight tool powered by Google Gemini through a serverless function, with per-IP rate limiting to keep the free tier sustainable.',
     highlights: ['Google Gemini integration', 'Serverless API with rate limiting', 'Tone and rating controls'],
-    stack: ['React', 'Netlify Functions', 'Google Gemini'],
+    stack: ['React', 'Serverless functions', 'Google Gemini'],
     image: '/assets/work/review-responder.webp',
     width: 1600,
     height: 1000,

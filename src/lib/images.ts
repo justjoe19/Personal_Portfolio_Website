@@ -2,6 +2,7 @@
 // (generated with `magick <file> -resize 800x -quality 80 <name>-800.webp`).
 const widths: Record<string, number> = {
   '/assets/work/jhclaims.webp': 1600,
+  '/assets/work/nolimit.webp': 1600,
   '/assets/work/tristorm.webp': 1600,
   '/assets/work/rankradius.webp': 1600,
   '/assets/work/review-responder.webp': 1600,
