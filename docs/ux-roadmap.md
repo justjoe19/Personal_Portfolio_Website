@@ -4,7 +4,7 @@ Recommendations from the September 2026 redesign review, ranked by expected impa
 
 ## Group 1 — No input needed (done)
 
-- [x] **Reorder the homepage so proof comes first:** Hero → Work → Services → RankRadius → Craft → Process → Hosting → About → FAQ → Contact.
+- [x] **Reorder the homepage so proof comes first:** Hero → Who I work with → Work → Results → Testimonials → Services → RankRadius → Process → Hosting → About → FAQ → Contact.
 - [x] **Mobile CTA:** show a compact "Start a project" button in the mobile nav (it was only inside the hamburger menu).
 - [x] **Simplify the nav:** Work · Services · RankRadius · About · Blog, plus the CTA. Hosting stays reachable from Services, the footer, and the ⌘K palette.
 - [x] **Branded 404 page** instead of Netlify's default.
@@ -13,27 +13,27 @@ Recommendations from the September 2026 redesign review, ranked by expected impa
 ## Group 2 — Needs Joe's input
 
 - [ ] **Testimonials:** Joe has 2 Google reviews, both from TriStorm (the owner + the TriStorm business account). Plan: feature only the owner's review as a single quote (after the Work section or on TriStorm's case study) with a "Read on Google" link; skip review schema. Needs: review text, name/title as displayed, Google reviews link. Next: ask JH Claims for a short quote so a two-client testimonial strip is possible.
-- [ ] **Results on case studies:** measurable outcomes per project on `/work` (calls/leads, rankings, load time or Lighthouse scores, time to launch).
+- [ ] **Results on case studies:** measurable outcomes per project on `/portfolio` (calls/leads, rankings, load time or Lighthouse scores, time to launch).
 - [ ] **Book-a-call option:** a Cal.com or Calendly link for a 15-minute call alongside the contact form.
-- [x] **Pricing expectations:** new three-card Pricing section (Website $500 first page + $100/additional page · Custom Software quoted · Hosting $100/mo), "Pricing" in the nav and ⌘K search, plus matching copy in Services, the FAQ, the contact intro, the first blog post, and structured data. To confirm: the line saying blogs, booking, and integrations are quoted separately. Optional: a budget-range field on the contact form.
+- [x] **Pricing expectations:** new three-card Pricing section (superseded: now Website from $2,500 · Website + Local Launch from $3,000 · Custom quoted, plus add-ons), "Pricing" in the nav and ⌘K search, plus matching copy in Services, the FAQ, the contact intro, the first blog post, and structured data. To confirm: the line saying blogs, booking, and integrations are quoted separately. Optional: a budget-range field on the contact form.
 - [ ] **Analytics:** privacy-friendly analytics (Plausible or Netlify Analytics) to measure drop-off and test changes.
 
 ## Group 3 — Before / after launch
 
-- [x] **Lighthouse audit** (local production build, Sept 26 2026). Mobile: home 98, /work 97, blog 95, blog post 97. Desktop: 100. Accessibility, Best Practices, and SEO: 100 on every page (the 404 is deliberately noindexed). Fixes: the WebGL shader now starts after load in idle time and skips software-rendered WebGL; CSS inlined; 800px `srcset` variants for project and blog images. Re-run on the deployed site after launch.
+- [x] **Lighthouse audit** (local production build, Sept 26 2026). Mobile: home 98, /portfolio 97 (was /work), blog 95, blog post 97. Desktop: 100. Accessibility, Best Practices, and SEO: 100 on every page (the 404 is deliberately noindexed). Fixes: the WebGL shader now starts after load in idle time and skips software-rendered WebGL; CSS inlined; 800px `srcset` variants for project and blog images. Re-run on the deployed site after launch.
 - [x] **Self-host fonts** via Fontsource (Geist, Geist Mono, Instrument Serif italic), with preloads for the two above-the-fold faces. Google Fonts removed.
 - [ ] **HSC Portal screenshot:** replace the old image with a fresh 16:10 capture (requires running the app locally).
 
 ## Longer term
 
 - [ ] **Blog content aligned with the new positioning:** e.g. how a custom build works, a RankRadius behind-the-scenes. Existing posts stay aimed at local SEO traffic.
-- [ ] **Individual case study pages** (`/work/<slug>`) once each project has enough detail — better for SEO and for sharing with prospects.
+- [ ] **Individual case study pages** (`/portfolio/<slug>`) once each project has enough detail — better for SEO and for sharing with prospects.
 
 ## Site audit — Sept 26 2026
 
 Fixed:
 - [x] Search titles/descriptions trimmed to fit results (blog posts gained an optional `seoTitle` field, also in the CMS).
-- [x] Branded 1200×630 social share image (`public/og-image.jpg`) for non-blog pages.
+- [x] Branded 1200×630 social share image (`public/og-image-v2.jpg`, regenerated Oct 2026 for the local-studio positioning) for non-blog pages.
 - [x] Twitter/X card tags use `name=`; `og:site_name` added; web manifest colors updated.
 - [x] Escape closes the mobile menu; Tab no longer escapes the open ⌘K search.
 - [x] Security headers (nosniff, frame, referrer, permissions) and 1-year caching for fingerprinted `/_astro/` assets in `netlify.toml`.
@@ -71,3 +71,12 @@ Google/Stripe actions need Joe's signed-in Chrome; Claude can drive them there a
 - [ ] **HSC Portal screenshot:** still the old image; needs the app running locally for a fresh 16:10 capture.
 
 **Image audit (Oct 4):** every file in `public/` and `src/` is referenced and all 6 blog posts are published, so nothing is unused. The `-800.webp` files are built by `srcsetFor()` in `src/lib/images.ts`, so they look unreferenced but are in use.
+
+## Repositioning (Oct 2026)
+
+- [x] Local-studio hero, "Who I work with" row, `/contractors` and `/restaurants` (template: `src/layouts/IndustryLayout.astro`, data: `src/data/industries.ts`).
+- [x] "This site is the demo" section replaced by Results + Testimonials (placeholders until real results/quotes exist in `src/data/projects.ts`).
+- [x] Package pricing (Website, Website + Local Launch, Custom) with add-ons; one-time Google Business Profile setup service.
+- [ ] Add `result` (shows automatically once set) and the missing `testimonial` in `src/data/projects.ts`. Empty slots render nothing. Then regenerate `public/og-image.jpg` if it still carries the old tagline.
+- [x] Services, Process, and full Pricing moved to `/services`; the homepage keeps a short services strip and a compact pricing teaser. FAQ split between the two (`src/data/faqs.ts`).
+- [x] Homepage trimmed: Work, Results and Testimonials merged into `CaseStudies.astro`; About moved up and rewritten for local owners; hero shows one client site instead of the widget and code mocks.

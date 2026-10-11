@@ -4,9 +4,44 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  from = "/work"
+  to = "/portfolio"
+  status = 301
+
+[[redirects]]
+  from = "/work/*"
+  to = "/portfolio/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/blog/first-post"
+  to = "/blog/custom-website-vs-wordpress-south-bend/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/first-post/"
+  to = "/blog/custom-website-vs-wordpress-south-bend/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-headless-advantage-why-south-bend-businesses-are-rethinking-website-secur"
+  to = "/blog/website-security-for-south-bend-businesses/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-headless-advantage-why-south-bend-businesses-are-rethinking-website-secur/"
+  to = "/blog/website-security-for-south-bend-businesses/"
+  status = 301
+
+[[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
   status = 301
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/*"

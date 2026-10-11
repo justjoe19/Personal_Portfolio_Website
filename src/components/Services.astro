@@ -16,20 +16,20 @@ const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 
 		<div class="reveal max-w-3xl">
 			<p class="eyebrow">Services</p>
 			<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
-				Design and engineering, <span class="serif-accent text-gradient">under one roof.</span>
+				Websites, software, and <span class="serif-accent text-gradient">local setup.</span>
 			</h2>
 			<p class="mt-6 max-w-2xl text-lg leading-relaxed text-body">
-				You work directly with the person designing and writing your product, from the first sketch to launch day and beyond. No account managers, no handoffs, no templates.
+				From the first sketch to launch day and beyond, every site is designed and built by one person: me.
 			</p>
 		</div>
 
 		<div class="mt-16 grid gap-4 lg:grid-cols-6">
 			<!-- Websites -->
-			<article class="spotlight card reveal flex flex-col p-8 sm:p-10 lg:col-span-4 lg:row-span-2">
+			<article id="website" class="spotlight card reveal flex scroll-mt-28 flex-col p-8 sm:p-10 lg:col-span-4 lg:row-span-2">
 				<span class="font-mono text-xs text-muted">01</span>
 				<h3 class="display mt-10 text-[clamp(2rem,3.6vw,3rem)]">Website Design &amp; Development</h3>
 				<p class="mt-4 max-w-xl text-[1.05rem] leading-relaxed text-body">
-					Custom, hand-built websites that look premium, load instantly, and turn visitors into customers. Every page is designed for your brand and built from scratch.
+					Custom, hand-built websites that look sharp, load instantly, and turn local searches into phone calls and customers. Every page is designed for your brand and built from scratch.
 				</p>
 				<ul class="mt-8 grid gap-3 text-[0.95rem] text-body sm:grid-cols-2">
 					<li class="flex gap-3"><Fragment set:html={check} />Custom design system and motion</li>
@@ -67,7 +67,7 @@ const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 
 			</article>
 
 			<!-- Software -->
-			<article class="spotlight card reveal flex flex-col p-8 lg:col-span-2">
+			<article id="software" class="spotlight card reveal flex scroll-mt-28 flex-col p-8 lg:col-span-2">
 				<span class="font-mono text-xs text-muted">02</span>
 				<h3 class="mt-8 text-2xl font-semibold tracking-tight">Custom Software &amp; Products</h3>
 				<p class="mt-3 leading-relaxed text-body">
@@ -77,13 +77,64 @@ const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 
 			</article>
 
 			<!-- Hosting -->
-			<article class="spotlight card reveal flex flex-col p-8 lg:col-span-2">
+			<article id="hosting-maintenance" class="spotlight card reveal flex scroll-mt-28 flex-col p-8 lg:col-span-2">
 				<span class="font-mono text-xs text-muted">03</span>
 				<h3 class="mt-8 text-2xl font-semibold tracking-tight">Hosting &amp; Maintenance</h3>
 				<p class="mt-3 leading-relaxed text-body">
-					I host your site and handle the small updates, so it never falls out of date.
+					I host the websites I build for businesses in Mishawaka and across Michiana, and handle the small updates, so your site never falls out of date.
 				</p>
 				<p class="mt-auto pt-6 font-mono text-[0.72rem] text-muted">SSL · Backups · Monthly updates</p>
+			</article>
+
+			<!-- Google Business Profile setup -->
+			<article id="google-business-profile" class="spotlight card reveal grid scroll-mt-28 gap-8 p-8 sm:p-10 lg:col-span-6 lg:grid-cols-[1fr_1.2fr]">
+				<div>
+					<span class="font-mono text-xs text-muted">04</span>
+					<h3 class="mt-8 text-2xl font-semibold tracking-tight">Google Business Profile Setup</h3>
+					<p class="mt-3 leading-relaxed text-body">
+						A one-time setup so local customers can find you on Google Search and Maps. I set it up, optimize it, and hand it over with a walkthrough and a written guide, so you own and run it yourself.
+					</p>
+					<p class="mt-4 text-[0.92rem] leading-relaxed text-muted">
+						This is setup and handoff, not ongoing management. From $450 on its own, or included in the Website + Local Launch package. Handling reviews? Try the free <a href="/review-responder" class="link-arrow">AI Review Responder</a>.
+					</p>
+				</div>
+				<ul class="grid gap-3 text-[0.95rem] text-body sm:grid-cols-2">
+					<li class="flex gap-3"><Fragment set:html={check} />Category selection</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Services and service areas</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Hours and business description</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Photos</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Name, address and phone matched to your website</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Review-request link</li>
+					<li class="flex gap-3 sm:col-span-2"><Fragment set:html={check} />Handoff walkthrough and guide, so you manage it yourself</li>
+				</ul>
+			</article>
+
+			<!-- RankRadius (optional add-on) -->
+			<article id="rankradius" class="spotlight card reveal grid scroll-mt-28 gap-8 p-8 sm:p-10 lg:col-span-6 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+				<div>
+					<span class="font-mono text-xs text-muted">05</span>
+					<p class="eyebrow mt-8">Optional add-on · field-service businesses</p>
+					<h3 class="mt-4 text-2xl font-semibold tracking-tight">RankRadius · <span class="font-mono text-xl">$399/mo</span></h3>
+					<p class="mt-3 max-w-xl leading-relaxed text-body">
+						A local SEO platform I built for field-service businesses. It turns the jobs you already complete into neighborhood-level write-ups, matched with your Google reviews, and publishes them to a widget on your own website.
+					</p>
+					<ul class="mt-6 grid gap-3 text-[0.95rem] text-body sm:grid-cols-2">
+						<li class="flex gap-3"><Fragment set:html={check} />Syncs jobs from your CRM</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Neighborhood-level, never street addresses</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Matched Google reviews</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Drop-in widget for any website</li>
+					</ul>
+					<a href="https://rankradius.io" target="_blank" rel="noopener" class="btn-ghost mt-8">Visit rankradius.io <span aria-hidden="true">↗</span></a>
+				</div>
+				<div class="rounded-xl border border-line bg-night p-5" aria-hidden="true">
+					<div class="flex items-center justify-between">
+						<span class="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">Website widget · example</span>
+						<span class="flex items-center gap-1.5 font-mono text-[0.62rem] text-leaf"><span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Live</span>
+					</div>
+					<p class="mt-3 text-[0.95rem] font-medium leading-snug text-ink">Roof repair in Harter Heights, South Bend</p>
+					<p class="mt-1.5 text-[0.8rem] leading-relaxed text-muted">Wind-lifted shingles along the ridge replaced and sealed the same afternoon.</p>
+					<p class="mt-2.5 text-[0.75rem] text-amber-300">★★★★★ <span class="text-muted">matched review</span></p>
+				</div>
 			</article>
 		</div>
 
@@ -97,7 +148,7 @@ const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 
 		</ul>
 
 		<p class="reveal mt-10 text-center text-body">
-			Straightforward, upfront pricing for every service. <a href="#pricing" class="link-arrow">See pricing <span aria-hidden="true">→</span></a>
+			Clear packages with upfront pricing. <a href="#pricing" class="link-arrow">See pricing <span aria-hidden="true">→</span></a>
 		</p>
 	</div>
 </section>

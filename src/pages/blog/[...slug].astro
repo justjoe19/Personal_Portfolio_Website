@@ -34,7 +34,7 @@ const articleSchema = JSON.stringify({
 	"@type": "BlogPosting",
 	"headline": post.data.title,
 	"description": post.data.description,
-	"image": post.data.heroImage ? new URL(post.data.heroImage, Astro.site) : new URL("/og-image.jpg", Astro.site),
+	"image": post.data.heroImage ? new URL(post.data.heroImage, Astro.site) : new URL("/og-image-v2.jpg", Astro.site),
 	"datePublished": post.data.pubDate.toISOString(),
 	"dateModified": (post.data.updatedDate ?? post.data.pubDate).toISOString(),
 	"publisher": { "@type": "Organization", "name": "Michiana Dev LLC", "url": "https://michiana.dev" },
@@ -63,9 +63,11 @@ const minutes = Math.max(1, Math.round(words / 230));
 	<script type="application/ld+json" is:inline set:html={articleSchema} />
 	<script type="application/ld+json" is:inline set:html={breadcrumbSchema} />
 
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
 	<Navbar client:load />
 
-	<main class="pt-36 pb-20 sm:pt-44">
+	<main id="main-content" class="pt-36 pb-20 sm:pt-44">
 		<article>
 			<header class="container-x max-w-[820px]">
 				<nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-muted">

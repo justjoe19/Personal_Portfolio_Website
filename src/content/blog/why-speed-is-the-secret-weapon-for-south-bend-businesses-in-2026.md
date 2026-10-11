@@ -78,4 +78,4 @@ Often it can be improved by compressing images and removing unused plugins. If t
 
 ---
 
-Curious how your site measures up? Send me the link and I'll tell you what's slowing it down. [Get in touch](/#contact).
+Curious how your site measures up? Send me the link and I'll tell you what's slowing it down. If you run a roofing, HVAC, plumbing, or restoration business, see how I build [fast, call-focused sites for contractors](/contractors). You can also see [what a new website costs](/services#pricing). [Get in touch](/#contact).

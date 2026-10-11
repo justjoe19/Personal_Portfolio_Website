@@ -69,7 +69,7 @@ Google uses the mobile version of your site for ranking. For local service busin
 
 - **HTTPS everywhere** — every page should load with the padlock.
 - **No mixed-content warnings** from images or scripts loaded over plain HTTP.
-- **Up-to-date software**, or a static architecture with less to update. (See [website security for South Bend businesses](/blog/the-headless-advantage-why-south-bend-businesses-are-rethinking-website-secur/).)
+- **Up-to-date software**, or a static architecture with less to update. (See [website security for South Bend businesses](/blog/website-security-for-south-bend-businesses/).)
 
 ## 7. Are your business details consistent everywhere?
 
@@ -91,4 +91,4 @@ Much of this checklist, yes. Search Console, PageSpeed Insights, and consistent 
 
 ---
 
-Every site I build ships with this checklist already handled. If you'd like a website with the technical foundation done right, [let's talk](/#contact).
+Every site I build ships with this checklist already handled. See [what's included in a website](/services), or how I build for [contractors](/contractors) and [restaurants](/restaurants). If you'd like a website with the technical foundation done right, [let's talk](/#contact).

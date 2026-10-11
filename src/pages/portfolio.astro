@@ -27,23 +27,32 @@ const itemListSchema = JSON.stringify({
 ---
 
 <Layout
-	title="Work — Websites & Software Projects | Michiana Dev"
-	description="Selected websites, software, and products designed and built by Michiana Dev, including RankRadius, No Limit Roofing, JH Claims Solution, TriStorm Restoration, and HSC Portal."
+	title="Portfolio — Websites & Software Projects | Michiana Dev"
+	description="Websites, software, and products built by Michiana Dev, including RankRadius, No Limit Roofing, JH Claims Solution, TriStorm Restoration, and HSC Portal."
 >
 	<script type="application/ld+json" is:inline set:html={itemListSchema} />
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
 	<Navbar client:load />
 
-	<main class="pt-36 pb-24 sm:pt-44">
-		<div class="container-x">
-			<p class="eyebrow">Portfolio</p>
-			<h1 class="display mt-6 max-w-4xl text-[clamp(3rem,8vw,6.4rem)]">
-				<span class="text-fade">Selected</span> <span class="serif-accent text-gradient">work.</span>
-			</h1>
-			<p class="mt-7 max-w-2xl text-lg leading-relaxed text-body">
-				Client websites, full-stack software, and products I own and operate. Every project here was designed and hand-built from scratch.
-			</p>
+	<main id="main-content" class="pb-24">
+		<header class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative max-w-4xl">
+				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Portfolio</span>
+				</nav>
+				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]">
+					<span class="text-fade">Recent</span> <span class="serif-accent text-gradient pr-2">projects.</span>
+				</h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
+					Client websites, full-stack software, and products I own and operate. Every project here was designed and hand-built from scratch.
+				</p>
+			</div>
+		</header>
 
-			<div class="work-list mt-14">
+		<div class="container-x">
+			<div class="work-list">
 				<fieldset class="flex flex-wrap gap-2 border-b border-line pb-8">
 					<legend class="sr-only">Filter projects</legend>
 					{filters.map((f, i) => (
@@ -80,6 +89,23 @@ const itemListSchema = JSON.stringify({
 										<dd class="mt-2 text-[0.95rem] leading-relaxed text-body">{p.solution}</dd>
 									</div>
 								</dl>
+
+								{p.result && (
+									<p class="mt-6 border-l-2 border-leaf pl-3 text-[0.95rem] font-medium text-ink">{p.result}</p>
+								)}
+
+								{p.testimonial && (
+									<figure class="mt-6 rounded-xl border border-line bg-paper/40 p-4">
+										<blockquote class="text-[0.95rem] leading-relaxed text-ink">“{p.testimonial.quote}”</blockquote>
+										<figcaption class="mt-3 text-sm text-body">
+											<span class="font-medium text-ink">{p.testimonial.name}</span>
+											{p.testimonial.role && <span>, {p.testimonial.role}</span>}
+											{p.testimonial.href && (
+												<a href={p.testimonial.href} target="_blank" rel="noopener" class="link-arrow ml-2">Read on Google <span aria-hidden="true">→</span></a>
+											)}
+										</figcaption>
+									</figure>
+								)}
 
 								<ul class="mt-8 space-y-2.5 border-t border-line pt-6">
 									{p.highlights.map((h) => (

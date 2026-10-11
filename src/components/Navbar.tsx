@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Logo from './Logo';
 import { OPEN_PALETTE_EVENT } from '../lib/events';
 
@@ -10,12 +10,15 @@ const SearchIcon = ({ className = '' }: { className?: string }) => (
 );
 
 const LINKS = [
-  { href: '/#services', label: 'Services' },
-  { href: '/#rankradius', label: 'RankRadius' },
-  { href: '/#pricing', label: 'Pricing' },
-  { href: '/#about', label: 'About' },
-  { href: '/work', label: 'Work' },
+  { href: '/services', label: 'Services & Pricing' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
+];
+
+const INDUSTRIES = [
+  { href: '/contractors', label: 'Contractors & home services' },
+  { href: '/restaurants', label: 'Restaurants' },
 ];
 
 export default function Navbar() {
@@ -23,6 +26,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [path, setPath] = useState('/');
   const [shortcut, setShortcut] = useState('⌘K');
+  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const industriesRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     // window isn't available during Astro's SSR pass, so these can only be read post-hydration.
@@ -45,12 +50,38 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKey);
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!industriesOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIndustriesOpen(false);
+        industriesRef.current?.querySelector('button')?.focus();
+      }
+    };
+    const onPointer = (e: PointerEvent) => {
+      if (!industriesRef.current?.contains(e.target as Node)) setIndustriesOpen(false);
+    };
+    const onFocusOut = (e: FocusEvent) => {
+      if (e.relatedTarget && !industriesRef.current?.contains(e.relatedTarget as Node)) setIndustriesOpen(false);
+    };
+    const el = industriesRef.current;
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('pointerdown', onPointer);
+    el?.addEventListener('focusout', onFocusOut);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('pointerdown', onPointer);
+      el?.removeEventListener('focusout', onFocusOut);
+    };
+  }, [industriesOpen]);
+
   const openSearch = () => {
     setIsOpen(false);
     window.dispatchEvent(new Event(OPEN_PALETTE_EVENT));
   };
 
   const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
+  const industryActive = INDUSTRIES.some((i) => path.startsWith(i.href));
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:pt-4">
@@ -81,6 +112,37 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li ref={industriesRef} className="relative">
+            <button
+              type="button"
+              aria-expanded={industriesOpen}
+              aria-controls="industries-menu"
+              onClick={() => setIndustriesOpen((o) => !o)}
+              className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.875rem] transition-colors hover:bg-white/[0.06] hover:text-ink ${
+                industryActive ? 'text-ink' : 'text-muted'
+              }`}
+            >
+              Industries
+              <svg className={`h-3 w-3 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            {industriesOpen && (
+              <ul id="industries-menu" className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-line-strong bg-surface/95 p-1.5 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+                {INDUSTRIES.map((i) => (
+                  <li key={i.href}>
+                    <a
+                      href={i.href}
+                      aria-current={path.startsWith(i.href) ? 'page' : undefined}
+                      className="block rounded-xl px-3.5 py-2.5 text-[0.875rem] text-body transition-colors hover:bg-white/[0.06] hover:text-ink"
+                    >
+                      {i.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
         </ul>
 
         <div className="flex items-center gap-2">
@@ -95,8 +157,8 @@ export default function Navbar() {
             <span>Search</span>
             <kbd className="rounded-full bg-white/[0.06] px-2 py-0.5 font-mono text-[0.68rem] text-muted">{shortcut}</kbd>
           </button>
-          <a href="/#contact" className="btn-primary !px-3.5 !py-2 !text-[0.8rem] sm:!px-4 sm:!text-[0.85rem]">
-            Start a project
+          <a href="/contact" className="btn-primary !px-3.5 !py-2 !text-[0.8rem] sm:!px-4 sm:!text-[0.85rem]">
+            Contact
           </a>
           <button
             type="button"
@@ -123,13 +185,28 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li className="border-b border-line py-4">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted">Industries</p>
+              <ul className="mt-2">
+                {INDUSTRIES.map((i) => (
+                  <li key={i.href}>
+                    <a href={i.href} onClick={() => setIsOpen(false)} className="block py-2 text-2xl font-semibold tracking-tight text-ink">
+                      {i.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
-          <button type="button" onClick={openSearch} className="btn-ghost mt-8 w-full">
+          <a href="tel:+15742138502" className="btn-ghost mt-8 w-full">
+            Call (574) 213-8502
+          </a>
+          <button type="button" onClick={openSearch} className="btn-ghost mt-3 w-full">
             <SearchIcon className="h-4 w-4" />
             Search the site
           </button>
-          <a href="/#contact" onClick={() => setIsOpen(false)} className="btn-primary mt-3 w-full">
-            Start a project
+          <a href="/contact" onClick={() => setIsOpen(false)} className="btn-primary mt-3 w-full">
+            Contact
           </a>
         </div>
       )}

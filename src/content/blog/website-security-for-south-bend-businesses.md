@@ -53,7 +53,7 @@ It also makes recovery simple. Every version of the site is saved, so if somethi
 
 A marketing website shouldn't be storing sensitive customer data in the first place. The main thing your site collects is contact-form submissions, and those should be delivered to your inbox or CRM through a secure form service, not kept in a database attached to your public website.
 
-If your business needs a real application — customer accounts, scheduling, or an internal dashboard — that's a separate piece of [custom software](/#services), built with proper authentication, access controls, and a secured database from the start.
+If your business needs a real application — customer accounts, scheduling, or an internal dashboard — that's a separate piece of [custom software](/services), built with proper authentication, access controls, and a secured database from the start.
 
 ## A quick security checklist for your current site
 
@@ -73,7 +73,7 @@ WordPress core is actively maintained and reasonably secure when it's kept up to
 
 ### Can I still update my content on a headless site?
 
-Yes. Content can be managed through a simple editor or by your developer. On my [hosting and maintenance plan](/#hosting), minor text and photo updates are included every month.
+Yes. Content can be managed through a simple editor or by your developer. On my [hosting and maintenance plan](/services#hosting-maintenance), minor text and photo updates are included every month.
 
 ### Will switching to a static site hurt my SEO?
 
@@ -81,4 +81,4 @@ Not if the move is planned carefully. Keep or redirect your existing URLs and ca
 
 ---
 
-Worried about your current website? I'm happy to take a look and tell you honestly whether it needs fixing or rebuilding. [Get in touch](/#contact).
+Worried about your current website? I'm happy to take a look and tell you honestly whether it needs fixing or rebuilding. You can see [my recent projects](/portfolio) first. [Get in touch](/#contact).

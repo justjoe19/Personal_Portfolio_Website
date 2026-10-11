@@ -15,6 +15,14 @@ export interface Project {
   linkLabel: string;
   external: boolean;
   featured?: boolean;
+  /** Industry page slug this project is an example for. */
+  industry?: 'contractors' | 'restaurants';
+  /** One-line "what I built" for the Results section. */
+  built?: string;
+  /** Measured outcome. Leave undefined until real numbers exist; nothing renders until it's set. */
+  result?: string;
+  /** Client quote. Leave undefined until a real quote exists; nothing renders until it's set. */
+  testimonial?: { quote: string; name: string; role?: string; href?: string };
 }
 
 export const projects: Project[] = [
@@ -63,6 +71,9 @@ export const projects: Project[] = [
     href: 'https://nolimitroofingin.com',
     linkLabel: 'Visit site',
     external: true,
+    industry: 'contractors',
+    built:
+      'A lead-focused roofing site with a free-inspection form above the fold, a plain-language claim process, and multi-county local SEO.',
     featured: true,
   },
   {
@@ -84,6 +95,14 @@ export const projects: Project[] = [
     href: 'https://jhclaim.com',
     linkLabel: 'Visit site',
     external: true,
+    industry: 'contractors',
+    built:
+      'A credibility-first site for a multi-state public adjuster, built around transparent case results and local search structure.',
+    testimonial: {
+      quote: 'Joe’s work is impeccable. He’s a real pro. Highly recommended.',
+      name: 'Josh',
+      role: 'Owner, JH Claims Solution',
+    },
   },
   {
     slug: 'tristorm',
@@ -104,6 +123,15 @@ export const projects: Project[] = [
     href: 'https://tristormrestoration.com',
     linkLabel: 'Visit site',
     external: true,
+    industry: 'contractors',
+    built:
+      'A mobile-first emergency-response site with tap-to-call and estimate paths on every screen, plus GA4 conversion tracking.',
+    testimonial: {
+      quote:
+        'The TriStorm Team loves working with Joe! He created our website and truly took the time to understand our company and brand.',
+      name: 'Hannah',
+      role: 'Owner, TriStorm Restoration',
+    },
     featured: true,
   },
   {

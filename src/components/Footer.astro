@@ -7,17 +7,27 @@ const columns = [
 	{
 		title: 'Services',
 		links: [
-			{ label: 'Website design', href: '/#services' },
-			{ label: 'Custom software', href: '/#services' },
-			{ label: 'Hosting & maintenance', href: '/#hosting' },
-			{ label: 'Pricing', href: '/#pricing' },
+			{ label: 'Website design', href: '/services#website' },
+			{ label: 'Google Business Profile setup', href: '/services#google-business-profile' },
+			{ label: 'Custom software', href: '/services#software' },
+			{ label: 'Hosting & maintenance', href: '/services#hosting-maintenance' },
+			{ label: 'Pricing', href: '/services#pricing' },
+		],
+	},
+	{
+		title: 'Industries',
+		links: [
+			{ label: 'Contractors & home services', href: '/contractors' },
+			{ label: 'Restaurants', href: '/restaurants' },
 		],
 	},
 	{
 		title: 'Studio',
 		links: [
-			{ label: 'Work', href: '/work' },
-			{ label: 'About', href: '/#about' },
+			{ label: 'Portfolio', href: '/portfolio' },
+			{ label: 'About', href: '/about' },
+			{ label: 'Service areas', href: '/service-areas' },
+			{ label: 'Contact', href: '/contact' },
 			{ label: 'Blog', href: '/blog' },
 			{ label: 'FAQ', href: '/#faq' },
 		],
@@ -34,14 +44,14 @@ const columns = [
 
 <footer class="relative overflow-hidden border-t border-line bg-night">
 	<div class="container-x pt-20 pb-10">
-		<div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+		<div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
 			<div>
 				<a href="/" class="inline-flex items-center gap-2.5 text-ink" aria-label="Michiana Dev — home">
 					<Logo className="h-9 w-9" />
 					<span class="text-lg font-semibold tracking-tight">Michiana<span class="text-muted">.dev</span></span>
 				</a>
 				<p class="mt-5 max-w-xs leading-relaxed text-muted">
-					An independent design &amp; engineering studio in Mishawaka, Indiana.
+					A local web studio in Mishawaka, Indiana, building websites for businesses across South Bend and Michiana.
 				</p>
 				<p class="mt-6 space-y-1">
 					<a data-email href="/#contact" class="block font-medium text-ink hover:text-sky">Email me</a>
@@ -68,8 +78,9 @@ const columns = [
 		</p>
 
 		<div class="mt-10 flex flex-col gap-3 border-t border-line pt-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-			<p>© {year} Michiana Dev LLC. An Indiana limited liability company.</p>
+			<p>© {year} Michiana Dev LLC.</p>
 			<div class="flex gap-5">
+				<a href="https://share.google/Shycqyc3DYoD1z9DR" target="_blank" rel="noopener noreferrer" class="hover:text-ink">Google</a>
 				<a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noopener noreferrer" class="hover:text-ink">LinkedIn</a>
 				<a href="https://github.com/justjoe19" target="_blank" rel="noopener noreferrer" class="hover:text-ink">GitHub</a>
 			</div>
