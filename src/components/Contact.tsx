@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { getEmail } from '../lib/email';
+import { track } from '../lib/analytics';
 
 const SERVICES = [
   'New website',
@@ -42,6 +43,7 @@ export default function Contact({
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
     setStatus('sending');
     fetch('/', {
       method: 'POST',
@@ -51,6 +53,11 @@ export default function Contact({
       .then((res) => {
         if (!res.ok) throw new Error(String(res.status));
         setStatus('sent');
+        track('generate_lead', {
+          service: String(data.get('service') ?? ''),
+          industry: String(data.get('industry') || 'not provided'),
+          page_path: window.location.pathname,
+        });
         form.reset();
       })
       .catch(() => setStatus('error'));
