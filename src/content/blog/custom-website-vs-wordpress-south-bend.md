@@ -32,7 +32,7 @@ WordPress runs a huge share of the web, and it's a reasonable choice when you ha
 **Watch out for:**
 
 - **Plugin sprawl.** Most WordPress sites rely on a stack of plugins — one for forms, one for SEO, one for galleries, one for caching. Each one adds weight and another thing that can break or conflict.
-- **Constant updates.** WordPress core, the theme, and every plugin need regular security updates. Skipped updates are one of the most common ways small-business sites get hacked. (I cover this in more detail in [why South Bend businesses are rethinking website security](/blog/the-headless-advantage-why-south-bend-businesses-are-rethinking-website-secur/).)
+- **Constant updates.** WordPress core, the theme, and every plugin need regular security updates. Skipped updates are one of the most common ways small-business sites get hacked. (I cover this in more detail in [why South Bend businesses are rethinking website security](/blog/website-security-for-south-bend-businesses/).)
 - **Page-builder bloat.** Many WordPress themes use visual page builders that generate heavy code, which slows the site down on mobile.
 
 ## Option 3: A custom-built website
@@ -48,7 +48,7 @@ A custom site is designed and coded specifically for your business. The sites I 
 - **Structure built for local SEO.** Service pages, city pages, schema markup, and click-to-call buttons are part of the plan from day one instead of add-ons.
 - **Ownership.** You own the finished site and its content.
 
-**The trade-off:** a custom site costs more up front than a template, and you'll typically make content changes through your developer rather than dragging blocks around yourself. That's why I pair custom builds with a [hosting and maintenance plan](/#hosting) that includes an hour of content updates every month.
+**The trade-off:** a custom site costs more up front than a template, and you'll typically make content changes through your developer rather than dragging blocks around yourself. That's why I pair custom builds with a [hosting and maintenance plan](/services#hosting-maintenance) that includes an hour of content updates every month.
 
 ## Side-by-side comparison
 
@@ -73,7 +73,7 @@ A simple way to decide:
 
 ### Is a custom website more expensive than WordPress?
 
-Usually up front, yes. Over several years the gap narrows, because you're not paying for premium plugins, theme licenses, or emergency fixes after a bad update. A custom website is $500 for the first page plus $100 for each additional page, and every project gets a clear quote after a free consultation.
+Usually up front, yes. Over several years the gap narrows, because you're not paying for paid plugins, theme licenses, or emergency fixes after a bad update. Custom websites start at $2,500, with hosting and maintenance at $100/month, and every project gets a clear quote after a free consultation. See the [pricing packages](/services#pricing).
 
 ### Can I switch from WordPress to a custom site without losing my Google rankings?
 
@@ -81,8 +81,8 @@ Yes, if the move is planned. The key steps are keeping (or properly redirecting)
 
 ### Can I still update my own content on a custom site?
 
-It depends on the build. Some sites include a simple content editor for things like blog posts. For everything else, small text and photo changes are included in my [$100/month hosting and maintenance plan](/#hosting).
+It depends on the build. Some sites include a simple content editor for things like blog posts. For everything else, small text and photo changes are included in my [$100/month hosting and maintenance plan](/services#hosting-maintenance).
 
 ---
 
-If you're weighing your options for a new site in South Bend, Mishawaka, or anywhere in Michiana, I'm happy to walk through them with you — no pressure to go custom if it isn't the right fit. [Start with a free consultation](/#contact).
+If you're weighing your options for a new site in South Bend, Mishawaka, or anywhere in Michiana, I'm happy to walk through them with you — no pressure to go custom if it isn't the right fit. You can see [what's included in each package](/services) first, or browse the [portfolio](/portfolio). [Start with a free consultation](/#contact).

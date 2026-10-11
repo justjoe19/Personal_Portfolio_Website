@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer.astro';
+import { areas, areaServed } from '../data/areas';
+
+const title = 'Service Areas: Mishawaka, South Bend & Michiana | Michiana Dev';
+const description =
+	'Michiana Dev builds websites and software for businesses in Mishawaka, South Bend, Elkhart, Niles, and across Michiana, plus remote clients nationwide.';
+
+const groups = [
+	{ title: 'Northern Indiana', cities: areas.filter((a) => a.state === 'IN') },
+	{ title: 'Southwest Michigan', cities: areas.filter((a) => a.state === 'MI') },
+];
+
+const links = [
+	{ href: '/services', title: 'Services & pricing', desc: 'Websites, Google Business Profile setup, custom software, and hosting.' },
+	{ href: '/contractors', title: 'Contractors & home services', desc: 'Lead-focused sites for roofing, restoration, HVAC, plumbing, and more.' },
+	{ href: '/restaurants', title: 'Restaurants', desc: 'Menus, hours, ordering, and photo-forward design.' },
+	{ href: '/portfolio', title: 'Recent projects', desc: 'Client websites and software I’ve built.' },
+];
+
+const url = 'https://michiana.dev/service-areas';
+const schema = JSON.stringify([
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${url}#page`,
+		name: title,
+		description,
+		url,
+		about: { '@id': 'https://michiana.dev/#business' },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		'@id': `${url}#service`,
+		name: 'Web design and software development in Michiana',
+		serviceType: 'Web design and development',
+		url,
+		provider: { '@id': 'https://michiana.dev/#business' },
+		areaServed,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://michiana.dev/' },
+			{ '@type': 'ListItem', position: 2, name: 'Service areas', item: url },
+		],
+	},
+]);
+---
+
+<Layout title={title} description={description}>
+	<script type="application/ld+json" is:inline set:html={schema} />
+
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
+	<Navbar client:load />
+
+	<main id="main-content">
+		<header class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative max-w-4xl">
+				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Service areas</span>
+				</nav>
+				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]">
+					<span class="text-fade">Serving Mishawaka, South Bend, and</span> <span class="serif-accent text-gradient pr-2">all of Michiana.</span>
+				</h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
+					I’m based in Mishawaka, Indiana. I build websites and software for local businesses across northern Indiana and southwest Michigan, and I work with remote clients anywhere in the U.S.
+				</p>
+				<div class="mt-10 flex flex-col gap-3 sm:flex-row">
+					<a href="#contact" class="btn-primary">Get a free website review</a>
+					<a href="/services" class="btn-ghost">See services &amp; pricing</a>
+				</div>
+			</div>
+		</header>
+
+		<section class="border-t border-line py-24 sm:py-32" aria-labelledby="areas-heading">
+			<div class="container-x">
+				<div class="reveal max-w-3xl">
+					<p class="eyebrow">Where I work</p>
+					<h2 id="areas-heading" class="display mt-5 text-[clamp(2.2rem,4.8vw,3.8rem)]">Cities and towns <span class="serif-accent text-gradient">I serve.</span></h2>
+				</div>
+				<div class="mt-12 grid gap-4 md:grid-cols-2">
+					{groups.map((g) => (
+						<section class="spotlight card reveal p-7" aria-labelledby={`g-${g.title.replace(/\s+/g, '-').toLowerCase()}`}>
+							<h3 id={`g-${g.title.replace(/\s+/g, '-').toLowerCase()}`} class="font-semibold tracking-tight">{g.title}</h3>
+							<ul class="mt-5 flex flex-wrap gap-2">
+								{g.cities.map((c) => (
+									<li class="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink">{c.name}</li>
+								))}
+							</ul>
+						</section>
+					))}
+				</div>
+				<p class="reveal mt-8 max-w-3xl text-body">
+					Don’t see your town? If you’re in or near Michiana, or anywhere else in the U.S., <a href="#contact" class="link-arrow">get in touch</a>. I’m happy to talk about what you need.
+				</p>
+			</div>
+		</section>
+
+		<section class="border-t border-line py-24 sm:py-32" aria-labelledby="explore-heading">
+			<div class="container-x">
+				<div class="reveal max-w-3xl">
+					<p class="eyebrow">What I build</p>
+					<h2 id="explore-heading" class="display mt-5 text-[clamp(2.2rem,4.8vw,3.8rem)]">Explore the <span class="serif-accent text-gradient">details.</span></h2>
+				</div>
+				<ul class="mt-12 grid gap-4 sm:grid-cols-2">
+					{links.map((l) => (
+						<li>
+							<a href={l.href} class="spotlight card reveal group flex h-full items-start justify-between gap-4 p-6">
+								<span>
+									<span class="block font-semibold tracking-tight text-ink">{l.title}</span>
+									<span class="mt-1.5 block text-[0.92rem] leading-relaxed text-muted">{l.desc}</span>
+								</span>
+								<span class="text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+
+		<Contact client:visible />
+	</main>
+
+	<Footer />
+</Layout>

@@ -18,16 +18,25 @@ const fmt = (d: Date) => d.toLocaleDateString('en-us', { year: 'numeric', month:
 	description="Practical advice on websites, local SEO, and software for contractors and small businesses in South Bend, Mishawaka, Elkhart, and across Michiana."
 	type="website"
 >
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
 	<Navbar client:load />
 
-	<main class="pt-36 pb-24 sm:pt-44">
-		<div class="container-x">
-			<p class="eyebrow">The blog</p>
-			<h1 class="display mt-5 max-w-4xl text-[clamp(2.8rem,7vw,5.6rem)]"><span class="text-fade">Notes on websites, SEO, and</span> <span class="serif-accent text-gradient">software.</span></h1>
-			<p class="mt-6 max-w-2xl text-lg text-body">
-				Plain-English advice for business owners on building a website and software that actually perform, from a studio in Mishawaka, Indiana.
-			</p>
+	<main id="main-content" class="pb-24">
+		<header class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative max-w-4xl">
+				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Blog</span>
+				</nav>
+				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]"><span class="text-fade">Notes on websites, SEO, and</span> <span class="serif-accent text-gradient pr-2">software.</span></h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
+					Plain-English advice for business owners on building a website and software that actually perform, from a studio in Mishawaka, Indiana.
+				</p>
+			</div>
+		</header>
 
+		<div class="container-x">
 			{lead ? (
 				<>
 					<a href={`/blog/${lead.id}/`} class="group mt-16 grid gap-8 border-t border-line-strong pt-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">

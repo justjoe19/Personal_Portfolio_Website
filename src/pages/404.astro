@@ -5,16 +5,18 @@ import Footer from '../components/Footer.astro';
 import ShaderBackground from '../components/ShaderBackground.astro';
 
 const links = [
-	{ href: '/work', label: 'Selected work', desc: 'Websites, software, and products' },
-	{ href: '/#services', label: 'Services', desc: 'Design, development, and hosting' },
+	{ href: '/portfolio', label: 'Recent projects', desc: 'Websites, software, and products' },
+	{ href: '/services', label: 'Services', desc: 'Design, development, and hosting' },
 	{ href: '/blog', label: 'Blog', desc: 'Notes on websites, SEO, and software' },
 ];
 ---
 
 <Layout title="Page not found | Michiana Dev" description="The page you’re looking for doesn’t exist or has moved. Head back to Michiana Dev’s homepage, portfolio, services, or blog." noindex>
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
 	<Navbar client:load />
 
-	<main class="relative overflow-hidden">
+	<main id="main-content" class="relative overflow-hidden">
 		<section class="relative flex min-h-[88vh] items-center pt-32 pb-20">
 			<ShaderBackground />
 			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_55%_at_50%_40%,#000,transparent)]"></div>
@@ -29,7 +31,7 @@ const links = [
 				</p>
 				<div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
 					<a href="/" class="btn-primary">Back to home</a>
-					<a href="/#contact" class="btn-ghost">Start a project</a>
+					<a href="/#contact" class="btn-ghost">Get a free website review</a>
 				</div>
 
 				<ul class="mx-auto mt-16 grid max-w-3xl gap-3 text-left sm:grid-cols-3">

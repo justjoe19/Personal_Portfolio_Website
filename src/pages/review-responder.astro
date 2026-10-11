@@ -82,9 +82,11 @@ const benefits = [
 	<script type="application/ld+json" is:inline set:html={appSchema} />
 	<script type="application/ld+json" is:inline set:html={faqSchema} />
 
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
 	<Navbar client:load />
 
-	<main class="pt-36 sm:pt-44">
+	<main id="main-content" class="pt-36 sm:pt-44">
 		<div class="container-x max-w-[800px]">
 			<nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-muted">
 				<a href="/" class="hover:text-ink">Home</a>
@@ -140,7 +142,7 @@ const benefits = [
 				<p class="mx-auto mt-5 max-w-xl text-lg text-body">
 					This tool is a small example of the AI and automation work I build into custom software. Let’s talk about what it could look like for your business.
 				</p>
-				<a href="/#contact" class="btn-primary mt-8">Start a project</a>
+				<a href="/#contact" class="btn-primary mt-8">Get a free website review</a>
 			</div>
 		</section>
 	</main>

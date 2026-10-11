@@ -1,13 +1,35 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { getEmail } from '../lib/email';
 
-const SERVICES = ['New website', 'Custom software', 'Hosting & maintenance', 'Not sure yet'] as const;
+const SERVICES = [
+  'New website',
+  'Website review',
+  'Website + Google profile setup',
+  'Custom website or software (CMS, ordering, portals)',
+  'Not sure yet',
+] as const;
+
+const INDUSTRIES = ['Contractor/home services', 'Restaurant', 'Other'] as const;
+type Industry = (typeof INDUSTRIES)[number];
+
+interface Props {
+  /** Preselects the optional Industry field, e.g. on an industry landing page. */
+  defaultIndustry?: Industry;
+  /** Optional heading as [plain text, accented text]; defaults to the generic homepage heading. */
+  heading?: [string, string];
+  /** Optional intro paragraph; defaults to the generic homepage copy. */
+  intro?: string;
+}
 
 const inputClass =
   'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[0.95rem] text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-4 focus:ring-accent/10';
 const labelClass = 'mb-2 block text-sm font-semibold text-ink';
 
-export default function Contact() {
+export default function Contact({
+  defaultIndustry,
+  heading = ['Let’s build', 'something great.'],
+  intro = 'Tell me about your business and what you want to build. I’ll come back with a clear scope, timeline, and quote. Websites start at $2,500, and the free website review comes with no obligation.',
+}: Props) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   // Set after hydration so the address never appears in the server-rendered HTML.
   const [email, setEmail] = useState('');
@@ -40,10 +62,10 @@ export default function Contact() {
         <div>
           <p className="eyebrow">Contact</p>
           <h2 className="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">
-            Let’s build <span className="serif-accent text-gradient">something great.</span>
+            {heading[0]} <span className="serif-accent text-gradient">{heading[1]}</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-body">
-            Tell me about your business and what you want to build. I’ll come back with a clear scope, timeline, and quote. Websites start at $500, and the consultation is free.
+            {intro}
           </p>
 
           <dl className="mt-10 space-y-5">
@@ -121,6 +143,16 @@ export default function Contact() {
                   ))}
                 </div>
               </fieldset>
+
+              <div>
+                <label htmlFor="industry" className={labelClass}>Industry <span className="font-normal text-muted">(optional)</span></label>
+                <select name="industry" id="industry" defaultValue={defaultIndustry ?? ''} className={inputClass}>
+                  <option value="">Select one</option>
+                  {INDUSTRIES.map((i) => (
+                    <option key={i} value={i}>{i}</option>
+                  ))}
+                </select>
+              </div>
 
               <div>
                 <label htmlFor="message" className={labelClass}>Tell me about the project</label>

@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import Pricing from '../components/Pricing.astro';
+import Faq from '../components/Faq.astro';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer.astro';
+import { servicesFaqs, faqSchema } from '../data/faqs';
+
+const title = 'Michiana Website Design, Hosting & Pricing | Michiana Dev';
+const description =
+	'Michiana website design from $2,500, plus Google Business Profile setup, custom software, and website hosting from Mishawaka, IN. Clear packages.';
+
+const url = 'https://michiana.dev/services';
+const schema = JSON.stringify([
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		'@id': `${url}#service`,
+		name: 'Web design, Google Business Profile setup, and custom software',
+		serviceType: 'Web design and development',
+		description,
+		url,
+		provider: { '@id': 'https://michiana.dev/#business' },
+		areaServed: ['Mishawaka, IN', 'South Bend, IN', 'Michiana'],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://michiana.dev/' },
+			{ '@type': 'ListItem', position: 2, name: 'Services', item: url },
+		],
+	},
+	faqSchema(servicesFaqs),
+]);
+---
+
+<Layout title={title} description={description}>
+	<script type="application/ld+json" is:inline set:html={schema} />
+
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
+	<Navbar client:load />
+
+	<main id="main-content">
+		<header class="relative overflow-hidden pt-36 pb-4 sm:pt-44">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative max-w-4xl">
+				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Services</span>
+				</nav>
+				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]">
+					<span class="text-fade">Website design and hosting for</span> <span class="serif-accent text-gradient pr-2">Michiana businesses.</span>
+				</h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
+					Custom websites, a one-time Google Business Profile setup, custom software, and website hosting, all from a local developer in Mishawaka you work with directly.
+				</p>
+				<div class="mt-10 flex flex-col gap-3 sm:flex-row">
+					<a href="#contact" class="btn-primary">Get a free website review</a>
+					<a href="#pricing" class="btn-ghost">Jump to pricing</a>
+				</div>
+			</div>
+		</header>
+
+		<Services />
+		<Process />
+		<Pricing />
+		<Faq faqs={servicesFaqs} title="Pricing and services: common questions" id="faq" />
+		<Contact client:visible />
+	</main>
+
+	<Footer />
+</Layout>

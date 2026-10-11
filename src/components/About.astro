@@ -1,16 +1,24 @@
 ---
-const areas = ['South Bend', 'Mishawaka', 'Elkhart', 'Granger', 'Goshen', 'Niles, MI', 'Edwardsburg, MI', 'Dowagiac, MI'];
+import { areas } from '../data/areas';
+
+interface Props {
+	/** True when rendered as the top of the /about page: h1 and extra top padding. */
+	page?: boolean;
+}
+
+const { page = false } = Astro.props;
+const Heading = page ? 'h1' : 'h2';
 ---
 
-<section id="about" class="border-t border-line py-24 sm:py-32">
+<section id="about" class:list={['py-24 sm:py-32', page ? 'pt-36 sm:pt-44' : 'border-t border-line']}>
 	<div class="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-		<div class="mx-auto w-full max-w-[360px] lg:mx-0">
+		<div class="mx-auto w-full max-w-[220px] sm:max-w-[360px] lg:mx-0">
 			<img
 				src="/assets/photo.webp"
 				alt="Joe Hollenbach, founder of Michiana Dev LLC"
 				width="640"
 				height="640"
-				loading="lazy"
+				loading={page ? 'eager' : 'lazy'}
 				class="aspect-square w-full rounded-2xl border border-line object-cover grayscale-[25%]"
 			/>
 			<p class="mt-4 text-sm text-muted">
@@ -20,23 +28,23 @@ const areas = ['South Bend', 'Mishawaka', 'Elkhart', 'Granger', 'Goshen', 'Niles
 
 		<div>
 			<p class="eyebrow">About</p>
-			<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">A studio of one, <span class="serif-accent text-gradient">by design.</span></h2>
+			<Heading class="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">A studio of one, <span class="serif-accent text-gradient">by design.</span></Heading>
 			<div class="mt-7 space-y-5 text-[1.08rem] leading-relaxed text-body">
 				<p>
-					I’m Joe Hollenbach, founder of Michiana Dev LLC, an Indiana company based in Mishawaka. I have a B.S. in Software Engineering, and I build websites the same way I build software: carefully, from scratch, and with a clear purpose. Every project gets senior-level design and engineering, because I’m the one doing both.
+					I’m Joe Hollenbach, a software engineer based in Mishawaka. I run Michiana Dev, and I design and build every site myself, so the person you talk to is the person doing the work.
 				</p>
 				<p>
-					I build for businesses that want their website or software to be a real advantage, whether that’s a professional firm, a local service company, or a founder launching a new product. I’ve also built and run my own SaaS, RankRadius, so I understand products from both sides: the code and the customer.
+					I build for local businesses, like contractors, restaurants, and other Michiana companies, that want a site that’s fast, easy to find, and brings in customers. I have a B.S. in Software Engineering, and I’ve built and run my own software product, RankRadius, so I understand both the code and the customer.
 				</p>
 				<p>
-					When you work with me, you talk directly to the person designing and writing your site. No account managers, no outsourcing, no surprises.
+					When you work with me, you talk directly to the person designing and writing your site. No outsourcing, no surprises.
 				</p>
 			</div>
 
 			<div class="mt-10 border-t border-line pt-8">
 				<p class="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Serving Michiana and clients nationwide</p>
 				<ul class="mt-4 flex flex-wrap gap-2">
-					{areas.map((a) => <li class="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink">{a}</li>)}
+					{areas.map((a) => <li class="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink">{a.name}{a.state === 'MI' ? ', MI' : ''}</li>)}
 					<li class="rounded-full bg-ink px-3.5 py-1.5 text-sm font-medium text-paper">Nationwide (remote)</li>
 				</ul>
 			</div>

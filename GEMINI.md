@@ -3,7 +3,7 @@
 This document outlines the foundational mandates for development and marketing alignment for Michiana.dev. All work must adhere to these guidelines to ensure consistency, performance, and local market dominance.
 
 ## 1. Project Vision
-Michiana.dev is a high-performance portfolio and service platform targeting small-to-medium businesses in Northern Indiana (South Bend, Mishawaka, Elkhart, Granger) and Southwest Michigan (Niles, Edwardsburg). 
+Michiana.dev is the site for a local web and software studio in Mishawaka, Indiana, targeting small-to-medium businesses in Northern Indiana (South Bend, Mishawaka, Elkhart, Granger, and more) and Southwest Michigan (Niles, Edwardsburg, and more). The full city list lives in `src/data/areas.ts`. 
 
 **The Unique Selling Proposition (USP):** We provide enterprise-grade software engineering and "high-performance" web development to local businesses that typically only have access to slow, template-based agency sites.
 
@@ -13,18 +13,18 @@ Michiana.dev is a high-performance portfolio and service platform targeting smal
 Every code change must consider its impact on search visibility and user conversion.
 
 ### Local SEO Priority
-- **Primary Keywords:** "Web Developer Mishawaka", "Software Engineer South Bend", "Custom Software Michiana", "High-Performance Web Design".
+- **Primary Keywords:** "Web Developer Mishawaka", "Web Design South Bend", "Michiana Web Design", "Website for Contractors", "Restaurant Website Design".
 - **Geo-Targeting:** Content should naturally reference local areas (Mishawaka, South Bend, Elkhart, Granger, Niles).
 - **Metadata:** Maintain the JSON-LD schema in `Layout.astro` for LocalBusiness/ProfessionalService status.
 
 ### Conversion Optimization (CRO)
-- **Primary CTA:** "Start a project" (links to #contact).
+- **Primary CTA:** "Get a free website review" (links to #contact); secondary: "View portfolio".
 - **Secondary CTA:** Blog engagement and service exploration.
 - **Lead Capture:** All forms must utilize Netlify Forms for serverless handling.
 
 ### Tone & Voice
-- **Professional but Approachable:** Technical expertise (Software Engineering) blended with local community focus (Michiana).
-- **Performance-First:** We don't just "make websites"; we "engineer high-performance digital assets."
+- **Professional but Approachable:** Plain-spoken local developer you work directly with (Michiana), backed by real engineering skill.
+- **Performance-First:** Fast, custom sites that bring in calls and customers. Do not market the site's own tech (WebGL, OKLCH, etc.) to visitors, and do not describe ongoing SEO or monthly marketing services.
 
 ---
 
@@ -42,7 +42,7 @@ Every code change must consider its impact on search visibility and user convers
 - **Islands Architecture:** Keep `client:load` to a minimum; prefer `client:visible` or static Astro components for content.
 
 ### Styling Conventions
-- **Theme:** Adhere to the brand palette defined in `src/index.css` (dark, product-grade aesthetic: OKLCH tokens, Geist + Geist Mono, Instrument Serif italic accents; utilities like `spotlight`, `glow-border`, `reveal`, `tilt-in` in `index.css`). The site doubles as a showcase of modern web techniques — keep it that way.
+- **Theme:** Adhere to the brand palette defined in `src/index.css` (dark, product-grade aesthetic: OKLCH tokens, Geist + Geist Mono, Instrument Serif italic accents; utilities like `spotlight`, `glow-border`, `reveal`, `tilt-in` in `index.css`). Keep the site's own effects running, but don't market them to visitors (no WebGL/OKLCH/etc. copy). Pricing is packages (Website from $2,500, Website + Local Launch from $3,000, Custom quoted) with add-ons; never describe ongoing SEO or monthly marketing services. The Google Business Profile service is one-time setup and handoff only.
 - **Responsive:** Mobile-first is non-negotiable. Test all components at 320px width.
 
 ---

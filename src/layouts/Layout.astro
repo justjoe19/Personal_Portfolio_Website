@@ -1,4 +1,5 @@
 ---
+import { areaServed } from '../data/areas';
 import '@fontsource-variable/geist/wght.css';
 import '@fontsource-variable/geist-mono/wght.css';
 import '@fontsource/instrument-serif/latin-400-italic.css';
@@ -18,8 +19,8 @@ interface Props {
 
 const { 
 	title, 
-	description = "Michiana Dev LLC is an independent design and engineering studio in Indiana building premium custom websites and software products for ambitious businesses.",
-	image = "/og-image.jpg",
+	description = "Michiana Dev is a local web and software studio in Mishawaka, Indiana. Fast, custom websites and software for South Bend and Michiana businesses.",
+	image = "/og-image-v2.jpg",
 	type = "website",
 	isHome = false,
 	noindex = false
@@ -27,6 +28,79 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
+
+const websiteSchema = {
+					"@context": "https://schema.org",
+					"@type": "WebSite",
+					"name": "Michiana Dev",
+					"url": "https://michiana.dev"
+				};
+
+const businessSchema = {
+					"@context": "https://schema.org",
+					"@type": "ProfessionalService",
+					"@id": "https://michiana.dev/#business",
+					"name": "Michiana Dev LLC",
+					"legalName": "Michiana Dev LLC",
+					"alternateName": "Michiana.dev",
+					"url": "https://michiana.dev",
+					"logo": "https://michiana.dev/android-chrome-512x512.png",
+					"image": "https://michiana.dev/og-image-v2.jpg",
+					"telephone": "+15742138502",
+					"founder": {
+						"@type": "Person",
+						"name": "Joe Hollenbach",
+						"jobTitle": "Software Engineer",
+						"sameAs": ["https://www.linkedin.com/in/joe-hollenbach", "https://github.com/justjoe19"]
+					},
+					"sameAs": ["https://www.linkedin.com/in/joe-hollenbach", "https://github.com/justjoe19", "https://share.google/Shycqyc3DYoD1z9DR"],
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "Mishawaka",
+						"addressRegion": "IN",
+						"postalCode": "46544",
+						"addressCountry": "US"
+					},
+					"geo": { "@type": "GeoCoordinates", "latitude": 41.6611, "longitude": -86.1706 },
+					"areaServed": areaServed,
+					"description": "Local web and software studio in Mishawaka, Indiana building fast, custom websites and software solutions for South Bend and Michiana businesses, with particular experience in contractors and restaurants. Also builds custom software and RankRadius, a local SEO platform for field-service businesses.",
+					"slogan": "Websites and software solutions for Michiana businesses, built by a local engineer you work with directly.",
+					"knowsAbout": ["Web design", "Local SEO", "Google Business Profile setup", "Contractor websites", "Restaurant websites", "Custom software"],
+					"hasOfferCatalog": {
+						"@type": "OfferCatalog",
+						"name": "Services",
+						"itemListElement": [
+							{
+								"@type": "Offer",
+								"itemOffered": { "@type": "Service", "name": "Website", "description": "A custom, mobile-first website of typically 5–8 pages with local SEO and schema, contact form, click-to-call, 2 rounds of revisions, and Google Analytics and Search Console setup. Starting at $2,500." },
+								"priceSpecification": { "@type": "PriceSpecification", "minPrice": "2500", "priceCurrency": "USD" }
+							},
+							{
+								"@type": "Offer",
+								"itemOffered": { "@type": "Service", "name": "Website + Local Launch", "description": "Everything in the Website package plus one-time Google Business Profile setup and handoff. Starting at $3,000." },
+								"priceSpecification": { "@type": "PriceSpecification", "minPrice": "3000", "priceCurrency": "USD" }
+							},
+							{
+								"@type": "Offer",
+								"itemOffered": { "@type": "Service", "name": "Google Business Profile Setup", "description": "One-time setup and handoff with a walkthrough and guide. Not ongoing management." },
+								"priceSpecification": { "@type": "PriceSpecification", "price": "450", "priceCurrency": "USD" }
+							},
+							{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Websites & Software", "description": "CMS sites, restaurant menus and online ordering, booking, e-commerce, client portals, and SaaS. Quoted after a free consultation." } },
+							{
+								"@type": "Offer",
+								"itemOffered": { "@type": "Service", "name": "Website Hosting & Maintenance" },
+								"priceSpecification": { "@type": "UnitPriceSpecification", "price": "100", "priceCurrency": "USD", "unitText": "MONTH" }
+							}
+						]
+					},
+					"owns": {
+						"@type": "SoftwareApplication",
+						"name": "RankRadius",
+						"url": "https://rankradius.io",
+						"applicationCategory": "BusinessApplication",
+						"operatingSystem": "Web"
+					}
+				};
 ---
 
 <!doctype html>
@@ -49,7 +123,7 @@ const socialImageURL = new URL(image, Astro.site);
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="Web Design Mishawaka, Web Developer South Bend, Custom Website Design Indiana, Premium Web Design, Custom Software Development Indiana, SaaS Development, Web Application Development Michiana, Website Hosting and Maintenance" />
+		<meta name="keywords" content="Web Design Mishawaka, Web Developer South Bend, Michiana Web Design, Local Web Developer Michiana, Website for Contractors, Restaurant Website Design, Google Business Profile Setup, Custom Website Design Indiana, Custom Software Development Indiana, Website Hosting and Maintenance" />
 		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 		<meta name="theme-color" content="#0b0c12" />
 
@@ -59,8 +133,8 @@ const socialImageURL = new URL(image, Astro.site);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageURL} />
-		{image === "/og-image.jpg" && <meta property="og:image:width" content="1200" />}
-		{image === "/og-image.jpg" && <meta property="og:image:height" content="630" />}
+		{image === "/og-image-v2.jpg" && <meta property="og:image:width" content="1200" />}
+		{image === "/og-image-v2.jpg" && <meta property="og:image:height" content="630" />}
 		<meta property="og:site_name" content="Michiana Dev" />
 
 		<!-- Twitter -->
@@ -72,71 +146,10 @@ const socialImageURL = new URL(image, Astro.site);
 
 		<!-- Structured Data (JSON-LD): Only on Homepage -->
 		{isHome && (
-			<script type="application/ld+json" is:inline>
-				{
-					"@context": "https://schema.org",
-					"@type": "WebSite",
-					"name": "Michiana Dev",
-					"url": "https://michiana.dev"
-				}
-			</script>
+			<script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)} />
 		)}
 		{isHome && (
-			<script type="application/ld+json" is:inline>
-				{
-					"@context": "https://schema.org",
-					"@type": "ProfessionalService",
-					"@id": "https://michiana.dev/#business",
-					"name": "Michiana Dev LLC",
-					"legalName": "Michiana Dev LLC",
-					"alternateName": "Michiana.dev",
-					"url": "https://michiana.dev",
-					"logo": "https://michiana.dev/android-chrome-512x512.png",
-					"image": "https://michiana.dev/og-image.jpg",
-					"telephone": "+15742138502",
-					"founder": {
-						"@type": "Person",
-						"name": "Joe Hollenbach",
-						"jobTitle": "Software Engineer",
-						"sameAs": ["https://www.linkedin.com/in/joe-hollenbach", "https://github.com/justjoe19"]
-					},
-					"sameAs": ["https://www.linkedin.com/in/joe-hollenbach", "https://github.com/justjoe19", "https://share.google/Shycqyc3DYoD1z9DR"],
-					"address": {
-						"@type": "PostalAddress",
-						"addressLocality": "Mishawaka",
-						"addressRegion": "IN",
-						"postalCode": "46544",
-						"addressCountry": "US"
-					},
-					"geo": { "@type": "GeoCoordinates", "latitude": 41.6611, "longitude": -86.1706 },
-					"areaServed": ["South Bend, IN", "Mishawaka, IN", "Elkhart, IN", "Granger, IN", "Goshen, IN", "Niles, MI", "Edwardsburg, MI", "Dowagiac, MI", "United States"],
-					"description": "Independent design and engineering studio building premium custom websites and software products, including RankRadius, a local SEO platform for field-service businesses.",
-					"hasOfferCatalog": {
-						"@type": "OfferCatalog",
-						"name": "Services",
-						"itemListElement": [
-							{
-								"@type": "Offer",
-								"itemOffered": { "@type": "Service", "name": "Website Design & Development", "description": "Custom-designed websites: $500 for the first page (including a contact form), plus $100 for each additional page." },
-								"priceSpecification": { "@type": "PriceSpecification", "minPrice": "500", "priceCurrency": "USD" }
-							},
-							{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Development" } },
-							{
-								"@type": "Offer",
-								"itemOffered": { "@type": "Service", "name": "Website Hosting & Maintenance" },
-								"priceSpecification": { "@type": "UnitPriceSpecification", "price": "100", "priceCurrency": "USD", "unitText": "MONTH" }
-							}
-						]
-					},
-					"owns": {
-						"@type": "SoftwareApplication",
-						"name": "RankRadius",
-						"url": "https://rankradius.io",
-						"applicationCategory": "BusinessApplication",
-						"operatingSystem": "Web"
-					}
-				}
-			</script>
+			<script type="application/ld+json" is:inline set:html={JSON.stringify(businessSchema)} />
 		)}
 
 	</head>
@@ -150,6 +163,7 @@ const socialImageURL = new URL(image, Astro.site);
 			<input type="text" name="name" />
 			<input type="text" name="company" />
 			<input type="text" name="service" />
+			<input type="text" name="industry" />
 			<input type="email" name="email" />
 			<input type="tel" name="phone" />
 			<textarea name="message"></textarea>

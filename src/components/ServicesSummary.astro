@@ -1,0 +1,37 @@
+---
+const items = [
+	{ title: 'Website design & development', desc: 'Custom, mobile-first sites with local SEO built in.', href: '/services#website' },
+	{ title: 'Google Business Profile setup', desc: 'One-time setup and handoff, so you run it yourself.', href: '/services#google-business-profile' },
+	{ title: 'Custom software', desc: 'CMS sites, ordering, booking, portals, and SaaS.', href: '/services#software' },
+	{ title: 'Hosting & maintenance', desc: 'SSL, backups, and an hour of updates each month.', href: '/services#hosting-maintenance' },
+];
+---
+
+<section id="services" class="relative border-t border-line py-24 sm:py-32" aria-labelledby="services-heading">
+	<div class="container-x">
+		<div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+			<div class="max-w-3xl">
+				<p class="eyebrow">Services</p>
+				<h2 id="services-heading" class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
+					Websites, software, and <span class="serif-accent text-gradient">local setup.</span>
+				</h2>
+				<p class="mt-6 max-w-2xl text-lg leading-relaxed text-body">
+					From the first sketch to launch day and beyond, every site is designed and built by one person: me.
+				</p>
+			</div>
+			<a href="/services" class="btn-ghost self-start sm:self-auto">All services <span aria-hidden="true">→</span></a>
+		</div>
+
+		<ul class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			{items.map((i) => (
+				<li>
+					<a href={i.href} class="spotlight card reveal group flex h-full flex-col p-6">
+						<h3 class="font-semibold tracking-tight text-ink">{i.title}</h3>
+						<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">{i.desc}</p>
+						<span class="mt-auto pt-5 text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>

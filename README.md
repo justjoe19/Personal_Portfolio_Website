@@ -6,7 +6,7 @@ Professional web development and software engineering for businesses in the Mich
 
 ## 🚀 Overview
 
-Michiana.dev is a high-performance, mobile-first marketing site built to showcase custom software and web engineering work. It combines a statically generated portfolio and technical blog with a live AI-powered demo tool, all deployed on Netlify.
+Michiana.dev is the high-performance, mobile-first marketing site for a local Michiana web studio. It leads with local positioning, package pricing, industry landing pages (`/contractors`, `/restaurants`, defined in `src/data/industries.ts`), and client results. It combines a statically generated portfolio and technical blog with a live AI-powered demo tool, all deployed on Netlify.
 
 ## 🛠️ Tech Stack
 
@@ -26,7 +26,7 @@ Michiana.dev is a high-performance, mobile-first marketing site built to showcas
 - **AI Review Responder:** A free live demo at [`/review-responder`](https://michiana.dev/review-responder) that uses Google Gemini to draft polished, on-brand replies to customer reviews. Backed by a Netlify Function with per-IP daily rate limiting via Netlify Blobs.
 - **Local SEO Optimized:** Structured data (JSON-LD), semantic HTML, automated sitemaps, and descriptive metadata across every page.
 - **Secure Contact Flow:** Netlify Forms for reliable, spam-resistant lead capture.
-- **Showcase UI:** Dark, product-grade design with a hand-written WebGL shader hero, CSS scroll-driven animations, cross-document View Transitions, a ⌘K command palette, cursor spotlights, and a `:has()`-powered portfolio filter on `/work`. Static sections are Astro components; React is used only for the Navbar, Contact form, Command Palette, and Review Responder.
+- **Showcase UI:** Dark, product-grade design with a hand-written WebGL shader hero, CSS scroll-driven animations, cross-document View Transitions, a ⌘K command palette, cursor spotlights, and a `:has()`-powered portfolio filter on `/portfolio`. Static sections are Astro components; React is used only for the Navbar, Contact form, Command Palette, and Review Responder.
 
 ## 📂 Project Structure
 

@@ -35,7 +35,7 @@ Many themes and drag-and-drop page builders load large amounts of code on every 
 
 ### Deferred maintenance
 
-When updates feel risky, they get skipped. Skipped updates are the most common way small-business sites get hacked. (More on that in [website security for South Bend businesses](/blog/the-headless-advantage-why-south-bend-businesses-are-rethinking-website-secur/).)
+When updates feel risky, they get skipped. Skipped updates are the most common way small-business sites get hacked. (More on that in [website security for South Bend businesses](/blog/website-security-for-south-bend-businesses/).)
 
 ### A design built for looks, not calls
 
@@ -68,7 +68,7 @@ When I rebuild a site, I start with how your customers actually choose a contrac
 - **A page for each core service** and the areas you serve, structured for local search
 - **Tap-to-call and short quote forms** everywhere they belong
 - **Existing URLs preserved or redirected**, so you don't lose the rankings you've already earned
-- **Ongoing care** on a [$100/month hosting and maintenance plan](/#hosting) that includes SSL, backups, and an hour of content updates every month. No more "Update" button anxiety.
+- **Ongoing care** on a [$100/month hosting and maintenance plan](/services#hosting-maintenance) that includes SSL, backups, and an hour of content updates every month. No more "Update" button anxiety.
 
 | | Typical aging WordPress site | Rebuilt custom site |
 | :--- | :--- | :--- |
@@ -93,4 +93,4 @@ Most small-business websites take about 2–4 weeks from kickoff to launch, depe
 
 ---
 
-If your website feels like more of a liability than an asset, let's talk it through. [Start with a free consultation](/#contact) — whether the answer is a cleanup or a fresh build.
+If your website feels like more of a liability than an asset, let's talk it through. You can see [pricing and what's included](/services#pricing), or browse the [portfolio](/portfolio). [Start with a free consultation](/#contact) — whether the answer is a cleanup or a fresh build.

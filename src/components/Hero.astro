@@ -1,8 +1,7 @@
 ---
 import { srcsetFor } from '../lib/images';
 import ShaderBackground from './ShaderBackground.astro';
-
-const stack = ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Java', 'Spring Boot', 'WebGL', 'Google Gemini', 'Serverless', 'View Transitions', 'Schema.org'];
+import { areaNames as areas } from '../data/areas';
 ---
 
 <section id="top" class="relative overflow-hidden pt-36 sm:pt-44">
@@ -15,76 +14,54 @@ const stack = ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Java'
 				<span class="relative flex h-1.5 w-1.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-leaf opacity-70"></span><span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-leaf"></span></span>
 				Open
 			</span>
-			Now taking new website &amp; software projects
+			Local web &amp; software studio in Mishawaka, Indiana
 			<span class="text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
 		</a>
 
-		<h1 class="display mx-auto mt-8 max-w-[15ch] text-[clamp(3rem,8.4vw,7rem)]">
-			<span class="text-fade">Websites and software that feel</span> <span class="serif-accent text-gradient pr-2">world-class.</span>
+		<h1 class="display mx-auto mt-8 max-w-[24ch] text-[clamp(2.4rem,5.8vw,5rem)]">
+			<span class="text-fade">Websites and software solutions for Michiana businesses, built by</span> <span class="serif-accent text-gradient pr-2">a&nbsp;local&nbsp;engineer</span> <span class="text-fade">you work with directly.</span>
 		</h1>
 
 		<p class="mx-auto mt-7 max-w-[40rem] text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
-			Michiana Dev is an independent design &amp; engineering studio. I build fast, distinctive websites and complete software products for businesses that want to lead their market.
+			I design and build fast, custom websites and software solutions that bring in calls and customers and keep your business running smoothly. No agencies, no account managers, no templates.
 		</p>
 
 		<div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
 			<a href="#contact" class="btn-primary">
-				Start a project
+				Get a free website review
 				<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 			</a>
-			<a href="/work" class="btn-ghost">View the work</a>
+			<a href="/portfolio" class="btn-ghost">View portfolio</a>
 		</div>
+		<p class="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted">
+			Free and no obligation: I’ll look at your current site and tell you honestly whether it needs fixing or rebuilding. Prefer to talk? Call <a href="tel:+15742138502" class="font-medium text-ink underline-offset-4 hover:underline">(574) 213-8502</a>.
+		</p>
 	</div>
 
 	<!-- Showcase: tilts back in 3D and flattens as it scrolls into view -->
 	<div class="container-x relative mt-20 sm:mt-24">
-		<div class="tilt-in relative mx-auto max-w-[1080px]">
+		<div class="tilt-in relative mx-auto max-w-[880px]">
 			<div aria-hidden="true" class="absolute -inset-x-10 -top-10 bottom-0 -z-10 rounded-[3rem] bg-accent/25 blur-[90px]"></div>
 			<div class="card overflow-hidden !rounded-[1.4rem] !bg-surface/80 p-2 sm:p-2.5">
-				<div class="grid gap-2 sm:gap-2.5 md:grid-cols-[1.55fr_1fr]">
-					<figure class="overflow-hidden rounded-xl border border-line bg-night">
-						<div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
-							<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-							<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-							<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-							<span class="ml-3 truncate rounded-md bg-white/[0.05] px-3 py-1 font-mono text-[0.68rem] text-muted">jhclaim.com</span>
-						</div>
-						<img src="/assets/work/jhclaims.webp" srcset={srcsetFor('/assets/work/jhclaims.webp')} sizes="(min-width: 768px) 660px, 100vw" alt="JH Claims Solution website, designed and built by Michiana Dev" width="1600" height="1000" fetchpriority="high" loading="eager" class="block aspect-[16/10] w-full object-cover object-top" />
-					</figure>
-
-					<div class="grid gap-2 sm:gap-2.5">
-						<!-- RankRadius widget mock -->
-						<div class="rounded-xl border border-line bg-night p-4 text-left" aria-hidden="true">
-							<div class="flex items-center justify-between">
-								<span class="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">RankRadius widget</span>
-								<span class="flex items-center gap-1.5 font-mono text-[0.62rem] text-leaf"><span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Live</span>
-							</div>
-							<p class="mt-3 text-[0.92rem] font-medium leading-snug text-ink">Furnace replacement in River Park, Mishawaka</p>
-							<p class="mt-1.5 text-[0.78rem] leading-relaxed text-muted">20-year-old unit swapped for a high-efficiency system before the first cold snap.</p>
-							<p class="mt-2.5 text-[0.75rem] text-amber-300">★★★★★ <span class="text-muted">matched review</span></p>
-						</div>
-
-						<!-- Code card -->
-						<div class="rounded-xl border border-line bg-night p-4 text-left font-mono text-[0.72rem] leading-[1.7]" aria-hidden="true">
-							<p class="text-muted">// hero.astro</p>
-							<p><span class="text-accent">const</span> <span class="text-ink">site</span> = <span class="text-sky">build</span>({'{'}</p>
-							<p class="pl-4"><span class="text-ink">design</span>: <span class="text-leaf">'custom'</span>,</p>
-							<p class="pl-4"><span class="text-ink">speed</span>: <span class="text-leaf">'instant'</span>,</p>
-							<p class="pl-4"><span class="text-ink">templates</span>: <span class="text-accent">null</span>,</p>
-							<p>{'}'});</p>
-						</div>
+				<figure class="overflow-hidden rounded-xl border border-line bg-night">
+					<div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
+						<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
+						<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
+						<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
+						<span class="ml-3 truncate rounded-md bg-white/[0.05] px-3 py-1 font-mono text-[0.68rem] text-muted">jhclaim.com</span>
 					</div>
-				</div>
+					<img src="/assets/work/jhclaims.webp" srcset={srcsetFor('/assets/work/jhclaims.webp')} sizes="(min-width: 920px) 860px, 100vw" alt="JH Claims Solution website, designed and built by Michiana Dev" width="1600" height="1000" fetchpriority="high" loading="eager" class="block aspect-[2/1] w-full object-cover object-top" />
+				</figure>
 			</div>
 		</div>
 	</div>
 
-	<!-- Technology marquee -->
+	<!-- Service-area marquee -->
 	<div class="relative mt-20 border-y border-line py-6 sm:mt-28">
-		<p class="sr-only">Technologies I work with: {stack.join(', ')}</p>
+		<p class="sr-only">Areas served: {areas.join(', ')}</p>
 		<div class="mask-fade-x overflow-hidden" aria-hidden="true">
-			<div class="flex w-max animate-marquee gap-12 pr-12 hover:[animation-play-state:paused]">
-				{[...stack, ...stack].map((t) => (
+			<div class="flex w-max animate-marquee gap-12 pr-12 [animation-duration:70s] hover:[animation-play-state:paused]">
+				{[...areas, ...areas].map((t) => (
 					<span class="flex items-center gap-3 whitespace-nowrap font-mono text-[0.8rem] uppercase tracking-[0.16em] text-muted">
 						<span class="text-gradient">//</span>{t}
 					</span>

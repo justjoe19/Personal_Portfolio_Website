@@ -1,0 +1,83 @@
+---
+import { srcsetFor } from '../lib/images';
+import { projects, type Project } from '../data/projects';
+
+interface Props {
+	/** Project slugs to show; defaults to every industry-tagged website project. */
+	slugs?: string[];
+	id?: string;
+	/** Show the "View all work" button. */
+	showAll?: boolean;
+}
+
+const { slugs, id = 'portfolio', showAll = true } = Astro.props;
+const cases: Project[] = slugs
+	? slugs.map((s) => projects.find((p) => p.slug === s)).filter((p): p is Project => Boolean(p))
+	: projects.filter((p) => p.industry && p.kind === 'Website');
+
+// A project's `result` and `testimonial` show only once they exist (see src/data/projects.ts).
+---
+
+{cases.length > 0 && (
+	<section id={id} class="relative py-24 sm:py-32" aria-labelledby={`${id}-heading`}>
+		<div class="container-x">
+			<div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+				<div>
+					<p class="eyebrow">Recent projects</p>
+					<h2 id={`${id}-heading`} class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
+						Local businesses, <span class="serif-accent text-gradient">real sites.</span>
+					</h2>
+				</div>
+				{showAll && (
+					<a href="/portfolio" class="btn-ghost self-start sm:self-auto">
+						View all work
+						<span aria-hidden="true">→</span>
+					</a>
+				)}
+			</div>
+
+			<div class="mt-14 grid gap-5 lg:grid-cols-3">
+				{cases.map((p) => (
+					<article class="spotlight card reveal group flex flex-col overflow-hidden p-2.5">
+						<a href={`/portfolio#${p.slug}`} class="block overflow-hidden rounded-xl border border-line" aria-label={`${p.name}: read the project`}>
+							<img
+								src={p.image}
+								srcset={srcsetFor(p.image)}
+								sizes="(min-width: 1024px) 400px, 100vw"
+								alt={`${p.name} — ${p.sector}`}
+								width={p.width}
+								height={p.height}
+								loading="lazy"
+								class="aspect-[16/10] w-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+							/>
+						</a>
+						<div class="flex flex-1 flex-col p-5 sm:p-6">
+							<p class="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted">{p.sector}</p>
+							<h3 class="mt-2 text-xl font-semibold tracking-tight">{p.name}</h3>
+							<p class="mt-2 text-[0.95rem] leading-relaxed text-body">{p.built ?? p.summary}</p>
+
+							{p.result && (
+								<p class="mt-4 border-l-2 border-leaf pl-3 text-[0.95rem] font-medium text-ink">{p.result}</p>
+							)}
+
+							{p.testimonial ? (
+								<figure class="mt-4 rounded-xl border border-line bg-paper/40 p-4">
+									<blockquote class="text-[0.92rem] leading-relaxed text-ink">“{p.testimonial.quote}”</blockquote>
+									<figcaption class="mt-3 text-sm text-body">
+										<span class="font-medium text-ink">{p.testimonial.name}</span>
+										{p.testimonial.role && <span>, {p.testimonial.role}</span>}
+										{p.testimonial.href && (
+											<a href={p.testimonial.href} target="_blank" rel="noopener" class="link-arrow ml-2">Read on Google <span aria-hidden="true">→</span></a>
+										)}
+									</figcaption>
+								</figure>
+							) : null}
+
+							<a href={`/portfolio#${p.slug}`} class="link-arrow mt-auto pt-5 text-sm">Read the project <span aria-hidden="true">→</span></a>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+)}
