@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+
+const title = 'Privacy Policy | Michiana Dev';
+const description = 'How Michiana Dev handles your information: the contact form, Google Analytics, hosting, and the free AI Review Responder tool.';
+const updated = 'October 11, 2026';
+
+const sections = [
+	{
+		id: 'what-i-collect',
+		title: 'What I collect',
+		body: [
+			'**Contact form.** When you send a message through the form, I receive your name, email, the message you write, and any optional details you add: your business name, phone number, the service you’re interested in, and your industry. I use this only to reply to you and to talk about your project.',
+			'**Website analytics.** I use Google Analytics 4 to see how people use this site: which pages are visited, roughly where visitors come from, what kind of device they use, and whether they send the contact form or tap a phone or email link. Analytics uses cookies and similar technology in your browser. It does not tell me who you are.',
+			'**Email and phone.** If you email or call me, I keep what you send so I can respond.',
+		],
+	},
+	{
+		id: 'ai-review-responder',
+		title: 'AI Review Responder tool',
+		body: [
+			'The free AI Review Responder at /review-responder sends the review text and the options you choose (such as tone and star rating) to Google’s Gemini service to write a reply. I don’t store the review text or the reply.',
+			'To keep the free tool sustainable, I limit how many replies one visitor can generate per day. This means your IP address and a simple count are kept until the daily reset.',
+			'Please don’t paste private or sensitive information into the tool.',
+		],
+	},
+	{
+		id: 'who-else',
+		title: 'Who else handles your information',
+		body: [
+			'**Netlify** hosts this site and receives contact form submissions on my behalf. Like most hosts, it also keeps standard server logs.',
+			'**Google** provides Google Analytics and the Gemini service used by the AI Review Responder. Their use of data is covered by Google’s own privacy policy.',
+			'I don’t sell your information, and I don’t share it for advertising. This site’s analytics is configured with Google signals and ad personalization turned off.',
+		],
+	},
+	{
+		id: 'cookies',
+		title: 'Cookies and your choices',
+		body: [
+			'Google Analytics sets cookies to tell visits apart. You can block or delete cookies in your browser settings, or install Google’s Analytics opt-out browser add-on. The site works the same either way.',
+			'Many browsers also offer a “Do Not Track” or content-blocking setting that stops analytics from loading.',
+		],
+	},
+	{
+		id: 'your-requests',
+		title: 'Your requests',
+		body: [
+			'You can ask me what information I have about you, ask me to correct it, or ask me to delete it. Email me and I’ll respond as soon as I can. If you’re a business client, I also keep project records, invoices, and correspondence as needed to run my business and meet legal requirements.',
+		],
+	},
+	{
+		id: 'children',
+		title: 'Children',
+		body: ['This site is for businesses and isn’t directed at children under 13, and I don’t knowingly collect information from them.'],
+	},
+	{
+		id: 'changes',
+		title: 'Changes to this policy',
+		body: ['If I change this policy, I’ll update the date at the top of this page.'],
+	},
+];
+
+const bold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-ink">$1</strong>');
+---
+
+<Layout title={title} description={description}>
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
+	<Navbar client:load />
+
+	<main id="main-content">
+		<header class="relative overflow-hidden pt-36 pb-12 sm:pt-44 sm:pb-16">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative max-w-4xl">
+				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Privacy</span>
+				</nav>
+				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]">
+					<span class="text-fade">Privacy</span> <span class="serif-accent text-gradient pr-2">policy.</span>
+				</h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
+					The short version: I collect only what I need to answer your messages and understand how the site is used. I don’t sell your information.
+				</p>
+				<p class="mt-4 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-muted">Last updated {updated}</p>
+			</div>
+		</header>
+
+		<section class="border-t border-line py-16 sm:py-24">
+			<div class="container-x max-w-4xl">
+				<div class="max-w-2xl space-y-14">
+					{sections.map((s) => (
+						<section id={s.id} aria-labelledby={`${s.id}-h`} class="scroll-mt-28">
+							<h2 id={`${s.id}-h`} class="display text-[clamp(1.6rem,3vw,2.2rem)]">{s.title}</h2>
+							<div class="mt-5 space-y-4 text-[1.02rem] leading-relaxed text-body">
+								{s.body.map((p) => <p set:html={bold(p)} />)}
+							</div>
+						</section>
+					))}
+					<section id="contact-us" aria-labelledby="contact-us-h" class="scroll-mt-28">
+						<h2 id="contact-us-h" class="display text-[clamp(1.6rem,3vw,2.2rem)]">Contact</h2>
+						<p class="mt-5 text-[1.02rem] leading-relaxed text-body">
+							Questions about this policy? <a data-email data-email-label href="/contact" class="link-arrow">Send me an email</a>, call <a href="tel:+15742138502" class="link-arrow">(574) 213-8502</a>, or use the <a href="/contact" class="link-arrow">contact page</a>. Michiana Dev LLC, Mishawaka, Indiana.
+						</p>
+					</section>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
