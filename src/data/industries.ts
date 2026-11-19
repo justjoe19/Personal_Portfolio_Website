@@ -50,7 +50,7 @@ export const industries: Record<string, Industry> = {
     intro:
       'Roofing, restoration, HVAC, plumbing, remodeling, and landscaping companies win jobs when a homeowner can find them on Google, trust their work, and call or request an estimate in two taps. I build fast, custom sites designed around exactly that.',
     quickAnswer:
-      'Michiana Dev LLC builds custom, lead-focused websites for contractors and home-service trades (roofing, restoration, HVAC, plumbing, remodeling) across Mishawaka, South Bend, Elkhart, and Southwest Michigan. Options range from simple starter sites for solo tradespeople to full multi-page builds with one-time Google Business Profile setup, persistent tap-to-call, free-estimate forms, and contractor schema markup.',
+      'Michiana Dev LLC builds custom, lead-focused websites for contractors and home-service trades (roofing, restoration, HVAC, plumbing, remodeling) across Mishawaka, South Bend, Elkhart, and Southwest Michigan. Options range from simple starter sites for solo tradespeople to full multi-page builds with one-time Google Business Profile setup, persistent tap-to-call, free-estimate forms, and contractor Google-ready local business details.',
     ctaLabel: 'Get a free website review',
     contactHeading: ['Tell me about your', 'contracting business.'],
     serviceType: 'Website design for contractors and home-service businesses',
@@ -95,7 +95,7 @@ export const industries: Record<string, Industry> = {
       },
       {
         q: 'Will the site help me show up in Mishawaka, South Bend, Elkhart, and surrounding towns?',
-        a: 'Yes. Local SEO, contractor schema markup, and clear service-area signals are built into every site from day one, and we can add dedicated location pages for every town and county in your service radius.',
+        a: 'Yes. Local SEO, contractor Google-ready local business details, and clear service-area signals are built into every site from day one, and we can add dedicated location pages for every town and county in your service radius.',
       },
       {
         q: 'Do you manage my Google Business Profile monthly after setup?',
@@ -126,13 +126,13 @@ export const industries: Record<string, Industry> = {
     contactIndustry: 'Restaurant',
     title: 'Restaurant Website Design in Mishawaka & South Bend | Michiana Dev',
     description:
-      'Fast, photo-forward restaurant websites for Michiana: mobile-friendly HTML menus (no pinched PDFs), hours, online ordering or reservations, and Google Business Profile setup.',
+      'Fast, photo-forward restaurant websites for Michiana: mobile-friendly menus (no pinched PDFs), hours, online ordering or reservations, and Google Business Profile setup.',
     eyebrow: 'Restaurants, Cafes & Hospitality · Michiana',
     h1: ['Restaurant websites that make guests', 'hungry and easy to find.'],
     intro:
       'Diners check your menu, hours, address, and food photos on their phones before they ever walk through your door. I build fast, photo-forward websites that put the essentials one tap away—without forcing guests to pinch-and-zoom a blurry PDF menu.',
     quickAnswer:
-      'Michiana Dev LLC builds fast, photo-forward websites for restaurants, cafes, and bars in Mishawaka, South Bend, Elkhart, St. Joseph, and across Michiana. Options range from simple starter sites for neighborhood cafes and food trucks to full multi-page restaurant websites featuring readable mobile HTML menus (never pinched PDFs), one-tap directions, online ordering/reservation links, and optional self-editable CMS dashboards.',
+      'Michiana Dev LLC builds fast, photo-forward websites for restaurants, cafes, and bars in Mishawaka, South Bend, Elkhart, St. Joseph, and across Michiana. Options range from simple starter sites for neighborhood cafes and food trucks to full multi-page restaurant websites featuring readable mobile mobile-friendly menus (never pinched PDFs), one-tap directions, online ordering/reservation links, and optional easy-to-update content editor dashboards.',
     ctaLabel: 'Get a free website review',
     contactHeading: ['Tell me about your', 'restaurant.'],
     serviceType: 'Website design for restaurants and hospitality businesses',
@@ -162,13 +162,13 @@ export const industries: Record<string, Industry> = {
         desc: 'Categories, hours, menu URLs, ordering links, photos, and a direct review-request link set up to match your site and handed over with a guide.',
       },
     ],
-    note: 'Every restaurant website is quoted around your scope after a free consultation—whether you need a simple menu-and-hours starter site or a custom build with a self-editable CMS.',
+    note: 'Every restaurant website is quoted around your scope after a free consultation—whether you need a simple menu-and-hours starter site or a custom build with a easy-to-update content editor.',
     projectSlugs: ['review-responder'],
     caseStudies: [],
     faqs: [
       {
         q: 'How is a restaurant website priced?',
-        a: 'Every project is quoted upfront around your needs after a free consultation—from a Simple Starter Site for a new cafe or food truck to a full Business Website (with optional monthly hosting & menu updates) or a custom self-editable CMS and online ordering integration.',
+        a: 'Every project is quoted upfront around your needs after a free consultation—from a Simple Starter Site for a new cafe or food truck to a full Business Website (with optional monthly hosting & menu updates) or a custom easy-to-update content editor and online ordering integration.',
       },
       {
         q: 'Why shouldn’t my restaurant just use a PDF menu or Facebook page?',
@@ -244,7 +244,7 @@ export const industries: Record<string, Industry> = {
       },
       {
         q: 'How is a small-business website priced?',
-        a: 'Every project is quoted upfront around your scope after a free consultation. Newer or solo businesses can start with a Simple Starter Site (1–3 pages), growing businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom portals or CMS builds are scoped around your workflow.',
+        a: 'Every project is quoted upfront around your scope after a free consultation. Newer or solo businesses can start with a Simple Starter Site (1–3 pages), growing businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom portals or content-editor builds are scoped around your workflow.',
       },
       {
         q: 'Why choose a custom-built website over WordPress, Wix, or Squarespace?',

@@ -37,7 +37,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: 'How do you help my business rank on Google and in AI search tools?',
-    a: 'Every site is engineered from day one with fast mobile performance, dedicated service and town pages, clean semantic HTML, and structured JSON-LD schema markup. This gives both Google Search/Maps and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) the exact local signals they need to recommend your business.',
+    a: 'Every site is engineered from day one with fast mobile performance, dedicated service and town pages, clean semantic HTML, and structured JSON-LD Google-ready local business details. This gives both Google Search/Maps and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) the exact local signals they need to recommend your business.',
   },
   gbpFaq,
   {
@@ -51,7 +51,7 @@ export const homeFaqs: FaqItem[] = [
 export const servicesFaqs: FaqItem[] = [
   {
     q: 'How do your website packages and quotes work?',
-    a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages), established businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom CMS, online ordering, or portal projects are scoped around your workflow.',
+    a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages), established businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom content editor, online ordering, or portal projects are scoped around your workflow.',
   },
   {
     q: 'How long does it take to build a website?',

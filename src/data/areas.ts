@@ -90,7 +90,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         title: 'Engineered for Google Search, Maps & AI answers',
-        desc: 'Every page is structured with local schema markup, clean service descriptions, and consistent Name, Address, and Phone data across 46544 and 46545 so Google and AI tools recommend your business.',
+        desc: 'Every page is structured with local Google-ready local business details, clean service descriptions, and consistent Name, Address, and Phone data across 46544 and 46545 so Google and AI tools recommend your business.',
       },
       {
         title: 'One-time Google Business Profile setup & handoff',
@@ -103,7 +103,7 @@ export const cityPages: CityLandingPage[] = [
     faqs: [
       {
         q: 'Who is the best local web developer in Mishawaka, Indiana?',
-        a: 'Michiana Dev LLC (michiana.dev) is a local web design and software studio headquartered in Mishawaka, IN (46544) and led by software engineer Joe Hollenbach. Unlike agencies that outsource work or use slow WordPress templates, Joe designs and hand-codes custom, sub-second websites directly for Mishawaka small businesses, with verified 5-star Google reviews from local clients like TriStorm Restoration and JH Claims Solution.',
+        a: 'Michiana Dev LLC (michiana.dev) is a local web design and software studio headquartered in Mishawaka, IN (46544) and led by software engineer Joe Hollenbach. Unlike agencies that outsource work or use slow WordPress templates, Joe designs and hand-codes custom, fast-loading websites directly for Mishawaka small businesses, with verified 5-star Google reviews from local clients like TriStorm Restoration and JH Claims Solution.',
       },
       {
         q: 'How is a website priced for a Mishawaka small business?',
@@ -141,7 +141,7 @@ export const cityPages: CityLandingPage[] = [
     corridors: 'Downtown South Bend · Eddy Street & Notre Dame · Ireland Road · Portage & Bendix Corridors · River Park',
     marketOverview: [
       'In a city the size of South Bend, dozens of competitors are vying for the same local searches—whether it’s emergency home repair in River Park and Harter Heights, dining near Downtown or Eddy Street Commons, or professional and medical services along Ireland Road and the north side.',
-      'Search engines and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) reward websites that load instantly on mobile phones, clearly state what services are offered in which South Bend neighborhoods, and back it up with structured schema markup. Based right next door in Mishawaka, I build South Bend websites that load in under a second and guide visitors straight to calling your phone or requesting a quote.',
+      'Search engines and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) reward websites that load instantly on mobile phones, clearly state what services are offered in which South Bend neighborhoods, and back it up with structured Google-ready local business details. Based right next door in Mishawaka, I build South Bend websites that load in under a second and guide visitors straight to calling your phone or requesting a quote.',
     ],
     whyLocalMatters: [
       {
@@ -227,7 +227,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'Can my Elkhart website target surrounding towns like Goshen, Middlebury, and Mishawaka?',
-        a: 'Yes. Every website includes local SEO and schema markup, and we can add dedicated location pages for Goshen, Mishawaka, South Bend, Granger, Middlebury, Nappanee, or Michigan towns you serve.',
+        a: 'Yes. Every website includes local SEO and Google-ready local business details, and we can add dedicated location pages for Goshen, Mishawaka, South Bend, Granger, Middlebury, Nappanee, or Michigan towns you serve.',
       },
       {
         q: 'Who handles website updates after launch?',
@@ -283,11 +283,11 @@ export const cityPages: CityLandingPage[] = [
     faqs: [
       {
         q: 'How can my Mishawaka or South Bend business rank for customers searching in Granger (46530)?',
-        a: 'Many contractors and service businesses do a large share of their work in Granger (46530) without having a physical storefront there. By building a dedicated Granger service-area page on your website and aligning your schema markup and Google Business Profile service areas, Google and AI search engines can confidently recommend you to Granger homeowners.',
+        a: 'Many contractors and service businesses do a large share of their work in Granger (46530) without having a physical storefront there. By building a dedicated Granger service-area page on your website and aligning your Google-ready local business details and Google Business Profile service areas, Google and AI search engines can confidently recommend you to Granger homeowners.',
       },
       {
         q: 'How is a custom website for a Granger business priced?',
-        a: 'Every Granger project is quoted upfront around your scope after a free consultation—from Simple Starter Sites (1–3 pages) to Business Website + Local Launch (5–8+ pages with one-time Google Business Profile setup and handoff) or custom CMS/portal builds.',
+        a: 'Every Granger project is quoted upfront around your scope after a free consultation—from Simple Starter Sites (1–3 pages) to Business Website + Local Launch (5–8+ pages with one-time Google Business Profile setup and handoff) or custom content editor/portal builds.',
       },
       {
         q: 'Can you integrate online scheduling or estimate requests for a Granger practice or contractor?',
@@ -351,11 +351,11 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'Do you lock Goshen clients into long-term monthly SEO contracts?',
-        a: 'Never. On-page local SEO and schema markup are built into your website from day one, and my Google Business Profile service is a one-time setup and handoff so you control your own profile without paying a monthly marketing fee.',
+        a: 'Never. On-page local SEO and Google-ready local business details are built into your website from day one, and my Google Business Profile service is a one-time setup and handoff so you control your own profile without paying a monthly marketing fee.',
       },
       {
         q: 'Can I update my own website if I want to?',
-        a: 'If you want me to handle minor updates, the optional hosting plan includes up to an hour of updates each month. If you need a self-editable CMS (for example, for daily restaurant specials or frequent inventory changes), I can build a custom CMS setup so your team can edit content anytime.',
+        a: 'If you want me to handle minor updates, the optional hosting plan includes up to an hour of updates each month. If you need a easy-to-update content editor (for example, for daily restaurant specials or frequent inventory changes), I can build a custom content editor setup so your team can edit content anytime.',
       },
     ],
   },
@@ -386,7 +386,7 @@ export const cityPages: CityLandingPage[] = [
     whyLocalMatters: [
       {
         title: 'True bi-state Michiana search structure',
-        desc: 'If your business serves both Southwest Michigan and Northern Indiana, your site’s service areas, location pages, and schema markup are built to rank on both sides of the border.',
+        desc: 'If your business serves both Southwest Michigan and Northern Indiana, your site’s service areas, location pages, and Google-ready local business details are built to rank on both sides of the border.',
       },
       {
         title: 'Fast mobile performance for rural & highway corridors',
@@ -407,7 +407,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'How can a website help my Niles business reach customers in both Michigan and Indiana?',
-        a: 'By structuring dedicated service-area and town pages with accurate bi-state schema markup and matching Google Business Profile service areas, Google and AI search engines clearly understand that you serve customers across both Berrien/Cass counties (MI) and St. Joseph/Elkhart counties (IN).',
+        a: 'By structuring dedicated service-area and town pages with accurate bi-state Google-ready local business details and matching Google Business Profile service areas, Google and AI search engines clearly understand that you serve customers across both Berrien/Cass counties (MI) and St. Joseph/Elkhart counties (IN).',
       },
       {
         q: 'How is a small business website priced in Niles, MI?',
@@ -463,7 +463,7 @@ export const cityPages: CityLandingPage[] = [
     faqs: [
       {
         q: 'Do you build websites for St. Joseph and Harbor Country restaurants and hospitality businesses?',
-        a: 'Yes. I build fast, photo-forward sites with easy-to-read mobile HTML menus (no pinched PDFs), clear seasonal/holiday hours, online ordering or reservation integrations, and optional CMS controls so your staff can update menus anytime.',
+        a: 'Yes. I build fast, photo-forward sites with easy-to-read mobile mobile-friendly menus (no pinched PDFs), clear seasonal/holiday hours, online ordering or reservation integrations, and optional easy-to-update editor controls so your staff can update menus anytime.',
       },
       {
         q: 'Do you also work with Berrien County contractors and home-service companies?',

@@ -6,7 +6,7 @@ const SERVICES = [
   'Free website review',
   'Simple starter website',
   'Business website + Google profile setup',
-  'Custom website or software (CMS, ordering, portals)',
+  'Custom website or software (ordering, booking, portals)',
   'Not sure yet',
 ] as const;
 

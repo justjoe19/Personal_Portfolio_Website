@@ -1,0 +1,88 @@
+---
+import { srcsetFor } from '../lib/images';
+
+const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
+const points = [
+	'Syncs completed jobs automatically from your field-service CRM',
+	'Publishes neighborhood-level summaries without exposing customer addresses',
+	'Matches each job with a real 5-star Google review from your profile',
+	'Drops right onto any custom, WordPress, Wix, or Squarespace website',
+];
+---
+
+<section id="rankradius-spotlight" class="border-t border-line py-24 sm:py-32" aria-labelledby="rankradius-home-heading">
+	<div class="container-x">
+		<div class="reveal card grid gap-10 overflow-hidden p-7 sm:p-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
+			<div>
+				<p class="eyebrow">Featured Software · Built by Joe Hollenbach</p>
+				<h2 id="rankradius-home-heading" class="display mt-4 text-[clamp(2rem,4.2vw,3.3rem)]">
+					Meet <span class="serif-accent text-gradient">RankRadius:</span> turn completed jobs into local proof.
+				</h2>
+				<p class="mt-5 text-[1.05rem] leading-relaxed text-body">
+					I don’t just build websites—I also built and operate <strong>RankRadius</strong>, a local search platform for contractors and field-service crews. Every time your team finishes a job, RankRadius turns short field notes into neighborhood proof right on your website so nearby homeowners see the work you’ve done in their area.
+				</p>
+
+				<ul class="mt-7 space-y-3">
+					{points.map((pt) => (
+						<li class="flex gap-3 text-[0.95rem] text-ink">
+							<Fragment set:html={check} />
+							<span>{pt}</span>
+						</li>
+					))}
+				</ul>
+
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a href="https://rankradius.io" target="_blank" rel="noopener" class="btn-primary">
+						Visit rankradius.io
+						<span aria-hidden="true">↗</span>
+					</a>
+					<a href="/services#rankradius" class="btn-ghost">
+						How it works as an add-on
+						<span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="space-y-4">
+				<div class="overflow-hidden rounded-2xl border border-line bg-sand/50 shadow-[0_18px_48px_-20px_rgba(15,23,42,0.16)]">
+					<div class="flex items-center justify-between border-b border-line bg-sand/70 px-4 py-2.5">
+						<div class="flex items-center gap-1.5">
+							<span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
+							<span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
+							<span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
+							<span class="ml-2 text-xs font-medium text-muted">rankradius.io</span>
+						</div>
+						<span class="rounded-full bg-leaf/12 px-2.5 py-0.5 text-[0.68rem] font-semibold text-leaf">Live Platform</span>
+					</div>
+					<img
+						src="/assets/work/rankradius.webp"
+						srcset={srcsetFor('/assets/work/rankradius.webp')}
+						sizes="(min-width: 1024px) 520px, 100vw"
+						alt="RankRadius local SEO software platform built by Michiana Dev"
+						width="1600"
+						height="1000"
+						loading="lazy"
+						class="aspect-[16/10] w-full object-cover object-top"
+					/>
+				</div>
+
+				<div class="rounded-2xl border border-line bg-paper p-5">
+					<div class="flex items-center justify-between gap-2">
+						<span class="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Example Website Update</span>
+						<span class="flex items-center gap-1.5 text-xs font-semibold text-leaf">
+							<span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Auto-published
+						</span>
+					</div>
+					<p class="mt-2.5 text-[0.98rem] font-semibold text-ink">Roof repair in Harter Heights, South Bend</p>
+					<p class="mt-1 text-sm leading-relaxed text-body">
+						Wind-lifted shingles along the ridge replaced and sealed the same afternoon.
+					</p>
+					<p class="mt-2.5 text-xs font-medium text-muted">
+						<span class="text-gold" aria-label="5 out of 5 stars">★★★★★</span> · Paired with verified customer review
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

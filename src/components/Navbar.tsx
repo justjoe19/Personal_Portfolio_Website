@@ -1,16 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Logo from './Logo';
-import { OPEN_PALETTE_EVENT } from '../lib/events';
-
-const SearchIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-    <circle cx="11" cy="11" r="7" />
-    <path d="m20 20-3.5-3.5" />
-  </svg>
-);
 
 const LINKS = [
-  { href: '/services', label: 'Services & Pricing' },
+  { href: '/services', label: 'Services & Packages' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/service-areas', label: 'Service Areas' },
   { href: '/about', label: 'About' },
@@ -26,7 +18,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [path, setPath] = useState('/');
-  const [shortcut, setShortcut] = useState('⌘K');
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const industriesRef = useRef<HTMLLIElement>(null);
 
@@ -34,7 +25,6 @@ export default function Navbar() {
     // window isn't available during Astro's SSR pass, so these can only be read post-hydration.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPath(window.location.pathname);
-    if (!/Mac|iPhone|iPad/.test(navigator.platform)) setShortcut('Ctrl K');
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -75,11 +65,6 @@ export default function Navbar() {
       el?.removeEventListener('focusout', onFocusOut);
     };
   }, [industriesOpen]);
-
-  const openSearch = () => {
-    setIsOpen(false);
-    window.dispatchEvent(new Event(OPEN_PALETTE_EVENT));
-  };
 
   const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
   const industryActive = INDUSTRIES.some((i) => path.startsWith(i.href));
@@ -146,18 +131,13 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={openSearch}
-            aria-label="Search the site"
-            aria-keyshortcuts="Meta+K Control+K"
-            className="hidden items-center gap-2 rounded-full border border-line py-1.5 pr-1.5 pl-3 text-[0.82rem] text-muted transition-colors hover:border-line-strong hover:text-ink sm:flex"
+        <div className="flex items-center gap-3">
+          <a
+            href="tel:+15742138502"
+            className="hidden text-[0.84rem] font-semibold text-body hover:text-ink xl:inline-block"
           >
-            <SearchIcon className="h-3.5 w-3.5" />
-            <span>Search</span>
-            <kbd className="rounded-full bg-sand px-2 py-0.5 text-[0.68rem] text-muted">{shortcut}</kbd>
-          </button>
+            (574) 213-8502
+          </a>
           <a href="/contact" className="btn-primary !px-3.5 !py-2 !text-[0.8rem] sm:!px-4 sm:!text-[0.85rem]">
             Free Review
           </a>
@@ -187,7 +167,7 @@ export default function Navbar() {
               </li>
             ))}
             <li className="border-b border-line py-4">
-              <p className="text-[0.7rem] uppercase tracking-[0.16em] text-muted">Who I Help</p>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted">Who I Help</p>
               <ul className="mt-2">
                 {INDUSTRIES.map((i) => (
                   <li key={i.href}>
@@ -202,10 +182,6 @@ export default function Navbar() {
           <a href="tel:+15742138502" className="btn-ghost mt-6 w-full">
             Call (574) 213-8502
           </a>
-          <button type="button" onClick={openSearch} className="btn-ghost mt-3 w-full">
-            <SearchIcon className="h-4 w-4" />
-            Search the site
-          </button>
           <a href="/contact" onClick={() => setIsOpen(false)} className="btn-primary mt-3 w-full">
             Get a free website review
           </a>
