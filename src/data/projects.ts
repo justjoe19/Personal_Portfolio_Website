@@ -139,18 +139,19 @@ export const projects: Project[] = [
     locationTag: 'Michiana Dev Software Platform',
     outcomePill: 'Automated Neighborhood Proof',
     summary:
-      'A software platform I designed, built, and operate that turns a field-service company’s completed jobs into neighborhood-level proof published right on its own website.',
+      'A local SEO automation platform I designed, built, and operate that turns a field-service company’s completed jobs into neighborhood-level proof, social posts, and performance insights.',
     challenge:
-      'Contractors and home-service crews complete great work in dozens of neighborhoods every month, but none of that local activity ever makes it onto their website to help them rank in those towns.',
+      'Contractors and home-service crews complete great work in dozens of neighborhoods every month, but none of that local activity makes it onto their website—and Google listing changes or search results are easy to miss.',
     solution:
-      'RankRadius syncs completed jobs from a company’s CRM, turns short technician notes into ~150-word neighborhood summaries without ever exposing customer street addresses, attaches matching Google reviews, and publishes them via a drop-in website widget.',
+      'RankRadius pulls completed jobs and photos from a company’s CRM (via direct sync, Zapier, Make, or portal upload), turns short field notes into ~150-word neighborhood write-ups, snaps map pins to the neighborhood center so a customer’s house is never shown, and suggests matching 4- and 5-star Google reviews. Every post waits for owner approval before publishing to a drop-in website widget and Facebook/Instagram—backed by a performance dashboard with Google calls, clicks, directions, Search Console data, and a daily Google listing check.',
     highlights: [
-      'Automatic job sync from popular field-service CRMs or simple portal upload',
-      'AI-assisted neighborhood write-ups that protect homeowner privacy',
-      'Matches real Google reviews to recent work in each town',
-      'Works on custom websites as well as WordPress, Squarespace, Wix, and Webflow',
+      'Direct CRM, Zapier, Make, or portal intake—approve every write-up before it goes live',
+      'Privacy-first neighborhood snapping (never shows a customer’s actual house) + ~150-word AI write-ups',
+      'Matched 4- and 5-star Google reviews plus one-click Facebook & Instagram posting',
+      'Performance dashboard: Google calls/clicks/directions, Search Console search phrases, PDF reports & daily listing watch',
+      'Drop-in widget for custom sites, WordPress, Squarespace, Wix, and Webflow',
     ],
-    stack: ['CRM integration', 'Neighborhood SEO widget', 'Google review matching', 'Custom web software'],
+    stack: ['CRM & Portal Sync', 'Neighborhood Snapping', 'Review Matching', '1-Click Social', 'Listing Watch & Analytics'],
     image: '/assets/work/rankradius.webp',
     width: 1600,
     height: 1000,
