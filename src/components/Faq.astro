@@ -8,34 +8,41 @@ interface Props {
 	faqs: FaqItem[];
 	title?: string;
 	id?: string;
+	eyebrow?: string;
+	showAllLink?: boolean;
 }
 
-const { faqs, title = 'Frequently asked questions', id = 'faq' } = Astro.props;
+const {
+	faqs,
+	title = 'Frequently asked questions',
+	id = 'faq',
+	eyebrow = 'FAQ',
+	showAllLink = true,
+} = Astro.props;
 ---
 
 <section id={id} class="border-t border-line py-24 sm:py-32">
-	<div class="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+	<div class="container-x grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
 		<div>
-			<p class="eyebrow">FAQ</p>
-			<h2 class="display mt-5 text-[clamp(2.3rem,5vw,3.4rem)]">{title}</h2>
+			<p class="eyebrow">{eyebrow}</p>
+			<h2 class="display mt-5 text-[clamp(2.2rem,4.6vw,3.3rem)]">{title}</h2>
 			<p class="mt-5 text-body">
-				Don’t see your question? <a data-email data-email-label href="/#contact" class="link-arrow">Send me an email</a>
+				Don’t see your question? <a data-email data-email-label href="/contact" class="link-arrow">Send me an email</a> or call <a href="tel:+15742138502" class="font-semibold text-ink hover:text-accent">(574) 213-8502</a>.
 			</p>
+			{showAllLink && (
+				<p class="mt-4">
+					<a href="/faq" class="link-arrow text-sm">Browse all FAQs <span aria-hidden="true">→</span></a>
+				</p>
+			)}
 		</div>
 
-		<div class="border-t border-line-strong">
+		<dl class="divide-y divide-line border-t border-line-strong">
 			{faqs.map((faq) => (
-				<details class="group border-b border-line">
-					<summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[1.08rem] font-semibold text-ink [&::-webkit-details-marker]:hidden hover:text-sky">
-						{faq.q}
-						<span aria-hidden="true" class="relative mt-1.5 h-3.5 w-3.5 shrink-0">
-							<span class="absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 bg-current"></span>
-							<span class="absolute top-0 left-1/2 h-full w-[1.5px] -translate-x-1/2 bg-current transition-transform duration-300 group-open:rotate-90 group-open:opacity-0"></span>
-						</span>
-					</summary>
-					<p class="max-w-2xl pb-7 leading-relaxed text-body">{faq.a}</p>
-				</details>
+				<div class="py-7 first:pt-6">
+					<dt class="text-[1.1rem] font-semibold leading-snug text-ink">{faq.q}</dt>
+					<dd class="mt-3 max-w-2xl leading-relaxed text-body">{faq.a}</dd>
+				</div>
 			))}
-		</div>
+		</dl>
 	</div>
 </section>

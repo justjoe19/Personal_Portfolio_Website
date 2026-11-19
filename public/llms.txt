@@ -46,6 +46,7 @@
 - [Web Design Niles, MI](https://michiana.dev/service-areas/niles)
 - [Web Design St. Joseph & Benton Harbor, MI](https://michiana.dev/service-areas/st-joseph)
 - [About Joe Hollenbach](https://michiana.dev/about)
+- [FAQ](https://michiana.dev/faq)
 - [Contact / Free Website Review](https://michiana.dev/contact)
 - [Blog](https://michiana.dev/blog)
 - [Full Context for AI Assistants](https://michiana.dev/llms-full.txt)

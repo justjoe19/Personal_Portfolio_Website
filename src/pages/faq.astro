@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import FaqSection from '../components/Faq.astro';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer.astro';
+import { faqCategories, allFaqs, faqSchema } from '../data/faqs';
+
+const title = 'Frequently Asked Questions | Web Design & Software | Michiana Dev';
+const description =
+	'Answers to common questions about Michiana Dev websites, simple starter sites, timelines, hosting, Google Business Profile setup, local SEO, and RankRadius.';
+
+const url = 'https://michiana.dev/faq';
+const schema = JSON.stringify([
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${url}#page`,
+		name: title,
+		description,
+		url,
+		about: { '@id': 'https://michiana.dev/#business' },
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['#quick-answer', '#working-together', '#packages-timeline'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://michiana.dev/' },
+			{ '@type': 'ListItem', position: 2, name: 'FAQ', item: url },
+		],
+	},
+	faqSchema(allFaqs),
+]);
+---
+
+<Layout title={title} description={description}>
+	<script type="application/ld+json" is:inline set:html={schema} />
+
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
+	<Navbar client:load />
+
+	<main id="main-content">
+		<header class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative max-w-4xl">
+				<nav aria-label="Breadcrumb" class="text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">FAQ</span>
+				</nav>
+				<p class="eyebrow mt-8">Common Questions · Mishawaka, Indiana</p>
+				<h1 class="display mt-5 text-[clamp(2.4rem,6vw,5rem)]">
+					<span class="text-fade">Straight answers about</span> <span class="serif-accent text-gradient pr-2">working together.</span>
+				</h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
+					Everything Michiana small-business owners ask before starting a new website or software project—from turnaround time and Google Business Profile setup to site ownership and ongoing updates.
+				</p>
+
+				<nav aria-label="FAQ categories" class="mt-10 flex flex-wrap gap-2">
+					{faqCategories.map((cat) => (
+						<a
+							href={`#${cat.id}`}
+							class="rounded-full border border-line-strong bg-surface px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-sand"
+						>
+							{cat.eyebrow}
+						</a>
+					))}
+				</nav>
+			</div>
+		</header>
+
+		{faqCategories.map((cat) => (
+			<FaqSection
+				faqs={cat.faqs}
+				id={cat.id}
+				eyebrow={cat.eyebrow}
+				title={cat.title}
+				showAllLink={false}
+			/>
+		))}
+
+		<Contact
+			client:visible
+			heading={['Still have', 'a question?']}
+			intro="Send me a quick message or call (574) 213-8502. I’ll give you a straightforward answer—and if you’d like a free review of your current website, just include the link."
+		/>
+	</main>
+
+	<Footer />
+</Layout>
