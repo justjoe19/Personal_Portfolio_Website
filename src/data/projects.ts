@@ -36,17 +36,17 @@ export const projects: Project[] = [
     locationTag: 'Michiana · Local Trade',
     outcomePill: '24/7 Emergency Call & Estimate Flow',
     summary:
-      'A 24/7 emergency-response website for a family-owned Michiana restoration company built around instant phone calls and fast mobile load times.',
+      'A bilingual (English/Spanish) 24/7 emergency-response website for a family-owned Michiana restoration company—built for instant phone calls, insurance claim clarity, and local neighborhood proof.',
     challenge:
-      'Their customers arrive mid-crisis—with a flooded basement or a storm-damaged roof—almost always on a phone. Every extra tap or slow-loading page is a lost job.',
+      'Their customers arrive mid-crisis—with a flooded basement, fire damage, or a storm-damaged roof—almost always on a phone. Every extra tap or slow-loading page is a lost job.',
     solution:
-      'A mobile-first site engineered around the fastest possible path from a local Google search to a live phone call, with persistent tap-to-call and free-estimate paths on every screen and clear reassurance on how insurance claims work.',
+      'A fast, mobile-first website engineered around the shortest path from a local Google search to a live 24/7 phone call, with an English/Spanish toggle, dedicated restoration service and Michiana town pages, live RankRadius project proof, and clear reassurance that TriStorm handles the insurance paperwork.',
     highlights: [
-      'Persistent tap-to-call and estimate request paths on every screen',
-      'Instant mobile load speed for homeowners in an emergency',
-      'Local SEO and service-area coverage across Michiana',
+      '24/7 tap-to-call and "Get Help Now" emergency paths on every screen',
+      'Built-in English & Spanish (EN | ES) language switcher for Michiana families',
+      'Live neighborhood project feed (powered by RankRadius) plus dedicated service & town pages',
     ],
-    stack: ['Mobile-first design', '24/7 tap-to-call', 'Michiana local SEO', 'Lead tracking'],
+    stack: ['Bilingual (EN / ES)', '24/7 tap-to-call', 'RankRadius live proof', 'Michiana local SEO'],
     image: '/assets/work/tristorm.webp',
     width: 1600,
     height: 1000,
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     external: true,
     industry: 'contractors',
     built:
-      'A mobile-first emergency-response website with tap-to-call and estimate paths on every screen, plus local search structure across Michiana.',
+      'A bilingual (EN/ES) 24/7 emergency-response site with instant tap-to-call, live RankRadius project proof, and dedicated Michiana service and town pages.',
     testimonial: {
       quote:
         'The TriStorm Team loves working with Joe! He created our website and truly took the time to understand our company and brand.',
