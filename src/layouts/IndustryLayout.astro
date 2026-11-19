@@ -193,12 +193,15 @@ const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 
 		{industry.addon && (
 			<section class="border-t border-line py-16 sm:py-20" aria-label={industry.addon.title}>
 				<div class="container-x">
-					<div class="spotlight card reveal flex flex-col gap-4 p-8 sm:flex-row sm:items-center sm:justify-between">
+					<div class="spotlight card reveal flex flex-col gap-6 p-8 lg:flex-row lg:items-center lg:justify-between">
 						<div class="max-w-2xl">
 							<h2 class="text-xl font-semibold tracking-tight">{industry.addon.title}</h2>
 							<p class="mt-2 text-body">{industry.addon.desc}</p>
 						</div>
-						<a href={industry.addon.href} target="_blank" rel="noopener" class="btn-ghost shrink-0">{industry.addon.linkLabel} <span aria-hidden="true">↗</span></a>
+						<div class="flex flex-wrap items-center gap-4 shrink-0">
+							<a href={industry.addon.href} target="_blank" rel="noopener noreferrer" class="btn-ghost">{industry.addon.linkLabel} <span aria-hidden="true">↗</span></a>
+							<a href="https://tristormrestoration.com/recent-projects" target="_blank" rel="noopener noreferrer" class="link-arrow text-sm">See it live on TriStorm Restoration <span aria-hidden="true">↗</span></a>
+						</div>
 					</div>
 				</div>
 			</section>
