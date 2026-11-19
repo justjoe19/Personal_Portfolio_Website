@@ -5,13 +5,21 @@ export interface Industry {
   /** Short name used in nav, breadcrumbs, and schema. */
   name: string;
   /** Value for the contact form's Industry field. */
-  contactIndustry: 'Contractor/home services' | 'Restaurant' | 'Other';
+  contactIndustry:
+    | 'Contractor/home services'
+    | 'Restaurant'
+    | 'Professional, medical & insurance'
+    | 'Retail, shop & local service'
+    | 'Manufacturing & B2B'
+    | 'Other';
   title: string;
   description: string;
   eyebrow: string;
   /** Plain part of the h1, then the serif-accent part. */
   h1: [string, string];
   intro: string;
+  /** Concise 50–75 word citation block for AI Overviews, ChatGPT, and Perplexity. */
+  quickAnswer: string;
   ctaLabel: string;
   /** Contact section heading as [plain, accented]. */
   contactHeading: [string, string];
@@ -34,113 +42,217 @@ export const industries: Record<string, Industry> = {
     slug: 'contractors',
     name: 'Contractors & home services',
     contactIndustry: 'Contractor/home services',
-    title: 'Contractor Websites: Roofing, HVAC, Plumbing | Michiana Dev',
+    title: 'Contractor Websites in Mishawaka, South Bend & Michiana | Michiana Dev',
     description:
-      'Lead-focused websites for Michiana contractors: click-to-call, free-estimate forms, service and location pages, and Google Business Profile setup.',
-    eyebrow: 'Contractors & home services',
+      'Lead-focused websites for Michiana contractors (roofing, restoration, HVAC, plumbing, remodeling): tap-to-call, free-estimate forms, service & town pages, and Google Business Profile setup.',
+    eyebrow: 'Contractors & Home Services · Michiana',
     h1: ['Websites that make the phone ring for', 'Michiana contractors.'],
     intro:
-      'Roofing, restoration, HVAC, plumbing, and other trades win jobs when a homeowner can find them, trust them, and call in a few taps. I build fast, custom sites designed around exactly that.',
+      'Roofing, restoration, HVAC, plumbing, remodeling, and landscaping companies win jobs when a homeowner can find them on Google, trust their work, and call or request an estimate in two taps. I build fast, custom sites designed around exactly that.',
+    quickAnswer:
+      'Michiana Dev LLC builds custom, lead-focused websites for contractors and home-service trades (roofing, restoration, HVAC, plumbing, remodeling) across Mishawaka, South Bend, Elkhart, and Southwest Michigan. Options range from simple starter sites for solo tradespeople to full multi-page builds with one-time Google Business Profile setup, persistent tap-to-call, free-estimate forms, and contractor schema markup.',
     ctaLabel: 'Get a free website review',
     contactHeading: ['Tell me about your', 'contracting business.'],
     serviceType: 'Website design for contractors and home-service businesses',
     features: [
-      { title: 'Built to generate leads', desc: 'Every page points to one outcome: a call or an estimate request. No clutter between a worried homeowner and your phone number.' },
-      { title: 'Click-to-call everywhere', desc: 'A tap-to-call button that stays within reach on mobile, where most home-service searches happen.' },
-      { title: 'Free-estimate forms', desc: 'Short, clear request forms that ask for what you need to follow up, and nothing that makes people give up.' },
-      { title: 'Service pages', desc: 'A dedicated page for each service you offer, so you can show up for “roof repair,” “water damage,” or “furnace replacement,” not just your company name.' },
-      { title: 'Location pages', desc: 'Pages for the towns you serve, with real local detail, so nearby customers find you in the places you want to work.' },
-      { title: 'Google Business Profile setup', desc: 'Categories, services, service areas, hours, photos, and a review-request link, set up to match your website and handed over with a guide so you run it yourself.' },
+      {
+        title: 'Built to generate phone calls & estimates',
+        desc: 'Every page points to one outcome: a live phone call or an estimate request. No clutter between a homeowner with a problem and your phone number.',
+      },
+      {
+        title: 'Persistent tap-to-call on mobile',
+        desc: 'Most emergency and home-service searches happen on a cell phone. Your number and estimate button stay within thumb’s reach on every screen.',
+      },
+      {
+        title: 'Frictionless free-estimate forms',
+        desc: 'Short, plain-English request forms above the fold that ask for the exact details your crew needs to follow up—and nothing that makes homeowners abandon the page.',
+      },
+      {
+        title: 'Dedicated service pages',
+        desc: 'Separate pages for each core trade service (e.g., roof replacement, storm damage, water restoration, furnace repair) so you rank for the specific jobs people search for.',
+      },
+      {
+        title: 'Multi-town Michiana location pages',
+        desc: 'Pages targeting the exact cities and counties you serve across Northern Indiana and Southwest Michigan so nearby homeowners find you in their town.',
+      },
+      {
+        title: 'One-time Google Business Profile setup',
+        desc: 'Categories, services, service areas, hours, photos, and a review-request link set up to match your website and handed over with a walkthrough and guide.',
+      },
     ],
-    projectSlugs: ['jh-claims', 'no-limit-roofing', 'tristorm'],
+    projectSlugs: ['tristorm', 'no-limit-roofing', 'jh-claims'],
     caseStudies: [],
     addon: {
-      title: 'Optional add-on: RankRadius',
-      desc: 'RankRadius turns the jobs you already complete into neighborhood-level content on your own website. It’s an optional $399/mo add-on for field-service businesses.',
+      title: 'Optional add-on for field-service crews: RankRadius',
+      desc: 'RankRadius turns the jobs your crew already completes into neighborhood-level proof published on your own website, paired with your Google reviews.',
       href: 'https://rankradius.io',
       linkLabel: 'Visit rankradius.io',
     },
     faqs: [
       {
-        q: 'How much does a contractor website cost?',
-        a: 'Websites start at $2,500 for a custom site of typically 5–8 pages. Website + Local Launch starts at $3,000 and adds Google Business Profile setup and handoff. Both come with $100/mo hosting. Additional service pages start at $200 each and location pages at $150 each.',
+        q: 'How is a contractor website priced?',
+        a: 'Every contractor website is quoted upfront around your scope after a free consultation. Solo tradespeople can start with a Simple Starter Site (1–3 pages), while growing crews often choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional service and town pages added as needed.',
       },
       {
-        q: 'Will the site help me show up in local searches?',
-        a: 'Local SEO and schema markup are built into every site, along with dedicated service and location pages. I can’t promise specific rankings, but the site is structured to give you the best foundation.',
+        q: 'Will the site help me show up in Mishawaka, South Bend, Elkhart, and surrounding towns?',
+        a: 'Yes. Local SEO, contractor schema markup, and clear service-area signals are built into every site from day one, and we can add dedicated location pages for every town and county in your service radius.',
       },
       {
-        q: 'Do you manage my Google profile after setup?',
-        a: 'No. I set it up, optimize it, and hand it over with a walkthrough and guide, so you own and run it.',
+        q: 'Do you manage my Google Business Profile monthly after setup?',
+        a: 'No—and that saves you a monthly retainer. I set it up, optimize it, align it with your website, and hand it over with a walkthrough and written guide so you own and run it yourself.',
       },
       {
         q: 'How long does it take to build a contractor website?',
-        a: 'Most small-business websites take 2–4 weeks from kickoff to launch, depending on scope and how quickly content and feedback come together.',
+        a: 'Most small-business contractor websites launch in 2–4 weeks from kickoff, depending on scope and how quickly photos and feedback come together.',
       },
       {
         q: 'What do you need from me to get started?',
-        a: 'Your services, the towns you serve, your logo and any photos of your work, and your contact details. If something is missing, we’ll sort it out in the free consultation.',
+        a: 'Your list of services, the towns/counties you serve, your logo, any job-site photos you have, and your contact info. If anything is missing, we’ll sort it out during the free consultation.',
       },
       {
-        q: 'Can I add service or location pages later?',
-        a: 'Yes. Additional pages start at $200 each and location pages at $150 each, so the site can grow with your business.',
+        q: 'Can I add more service or town pages later as my crew grows?',
+        a: 'Yes. We can add new service or location pages anytime as your business and service radius grow.',
       },
       {
-        q: 'Will I own my website?',
-        a: 'Yes. You own your domain, your content, and the finished site.',
+        q: 'Will I own my website and domain?',
+        a: 'Yes. You own your domain name, your content, and the finished website.',
       },
     ],
   },
 
   restaurants: {
     slug: 'restaurants',
-    name: 'Restaurants',
+    name: 'Restaurants & hospitality',
     contactIndustry: 'Restaurant',
-    title: 'Restaurant Websites in Mishawaka & South Bend | Michiana Dev',
+    title: 'Restaurant Website Design in Mishawaka & South Bend | Michiana Dev',
     description:
-      'Photo-forward restaurant websites for Michiana: easy-to-update menus, hours, ordering or reservations, and Google Business Profile setup.',
-    eyebrow: 'Restaurants',
-    h1: ['Restaurant websites that make people', 'hungry and easy to find.'],
+      'Fast, photo-forward restaurant websites for Michiana: mobile-friendly HTML menus (no pinched PDFs), hours, online ordering or reservations, and Google Business Profile setup.',
+    eyebrow: 'Restaurants, Cafes & Hospitality · Michiana',
+    h1: ['Restaurant websites that make guests', 'hungry and easy to find.'],
     intro:
-      'Guests check your menu, hours, and photos on their phones before they ever walk in. I build fast, photo-forward sites that put the essentials first and are simple for you to keep current.',
-    ctaLabel: 'Get a free consultation',
+      'Diners check your menu, hours, address, and food photos on their phones before they ever walk through your door. I build fast, photo-forward websites that put the essentials one tap away—without forcing guests to pinch-and-zoom a blurry PDF menu.',
+    quickAnswer:
+      'Michiana Dev LLC builds fast, photo-forward websites for restaurants, cafes, and bars in Mishawaka, South Bend, Elkhart, St. Joseph, and across Michiana. Options range from simple starter sites for neighborhood cafes and food trucks to full multi-page restaurant websites featuring readable mobile HTML menus (never pinched PDFs), one-tap directions, online ordering/reservation links, and optional self-editable CMS dashboards.',
+    ctaLabel: 'Get a free website review',
     contactHeading: ['Tell me about your', 'restaurant.'],
-    serviceType: 'Website design for restaurants',
+    serviceType: 'Website design for restaurants and hospitality businesses',
     features: [
-      { title: 'Menus that are easy to update', desc: 'A CMS so you can change dishes and prices yourself, without waiting on a developer or re-uploading a PDF.' },
-      { title: 'Hours and location, front and center', desc: 'Hours, address, map, and phone are one tap away, including holiday hours, so guests aren’t guessing.' },
-      { title: 'Online ordering and reservations', desc: 'Integrations with the ordering or reservation tools you already use, or a custom setup when you need one.' },
-      { title: 'Photo-forward design', desc: 'Your food and your room lead the page, with images optimized so the site still loads quickly on a phone.' },
-      { title: 'Google Business Profile setup', desc: 'Categories, hours, photos, menu links, and a review-request link, set up to match your website and handed over with a guide so you run it yourself.' },
+      {
+        title: 'Mobile-friendly menus (never a clumsy PDF)',
+        desc: 'Clean, readable menus built right into the page so guests can browse dishes, dietary notes, and prices effortlessly on any phone—and so Google and AI search can read your dishes.',
+      },
+      {
+        title: 'Hours, map & phone right at the top',
+        desc: 'Today’s hours (including holiday or seasonal hours), one-tap Google/Apple Maps directions, and tap-to-call are front and center on the home screen.',
+      },
+      {
+        title: 'Online ordering & reservation integrations',
+        desc: 'Direct links or clean integrations with Toast, Square, Clover, OpenTable, Resy, DoorDash, or a custom ordering setup.',
+      },
+      {
+        title: 'Photo-forward design that still loads fast',
+        desc: 'Your food, drinks, and dining room lead the page, with every image optimized so the site loads in under a second on cellular connections.',
+      },
+      {
+        title: 'Optional self-editable menu CMS',
+        desc: 'Need to update seasonal specials, 86 an item, or adjust prices yourself? I can include a simple dashboard so you or your manager can update the menu anytime.',
+      },
+      {
+        title: 'One-time Google Business Profile setup',
+        desc: 'Categories, hours, menu URLs, ordering links, photos, and a direct review-request link set up to match your site and handed over with a guide.',
+      },
     ],
-    note: 'Restaurant sites with a CMS or online ordering are usually quoted as custom projects, after a free consultation. Most custom projects range from $5,000–$15,000.',
-    projectSlugs: [],
-    // TODO: add restaurant case study
+    note: 'Every restaurant website is quoted around your scope after a free consultation—whether you need a simple menu-and-hours starter site or a custom build with a self-editable CMS.',
+    projectSlugs: ['review-responder'],
     caseStudies: [],
     faqs: [
       {
-        q: 'How much does a restaurant website cost?',
-        a: 'A simple restaurant site starts at $2,500. Sites with a CMS for menus or online ordering are usually quoted as custom projects after a free consultation, and most custom projects range from $5,000–$15,000. All sites come with $100/mo hosting.',
+        q: 'How is a restaurant website priced?',
+        a: 'Every project is quoted upfront around your needs after a free consultation—from a Simple Starter Site for a new cafe or food truck to a full Business Website (with optional monthly hosting & menu updates) or a custom self-editable CMS and online ordering integration.',
       },
       {
-        q: 'Can I update my menu myself?',
-        a: 'Yes. With a CMS, you can edit dishes, prices, and specials without touching code. That’s quoted as a custom project.',
+        q: 'Why shouldn’t my restaurant just use a PDF menu or Facebook page?',
+        a: 'PDF menus are frustrating to read on phones, don’t adapt to dark/small screens, and often fail to rank in Google or AI search when someone searches for specific dishes near Mishawaka or South Bend. And many diners don’t have Facebook installed on their phones—meaning a standalone, fast website ensures every guest can see your menu and hours immediately.',
       },
       {
-        q: 'Do you manage my Google profile after setup?',
-        a: 'No. I set it up, optimize it, and hand it over with a walkthrough and guide, so you own and run it.',
+        q: 'Can you connect our Toast, Square, or OpenTable links?',
+        a: 'Yes. I make your existing online ordering, gift card, catering, and reservation platforms prominent and seamless from every page of your website.',
       },
       {
-        q: 'Can you connect my existing online ordering or reservation system?',
-        a: 'I can integrate with ordering or reservation tools you already use, or set up a custom option. What’s possible depends on the platform, so I’d confirm that in the free consultation.',
+        q: 'Do you manage my Google Business Profile after setup?',
+        a: 'No. I set it up, connect your menu and ordering links, optimize your categories and photos, and hand it over with a walkthrough and guide so you own and run it with zero monthly agency fees.',
       },
       {
-        q: 'How long does it take to build a restaurant website?',
-        a: 'Simple sites usually take 2–4 weeks from kickoff to launch. Sites with a CMS or online ordering are scoped separately and delivered in milestones.',
+        q: 'How long does it take to launch a restaurant website?',
+        a: 'Standard restaurant websites typically take 2–4 weeks from kickoff to launch. Custom CMS or ordering builds are scoped with clear milestones during our free consultation.',
       },
       {
-        q: 'What do you need from me to get started?',
-        a: 'Your current menu, hours, address, logo, and any photos of your food and space, plus the ordering or reservation tool you use, if any. If something is missing, we’ll sort it out in the free consultation.',
+        q: 'Will I own my website and domain?',
+        a: 'Yes. You own your domain, your photos, your menu content, and the finished site.',
+      },
+    ],
+  },
+
+  'small-business': {
+    slug: 'small-business',
+    name: 'Small businesses & professional services',
+    contactIndustry: 'Professional, medical & insurance',
+    title: 'Small Business Web Design in Mishawaka, South Bend & Michiana | Michiana Dev',
+    description:
+      'Custom websites and software for Michiana small businesses: professional services, insurance & legal, medical/dental clinics, retail shops, and B2B manufacturers.',
+    eyebrow: 'Small Businesses, Professional Offices & B2B · Michiana',
+    h1: ['Custom websites & software built for', 'Michiana small businesses.'],
+    intro:
+      'Whether you run an insurance or public adjusting firm, a medical or dental practice, a local shop, or an Elkhart County manufacturing business, your website is how customers and partners size you up. I build fast, custom websites and software tailored to how your business actually works.',
+    quickAnswer:
+      'Michiana Dev LLC (based in Mishawaka, IN) builds custom websites and web software for Michiana small businesses—including solo local shops, professional offices, insurance and public adjusting firms, medical/dental practices, retail shops, and Elkhart/St. Joseph County manufacturers. Packages range from simple starter sites to full business websites with Google Business Profile setup and custom client portals, all quoted upfront after a free consultation.',
+    ctaLabel: 'Get a free website review',
+    contactHeading: ['Tell me about your', 'business.'],
+    serviceType: 'Website design and custom software for small businesses',
+    features: [
+      {
+        title: 'Designed around your business—never a generic template',
+        desc: 'Every business wins customers differently. Whether you need high-trust case results, appointment booking, product/capability showcases, or quote requests, your site is designed from scratch.',
+      },
+      {
+        title: 'Built for Google Search, Maps & AI answers',
+        desc: 'Clean HTML structure, local business schema, and clear service pages help your business show up when customers search Google or ask AI tools like ChatGPT for local recommendations.',
+      },
+      {
+        title: 'Direct access to a local software engineer',
+        desc: 'Based in Mishawaka, I design and build every site myself. You never get passed off to a junior account rep or stuck waiting weeks for a simple change.',
+      },
+      {
+        title: 'Custom portals, scheduling & internal tools',
+        desc: 'Because I’m a full-stack software engineer, your site isn’t limited to static pages. When you need client portals, custom intake forms, or CRM automation, I can build it.',
+      },
+      {
+        title: 'One-time Google Business Profile setup & handoff',
+        desc: 'Get your Google Search and Maps presence properly aligned with your new website for a one-time fee—no ongoing marketing retainers.',
+      },
+      {
+        title: 'Worry-free hosting & monthly updates',
+        desc: 'Optional monthly hosting includes SSL security, regular backups, and up to one hour of content updates every month.',
+      },
+    ],
+    projectSlugs: ['jh-claims', 'tristorm', 'hsc-portal'],
+    caseStudies: [],
+    faqs: [
+      {
+        q: 'What types of small businesses in Michiana do you work with?',
+        a: 'I work with local businesses of every size across Northern Indiana and Southwest Michigan, including solo tradespeople and neighborhood shops, professional services (insurance, public adjusting, legal, accounting), healthcare and dental clinics, retail and service shops, B2B and manufacturing companies, contractors, and restaurants.',
+      },
+      {
+        q: 'How is a small-business website priced?',
+        a: 'Every project is quoted upfront around your scope after a free consultation. Newer or solo businesses can start with a Simple Starter Site (1–3 pages), growing businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom portals or CMS builds are scoped around your workflow.',
+      },
+      {
+        q: 'Why choose a custom-built website over WordPress, Wix, or Squarespace?',
+        a: 'DIY builders and bloated WordPress themes load slowly on mobile phones, require constant plugin updates, and look like everyone else’s template. A custom-engineered site loads in under a second, is tailored to convert your specific customers, has no fragile plugins to break, and is fully managed for you.',
+      },
+      {
+        q: 'Can you redesign our existing website without losing our domain or emails?',
+        a: 'Yes. I handle the technical transition carefully so your existing domain name, business email addresses, and search rankings carry over smoothly to the new website.',
       },
       {
         q: 'Will I own my website?',

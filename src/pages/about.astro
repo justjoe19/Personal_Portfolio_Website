@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
-import About from '../components/About.astro';
+import AboutSection from '../components/About.astro';
 import BlogCTA from '../components/BlogCTA.astro';
 import Footer from '../components/Footer.astro';
 
@@ -50,7 +50,7 @@ const schema = JSON.stringify([
 	<Navbar client:load />
 
 	<main id="main-content">
-		<About page />
+		<AboutSection page />
 
 		<div class="container-x pb-24 sm:pb-32">
 			<div class="mx-auto max-w-[900px]">

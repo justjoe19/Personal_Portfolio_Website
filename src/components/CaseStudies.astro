@@ -3,43 +3,72 @@ import { srcsetFor } from '../lib/images';
 import { projects, type Project } from '../data/projects';
 
 interface Props {
-	/** Project slugs to show; defaults to every industry-tagged website project. */
+	/** Project slugs to show; defaults to the three live client websites. */
 	slugs?: string[];
 	id?: string;
 	/** Show the "View all work" button. */
 	showAll?: boolean;
+	/** Include the custom software & tools strip below the main cards (used on homepage). */
+	showSoftwareStrip?: boolean;
+	heading?: [string, string];
+	eyebrow?: string;
 }
 
-const { slugs, id = 'portfolio', showAll = true } = Astro.props;
+const {
+	slugs,
+	id = 'portfolio',
+	showAll = true,
+	showSoftwareStrip = !slugs,
+	eyebrow = 'Recent projects',
+	heading = ['Local businesses,', 'real results.'],
+} = Astro.props;
+
 const cases: Project[] = slugs
 	? slugs.map((s) => projects.find((p) => p.slug === s)).filter((p): p is Project => Boolean(p))
-	: projects.filter((p) => p.industry && p.kind === 'Website');
+	: projects.filter((p) => p.kind === 'Website');
 
-// A project's `result` and `testimonial` show only once they exist (see src/data/projects.ts).
+const softwareProjects: Project[] = showSoftwareStrip
+	? projects.filter((p) => p.kind !== 'Website')
+	: [];
 ---
 
 {cases.length > 0 && (
 	<section id={id} class="relative py-24 sm:py-32" aria-labelledby={`${id}-heading`}>
 		<div class="container-x">
 			<div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-				<div>
-					<p class="eyebrow">Recent projects</p>
-					<h2 id={`${id}-heading`} class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
-						Local businesses, <span class="serif-accent text-gradient">real sites.</span>
+				<div class="max-w-2xl">
+					<p class="eyebrow">{eyebrow}</p>
+					<h2 id={`${id}-heading`} class="display mt-5 text-[clamp(2.3rem,5vw,4.2rem)]">
+						{heading[0]} <span class="serif-accent text-gradient pl-1 pr-2">{heading[1]}</span>
 					</h2>
+					<p class="mt-4 text-lg leading-relaxed text-body">
+						Every site and application below was designed and hand-built from scratch for speed, mobile conversion, and local search visibility.
+					</p>
 				</div>
 				{showAll && (
 					<a href="/portfolio" class="btn-ghost self-start sm:self-auto">
-						View all work
+						View full portfolio
 						<span aria-hidden="true">→</span>
 					</a>
 				)}
 			</div>
 
-			<div class="mt-14 grid gap-5 lg:grid-cols-3">
+			<div class:list={['mt-14 grid gap-6', cases.length === 1 ? 'max-w-2xl' : cases.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3']}>
 				{cases.map((p) => (
 					<article class="spotlight card reveal group flex flex-col overflow-hidden p-2.5">
-						<a href={`/portfolio#${p.slug}`} class="block overflow-hidden rounded-xl border border-line" aria-label={`${p.name}: read the project`}>
+						<a href={`/portfolio#${p.slug}`} class="block overflow-hidden rounded-xl border border-line bg-sand/50" aria-label={`${p.name}: view project details`}>
+							<div class="flex items-center justify-between border-b border-line bg-sand/70 px-3.5 py-2">
+								<div class="flex items-center gap-1.5">
+									<span class="h-2 w-2 rounded-full bg-ink/15"></span>
+									<span class="h-2 w-2 rounded-full bg-ink/15"></span>
+									<span class="h-2 w-2 rounded-full bg-ink/15"></span>
+								</div>
+								{p.outcomePill && (
+									<span class="rounded-full bg-leaf/12 px-2.5 py-0.5 text-[0.62rem] font-medium text-leaf">
+										{p.outcomePill}
+									</span>
+								)}
+							</div>
 							<img
 								src={p.image}
 								srcset={srcsetFor(p.image)}
@@ -51,33 +80,97 @@ const cases: Project[] = slugs
 								class="aspect-[16/10] w-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
 							/>
 						</a>
+
 						<div class="flex flex-1 flex-col p-5 sm:p-6">
-							<p class="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted">{p.sector}</p>
-							<h3 class="mt-2 text-xl font-semibold tracking-tight">{p.name}</h3>
-							<p class="mt-2 text-[0.95rem] leading-relaxed text-body">{p.built ?? p.summary}</p>
+							<div class="flex flex-wrap items-center justify-between gap-2">
+								<p class="text-[0.68rem] uppercase tracking-[0.15em] text-muted">{p.sector}</p>
+								{p.locationTag && <span class="text-[0.65rem] text-sky">{p.locationTag}</span>}
+							</div>
+
+							<h3 class="mt-2 text-2xl font-semibold tracking-tight text-ink">{p.name}</h3>
+							<p class="mt-2.5 text-[0.95rem] leading-relaxed text-body">{p.built ?? p.summary}</p>
+
+							<ul class="mt-4 flex flex-wrap gap-1.5" aria-label="Key capabilities">
+								{p.stack.slice(0, 3).map((tag) => (
+									<li class="rounded-full border border-line bg-sand/70 px-2.5 py-1 text-[0.66rem] text-body">
+										{tag}
+									</li>
+								))}
+							</ul>
 
 							{p.result && (
 								<p class="mt-4 border-l-2 border-leaf pl-3 text-[0.95rem] font-medium text-ink">{p.result}</p>
 							)}
 
 							{p.testimonial ? (
-								<figure class="mt-4 rounded-xl border border-line bg-paper/40 p-4">
-									<blockquote class="text-[0.92rem] leading-relaxed text-ink">“{p.testimonial.quote}”</blockquote>
-									<figcaption class="mt-3 text-sm text-body">
-										<span class="font-medium text-ink">{p.testimonial.name}</span>
-										{p.testimonial.role && <span>, {p.testimonial.role}</span>}
+								<figure class="mt-5 rounded-xl border border-line bg-paper p-4">
+									<div class="mb-1.5 text-xs text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+									<blockquote class="text-[0.9rem] leading-relaxed text-ink">“{p.testimonial.quote}”</blockquote>
+									<figcaption class="mt-2.5 flex flex-wrap items-center justify-between gap-2 text-xs text-body">
+										<span>
+											<strong class="font-semibold text-ink">{p.testimonial.name}</strong>
+											{p.testimonial.role && <span> · {p.testimonial.role}</span>}
+										</span>
 										{p.testimonial.href && (
-											<a href={p.testimonial.href} target="_blank" rel="noopener" class="link-arrow ml-2">Read on Google <span aria-hidden="true">→</span></a>
+											<a href={p.testimonial.href} target="_blank" rel="noopener" class="link-arrow text-xs">
+												Google Review <span aria-hidden="true">↗</span>
+											</a>
 										)}
 									</figcaption>
 								</figure>
 							) : null}
 
-							<a href={`/portfolio#${p.slug}`} class="link-arrow mt-auto pt-5 text-sm">Read the project <span aria-hidden="true">→</span></a>
+							<div class="mt-auto flex items-center justify-between gap-4 border-t border-line pt-4 mt-5">
+								<a href={`/portfolio#${p.slug}`} class="link-arrow text-sm">
+									Project breakdown <span aria-hidden="true">→</span>
+								</a>
+								<a
+									href={p.href}
+									{...(p.external ? { target: '_blank', rel: 'noopener' } : {})}
+									class="text-xs text-muted hover:text-ink"
+								>
+									{p.linkLabel} <span aria-hidden="true">{p.external ? '↗' : '→'}</span>
+								</a>
+							</div>
 						</div>
 					</article>
 				))}
 			</div>
+
+			{softwareProjects.length > 0 && (
+				<div class="reveal mt-12 rounded-3xl border border-line bg-sand/60 p-6 sm:p-8">
+					<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+						<div>
+							<p class="eyebrow">Software &amp; Local Tools</p>
+							<h3 class="mt-2 text-xl font-semibold tracking-tight text-ink">
+								Need more than a standard website? I also build custom web software and AI tools.
+							</h3>
+						</div>
+						<a href="/portfolio" class="link-arrow text-sm shrink-0">
+							See all 6 projects <span aria-hidden="true">→</span>
+						</a>
+					</div>
+
+					<div class="mt-6 grid gap-4 md:grid-cols-3">
+						{softwareProjects.map((sp) => (
+							<a href={sp.slug === 'review-responder' ? '/review-responder' : `/portfolio#${sp.slug}`} class="spotlight card group flex flex-col justify-between p-5">
+								<div>
+									<div class="flex items-center justify-between gap-2">
+										<span class="text-[0.66rem] uppercase tracking-[0.14em] text-accent">{sp.sector}</span>
+										<span class="text-[0.65rem] text-muted">{sp.kind}</span>
+									</div>
+									<h4 class="mt-2 text-lg font-semibold text-ink group-hover:text-sky">{sp.name}</h4>
+									<p class="mt-1.5 text-sm leading-relaxed text-body">{sp.summary}</p>
+								</div>
+								<span class="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-ink">
+									{sp.slug === 'review-responder' ? 'Try the free AI tool' : 'Explore project'}
+									<span class="transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+								</span>
+							</a>
+						))}
+					</div>
+				</div>
+			)}
 		</div>
 	</section>
 )}

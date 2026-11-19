@@ -1,11 +1,11 @@
 ---
 const capabilities = [
-	{ title: 'Brand & UI design', desc: 'Distinctive visual systems — type, color, motion — designed for your business, not pulled from a template.' },
-	{ title: 'Motion & interaction', desc: 'Scroll-driven animation, WebGL, and micro-interactions that make a site feel alive without slowing it down.' },
-	{ title: 'Performance', desc: 'Pre-rendered pages and minimal JavaScript, so sites load fast on any phone and any connection.' },
-	{ title: 'Search & local SEO', desc: 'Semantic structure, schema markup, and location pages built in from the first commit.' },
-	{ title: 'AI integration', desc: 'LLM-powered features that do real work: drafting, summarizing, and automating repetitive tasks.' },
-	{ title: 'Accessibility', desc: 'Keyboard support, sensible contrast, and semantic HTML, so everyone can use what I build.' },
+	{ title: 'Custom design for your brand', desc: 'A clean, trustworthy look tailored to your business and customers—never a recycled template that looks like three other shops in town.' },
+	{ title: 'Built to generate calls & leads', desc: 'Tap-to-call buttons, clear free-estimate and contact forms, and layouts structured around how local customers make decisions.' },
+	{ title: 'Instant mobile speed', desc: 'Pages load in under a second on cell phones and rural connections, keeping impatient visitors from bouncing back to Google.' },
+	{ title: 'Local Google & AI search structure', desc: 'Dedicated service pages, town coverage, and structured schema markup built in from day one so search engines and AI assistants recommend you.' },
+	{ title: 'Practical AI & automation', desc: 'Custom workflows and AI features that save your team real time—from review replies to CRM and intake automation.' },
+	{ title: 'Accessible & durable', desc: 'High-contrast readability, full keyboard support, and zero fragile third-party plugins that break when you least expect it.' },
 ];
 
 const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
@@ -14,141 +14,131 @@ const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 
 <section id="services" class="relative border-t border-line py-24 sm:py-32">
 	<div class="container-x">
 		<div class="reveal max-w-3xl">
-			<p class="eyebrow">Services</p>
+			<p class="eyebrow">What I deliver</p>
 			<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
 				Websites, software, and <span class="serif-accent text-gradient">local setup.</span>
 			</h2>
 			<p class="mt-6 max-w-2xl text-lg leading-relaxed text-body">
-				From the first sketch to launch day and beyond, every site is designed and built by one person: me.
+				From the first sketch to launch day and ongoing updates, every project is designed and hand-built by me in Mishawaka.
 			</p>
 		</div>
 
 		<div class="mt-16 grid gap-4 lg:grid-cols-6">
 			<!-- Websites -->
 			<article id="website" class="spotlight card reveal flex scroll-mt-28 flex-col p-8 sm:p-10 lg:col-span-4 lg:row-span-2">
-				<span class="font-mono text-xs text-muted">01</span>
-				<h3 class="display mt-10 text-[clamp(2rem,3.6vw,3rem)]">Website Design &amp; Development</h3>
+				<div class="flex items-center justify-between gap-2">
+					<span class="text-xs text-muted">01 · Core Service</span>
+					<span class="rounded-full bg-leaf/15 px-3 py-1 text-xs font-medium text-leaf">Starter &amp; Full Builds</span>
+				</div>
+				<h3 class="display mt-8 text-[clamp(2rem,3.6vw,3rem)]">Custom Website Design &amp; Development</h3>
 				<p class="mt-4 max-w-xl text-[1.05rem] leading-relaxed text-body">
-					Custom, hand-built websites that look sharp, load instantly, and turn local searches into phone calls and customers. Every page is designed for your brand and built from scratch.
+					Custom, hand-built websites that look sharp, load in under a second on any phone, and turn local searches into phone calls and estimate requests. Whether you need a simple 1–3 page starter site or a full multi-page business site, every page is built from scratch.
 				</p>
 				<ul class="mt-8 grid gap-3 text-[0.95rem] text-body sm:grid-cols-2">
-					<li class="flex gap-3"><Fragment set:html={check} />Custom design system and motion</li>
-					<li class="flex gap-3"><Fragment set:html={check} />Mobile-first and fast everywhere</li>
-					<li class="flex gap-3"><Fragment set:html={check} />SEO and schema built in</li>
-					<li class="flex gap-3"><Fragment set:html={check} />You own the finished site</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Custom design tailored to your business (typically 5–8 pages)</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Mobile-first layout with persistent tap-to-call</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Local SEO &amp; business schema built in</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Lead/estimate forms, Analytics &amp; Search Console</li>
+					<li class="flex gap-3"><Fragment set:html={check} />2 rounds of revisions before launch</li>
+					<li class="flex gap-3"><Fragment set:html={check} />You own 100% of the finished website</li>
 				</ul>
-				<div class="my-8 grid grid-cols-3 gap-3" aria-hidden="true">
-					<div class="flex aspect-[4/3] flex-col justify-between rounded-xl border border-line bg-night p-4">
-						<span class="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">Type</span>
-						<span class="text-4xl font-semibold tracking-tight text-ink">A<span class="serif-accent text-gradient">a</span></span>
-					</div>
-					<div class="flex aspect-[4/3] flex-col justify-between rounded-xl border border-line bg-night p-4">
-						<span class="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">Color</span>
-						<span class="flex -space-x-2">
-							<span class="h-8 w-8 rounded-full border-2 border-night bg-sky"></span>
-							<span class="h-8 w-8 rounded-full border-2 border-night bg-accent"></span>
-							<span class="h-8 w-8 rounded-full border-2 border-night bg-leaf"></span>
-							<span class="h-8 w-8 rounded-full border-2 border-night bg-ink"></span>
-						</span>
-					</div>
-					<div class="flex aspect-[4/3] flex-col justify-between rounded-xl border border-line bg-night p-4">
-						<span class="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">Motion</span>
-						<svg viewBox="0 0 100 40" class="h-10 w-full" fill="none">
-							<defs><linearGradient id="curve" x1="0" x2="1"><stop offset="0" stop-color="var(--color-sky)"/><stop offset="1" stop-color="var(--color-leaf)"/></linearGradient></defs>
-							<path d="M2 38 C 40 38, 45 2, 98 2" stroke="url(#curve)" stroke-width="2.5" stroke-linecap="round"/>
-						</svg>
-					</div>
-				</div>
 
-				<dl class="mt-auto grid gap-px overflow-hidden rounded-xl border border-line bg-line pt-0 text-sm sm:grid-cols-2 [&>div]:bg-surface">
-					<div class="p-4"><dt class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">Built with</dt><dd class="mt-1.5 text-ink">Astro · React · TypeScript</dd></div>
-					<div class="p-4"><dt class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">Timeline</dt><dd class="mt-1.5 text-ink">Typically 2–4 weeks</dd></div>
+				<dl class="mt-auto grid gap-px overflow-hidden rounded-xl border border-line bg-line pt-8 text-sm sm:grid-cols-3 [&>div]:bg-surface">
+					<div class="p-4"><dt class="text-[0.65rem] uppercase tracking-[0.16em] text-muted">Typical scope</dt><dd class="mt-1.5 font-medium text-ink">5–8 custom pages</dd></div>
+					<div class="p-4"><dt class="text-[0.65rem] uppercase tracking-[0.16em] text-muted">Typical timeline</dt><dd class="mt-1.5 font-medium text-ink">2–4 weeks to launch</dd></div>
+					<div class="p-4"><dt class="text-[0.65rem] uppercase tracking-[0.16em] text-muted">Best for</dt><dd class="mt-1.5 font-medium text-ink">Contractors, shops &amp; local SMBs</dd></div>
 				</dl>
 			</article>
 
 			<!-- Software -->
 			<article id="software" class="spotlight card reveal flex scroll-mt-28 flex-col p-8 lg:col-span-2">
-				<span class="font-mono text-xs text-muted">02</span>
-				<h3 class="mt-8 text-2xl font-semibold tracking-tight">Custom Software &amp; Products</h3>
+				<span class="text-xs text-muted">02 · Custom Builds</span>
+				<h3 class="mt-6 text-2xl font-semibold tracking-tight">Custom Websites &amp; Software</h3>
 				<p class="mt-3 leading-relaxed text-body">
-					SaaS products, client portals, internal tools, and integrations. Real applications with accounts, roles, and data — like <a href="#rankradius" class="link-arrow">RankRadius</a>.
+					Self-editable CMS websites, interactive restaurant menus and online ordering, appointment booking, client portals, and full-scale web software—like <a href="#rankradius" class="link-arrow">RankRadius</a> and <a href="/portfolio#hsc-portal" class="link-arrow">HSC Portal</a>.
 				</p>
-				<p class="mt-auto pt-6 font-mono text-[0.72rem] text-muted">React · Node.js · Java / Spring Boot · SQL</p>
+				<p class="mt-auto pt-6 text-[0.72rem] text-muted">CMS · Online ordering · Portals · Custom apps</p>
 			</article>
 
 			<!-- Hosting -->
 			<article id="hosting-maintenance" class="spotlight card reveal flex scroll-mt-28 flex-col p-8 lg:col-span-2">
-				<span class="font-mono text-xs text-muted">03</span>
-				<h3 class="mt-8 text-2xl font-semibold tracking-tight">Hosting &amp; Maintenance</h3>
+				<div class="flex items-center justify-between gap-2">
+					<span class="text-xs text-muted">03 · Ongoing Care</span>
+					<span class="text-xs font-medium text-sky">Optional monthly plan</span>
+				</div>
+				<h3 class="mt-6 text-2xl font-semibold tracking-tight">Hosting &amp; Maintenance</h3>
 				<p class="mt-3 leading-relaxed text-body">
-					I host the websites I build for businesses in Mishawaka and across Michiana, and handle the small updates, so your site never falls out of date.
+					I host the websites I build for businesses in Mishawaka and across Michiana, and include up to 1 hour per month of text, photo, or hours updates—so your site stays fast and current without you lifting a finger.
 				</p>
-				<p class="mt-auto pt-6 font-mono text-[0.72rem] text-muted">SSL · Backups · Monthly updates</p>
+				<p class="mt-auto pt-6 text-[0.72rem] text-muted">SSL security · Backups · 1 hr/mo updates included</p>
 			</article>
 
 			<!-- Google Business Profile setup -->
 			<article id="google-business-profile" class="spotlight card reveal grid scroll-mt-28 gap-8 p-8 sm:p-10 lg:col-span-6 lg:grid-cols-[1fr_1.2fr]">
 				<div>
-					<span class="font-mono text-xs text-muted">04</span>
-					<h3 class="mt-8 text-2xl font-semibold tracking-tight">Google Business Profile Setup</h3>
+					<div class="flex items-center gap-3">
+						<span class="text-xs text-muted">04 · Local Search Foundation</span>
+						<span class="rounded-full border border-line px-2.5 py-0.5 text-[0.68rem] text-ink">Standalone or bundled</span>
+					</div>
+					<h3 class="mt-6 text-2xl font-semibold tracking-tight">Google Business Profile Setup &amp; Handoff</h3>
 					<p class="mt-3 leading-relaxed text-body">
-						A one-time setup so local customers can find you on Google Search and Maps. I set it up, optimize it, and hand it over with a walkthrough and a written guide, so you own and run it yourself.
+						A one-time setup so local customers find you on Google Search and Google Maps. I configure and optimize your profile to match your website, then hand it over with a walkthrough and written owner guide so you run it yourself.
 					</p>
 					<p class="mt-4 text-[0.92rem] leading-relaxed text-muted">
-						This is setup and handoff, not ongoing management. From $450 on its own, or included in the Website + Local Launch package. Handling reviews? Try the free <a href="/review-responder" class="link-arrow">AI Review Responder</a>.
+						This is a one-time setup and handoff, never an ongoing monthly retainer. Included in the <strong>Business Website + Local Launch</strong> package or available on its own. Need help replying to customer reviews? Try my free <a href="/review-responder" class="link-arrow">AI Review Responder</a>.
 					</p>
 				</div>
 				<ul class="grid gap-3 text-[0.95rem] text-body sm:grid-cols-2">
-					<li class="flex gap-3"><Fragment set:html={check} />Category selection</li>
-					<li class="flex gap-3"><Fragment set:html={check} />Services and service areas</li>
-					<li class="flex gap-3"><Fragment set:html={check} />Hours and business description</li>
-					<li class="flex gap-3"><Fragment set:html={check} />Photos</li>
-					<li class="flex gap-3"><Fragment set:html={check} />Name, address and phone matched to your website</li>
-					<li class="flex gap-3"><Fragment set:html={check} />Review-request link</li>
-					<li class="flex gap-3 sm:col-span-2"><Fragment set:html={check} />Handoff walkthrough and guide, so you manage it yourself</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Primary &amp; secondary category selection</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Services and Michiana service areas configured</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Hours, holiday hours &amp; business description</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Logo, cover &amp; work photos uploaded</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Name, address &amp; phone matched to your site</li>
+					<li class="flex gap-3"><Fragment set:html={check} />Direct customer review-request link</li>
+					<li class="flex gap-3 sm:col-span-2"><Fragment set:html={check} />1-on-1 handoff walkthrough and written guide so you control it forever</li>
 				</ul>
 			</article>
 
 			<!-- RankRadius (optional add-on) -->
 			<article id="rankradius" class="spotlight card reveal grid scroll-mt-28 gap-8 p-8 sm:p-10 lg:col-span-6 lg:grid-cols-[1.2fr_1fr] lg:items-center">
 				<div>
-					<span class="font-mono text-xs text-muted">05</span>
-					<p class="eyebrow mt-8">Optional add-on · field-service businesses</p>
-					<h3 class="mt-4 text-2xl font-semibold tracking-tight">RankRadius · <span class="font-mono text-xl">$399/mo</span></h3>
+					<span class="text-xs text-muted">05 · Optional Software Add-On</span>
+					<p class="eyebrow mt-6">For contractors &amp; field-service businesses</p>
+					<h3 class="mt-4 text-2xl font-semibold tracking-tight">RankRadius</h3>
 					<p class="mt-3 max-w-xl leading-relaxed text-body">
-						A local SEO platform I built for field-service businesses. It turns the jobs you already complete into neighborhood-level write-ups, matched with your Google reviews, and publishes them to a widget on your own website.
+						A local SEO software platform I built and operate for field-service crews. It turns the jobs you already complete across Michiana into neighborhood-level project write-ups, paired with your Google reviews, and publishes them right onto your website.
 					</p>
 					<ul class="mt-6 grid gap-3 text-[0.95rem] text-body sm:grid-cols-2">
-						<li class="flex gap-3"><Fragment set:html={check} />Syncs jobs from your CRM</li>
-						<li class="flex gap-3"><Fragment set:html={check} />Neighborhood-level, never street addresses</li>
-						<li class="flex gap-3"><Fragment set:html={check} />Matched Google reviews</li>
-						<li class="flex gap-3"><Fragment set:html={check} />Drop-in widget for any website</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Syncs completed jobs from your CRM</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Neighborhood-level proof (never customer addresses)</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Pairs jobs with matching Google reviews</li>
+						<li class="flex gap-3"><Fragment set:html={check} />Drop-in widget for custom or existing sites</li>
 					</ul>
 					<a href="https://rankradius.io" target="_blank" rel="noopener" class="btn-ghost mt-8">Visit rankradius.io <span aria-hidden="true">↗</span></a>
 				</div>
-				<div class="rounded-xl border border-line bg-night p-5" aria-hidden="true">
+				<div class="rounded-xl border border-line bg-paper p-5" aria-hidden="true">
 					<div class="flex items-center justify-between">
-						<span class="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">Website widget · example</span>
-						<span class="flex items-center gap-1.5 font-mono text-[0.62rem] text-leaf"><span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Live</span>
+						<span class="text-[0.62rem] uppercase tracking-[0.16em] text-muted">Website widget · live example</span>
+						<span class="flex items-center gap-1.5 text-[0.62rem] text-leaf"><span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Published</span>
 					</div>
 					<p class="mt-3 text-[0.95rem] font-medium leading-snug text-ink">Roof repair in Harter Heights, South Bend</p>
 					<p class="mt-1.5 text-[0.8rem] leading-relaxed text-muted">Wind-lifted shingles along the ridge replaced and sealed the same afternoon.</p>
-					<p class="mt-2.5 text-[0.75rem] text-amber-300">★★★★★ <span class="text-muted">matched review</span></p>
+					<p class="mt-2.5 text-[0.75rem] text-gold">★★★★★ <span class="text-muted">matched customer review</span></p>
 				</div>
 			</article>
 		</div>
 
-		<ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		<ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{capabilities.map((c) => (
 				<li class="spotlight card reveal p-6">
-					<h3 class="font-semibold">{c.title}</h3>
+					<h3 class="font-semibold text-ink">{c.title}</h3>
 					<p class="mt-2 text-[0.92rem] leading-relaxed text-muted">{c.desc}</p>
 				</li>
 			))}
 		</ul>
 
 		<p class="reveal mt-10 text-center text-body">
-			Clear packages with upfront pricing. <a href="#pricing" class="link-arrow">See pricing <span aria-hidden="true">→</span></a>
+			Clear packages with upfront pricing. <a href="#pricing" class="link-arrow">See package pricing <span aria-hidden="true">→</span></a>
 		</p>
 	</div>
 </section>

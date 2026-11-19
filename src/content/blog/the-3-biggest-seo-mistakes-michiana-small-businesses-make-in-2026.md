@@ -85,4 +85,4 @@ No. Service-area businesses can list the towns they serve without an address in 
 
 ---
 
-Want a website built to show up in local search across South Bend, Mishawaka, Elkhart, and the rest of Michiana? I can set up and hand over your [Google Business Profile](/services#google-business-profile) so you manage it yourself, as part of a new site or on its own. I build for [contractors and home-service companies](/contractors) and for [restaurants](/restaurants), among other local businesses. [Let's talk about your project](/#contact).
+Want a website built to show up in local search across [South Bend](/service-areas/south-bend), [Mishawaka](/service-areas/mishawaka), [Elkhart](/service-areas/elkhart), [Granger](/service-areas/granger), and [the rest of Michiana](/service-areas)? I can set up and hand over your [Google Business Profile](/services#google-business-profile) so you manage it yourself, as part of a new site or on its own. I build for [contractors and home-service companies](/contractors), [restaurants](/restaurants), and [small businesses & professional offices](/small-business). [Let's talk about your project](/#contact).

@@ -12,13 +12,14 @@ const SearchIcon = ({ className = '' }: { className?: string }) => (
 const LINKS = [
   { href: '/services', label: 'Services & Pricing' },
   { href: '/portfolio', label: 'Portfolio' },
+  { href: '/service-areas', label: 'Service Areas' },
   { href: '/about', label: 'About' },
-  { href: '/blog', label: 'Blog' },
 ];
 
 const INDUSTRIES = [
   { href: '/contractors', label: 'Contractors & home services' },
-  { href: '/restaurants', label: 'Restaurants' },
+  { href: '/restaurants', label: 'Restaurants & hospitality' },
+  { href: '/small-business', label: 'Small businesses & B2B' },
 ];
 
 export default function Navbar() {
@@ -87,8 +88,8 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:pt-4">
       <nav
         aria-label="Main"
-        className={`mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-2 rounded-full border border-line-strong bg-night/85 pl-4 pr-1.5 sm:pr-2 backdrop-blur-xl backdrop-saturate-150 transition-shadow duration-500 ${
-          scrolled || isOpen ? 'shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)]' : ''
+        className={`mx-auto flex h-14 max-w-[1160px] items-center justify-between gap-2 rounded-full border border-line-strong bg-surface/90 pl-4 pr-1.5 sm:pr-2 backdrop-blur-xl backdrop-saturate-150 transition-shadow duration-500 ${
+          scrolled || isOpen ? 'shadow-[0_12px_32px_-12px_rgba(15,23,42,0.16)]' : 'shadow-[0_4px_16px_-8px_rgba(15,23,42,0.08)]'
         }`}
       >
         <a href="/" className="flex items-center gap-2.5 text-ink" aria-label="Michiana Dev — home">
@@ -98,14 +99,14 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 aria-current={isActive(link.href) ? 'page' : undefined}
-                className={`rounded-full px-3.5 py-2 text-[0.875rem] transition-colors hover:bg-white/[0.06] hover:text-ink ${
-                  isActive(link.href) ? 'text-ink' : 'text-muted'
+                className={`rounded-full px-3 py-2 text-[0.86rem] font-medium transition-colors hover:bg-sand hover:text-ink ${
+                  isActive(link.href) ? 'text-ink' : 'text-body'
                 }`}
               >
                 {link.label}
@@ -118,23 +119,23 @@ export default function Navbar() {
               aria-expanded={industriesOpen}
               aria-controls="industries-menu"
               onClick={() => setIndustriesOpen((o) => !o)}
-              className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.875rem] transition-colors hover:bg-white/[0.06] hover:text-ink ${
-                industryActive ? 'text-ink' : 'text-muted'
+              className={`flex items-center gap-1 rounded-full px-3 py-2 text-[0.86rem] font-medium transition-colors hover:bg-sand hover:text-ink ${
+                industryActive ? 'text-ink' : 'text-body'
               }`}
             >
-              Industries
+              Who I Help
               <svg className={`h-3 w-3 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
             {industriesOpen && (
-              <ul id="industries-menu" className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-line-strong bg-surface/95 p-1.5 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+              <ul id="industries-menu" className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-line-strong bg-surface p-1.5 shadow-[0_16px_40px_-12px_rgba(15,23,42,0.16)] backdrop-blur-xl">
                 {INDUSTRIES.map((i) => (
                   <li key={i.href}>
                     <a
                       href={i.href}
                       aria-current={path.startsWith(i.href) ? 'page' : undefined}
-                      className="block rounded-xl px-3.5 py-2.5 text-[0.875rem] text-body transition-colors hover:bg-white/[0.06] hover:text-ink"
+                      className="block rounded-xl px-3.5 py-2.5 text-[0.875rem] font-medium text-body transition-colors hover:bg-sand hover:text-ink"
                     >
                       {i.label}
                     </a>
@@ -155,10 +156,10 @@ export default function Navbar() {
           >
             <SearchIcon className="h-3.5 w-3.5" />
             <span>Search</span>
-            <kbd className="rounded-full bg-white/[0.06] px-2 py-0.5 font-mono text-[0.68rem] text-muted">{shortcut}</kbd>
+            <kbd className="rounded-full bg-sand px-2 py-0.5 text-[0.68rem] text-muted">{shortcut}</kbd>
           </button>
           <a href="/contact" className="btn-primary !px-3.5 !py-2 !text-[0.8rem] sm:!px-4 sm:!text-[0.85rem]">
-            Contact
+            Free Review
           </a>
           <button
             type="button"
@@ -180,17 +181,17 @@ export default function Navbar() {
           <ul className="flex flex-col">
             {LINKS.map((link) => (
               <li key={link.href} className="border-b border-line">
-                <a href={link.href} onClick={() => setIsOpen(false)} className="block py-4 text-3xl font-semibold tracking-tight text-ink">
+                <a href={link.href} onClick={() => setIsOpen(false)} className="block py-3.5 text-2xl font-semibold tracking-tight text-ink">
                   {link.label}
                 </a>
               </li>
             ))}
             <li className="border-b border-line py-4">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted">Industries</p>
+              <p className="text-[0.7rem] uppercase tracking-[0.16em] text-muted">Who I Help</p>
               <ul className="mt-2">
                 {INDUSTRIES.map((i) => (
                   <li key={i.href}>
-                    <a href={i.href} onClick={() => setIsOpen(false)} className="block py-2 text-2xl font-semibold tracking-tight text-ink">
+                    <a href={i.href} onClick={() => setIsOpen(false)} className="block py-2 text-xl font-semibold tracking-tight text-ink">
                       {i.label}
                     </a>
                   </li>
@@ -198,7 +199,7 @@ export default function Navbar() {
               </ul>
             </li>
           </ul>
-          <a href="tel:+15742138502" className="btn-ghost mt-8 w-full">
+          <a href="tel:+15742138502" className="btn-ghost mt-6 w-full">
             Call (574) 213-8502
           </a>
           <button type="button" onClick={openSearch} className="btn-ghost mt-3 w-full">
@@ -206,7 +207,7 @@ export default function Navbar() {
             Search the site
           </button>
           <a href="/contact" onClick={() => setIsOpen(false)} className="btn-primary mt-3 w-full">
-            Contact
+            Get a free website review
           </a>
         </div>
       )}

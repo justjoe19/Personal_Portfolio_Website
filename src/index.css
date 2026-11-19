@@ -1,30 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark, product-grade palette in OKLCH. Token names are semantic:
-     paper = page background, ink = strongest text, body = paragraph text. */
-  --color-paper: oklch(0.13 0.012 275);
-  --color-surface: oklch(0.17 0.014 275);
-  --color-sand: oklch(0.21 0.016 275);
-  --color-ink: oklch(0.985 0.003 275);
-  --color-body: oklch(0.80 0.012 275);
-  --color-muted: oklch(0.63 0.018 275);
-  --color-line: oklch(1 0 0 / 0.08);
-  --color-line-strong: oklch(1 0 0 / 0.16);
-  --color-accent: oklch(0.74 0.15 270);
-  --color-accent-deep: oklch(0.64 0.18 275);
-  --color-accent-soft: oklch(0.74 0.15 270 / 0.14);
-  --color-sky: oklch(0.82 0.10 235);
-  --color-leaf: oklch(0.86 0.14 152);
-  --color-mint: oklch(0.86 0.14 152);
-  --color-night: oklch(0.105 0.01 275);
-  --color-night-2: oklch(0.15 0.012 275);
-  --color-night-line: oklch(1 0 0 / 0.07);
+  /* Light-first editorial studio palette in OKLCH.
+     Warm alabaster paper, crisp white elevated cards, deep slate-navy ink,
+     and confident cobalt + forest emerald accents built for local business trust. */
+  --color-paper: oklch(0.985 0.004 85);
+  --color-surface: oklch(1 0 0);
+  --color-sand: oklch(0.955 0.007 85);
+  --color-ink: oklch(0.18 0.024 258);
+  --color-body: oklch(0.36 0.02 258);
+  --color-muted: oklch(0.49 0.018 258);
+  --color-line: oklch(0.18 0.024 258 / 0.10);
+  --color-line-strong: oklch(0.18 0.024 258 / 0.20);
+  --color-accent: oklch(0.49 0.19 258);
+  --color-accent-deep: oklch(0.41 0.19 258);
+  --color-accent-soft: oklch(0.49 0.19 258 / 0.10);
+  --color-sky: oklch(0.49 0.16 245);
+  --color-leaf: oklch(0.46 0.14 155);
+  --color-mint: oklch(0.46 0.14 155);
+  --color-gold: oklch(0.68 0.16 78);
+  --color-night: oklch(0.16 0.026 258);
+  --color-night-2: oklch(0.22 0.024 258);
+  --color-night-line: oklch(1 0 0 / 0.12);
 
-  --font-display: "Geist Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Geist Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "Geist Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --animate-marquee: marquee 40s linear infinite;
   --animate-spin-border: spin-border 6s linear infinite;
@@ -44,7 +46,7 @@
 }
 
 @keyframes flatten {
-  from { transform: perspective(1400px) rotateX(24deg) scale(0.92); }
+  from { transform: perspective(1400px) rotateX(16deg) scale(0.95); }
   to { transform: perspective(1400px) rotateX(0deg) scale(1); }
 }
 
@@ -67,7 +69,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   html, body {
@@ -96,19 +98,8 @@
   }
 
   ::selection {
-    background: oklch(0.74 0.15 270 / 0.45);
-    color: white;
-  }
-
-  /* Film grain over everything — a subtle, analog texture. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    pointer-events: none;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background: oklch(0.49 0.19 258 / 0.18);
+    color: var(--color-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -126,19 +117,15 @@
 }
 
 @utility eyebrow {
-  @apply inline-flex items-center gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.18em] text-muted;
+  @apply inline-flex items-center gap-2 font-sans text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-accent;
   &::before {
-    content: "//";
-    @apply font-semibold tracking-normal;
-    background: linear-gradient(90deg, var(--color-sky), var(--color-leaf));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    content: "";
+    @apply inline-block h-1.5 w-1.5 rounded-full bg-accent;
   }
 }
 
 @utility display {
-  @apply font-display font-semibold text-ink tracking-[-0.045em] leading-[0.98];
+  @apply font-display font-bold text-ink tracking-[-0.032em] leading-[1.06];
 }
 
 /* Serif italic accent word inside a display headline. */
@@ -147,17 +134,14 @@
 }
 
 @utility text-gradient {
-  background: linear-gradient(100deg, var(--color-sky) 0%, var(--color-accent) 45%, var(--color-leaf) 100%);
+  background: linear-gradient(100deg, var(--color-accent) 0%, var(--color-sky) 55%, var(--color-leaf) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 @utility text-fade {
-  background: linear-gradient(180deg, var(--color-ink) 30%, oklch(0.985 0.003 275 / 0.55));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-ink);
 }
 
 @utility btn {
@@ -165,10 +149,10 @@
 }
 
 @utility btn-primary {
-  @apply btn bg-ink text-paper hover:bg-white;
-  box-shadow: 0 0 0 1px oklch(1 0 0 / 0.2), 0 8px 30px -8px oklch(0.74 0.15 270 / 0.6);
+  @apply btn bg-accent text-white hover:bg-accent-deep;
+  box-shadow: 0 1px 2px oklch(0.18 0.024 258 / 0.12), 0 10px 26px -8px oklch(0.49 0.19 258 / 0.55);
   &:hover {
-    box-shadow: 0 0 0 1px oklch(1 0 0 / 0.3), 0 10px 40px -6px oklch(0.74 0.15 270 / 0.85);
+    box-shadow: 0 2px 4px oklch(0.18 0.024 258 / 0.16), 0 14px 32px -8px oklch(0.49 0.19 258 / 0.65);
   }
 }
 
@@ -177,16 +161,16 @@
 }
 
 @utility btn-ghost {
-  @apply btn text-ink bg-white/[0.04] backdrop-blur-md;
-  box-shadow: inset 0 0 0 1px var(--color-line-strong);
+  @apply btn text-ink bg-surface;
+  box-shadow: inset 0 0 0 1px var(--color-line-strong), 0 1px 2px oklch(0.18 0.024 258 / 0.05);
   &:hover {
-    @apply bg-white/[0.08];
+    @apply bg-sand;
   }
 }
 
 @utility card {
-  @apply bg-surface/70 border border-line rounded-2xl backdrop-blur-xl;
-  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.06);
+  @apply bg-surface border border-line rounded-2xl;
+  box-shadow: 0 1px 2px oklch(0.18 0.024 258 / 0.05), 0 12px 32px -16px oklch(0.18 0.024 258 / 0.10);
 }
 
 /* Cursor-following spotlight. Pair with the data-spotlight script in Layout. */
@@ -201,7 +185,7 @@
     z-index: -1;
     opacity: 0;
     transition: opacity 300ms;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), oklch(0.74 0.15 270 / 0.14), transparent 60%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), oklch(0.49 0.19 258 / 0.06), transparent 60%);
   }
   &::after {
     content: "";
@@ -212,7 +196,7 @@
     opacity: 0;
     transition: opacity 300ms;
     pointer-events: none;
-    background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), oklch(0.82 0.10 235 / 0.7), transparent 60%);
+    background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), oklch(0.49 0.19 258 / 0.45), transparent 60%);
     -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
     mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
   }
@@ -229,11 +213,11 @@
   &::before {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: -1.5px;
     border-radius: inherit;
-    padding: 1px;
+    padding: 1.5px;
     z-index: -1;
-    background: conic-gradient(from var(--border-angle), transparent 0 60%, var(--color-sky) 75%, var(--color-accent) 85%, var(--color-leaf) 95%, transparent);
+    background: conic-gradient(from var(--border-angle), var(--color-line) 0 55%, var(--color-sky) 72%, var(--color-accent) 85%, var(--color-leaf) 96%, var(--color-line));
     -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
     mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
     animation: var(--animate-spin-border);
@@ -265,8 +249,8 @@
 
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 0.045) 1px, transparent 1px);
+    linear-gradient(to right, oklch(0.18 0.024 258 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.18 0.024 258 / 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -274,36 +258,7 @@
   @apply inline-flex items-center gap-1.5 font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-accent hover:text-accent;
 }
 
-/* Light band: re-points the semantic color tokens for one section so the usual
-   components (card, btn, eyebrow, text-gradient...) read correctly on a light surface.
-   Use on a <section> to break up the dark page rhythm. */
+/* Warm sand band: subtle alternating surface to create clean visual rhythm between sections. */
 .theme-light {
-  --color-paper: oklch(0.975 0.005 275);
-  --color-surface: oklch(1 0 0);
-  --color-sand: oklch(0.94 0.008 275);
-  --color-ink: oklch(0.17 0.014 275);
-  --color-body: oklch(0.36 0.016 275);
-  --color-muted: oklch(0.46 0.018 275);
-  --color-line: oklch(0.17 0.014 275 / 0.1);
-  --color-line-strong: oklch(0.17 0.014 275 / 0.22);
-  --color-accent: oklch(0.5 0.17 272);
-  --color-accent-deep: oklch(0.42 0.18 275);
-  --color-sky: oklch(0.5 0.14 245);
-  --color-leaf: oklch(0.46 0.12 152);
-  --color-mint: oklch(0.46 0.12 152);
-  background-color: var(--color-paper);
-  color: var(--color-body);
-
-  .card {
-    box-shadow: 0 1px 2px oklch(0.17 0.014 275 / 0.06), 0 12px 32px -16px oklch(0.17 0.014 275 / 0.18);
-  }
-  .btn-primary:hover {
-    background-color: oklch(0.27 0.016 275);
-  }
-  .btn-ghost {
-    background-color: oklch(0.17 0.014 275 / 0.04);
-  }
-  .btn-ghost:hover {
-    background-color: oklch(0.17 0.014 275 / 0.09);
-  }
+  background-color: var(--color-sand);
 }

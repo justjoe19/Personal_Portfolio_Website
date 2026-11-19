@@ -85,4 +85,4 @@ It depends on the build. Some sites include a simple content editor for things l
 
 ---
 
-If you're weighing your options for a new site in South Bend, Mishawaka, or anywhere in Michiana, I'm happy to walk through them with you — no pressure to go custom if it isn't the right fit. You can see [what's included in each package](/services) first, or browse the [portfolio](/portfolio). [Start with a free consultation](/#contact).
+If you're weighing your options for a new site in [South Bend](/service-areas/south-bend), [Mishawaka](/service-areas/mishawaka), [Elkhart](/service-areas/elkhart), or anywhere in Michiana, I'm happy to walk through them with you — no pressure to go custom if it isn't the right fit. You can see [what's included in each package](/services) first, or browse the [portfolio](/portfolio). [Start with a free consultation](/#contact).

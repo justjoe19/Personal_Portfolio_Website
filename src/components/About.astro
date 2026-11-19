@@ -1,5 +1,5 @@
 ---
-import { areas } from '../data/areas';
+import { areas, cityPages } from '../data/areas';
 
 interface Props {
 	/** True when rendered as the top of the /about page: h1 and extra top padding. */
@@ -8,44 +8,99 @@ interface Props {
 
 const { page = false } = Astro.props;
 const Heading = page ? 'h1' : 'h2';
+
+const principles = [
+	{
+		title: 'You talk to the person doing the work',
+		desc: 'No account managers, no sales reps, and no outsourcing. Every design decision, line of code, and post-launch update is handled by me in Mishawaka.',
+	},
+	{
+		title: 'Built to bring in calls and customers',
+		desc: 'A pretty website that doesn’t make the phone ring isn’t doing its job. Every page is structured around clear calls to action, fast mobile load times, and local search.',
+	},
+	{
+		title: 'Plain English and upfront pricing',
+		desc: 'You get a clear package quote before we start, you own 100% of your domain and website, and I never lock you into monthly marketing retainers.',
+	},
+];
 ---
 
 <section id="about" class:list={['py-24 sm:py-32', page ? 'pt-36 sm:pt-44' : 'border-t border-line']}>
 	<div class="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-		<div class="mx-auto w-full max-w-[220px] sm:max-w-[360px] lg:mx-0">
+		<div class="mx-auto w-full max-w-[260px] sm:max-w-[360px] lg:mx-0">
 			<img
 				src="/assets/photo.webp"
-				alt="Joe Hollenbach, founder of Michiana Dev LLC"
+				alt="Joe Hollenbach, founder of Michiana Dev LLC in Mishawaka, Indiana"
 				width="640"
 				height="640"
 				loading={page ? 'eager' : 'lazy'}
-				class="aspect-square w-full rounded-2xl border border-line object-cover grayscale-[25%]"
+				class="aspect-square w-full rounded-2xl border border-line object-cover grayscale-[20%]"
 			/>
-			<p class="mt-4 text-sm text-muted">
-				<span class="font-semibold text-ink">Joe Hollenbach</span> — Founder & software engineer
-			</p>
+			<div class="card mt-5 p-5">
+				<p class="font-semibold text-ink">Joe Hollenbach</p>
+				<p class="mt-0.5 text-sm text-muted">Founder &amp; Software Engineer · Michiana Dev LLC</p>
+				<dl class="mt-4 space-y-2.5 border-t border-line pt-4 text-sm">
+					<div class="flex justify-between gap-2">
+						<dt class="text-muted">Studio</dt>
+						<dd class="font-medium text-ink">Mishawaka, IN 46544</dd>
+					</div>
+					<div class="flex justify-between gap-2">
+						<dt class="text-muted">Education</dt>
+						<dd class="font-medium text-ink">B.S., Software Engineering</dd>
+					</div>
+					<div class="flex justify-between gap-2">
+						<dt class="text-muted">Direct phone</dt>
+						<dd><a href="tel:+15742138502" class="font-medium text-ink hover:text-sky">(574) 213-8502</a></dd>
+					</div>
+				</dl>
+			</div>
 		</div>
 
 		<div>
-			<p class="eyebrow">About</p>
-			<Heading class="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">A studio of one, <span class="serif-accent text-gradient">by design.</span></Heading>
+			<p class="eyebrow">About Michiana Dev</p>
+			<Heading class="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">
+				A studio of one, <span class="serif-accent text-gradient">by design.</span>
+			</Heading>
 			<div class="mt-7 space-y-5 text-[1.08rem] leading-relaxed text-body">
 				<p>
-					I’m Joe Hollenbach, a software engineer based in Mishawaka. I run Michiana Dev, and I design and build every site myself, so the person you talk to is the person doing the work.
+					I’m Joe Hollenbach, a software engineer based in Mishawaka, Indiana. I started Michiana Dev because local small businesses in Northern Indiana and Southwest Michigan were stuck with two bad options: spend weekends fighting a slow DIY template, or pay a traditional agency $10,000+ to get handed off to a junior account manager.
 				</p>
 				<p>
-					I build for local businesses, like contractors, restaurants, and other Michiana companies, that want a site that’s fast, easy to find, and brings in customers. I have a B.S. in Software Engineering, and I’ve built and run my own software product, RankRadius, so I understand both the code and the customer.
+					I have a B.S. in Software Engineering, and in addition to client websites I design, build, and run my own software platform (<a href="https://rankradius.io" target="_blank" rel="noopener" class="link-arrow">RankRadius</a>). That means whether you need a fast 5-page contractor or restaurant website or a custom web application with client portals, I understand both the engineering and what actually brings customers through your door.
 				</p>
 				<p>
-					When you work with me, you talk directly to the person designing and writing your site. No outsourcing, no surprises.
+					When you work with me, we can talk by phone, hop on a video call, or meet in person right here in Michiana. You get clear package pricing upfront and a site you truly own.
 				</p>
 			</div>
 
+			<div class="mt-10 grid gap-4 border-t border-line pt-8 sm:grid-cols-3">
+				{principles.map((p) => (
+					<div class="card p-5">
+						<h2 class="text-base font-semibold text-ink">{p.title}</h2>
+						<p class="mt-2 text-sm leading-relaxed text-muted">{p.desc}</p>
+					</div>
+				))}
+			</div>
+
 			<div class="mt-10 border-t border-line pt-8">
-				<p class="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Serving Michiana and clients nationwide</p>
+				<p class="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Primary Michiana markets served</p>
 				<ul class="mt-4 flex flex-wrap gap-2">
-					{areas.map((a) => <li class="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink">{a.name}{a.state === 'MI' ? ', MI' : ''}</li>)}
-					<li class="rounded-full bg-ink px-3.5 py-1.5 text-sm font-medium text-paper">Nationwide (remote)</li>
+					{cityPages.map((c) => (
+						<li>
+							<a href={`/service-areas/${c.slug}`} class="inline-block rounded-full border border-line-strong bg-surface px-3.5 py-1.5 text-sm font-medium text-ink hover:border-accent hover:text-sky">
+								{c.name}, {c.state} →
+							</a>
+						</li>
+					))}
+				</ul>
+				<p class="mt-6 text-[0.7rem] uppercase tracking-[0.14em] text-muted">All Michiana communities &amp; remote</p>
+				<ul class="mt-3 flex flex-wrap gap-2">
+					{areas.map((a) => (
+						<li class="rounded-full border border-line bg-surface/60 px-3 py-1 text-xs font-medium text-body">
+							{a.name}{a.state === 'MI' ? ', MI' : ''}
+						</li>
+					))}
+					<li class="rounded-full bg-ink px-3 py-1 text-xs font-medium text-paper">Nationwide (remote)</li>
 				</ul>
 			</div>
 		</div>

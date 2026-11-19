@@ -1,0 +1,67 @@
+---
+import { cityPages, areas } from '../data/areas';
+
+const extraTowns = areas.filter((a) => !('slug' in a && a.slug));
+---
+
+<section id="areas-served" class="relative border-t border-line py-24 sm:py-32" aria-labelledby="areas-home-heading">
+	<div class="container-x">
+		<div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+			<div class="max-w-2xl">
+				<p class="eyebrow">Local across Michiana</p>
+				<h2 id="areas-home-heading" class="display mt-5 text-[clamp(2.2rem,4.8vw,3.8rem)]">
+					Based in Mishawaka, serving <span class="serif-accent text-gradient">Northern Indiana &amp; SW Michigan.</span>
+				</h2>
+				<p class="mt-4 text-lg leading-relaxed text-body">
+					You don’t have to hire an agency in Indy or Chicago to get a fast, custom-built website. Explore how I help small businesses in your community:
+				</p>
+			</div>
+			<a href="/service-areas" class="btn-ghost self-start sm:self-auto">
+				All 20 Michiana towns <span aria-hidden="true">→</span>
+			</a>
+		</div>
+
+		<ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{cityPages.map((city) => (
+				<li>
+					<a href={`/service-areas/${city.slug}`} class="spotlight card reveal group flex h-full flex-col justify-between p-6">
+						<div>
+							<div class="flex items-center justify-between gap-2">
+								<span class="text-[0.68rem] uppercase tracking-[0.14em] text-accent">{city.county}</span>
+								<span class="text-[0.68rem] text-muted">{city.state}</span>
+							</div>
+							<h3 class="mt-2.5 text-xl font-semibold tracking-tight text-ink group-hover:text-sky">
+								{city.name}, {city.state}
+							</h3>
+							<p class="mt-2 text-[0.9rem] leading-relaxed text-muted">{city.corridors}</p>
+						</div>
+						<span class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-ink">
+							Web design in {city.name}
+							<span class="transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+						</span>
+					</a>
+				</li>
+			))}
+
+			<li class="spotlight card reveal flex flex-col justify-between p-6 sm:col-span-2 lg:col-span-2">
+				<div>
+					<span class="text-[0.68rem] uppercase tracking-[0.14em] text-leaf">Plus across the region &amp; nationwide</span>
+					<h3 class="mt-2.5 text-xl font-semibold tracking-tight text-ink">Every surrounding Michiana community</h3>
+					<p class="mt-2 text-[0.92rem] leading-relaxed text-body">
+						Also building websites and software for businesses in:
+					</p>
+					<ul class="mt-4 flex flex-wrap gap-2">
+						{extraTowns.map((t) => (
+							<li class="rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink">
+								{t.name}, {t.state}
+							</li>
+						))}
+					</ul>
+				</div>
+				<div class="mt-6 pt-2">
+					<a href="/service-areas" class="link-arrow text-sm">See full service area details <span aria-hidden="true">→</span></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>

@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
-import Contact from '../components/Contact';
+import ContactSection from '../components/Contact';
 import Footer from '../components/Footer.astro';
 
 const title = 'Contact Michiana Dev | Free Website Review in Mishawaka, IN';
@@ -48,7 +48,7 @@ const schema = JSON.stringify([
 		<header class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
 			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
 			<div class="container-x relative max-w-4xl">
-				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+				<nav aria-label="Breadcrumb" class="text-[0.72rem] uppercase tracking-[0.16em] text-muted">
 					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Contact</span>
 				</nav>
 				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]">
@@ -69,7 +69,7 @@ const schema = JSON.stringify([
 				<ol class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
 					{steps.map((s) => (
 						<li class="spotlight bg-paper p-7">
-							<span class="font-mono text-sm text-accent">{s.n}</span>
+							<span class="text-sm text-accent">{s.n}</span>
 							<h3 class="mt-8 text-xl font-semibold">{s.title}</h3>
 							<p class="mt-3 text-[0.95rem] leading-relaxed text-body">{s.desc}</p>
 						</li>
@@ -78,10 +78,10 @@ const schema = JSON.stringify([
 			</div>
 		</section>
 
-		<Contact
+		<ContactSection
 			client:visible
 			heading={['Send me', 'a message.']}
-			intro="Fill out the form, call, or email. Websites start at $2,500, and the free website review comes with no obligation."
+			intro="Fill out the form, call, or email. Every project—from simple starter sites to custom software—begins with a free website review and a clear, fixed quote."
 		/>
 	</main>
 

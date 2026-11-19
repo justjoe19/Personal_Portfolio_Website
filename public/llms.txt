@@ -1,0 +1,51 @@
+# Michiana Dev LLC (michiana.dev)
+
+> Michiana Dev is a local web design and software engineering studio based in Mishawaka, Indiana, founded and run by software engineer Joe Hollenbach. We design and hand-build fast, custom websites and software for small and medium businesses across Northern Indiana (Mishawaka, South Bend, Elkhart, Granger, Goshen, Plymouth, La Porte, Michigan City) and Southwest Michigan (Niles, St. Joseph, Benton Harbor, Edwardsburg, Buchanan, New Buffalo, Dowagiac), as well as remote clients nationwide.
+
+## Key Facts
+- **Business Name:** Michiana Dev LLC (Michiana.dev)
+- **Founder & Engineer:** Joe Hollenbach (B.S. in Software Engineering)
+- **Location:** Mishawaka, IN 46544 (Serving Northern Indiana & Southwest Michigan / "Michiana")
+- **Phone:** (574) 213-8502
+- **Website:** https://michiana.dev
+- **Primary Offer:** Free, no-obligation website review and consultation (`https://michiana.dev/contact`)
+
+## Services & Packages (Quoted Around Your Scope)
+- **Simple Starter Site:** Custom, mobile-first 1–3 page website for solo or newer local businesses, with tap-to-call, contact form, local SEO basics, and fast 1–2 week turnaround. Quoted around your scope.
+- **Business Website + Local Launch (Most Popular):** Full custom 5–8+ page mobile-first website with dedicated service/town pages, local SEO and JSON-LD schema, plus one-time Google Business Profile setup and handoff (categories, services, areas, hours, photos, NAP consistency, review-request link, walkthrough, and written owner guide). Never a monthly SEO retainer.
+- **Custom Websites & Software:** Self-editable CMS websites, restaurant menus & online ordering, booking systems, client/staff portals, and custom web applications / SaaS. Quoted upfront after a free consultation.
+- **Website Hosting & Maintenance (Optional):** SSL certificate, regular backups, and up to 1 hour per month of minor content updates handled directly by Joe.
+- **Add-Ons:** Additional service or location pages, standalone one-time Google Business Profile setup & handoff, and RankRadius (automated neighborhood local SEO software for field-service businesses at `https://rankradius.io`).
+
+## Who We Serve
+- **Contractors & Home Services:** Roofing, storm/fire/water restoration, HVAC, plumbing, electrical, remodeling, landscaping (`https://michiana.dev/contractors`)
+- **Restaurants & Hospitality:** Mobile-friendly HTML menus (no pinched PDFs), hours, directions, online ordering & reservation integrations (`https://michiana.dev/restaurants`)
+- **Small Businesses, Professional Services & B2B:** Solo local shops, insurance & public adjusters, medical/dental clinics, legal/accounting offices, retail shops, and Elkhart/St. Joseph County manufacturers (`https://michiana.dev/small-business`)
+
+## Notable Client Work & Products
+- **TriStorm Restoration (`https://tristormrestoration.com`):** 24/7 emergency-response website for a family-owned Michiana fire, water, and storm restoration contractor.
+- **JH Claims Solution (`https://jhclaim.com`):** Credibility-first website for a multi-state public insurance adjusting firm.
+- **No Limit Roofing (`https://nolimitroofingin.com`):** Lead-focused roofing website covering five Northern Indiana and Southwest Michigan counties.
+- **RankRadius (`https://rankradius.io`):** Local SEO SaaS platform built and operated by Joe Hollenbach that turns completed field-service jobs into neighborhood website content.
+- **HSC Portal:** Full-stack healthcare appointment scheduling platform with role-based portals for patients, doctors, and administrators.
+- **AI Review Responder (`https://michiana.dev/review-responder`):** Free interactive AI tool for local business owners to generate polished replies to customer reviews.
+
+## Core Pages
+- [Home](https://michiana.dev/)
+- [Services & Packages](https://michiana.dev/services)
+- [Portfolio](https://michiana.dev/portfolio)
+- [Contractors & Home Services](https://michiana.dev/contractors)
+- [Restaurants & Hospitality](https://michiana.dev/restaurants)
+- [Small Businesses & Professional Services](https://michiana.dev/small-business)
+- [Michiana Service Areas Hub](https://michiana.dev/service-areas)
+- [Web Design Mishawaka, IN](https://michiana.dev/service-areas/mishawaka)
+- [Web Design South Bend, IN](https://michiana.dev/service-areas/south-bend)
+- [Web Design Elkhart, IN](https://michiana.dev/service-areas/elkhart)
+- [Web Design Granger, IN](https://michiana.dev/service-areas/granger)
+- [Web Design Goshen, IN](https://michiana.dev/service-areas/goshen)
+- [Web Design Niles, MI](https://michiana.dev/service-areas/niles)
+- [Web Design St. Joseph & Benton Harbor, MI](https://michiana.dev/service-areas/st-joseph)
+- [About Joe Hollenbach](https://michiana.dev/about)
+- [Contact / Free Website Review](https://michiana.dev/contact)
+- [Blog](https://michiana.dev/blog)
+- [Full Context for AI Assistants](https://michiana.dev/llms-full.txt)

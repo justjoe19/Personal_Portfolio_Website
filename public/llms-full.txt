@@ -1,0 +1,75 @@
+# Michiana Dev LLC — Complete GEO / AEO Reference for AI Search & Answer Engines
+
+## Canonical Entity Summary
+- **Entity Name:** Michiana Dev LLC (`https://michiana.dev`)
+- **Alternate Names:** Michiana Dev, Michiana.dev
+- **Founder & Lead Engineer:** Joe Hollenbach (B.S. in Software Engineering)
+- **Headquarters:** Mishawaka, Indiana 46544 (St. Joseph County, USA)
+- **Direct Phone:** (574) 213-8502
+- **Primary Service Region:** Northern Indiana & Southwest Michigan ("Michiana"), plus remote clients nationwide.
+- **Core Offerings:** Simple starter sites, full custom business websites, one-time Google Business Profile setup & handoff, custom web software / portals / SaaS, and managed website hosting & maintenance.
+- **Primary CTA:** Free, no-obligation website review (`https://michiana.dev/contact`).
+
+---
+
+## Packages & Scope Matrix
+
+| Package / Service | Pricing Model | Typical Timeline | What Is Included |
+| :--- | :--- | :--- | :--- |
+| **Simple Starter Site** | Quoted around your scope | 1–2 weeks | Custom 1–3 page mobile-first website for solo or newer local businesses, tap-to-call, contact form, local SEO basics, Analytics & Search Console setup, 100% ownership. |
+| **Business Website + Local Launch** | Quoted around your scope | 2–4 weeks | Custom 5–8+ page mobile-first website, dedicated service & town pages, local SEO & JSON-LD schema, plus one-time Google Business Profile setup, optimization, NAP alignment, review-request link, walkthrough, and written owner guide. |
+| **Custom Websites & Software** | Quoted after consultation | Milestone-based | Self-editable CMS websites, interactive restaurant menus & online ordering, booking systems, role-based client portals, and custom web applications. |
+| **Hosting & Maintenance (Optional)** | Monthly care plan | Ongoing | SSL security, automated backups, and up to 1 hour per month of content/photo/hours updates handled directly by Joe Hollenbach. |
+| **Google Business Profile Setup (Standalone)** | One-time fee | 1 week | Complete one-time setup, category/service/area optimization, and handoff guide (no ongoing monthly retainer). |
+| **RankRadius (Field-Service Add-On)** | Monthly software add-on | Ongoing (optional) | Automated neighborhood local SEO software (`https://rankradius.io`) that turns completed CRM jobs into neighborhood website proof paired with Google reviews. |
+
+---
+
+## Dedicated Michiana Market Landing Pages (City-by-City Reference)
+
+### 1. Mishawaka, IN (`https://michiana.dev/service-areas/mishawaka`)
+- **County & ZIP Codes:** St. Joseph County · 46544, 46545, 46546
+- **Corridors Served:** Grape Road, Main Street, McKinley Hwy, Downtown Mishawaka & Ironworks / Riverwalk, Twin Branch
+- **Summary:** Michiana Dev LLC is headquartered in Mishawaka, IN (46544). Software engineer Joe Hollenbach works directly with Mishawaka contractors, restaurants, and small businesses—offering everything from simple starter sites to full custom builds.
+
+### 2. South Bend, IN (`https://michiana.dev/service-areas/south-bend`)
+- **County & ZIP Codes:** St. Joseph County · 46601, 46613, 46614, 46615, 46616, 46617, 46619, 46628, 46635, 46637
+- **Corridors Served:** Downtown South Bend, Eddy Street & Notre Dame, Ireland Road, Portage & Bendix Corridors, River Park, Harter Heights
+- **Summary:** Based 10 minutes from Downtown South Bend, Michiana Dev builds custom, mobile-first websites (from simple starter sites to full custom builds) for South Bend small businesses, trades, restaurants, and professional firms.
+
+### 3. Elkhart, IN (`https://michiana.dev/service-areas/elkhart`)
+- **County & ZIP Codes:** Elkhart County · 46514, 46515, 46516, 46517
+- **Corridors Served:** Downtown Elkhart, Cassopolis Street (SR 19), CR 6 & Industrial Parks, Concord / US-33, Dunlap
+- **Summary:** Michiana Dev builds lead-generating contractor websites, B2B/manufacturing websites, and custom web software for Elkhart and Elkhart County companies.
+
+### 4. Granger, IN (`https://michiana.dev/service-areas/granger`)
+- **County & ZIP Codes:** St. Joseph County · 46530
+- **Corridors Served:** Heritage Square, SR 23, Bittersweet & Cleveland Road, Adams Road, State Line / Gumwood
+- **Summary:** Located 10 minutes south of Granger, Michiana Dev builds credibility-first websites for home-service contractors, medical/dental practices, professional offices, and restaurants serving Granger (46530).
+
+### 5. Goshen, IN (`https://michiana.dev/service-areas/goshen`)
+- **County & ZIP Codes:** Elkhart County · 46526, 46527, 46528
+- **Corridors Served:** Downtown Goshen & Main Street, US-33 / Lincolnway, Millersburg Road, College Avenue
+- **Summary:** Michiana Dev builds custom, mobile-first websites for Downtown Goshen shops and restaurants, Elkhart County trades, and local family-owned businesses.
+
+### 6. Niles, MI (`https://michiana.dev/service-areas/niles`)
+- **County & ZIP Codes:** Berrien & Cass Counties · 49120
+- **Corridors Served:** Downtown Niles & Riverfront, South 11th Street (M-51), US-12 Corridor, Buchanan, Edwardsburg, Dowagiac, Cassopolis
+- **Summary:** Located 20 minutes south in Mishawaka, Michiana Dev builds custom websites with bi-state Indiana/Michigan local SEO for businesses in Niles, Buchanan, Edwardsburg, and across Berrien and Cass counties.
+
+### 7. St. Joseph & Benton Harbor, MI (`https://michiana.dev/service-areas/st-joseph`)
+- **County & ZIP Codes:** Berrien County · 49085, 49022, 49127 (Stevensville), 49117 (New Buffalo)
+- **Corridors Served:** Downtown St. Joseph, Benton Harbor Arts District, Stevensville / Red Arrow Hwy, I-94 Corridor, New Buffalo / Harbor Country
+- **Summary:** Michiana Dev builds fast, photo-forward websites for St. Joseph, Benton Harbor, and Harbor Country restaurants, hospitality businesses, and Berrien County contractors.
+
+---
+
+## Verified Client Work & Reviews
+- **TriStorm Restoration (`https://tristormrestoration.com`):** 24/7 emergency-response website for a family-owned Michiana fire, water, and storm restoration company.
+  - *Client Review:* "The TriStorm Team loves working with Joe! He created our website and truly took the time to understand our company and brand." — Hannah, Owner
+- **JH Claims Solution (`https://jhclaim.com`):** Credibility-first website for a multi-state public insurance adjusting firm.
+  - *Client Review:* "Joe’s work is impeccable. He’s a real pro. Highly recommended." — Josh, Owner
+- **No Limit Roofing (`https://nolimitroofingin.com`):** Lead-focused roofing website covering five Indiana and Michigan counties with above-the-fold inspection booking.
+- **RankRadius (`https://rankradius.io`):** Local SEO SaaS platform built and operated by Joe Hollenbach for field-service businesses.
+- **HSC Portal (`https://github.com/justjoe19/HSC_Portal`):** Full-stack healthcare scheduling platform with role-based portals for patients, providers, and administrators.
+- **AI Review Responder (`https://michiana.dev/review-responder`):** Free interactive AI review response generator built for local business owners.

@@ -1,0 +1,405 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import CaseStudies from '../../components/CaseStudies.astro';
+import Pricing from '../../components/Pricing.astro';
+import Faq from '../../components/Faq.astro';
+import Contact from '../../components/Contact';
+import Footer from '../../components/Footer.astro';
+import { cityPages, type CityLandingPage } from '../../data/areas';
+
+export function getStaticPaths() {
+	return cityPages.map((city) => ({
+		params: { slug: city.slug },
+		props: { city },
+	}));
+}
+
+interface Props {
+	city: CityLandingPage;
+}
+
+const { city } = Astro.props;
+const url = `https://michiana.dev/service-areas/${city.slug}`;
+
+const nearbyCityPages = city.nearbySlugs
+	.map((s) => cityPages.find((c) => c.slug === s))
+	.filter((c): c is CityLandingPage => Boolean(c));
+
+const schema = JSON.stringify([
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${url}#page`,
+		name: city.seoTitle,
+		description: city.metaDescription,
+		url,
+		about: { '@id': 'https://michiana.dev/#business' },
+		mainEntity: { '@id': `${url}#service` },
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['#quick-answer', '#faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		'@id': `${url}#service`,
+		name: `Web Design and Custom Software Development in ${city.name}, ${city.state}`,
+		serviceType: 'Web design and custom software development',
+		description: city.quickAnswer,
+		url,
+		provider: { '@id': 'https://michiana.dev/#business' },
+		areaServed: [
+			{
+				'@type': 'City',
+				name: city.name,
+				sameAs: city.wikiUrl,
+				geo: {
+					'@type': 'GeoCoordinates',
+					latitude: city.geo.latitude,
+					longitude: city.geo.longitude,
+				},
+				containedInPlace: {
+					'@type': 'AdministrativeArea',
+					name: `${city.county}, ${city.stateFull}`,
+				},
+			},
+			...city.postalCodes.map((zip) => ({
+				'@type': 'PostalAddress',
+				addressLocality: city.name,
+				addressRegion: city.state,
+				postalCode: zip,
+				addressCountry: 'US',
+			})),
+			...city.nearbyTowns,
+		],
+		hasOfferCatalog: {
+			'@type': 'OfferCatalog',
+			name: `${city.name} Web Design & Software Packages`,
+			itemListElement: [
+				{
+					'@type': 'Offer',
+					itemOffered: {
+						'@type': 'Service',
+						name: `Simple Starter Site (${city.name}, ${city.state})`,
+						description: '1–3 page custom, mobile-first website for solo or newer local businesses, with tap-to-call, lead form, and local SEO basics.',
+					},
+				},
+				{
+					'@type': 'Offer',
+					itemOffered: {
+						'@type': 'Service',
+						name: `Business Website + Local Launch (${city.name}, ${city.state})`,
+						description: 'Full 5–8+ page custom website with local SEO, schema markup, and one-time Google Business Profile setup and owner handoff.',
+					},
+				},
+				{
+					'@type': 'Offer',
+					itemOffered: {
+						'@type': 'Service',
+						name: 'Website Hosting & Monthly Maintenance',
+						description: 'Optional monthly hosting with SSL, backups, and up to 1 hour per month of minor updates.',
+					},
+				},
+			],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://michiana.dev/' },
+			{ '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://michiana.dev/service-areas' },
+			{ '@type': 'ListItem', position: 3, name: `${city.name}, ${city.state}`, item: url },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: city.faqs.map((f) => ({
+			'@type': 'Question',
+			name: f.q,
+			acceptedAnswer: { '@type': 'Answer', text: f.a },
+		})),
+	},
+]);
+
+const comparisonRows = [
+	{
+		feature: 'Who builds your website',
+		michiana: 'Joe Hollenbach directly (local engineer in Mishawaka, IN)',
+		agency: 'Junior staff or outsourced contractors behind an account rep',
+		diy: 'You, on nights and weekends',
+	},
+	{
+		feature: 'Pricing & scope',
+		michiana: 'Scaled to your business—from simple starter sites to full custom builds, quoted upfront',
+		agency: 'Large agency retainers and long-term monthly contracts',
+		diy: 'Monthly platform fees + paid plugins + lost leads',
+	},
+	{
+		feature: 'Typical turnaround time',
+		michiana: '1–2 weeks for starter sites · 2–4 weeks for full sites',
+		agency: '2–4 months',
+		diy: 'Often stalls out half-finished',
+	},
+	{
+		feature: `${city.name} local SEO & AI search`,
+		michiana: `Built-in schema markup, ${city.county} service structure & <1s mobile speed`,
+		agency: 'Sold separately as an expensive monthly SEO retainer',
+		diy: 'Generic template metadata that misses local signals',
+	},
+	{
+		feature: 'Ongoing hosting & updates',
+		michiana: 'Optional hosting plan includes SSL, backups & 1 hr/mo of content updates',
+		agency: 'High monthly fees plus hourly support tickets',
+		diy: 'You maintain broken plugins and updates yourself',
+	},
+];
+
+const check = '<svg class="mt-[3px] h-4 w-4 shrink-0 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+---
+
+<Layout title={city.seoTitle} description={city.metaDescription}>
+	<script type="application/ld+json" is:inline set:html={schema} />
+
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
+
+	<Navbar client:load />
+
+	<main id="main-content">
+		<header class="relative overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-24">
+			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+			<div class="container-x relative">
+				<nav aria-label="Breadcrumb" class="text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+					<a href="/" class="hover:text-ink">Home</a>
+					<span aria-hidden="true">/</span>
+					<a href="/service-areas" class="hover:text-ink">Service areas</a>
+					<span aria-hidden="true">/</span>
+					<span aria-current="page">{city.name}, {city.state}</span>
+				</nav>
+
+				<p class="eyebrow mt-8">{city.eyebrow}</p>
+				<h1 class="display mt-5 max-w-4xl text-[clamp(2.4rem,5.8vw,4.8rem)]">
+					<span class="text-fade">{city.h1[0]}</span> <span class="serif-accent text-gradient pr-2">{city.h1[1]}</span>
+				</h1>
+				<p class="mt-7 max-w-2xl text-[clamp(1.05rem,1.6vw,1.22rem)] leading-relaxed text-body">
+					{city.intro}
+				</p>
+
+				<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+					<a href="#contact" class="btn-primary">
+						Get a free website review
+						<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+					</a>
+					<a href="#pricing" class="btn-ghost">See packages &amp; pricing</a>
+				</div>
+
+				<!-- AEO / GEO Direct Answer Capsule & At-a-Glance Block -->
+				<aside id="quick-answer" aria-label={`Quick summary of web design in ${city.name}, ${city.state}`} class="card mt-12 p-6 sm:p-8">
+					<div class="flex flex-wrap items-center justify-between gap-2 border-b border-line pb-4">
+						<span class="text-[0.7rem] uppercase tracking-[0.16em] text-leaf">
+							At a Glance · {city.name}, {city.state} ({city.postalCodes.join(', ')})
+						</span>
+						<span class="text-xs text-muted">{city.county}</span>
+					</div>
+					<p class="mt-4 text-[1.02rem] leading-relaxed text-ink">
+						{city.quickAnswer}
+					</p>
+					<dl class="mt-6 grid gap-4 border-t border-line pt-5 sm:grid-cols-2 lg:grid-cols-4">
+						<div>
+							<dt class="text-[0.65rem] uppercase tracking-[0.14em] text-muted">Area &amp; ZIP Codes</dt>
+							<dd class="mt-1 text-sm font-semibold text-ink">{city.name}, {city.state} ({city.postalCodes.join(', ')})</dd>
+						</div>
+						<div>
+							<dt class="text-[0.65rem] uppercase tracking-[0.14em] text-muted">Studio Proximity</dt>
+							<dd class="mt-1 text-sm font-semibold text-ink">{city.distanceNote}</dd>
+						</div>
+						<div>
+							<dt class="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-muted">Packages &amp; Timeline</dt>
+							<dd class="mt-1 text-sm font-semibold text-ink">Starter &amp; full builds · Quoted upfront</dd>
+						</div>
+						<div>
+							<dt class="text-[0.65rem] uppercase tracking-[0.14em] text-muted">Direct Engineer</dt>
+							<dd class="mt-1 text-sm font-semibold text-ink">
+								Joe Hollenbach · <a href="tel:+15742138502" class="text-sky hover:underline">(574) 213-8502</a>
+							</dd>
+						</div>
+					</dl>
+				</aside>
+			</div>
+		</header>
+
+		<!-- Local Market Context & Why Local Engineering Matters -->
+		<section class="border-t border-line py-24 sm:py-32" aria-labelledby="local-context-heading">
+			<div class="container-x grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+				<div class="reveal">
+					<p class="eyebrow">Local market overview</p>
+					<h2 id="local-context-heading" class="display mt-5 text-[clamp(2rem,4.5vw,3.5rem)]">
+						Why do {city.name} businesses switch to <span class="serif-accent text-gradient">a custom website?</span>
+					</h2>
+					<div class="mt-6 space-y-5 text-[1.05rem] leading-relaxed text-body">
+						{city.marketOverview.map((paragraph) => (
+							<p>{paragraph}</p>
+						))}
+					</div>
+					<div class="mt-8 rounded-2xl border border-line bg-surface/60 p-5">
+						<p class="text-[0.68rem] uppercase tracking-[0.15em] text-accent">Key {city.name} corridors &amp; neighborhoods served</p>
+						<p class="mt-2 text-sm font-medium text-ink">{city.corridors}</p>
+					</div>
+				</div>
+
+				<div class="reveal flex flex-col justify-center space-y-4">
+					{city.whyLocalMatters.map((item) => (
+						<div class="spotlight card flex gap-3.5 p-6">
+							<Fragment set:html={check} />
+							<div>
+								<h3 class="text-lg font-semibold text-ink">{item.title}</h3>
+								<p class="mt-1.5 text-[0.93rem] leading-relaxed text-muted">{item.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Structured GEO/AEO Comparison Table for This City -->
+		<section class="theme-light border-t border-line py-20 sm:py-28" aria-labelledby="city-compare-heading">
+			<div class="container-x">
+				<div class="reveal max-w-3xl">
+					<p class="eyebrow">Comparing Your Options in {city.name}</p>
+					<h2 id="city-compare-heading" class="display mt-4 text-[clamp(2rem,4.4vw,3.4rem)]">
+						How Michiana Dev compares to <span class="serif-accent text-gradient">agencies &amp; DIY builders.</span>
+					</h2>
+					<p class="mt-4 text-lg leading-relaxed text-body">
+						If you’re evaluating web designers for your {city.name} business, here is a side-by-side breakdown of cost, speed, and ownership:
+					</p>
+				</div>
+
+				<div class="reveal mt-10 overflow-hidden rounded-3xl border border-line bg-surface shadow-[0_18px_48px_-20px_rgba(0,0,0,0.12)]">
+					<div class="overflow-x-auto">
+						<table class="w-full min-w-[660px] border-collapse text-left text-[0.94rem]">
+							<thead>
+								<tr class="border-b border-line-strong bg-sand/60">
+									<th scope="col" class="py-4 pr-4 pl-6 text-xs uppercase tracking-[0.14em] text-muted">Comparison Factor</th>
+									<th scope="col" class="py-4 px-5 font-semibold text-ink">Michiana Dev (Local Engineer)</th>
+									<th scope="col" class="py-4 px-5 font-medium text-muted">Traditional Marketing Agency</th>
+									<th scope="col" class="py-4 pr-6 pl-5 font-medium text-muted">DIY Builder (Wix / WordPress)</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-line">
+								{comparisonRows.map((r) => (
+									<tr class="align-top">
+										<th scope="row" class="py-4 pr-4 pl-6 font-semibold text-ink">{r.feature}</th>
+										<td class="bg-leaf/[0.05] py-4 px-5 font-medium text-ink">{r.michiana}</td>
+										<td class="py-4 px-5 text-body">{r.agency}</td>
+										<td class="py-4 pr-6 pl-5 text-body">{r.diy}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Who We Help in This City -->
+		<section class="border-t border-line py-20 sm:py-24" aria-labelledby="city-industries-heading">
+			<div class="container-x">
+				<div class="reveal max-w-3xl">
+					<p class="eyebrow">Industries served in {city.name}</p>
+					<h2 id="city-industries-heading" class="display mt-4 text-[clamp(1.9rem,4vw,3.1rem)]">
+						What types of {city.name} businesses <span class="serif-accent text-gradient">do I build for?</span>
+					</h2>
+				</div>
+				<div class="mt-10 grid gap-4 md:grid-cols-3">
+					<a href="/contractors" class="spotlight card reveal group flex flex-col justify-between p-6">
+						<div>
+							<span class="text-[0.68rem] uppercase tracking-[0.14em] text-accent">Trades &amp; Home Service</span>
+							<h3 class="mt-2 text-lg font-semibold text-ink group-hover:text-sky">Contractors in {city.name}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-muted">
+								Roofing, restoration, HVAC, plumbing, and remodeling websites built around tap-to-call and free-estimate requests across {city.county}.
+							</p>
+						</div>
+						<span class="mt-5 text-sm font-medium text-ink">Contractor websites →</span>
+					</a>
+
+					<a href="/restaurants" class="spotlight card reveal group flex flex-col justify-between p-6">
+						<div>
+							<span class="text-[0.68rem] uppercase tracking-[0.14em] text-leaf">Food &amp; Hospitality</span>
+							<h3 class="mt-2 text-lg font-semibold text-ink group-hover:text-sky">Restaurants in {city.name}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-muted">
+								Photo-forward websites with mobile-friendly HTML menus (no pinched PDFs), hours, directions, and online ordering integrations.
+							</p>
+						</div>
+						<span class="mt-5 text-sm font-medium text-ink">Restaurant websites →</span>
+					</a>
+
+					<a href="/small-business" class="spotlight card reveal group flex flex-col justify-between p-6">
+						<div>
+							<span class="text-[0.68rem] uppercase tracking-[0.14em] text-sky">Offices, Shops &amp; B2B</span>
+							<h3 class="mt-2 text-lg font-semibold text-ink group-hover:text-sky">Small businesses &amp; B2B</h3>
+							<p class="mt-2 text-sm leading-relaxed text-muted">
+								Insurance &amp; professional offices, medical/dental practices, retail storefronts, and manufacturers needing custom websites or portals.
+							</p>
+						</div>
+						<span class="mt-5 text-sm font-medium text-ink">Small business solutions →</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<CaseStudies
+			slugs={city.featuredProjectSlugs}
+			id="portfolio"
+			showSoftwareStrip={false}
+			eyebrow={`Work serving ${city.name} & Michiana`}
+			heading={['Real projects built', 'here in Michiana.']}
+		/>
+
+		<Pricing compact />
+
+		<!-- Nearby Michiana Areas -->
+		<section class="border-t border-line py-20 sm:py-24" aria-labelledby="nearby-heading">
+			<div class="container-x">
+				<div class="reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+					<div>
+						<p class="eyebrow">Surrounding service area</p>
+						<h2 id="nearby-heading" class="display mt-4 text-[clamp(1.8rem,3.8vw,2.8rem)]">
+							Also serving communities near <span class="serif-accent text-gradient">{city.name}.</span>
+						</h2>
+					</div>
+					<a href="/service-areas" class="link-arrow text-sm">View all 20 Michiana service areas →</a>
+				</div>
+
+				<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					{nearbyCityPages.map((near) => (
+						<a href={`/service-areas/${near.slug}`} class="spotlight card group flex flex-col justify-between p-5">
+							<div>
+								<span class="text-[0.66rem] uppercase tracking-[0.14em] text-muted">{near.county}</span>
+								<h3 class="mt-1.5 text-lg font-semibold text-ink group-hover:text-sky">{near.name}, {near.state}</h3>
+								<p class="mt-1 text-xs text-muted">{near.distanceNote}</p>
+							</div>
+							<span class="mt-4 text-xs font-medium text-ink">Web design in {near.name} →</span>
+						</a>
+					))}
+				</div>
+
+				<p class="mt-6 text-sm text-muted">
+					Nearby towns also covered: <span class="text-body">{city.nearbyTowns.join(' · ')}</span>
+				</p>
+			</div>
+		</section>
+
+		<Faq faqs={city.faqs} title={`Web design in ${city.name}, ${city.state}: FAQ`} id="faq" />
+
+		<Contact
+			client:visible
+			heading={[`Let’s talk about your`, `${city.name} business.`]}
+			intro={`Based in Mishawaka and serving ${city.name} (${city.postalCodes.join(', ')}) and ${city.county}. Tell me about your business and what you want your website or software to accomplish—from simple starter sites to custom builds, the website review is free.`}
+		/>
+	</main>
+
+	<Footer />
+</Layout>

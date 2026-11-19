@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo';
+import { cityPages } from '../data/areas';
 
 const year = new Date().getFullYear();
 
@@ -7,65 +8,68 @@ const columns = [
 	{
 		title: 'Services',
 		links: [
-			{ label: 'Website design', href: '/services#website' },
+			{ label: 'Simple starter sites', href: '/services#website' },
+			{ label: 'Business website + Local Launch', href: '/services#local-launch' },
 			{ label: 'Google Business Profile setup', href: '/services#google-business-profile' },
-			{ label: 'Custom software', href: '/services#software' },
+			{ label: 'Custom websites & software', href: '/services#software' },
 			{ label: 'Hosting & maintenance', href: '/services#hosting-maintenance' },
-			{ label: 'Pricing', href: '/services#pricing' },
+			{ label: 'Packages & scope', href: '/services#pricing' },
 		],
 	},
 	{
-		title: 'Industries',
+		title: 'Who I Help',
 		links: [
 			{ label: 'Contractors & home services', href: '/contractors' },
-			{ label: 'Restaurants', href: '/restaurants' },
+			{ label: 'Restaurants & hospitality', href: '/restaurants' },
+			{ label: 'Small businesses & B2B', href: '/small-business' },
+			{ label: 'RankRadius (field-service SEO) ↗', href: 'https://rankradius.io', external: true },
+			{ label: 'Free AI Review Responder', href: '/review-responder' },
+		],
+	},
+	{
+		title: 'Michiana Areas',
+		links: [
+			...cityPages.map((c) => ({ label: `${c.name}, ${c.state}`, href: `/service-areas/${c.slug}` })),
+			{ label: 'All 20 Michiana towns →', href: '/service-areas' },
 		],
 	},
 	{
 		title: 'Studio',
 		links: [
 			{ label: 'Portfolio', href: '/portfolio' },
-			{ label: 'About', href: '/about' },
-			{ label: 'Service areas', href: '/service-areas' },
-			{ label: 'Contact', href: '/contact' },
-			{ label: 'Blog', href: '/blog' },
+			{ label: 'About Joe Hollenbach', href: '/about' },
+			{ label: 'Free website review', href: '/contact' },
+			{ label: 'Blog & guides', href: '/blog' },
 			{ label: 'FAQ', href: '/#faq' },
-		],
-	},
-	{
-		title: 'Products',
-		links: [
-			{ label: 'RankRadius ↗', href: 'https://rankradius.io', external: true },
-			{ label: 'AI Review Responder', href: '/review-responder' },
 		],
 	},
 ];
 ---
 
-<footer class="relative overflow-hidden border-t border-line bg-night">
+<footer class="relative overflow-hidden border-t border-night-line bg-night text-slate-300">
 	<div class="container-x pt-20 pb-10">
-		<div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
+		<div class="grid gap-12 lg:grid-cols-[1.35fr_1fr_1fr_1fr_0.9fr]">
 			<div>
-				<a href="/" class="inline-flex items-center gap-2.5 text-ink" aria-label="Michiana Dev — home">
+				<a href="/" class="inline-flex items-center gap-2.5 text-white" aria-label="Michiana Dev — home">
 					<Logo className="h-9 w-9" />
-					<span class="text-lg font-semibold tracking-tight">Michiana<span class="text-muted">.dev</span></span>
+					<span class="text-lg font-semibold tracking-tight">Michiana<span class="text-slate-400">.dev</span></span>
 				</a>
-				<p class="mt-5 max-w-xs leading-relaxed text-muted">
-					A local web studio in Mishawaka, Indiana, building websites for businesses across South Bend and Michiana.
+				<p class="mt-5 max-w-xs leading-relaxed text-slate-400">
+					A local web design and software studio in Mishawaka, Indiana (46544), building fast, custom websites and software for small businesses across Northern Indiana and Southwest Michigan.
 				</p>
-				<p class="mt-6 space-y-1">
-					<a data-email href="/#contact" class="block font-medium text-ink hover:text-sky">Email me</a>
-					<a href="tel:+15742138502" class="block text-muted hover:text-ink">(574) 213-8502</a>
+				<p class="mt-6 space-y-1.5">
+					<a data-email href="/#contact" class="block font-medium text-white hover:text-sky-300">Email Joe</a>
+					<a href="tel:+15742138502" class="block font-medium text-slate-300 hover:text-white">(574) 213-8502</a>
 				</p>
 			</div>
 
 			{columns.map((col) => (
 				<nav aria-label={col.title}>
-					<p class="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted">{col.title}</p>
-					<ul class="mt-4 space-y-2.5">
+					<p class="text-[0.68rem] uppercase tracking-[0.16em] text-slate-400">{col.title}</p>
+					<ul class="mt-4 space-y-2.5 text-[0.93rem]">
 						{col.links.map((l) => (
 							<li>
-								<a href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener' } : {})} class="text-body hover:text-ink">{l.label}</a>
+								<a href={l.href} {...('external' in l && l.external ? { target: '_blank', rel: 'noopener' } : {})} class="text-slate-300 hover:text-white">{l.label}</a>
 							</li>
 						))}
 					</ul>
@@ -73,17 +77,18 @@ const columns = [
 			))}
 		</div>
 
-		<p aria-hidden="true" class="pointer-events-none mt-20 select-none text-center text-[clamp(3.5rem,15vw,13rem)] leading-[0.85] font-semibold tracking-[-0.06em] text-transparent" style="background-image:linear-gradient(180deg,oklch(1 0 0 / 0.16),oklch(1 0 0 / 0.01));-webkit-background-clip:text;background-clip:text;">
+		<p aria-hidden="true" class="pointer-events-none mt-20 select-none text-center text-[clamp(3.5rem,15vw,13rem)] leading-[0.85] font-semibold tracking-[-0.06em] text-transparent" style="background-image:linear-gradient(180deg,oklch(1 0 0 / 0.16),oklch(1 0 0 / 0.02));-webkit-background-clip:text;background-clip:text;">
 			michiana.dev
 		</p>
 
-		<div class="mt-10 flex flex-col gap-3 border-t border-line pt-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-			<p>© {year} Michiana Dev LLC.</p>
-			<div class="flex gap-5">
-				<a href="/privacy" class="hover:text-ink">Privacy</a>
-				<a href="https://share.google/Shycqyc3DYoD1z9DR" target="_blank" rel="noopener noreferrer" class="hover:text-ink">Google</a>
-				<a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noopener noreferrer" class="hover:text-ink">LinkedIn</a>
-				<a href="https://github.com/justjoe19" target="_blank" rel="noopener noreferrer" class="hover:text-ink">GitHub</a>
+		<div class="mt-10 flex flex-col gap-3 border-t border-night-line pt-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+			<p>© {year} Michiana Dev LLC · Mishawaka, Indiana.</p>
+			<div class="flex flex-wrap gap-5">
+				<a href="/privacy" class="hover:text-white">Privacy</a>
+				<a href="/llms.txt" class="hover:text-white">llms.txt</a>
+				<a href="https://share.google/Shycqyc3DYoD1z9DR" target="_blank" rel="noopener noreferrer" class="hover:text-white">Google Profile</a>
+				<a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noopener noreferrer" class="hover:text-white">LinkedIn</a>
+				<a href="https://github.com/justjoe19" target="_blank" rel="noopener noreferrer" class="hover:text-white">GitHub</a>
 			</div>
 		</div>
 	</div>

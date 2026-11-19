@@ -1,0 +1,94 @@
+---
+const rows = [
+	{
+		criterion: 'Who builds your site',
+		michiana: 'Joe Hollenbach directly (local software engineer in Mishawaka)',
+		diy: 'You, on nights and weekends',
+		agency: 'Junior staff or outsourced subcontractors behind an account rep',
+	},
+	{
+		criterion: 'Pricing & scope',
+		michiana: 'Scaled to your business—from simple starter sites to full custom builds, quoted upfront',
+		diy: '“Cheap” until paid plugins, broken layouts, and lost leads add up',
+		agency: 'Large agency retainers and long-term monthly contracts',
+	},
+	{
+		criterion: 'Mobile speed & reliability',
+		michiana: 'Hand-built to load in under 1 second on any cell phone',
+		diy: 'Heavy templates that often take 5–8 seconds on mobile',
+		agency: 'Usually bloated WordPress themes with dozens of plugins',
+	},
+	{
+		criterion: 'Local Google & AI search setup',
+		michiana: 'Local SEO, town/service structure, and schema built in from day one',
+		diy: 'Generic settings that miss local Michiana search signals',
+		agency: 'Sold separately as a pricey ongoing monthly fee',
+	},
+	{
+		criterion: 'Ongoing updates & care',
+		michiana: 'Optional hosting plan includes SSL, backups, and 1 hr/mo of updates by me',
+		diy: 'You troubleshoot broken updates and security alerts yourself',
+		agency: 'High hourly billing or slow support ticket queues',
+	},
+	{
+		criterion: 'Site & domain ownership',
+		michiana: 'You own 100% of your domain, content, and finished website',
+		diy: 'Locked into a proprietary platform',
+		agency: 'Often tied to continuing an agency contract',
+	},
+];
+---
+
+<section id="why-michiana-dev" class="theme-light relative border-t border-line py-24 sm:py-32" aria-labelledby="why-heading">
+	<div class="container-x">
+		<div class="reveal max-w-3xl">
+			<p class="eyebrow">Why Michiana Dev</p>
+			<h2 id="why-heading" class="display mt-5 text-[clamp(2.2rem,5vw,4rem)]">
+				Agency-caliber engineering, <span class="serif-accent text-gradient">without the agency runaround.</span>
+			</h2>
+			<p class="mt-5 text-lg leading-relaxed text-body">
+				Most local business owners are stuck choosing between a slow DIY website builder they don’t have time to wrestle with, or an expensive agency that hands their business off to a junior account manager. Here is how working directly with a local engineer compares:
+			</p>
+		</div>
+
+		<div class="reveal mt-12 overflow-hidden rounded-3xl border border-line bg-surface shadow-[0_18px_48px_-20px_rgba(0,0,0,0.12)]">
+			<div class="overflow-x-auto">
+				<table class="w-full min-w-[680px] border-collapse text-left text-[0.95rem]">
+					<thead>
+						<tr class="border-b border-line-strong bg-sand/60">
+							<th scope="col" class="py-4 pr-4 pl-6 text-xs uppercase tracking-[0.14em] text-muted">What matters</th>
+							<th scope="col" class="py-4 px-5 font-semibold text-ink">
+								<span class="inline-flex items-center gap-2">
+									<span class="h-2 w-2 rounded-full bg-leaf"></span>
+									Michiana Dev (Mishawaka)
+								</span>
+							</th>
+							<th scope="col" class="py-4 px-5 font-medium text-muted">DIY Builders (Wix / WordPress)</th>
+							<th scope="col" class="py-4 pr-6 pl-5 font-medium text-muted">Traditional Marketing Agencies</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-line">
+						{rows.map((r) => (
+							<tr class="align-top transition-colors hover:bg-sand/30">
+								<th scope="row" class="py-4 pr-4 pl-6 font-semibold text-ink">{r.criterion}</th>
+								<td class="bg-leaf/[0.05] py-4 px-5 font-medium text-ink">{r.michiana}</td>
+								<td class="py-4 px-5 text-body">{r.diy}</td>
+								<td class="py-4 pr-6 pl-5 text-body">{r.agency}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="reveal mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+			<p class="text-body">
+				Not sure if your current website needs a full rebuild or just a few targeted fixes? I’ll give you a straight answer for free.
+			</p>
+			<a href="#contact" class="btn-primary shrink-0">
+				Get a free website review
+				<span aria-hidden="true">→</span>
+			</a>
+		</div>
+	</div>
+</section>

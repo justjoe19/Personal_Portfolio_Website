@@ -187,7 +187,7 @@ export default function ReviewResponder() {
                   onMouseLeave={() => setHoverRating(0)}
                   className="text-2xl leading-none p-1 transition-transform hover:scale-110"
                 >
-                  <span className={(hoverRating || rating) >= star ? 'text-amber-300' : 'text-white/15'}>★</span>
+                  <span className={(hoverRating || rating) >= star ? 'text-gold' : 'text-line-strong'}>★</span>
                 </button>
               ))}
             </div>
@@ -202,21 +202,21 @@ export default function ReviewResponder() {
           {loading ? 'Generating…' : 'Generate Response'}
         </button>
 
-        <p className="text-muted text-xs font-mono">
+        <p className="text-muted text-xs">
           {usedToday} of {DAILY_LIMIT} free responses used today
         </p>
       </form>
 
       {error && (
         <div className="mt-6 rounded-xl border border-red-400/30 bg-red-500/10 p-5">
-          <p className="text-red-300 font-medium">{error}</p>
+          <p className="text-red-700 font-medium">{error}</p>
         </div>
       )}
 
       {result && (
         <div className="card mt-6 p-6 sm:p-8">
           <div className="flex justify-between items-start gap-4 mb-4">
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Generated Response</span>
+            <span className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Generated Response</span>
             <button
               type="button"
               onClick={handleCopy}
@@ -229,7 +229,7 @@ export default function ReviewResponder() {
         </div>
       )}
 
-      <p className="mt-8 text-center text-muted text-xs font-mono">Powered by Gemini AI</p>
+      <p className="mt-8 text-center text-muted text-xs">Powered by Gemini AI</p>
     </div>
   );
 }

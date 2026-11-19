@@ -10,98 +10,93 @@ const { compact = false } = Astro.props;
 
 const plans = [
 	{
-		id: 'website',
-		name: 'Website',
-		tagline: 'A custom site built to bring in calls and customers.',
-		prefix: 'Starting at',
-		price: '$2,500',
-		unit: '',
+		id: 'starter',
+		name: 'Simple Starter Site',
+		tagline: 'A fast, credible website for solo or newer local businesses.',
+		label: 'Starter',
+		sublabel: 'Quoted around your scope',
 		features: [
-			'Custom design, typically 5–8 pages',
-			'Mobile-first and fast',
-			'Local SEO and schema built in',
-			'Contact form and click-to-call',
-			'2 rounds of revisions',
-			'Google Analytics + Search Console setup',
+			'Custom 1–3 page mobile-first design',
+			'Tap-to-call button & lead contact form',
+			'Local SEO & schema foundation',
+			'Google Analytics & Search Console setup',
+			'Fast 1–2 week turnaround',
 		],
-		note: 'Plus $100/mo hosting: SSL, backups, and 1 hour per month of minor updates.',
-		cta: 'Get a free website review',
+		note: 'Ideal if you’re just getting established or replacing a single-page template without overbuilding.',
+		cta: 'Get a free quote',
 		featured: false,
 	},
 	{
 		id: 'local-launch',
-		name: 'Website + Local Launch',
-		tagline: 'Your new site and a Google profile that matches it.',
-		prefix: 'Starting at',
-		price: '$3,000',
-		unit: '',
+		name: 'Business Website + Local Launch',
+		tagline: 'A full custom site and a Google Business Profile that matches it.',
+		label: 'Full Site',
+		sublabel: 'Quoted around your scope',
 		features: [
-			'Everything in Website',
-			'Google Business Profile setup and handoff',
-			'Categories, services, areas, hours, photos',
-			'Name, address and phone consistent with your site',
-			'Review-request link, plus a walkthrough and guide',
+			'Custom 5–8+ page mobile-first website',
+			'Dedicated service & Michiana town pages',
+			'One-time Google Business Profile setup & handoff',
+			'Categories, services, areas, hours & photos aligned',
+			'Review-request link, walkthrough & owner guide',
 		],
-		note: 'Plus $100/mo hosting. The Google profile is set up and handed to you to run. It isn’t managed monthly.',
+		note: 'The Google profile is set up and handed to you to run—never a monthly SEO retainer. Optional hosting & care available.',
 		cta: 'Get a free website review',
 		featured: true,
 	},
 	{
 		id: 'custom',
-		name: 'Custom websites & software',
-		tagline: 'Bigger builds, scoped around how your business works.',
-		prefix: '',
-		price: 'Quoted',
-		unit: 'after a free consultation',
+		name: 'Custom Websites & Software',
+		tagline: 'Bigger builds, scoped around how your business operates.',
+		label: 'Custom',
+		sublabel: 'Quoted after a free consultation',
 		features: [
-			'CMS-driven sites',
-			'Restaurant menus and online ordering',
-			'Booking and e-commerce',
-			'Client portals and SaaS products',
+			'Self-editable CMS websites',
+			'Restaurant menus & online ordering',
+			'Appointment booking & e-commerce',
+			'Client portals & custom web software',
 		],
-		note: 'Most custom projects range from $5,000–$15,000.',
+		note: 'Built from scratch with clear project milestones and a fixed quote before work begins.',
 		cta: 'Book a free consultation',
 		featured: false,
 	},
 ];
 
 const addons = [
-	{ name: 'Additional pages', price: 'from $200 each' },
-	{ name: 'Location pages', price: 'from $150 each' },
-	{ name: 'Google Business Profile setup only', price: '$450 one-time' },
-	{ name: 'RankRadius (field-service businesses)', price: '$399/mo', href: 'https://rankradius.io' },
+	{ name: 'Additional service or location pages', detail: 'Expand your local reach anytime' },
+	{ name: 'Google Business Profile setup only', detail: 'One-time setup & owner handoff' },
+	{ name: 'Website hosting & maintenance', detail: 'SSL, backups & 1 hr/mo of updates' },
+	{ name: 'RankRadius (field-service businesses)', detail: 'Automated neighborhood proof add-on', href: 'https://rankradius.io' },
 ];
 ---
 
 <section id="pricing" class="theme-light relative overflow-hidden border-t border-line py-24 sm:py-32">
-	<div aria-hidden="true" class="pointer-events-none absolute top-1/3 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent/10 blur-[140px]"></div>
+	<div aria-hidden="true" class="pointer-events-none absolute top-1/3 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent/8 blur-[140px]"></div>
 
 	<div class="container-x relative">
 		<div class="reveal mx-auto max-w-2xl text-center">
-			<p class="eyebrow">Pricing</p>
+			<p class="eyebrow">Packages &amp; Scope</p>
 			<h2 class="display mt-5 text-[clamp(2.4rem,5.4vw,4.4rem)]">
-				Clear packages, <span class="serif-accent text-gradient">upfront</span> pricing.
+				Clear packages, <span class="serif-accent text-gradient">tailored</span> to your budget.
 			</h2>
 			<p class="mt-6 text-lg leading-relaxed text-body">
-				Every project begins with a free consultation and a clear quote before any work starts.
+				From simple starter sites for new local shops to full custom builds, every project begins with a free consultation and a clear, fixed quote before any work starts.
 			</p>
 		</div>
 
 		<div class="mt-16 grid gap-5 lg:grid-cols-3 lg:items-stretch">
 			{plans.map((p) => (
-				<article id={p.id === 'local-launch' ? 'local-launch' : undefined} class:list={['reveal flex scroll-mt-28 rounded-3xl', p.featured && 'glow-border lg:-my-3']}>
-					<div class:list={['spotlight flex w-full flex-col rounded-3xl p-8', p.featured ? 'bg-surface/95 lg:py-11' : 'card']}>
+				<article id={p.id === 'local-launch' ? 'local-launch' : p.id === 'starter' ? 'website' : undefined} class:list={['reveal flex scroll-mt-28 rounded-3xl', p.featured && 'glow-border lg:-my-3']}>
+					<div class:list={['spotlight flex w-full flex-col rounded-3xl p-8', p.featured ? 'bg-surface lg:py-11 shadow-lg' : 'card']}>
 						<div class="flex items-center justify-between gap-3">
-							<h3 class="text-lg font-semibold tracking-tight">{p.name}</h3>
-							{p.featured && <span class="rounded-full bg-leaf/15 px-2.5 py-1 font-mono text-[0.65rem] font-medium text-leaf">Most popular</span>}
+							<h3 class="text-lg font-semibold tracking-tight text-ink">{p.name}</h3>
+							{p.featured && <span class="rounded-full bg-leaf/15 px-2.5 py-1 text-[0.7rem] font-semibold text-leaf">Most popular</span>}
 						</div>
 						<p class="mt-2 text-sm leading-relaxed text-muted">{p.tagline}</p>
 
-						<p class="mt-8 flex flex-wrap items-baseline gap-x-2">
-							{p.prefix && <span class="text-muted">{p.prefix}</span>}
-							<span class="display text-6xl"><span class:list={[p.featured && 'text-gradient']}>{p.price}</span></span>
-							{p.unit && <span class="text-muted">{p.unit}</span>}
-						</p>
+						<div class="mt-8">
+							<p class="display text-4xl sm:text-5xl"><span class:list={[p.featured && 'text-gradient']}>{p.label}</span></p>
+							<p class="mt-1.5 text-sm font-medium text-muted">{p.sublabel}</p>
+						</div>
 
 						<ul class="mt-8 space-y-3 border-t border-line pt-8">
 							{(compact ? p.features.slice(0, 3) : p.features).map((f) => (
@@ -121,23 +116,23 @@ const addons = [
 
 		{compact ? (
 			<p class="reveal mt-12 text-center text-body">
-				Add-ons, hosting details, and what’s included in each package: <a href="/services#pricing" class="link-arrow">See full pricing <span aria-hidden="true">→</span></a>
+				Want to see add-ons, hosting details, and what’s included in every build? <a href="/services#pricing" class="link-arrow">See full service details <span aria-hidden="true">→</span></a>
 			</p>
 		) : (
 		<!-- Add-ons -->
 		<div id="hosting" class="reveal mt-14 scroll-mt-28">
-			<h3 class="eyebrow justify-center text-center">Add-ons</h3>
+			<h3 class="eyebrow justify-center text-center">Optional Add-ons &amp; Care</h3>
 			<ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
 				{addons.map((a) => (
 					<li class="card flex flex-col rounded-2xl p-5">
-						<span class="text-sm text-body">
+						<span class="text-sm font-semibold text-ink">
 							{a.href ? <a href={a.href} target="_blank" rel="noopener" class="link-arrow text-ink underline-offset-4 hover:underline">{a.name}</a> : a.name}
 						</span>
-						<span class="mt-2 font-mono text-[0.8rem] text-ink">{a.price}</span>
+						<span class="mt-2 text-xs text-muted">{a.detail}</span>
 					</li>
 				))}
 			</ul>
-			<p class="mt-6 text-center text-sm text-muted">All prices are starting prices. Hosting &amp; maintenance is $100/mo with any website.</p>
+			<p class="mt-6 text-center text-sm text-muted">Every project receives a clear, fixed quote after a free consultation.</p>
 		</div>
 		)}
 	</div>

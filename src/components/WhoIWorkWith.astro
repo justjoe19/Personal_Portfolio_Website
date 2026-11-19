@@ -1,31 +1,69 @@
 ---
 const industries = [
-	{ href: '/contractors', title: 'Contractors & home services', desc: 'Roofing, restoration, HVAC, plumbing, and other trades.' },
-	{ href: '/restaurants', title: 'Restaurants', desc: 'Menus, hours, ordering, and photo-forward design.' },
+	{
+		href: '/contractors',
+		tag: 'Trades & Field Service',
+		title: 'Contractors & home services',
+		desc: 'Roofing, restoration, HVAC, plumbing, remodeling, and landscaping built around tap-to-call and free-estimate requests.',
+		proof: 'See TriStorm & No Limit Roofing',
+	},
+	{
+		href: '/restaurants',
+		tag: 'Food & Hospitality',
+		title: 'Restaurants, cafes & bars',
+		desc: 'Fast, photo-forward websites with mobile-friendly menus (no pinched PDFs), hours, directions, and online ordering.',
+		proof: 'Explore restaurant features',
+	},
+	{
+		href: '/small-business',
+		tag: 'Offices & Practices',
+		title: 'Professional, insurance & medical',
+		desc: 'Credibility-first sites and client portals for public adjusters, insurance agencies, clinics, law, and financial firms.',
+		proof: 'See JH Claims & HSC Portal',
+	},
+	{
+		href: '/small-business',
+		tag: 'Local Commerce & B2B',
+		title: 'Local shops, service & manufacturing',
+		desc: 'Independent retailers, auto & repair shops, salons, and Elkhart/St. Joseph County manufacturers that need a modern web presence.',
+		proof: 'See small-business solutions',
+	},
 ];
 ---
 
-<section id="who-i-work-with" class="relative border-b border-line py-16 sm:py-20" aria-labelledby="who-heading">
+<section id="who-i-work-with" class="relative border-b border-line py-20 sm:py-28" aria-labelledby="who-heading">
 	<div class="container-x">
-		<div class="reveal flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-			<div class="max-w-sm">
+		<div class="reveal flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+			<div class="max-w-2xl">
 				<p class="eyebrow">Who I work with</p>
-				<h2 id="who-heading" class="display mt-4 text-[clamp(1.6rem,3vw,2.2rem)]">Local businesses <span class="serif-accent text-gradient">like yours.</span></h2>
+				<h2 id="who-heading" class="display mt-4 text-[clamp(2rem,4.5vw,3.6rem)]">
+					Built for Michiana <span class="serif-accent text-gradient">small businesses.</span>
+				</h2>
+				<p class="mt-4 text-lg leading-relaxed text-body">
+					Whether your customers call you in an emergency, check your menu before dinner, or vet your credentials before signing a contract, your website is built around how local buyers actually choose.
+				</p>
 			</div>
-			<ul class="grid flex-1 gap-4 sm:grid-cols-2 lg:max-w-3xl">
-				{industries.map((i) => (
-					<li>
-						<a href={i.href} class="spotlight card group flex h-full items-start justify-between gap-4 p-6">
-							<span>
-								<span class="block font-semibold tracking-tight text-ink">{i.title}</span>
-								<span class="mt-1.5 block text-[0.92rem] leading-relaxed text-muted">{i.desc}</span>
-							</span>
-							<span class="text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
-						</a>
-					</li>
-				))}
-			</ul>
+			<a href="/service-areas" class="btn-ghost self-start lg:self-auto">
+				Cities &amp; towns I serve <span aria-hidden="true">→</span>
+			</a>
 		</div>
-		<p class="reveal mt-6 text-body">…and other local businesses: <a href="#contact" class="link-arrow">let’s talk <span aria-hidden="true">→</span></a></p>
+
+		<ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			{industries.map((i) => (
+				<li>
+					<a href={i.href} class="spotlight card reveal group flex h-full flex-col justify-between p-6">
+						<div>
+							<span class="text-[0.68rem] uppercase tracking-[0.15em] text-accent">{i.tag}</span>
+							<h3 class="mt-2.5 text-lg font-semibold tracking-tight text-ink">{i.title}</h3>
+							<p class="mt-2.5 text-[0.92rem] leading-relaxed text-muted">{i.desc}</p>
+						</div>
+						<span class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-ink group-hover:text-sky">
+							{i.proof}
+							<span class="transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+						</span>
+					</a>
+				</li>
+			))}
+		</ul>
 	</div>
 </section>

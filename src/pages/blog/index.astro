@@ -26,7 +26,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-us', { year: 'numeric', month:
 		<header class="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20">
 			<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
 			<div class="container-x relative max-w-4xl">
-				<nav aria-label="Breadcrumb" class="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted">
+				<nav aria-label="Breadcrumb" class="text-[0.72rem] uppercase tracking-[0.16em] text-muted">
 					<a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Blog</span>
 				</nav>
 				<h1 class="display mt-8 text-[clamp(2.4rem,6vw,5rem)]"><span class="text-fade">Notes on websites, SEO, and</span> <span class="serif-accent text-gradient pr-2">software.</span></h1>
@@ -46,7 +46,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-us', { year: 'numeric', month:
 							</div>
 						)}
 						<div>
-							<p class="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Latest · {fmt(lead.data.pubDate)}</p>
+							<p class="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Latest · {fmt(lead.data.pubDate)}</p>
 							<h2 class="display mt-3 text-[clamp(2rem,3.6vw,2.8rem)] group-hover:text-sky">{lead.data.title}</h2>
 							<p class="mt-4 leading-relaxed text-body">{lead.data.description}</p>
 							<span class="link-arrow mt-6">Read article <span aria-hidden="true">→</span></span>
@@ -62,7 +62,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-us', { year: 'numeric', month:
 											<img width={720} height={360} loading="lazy" src={post.data.heroImage} srcset={srcsetFor(post.data.heroImage)} sizes="(min-width: 1024px) 380px, (min-width: 768px) 50vw, 100vw" alt={post.data.heroImageAlt ?? post.data.title} class="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
 										</div>
 									)}
-									<p class="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">{fmt(post.data.pubDate)}</p>
+									<p class="mt-5 text-[0.7rem] uppercase tracking-[0.14em] text-muted">{fmt(post.data.pubDate)}</p>
 									<h2 class="mt-2 text-xl font-semibold leading-snug text-ink group-hover:text-accent">{post.data.title}</h2>
 									<p class="mt-2 line-clamp-3 text-[0.95rem] leading-relaxed text-body">{post.data.description}</p>
 								</a>

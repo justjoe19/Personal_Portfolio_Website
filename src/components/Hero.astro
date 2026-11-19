@@ -1,70 +1,144 @@
 ---
 import { srcsetFor } from '../lib/images';
 import ShaderBackground from './ShaderBackground.astro';
-import { areaNames as areas } from '../data/areas';
+import { areas, areaNames } from '../data/areas';
+
+const trustPoints = [
+	{ label: 'Simple starter sites', sub: 'Scaled to fit small budgets' },
+	{ label: '2–4 week launch', sub: 'From kickoff to live site' },
+	{ label: 'Direct with Joe', sub: 'Based in Mishawaka, IN' },
+	{ label: '100% yours', sub: 'You own your domain & site' },
+];
 ---
 
-<section id="top" class="relative overflow-hidden pt-36 sm:pt-44">
+<section id="top" class="relative overflow-hidden pt-32 sm:pt-40">
 	<ShaderBackground />
-	<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]"></div>
+	<div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(75%_65%_at_50%_28%,#000,transparent)]"></div>
 
 	<div class="container-x relative text-center">
-		<a href="#contact" class="group inline-flex items-center gap-2.5 rounded-full border border-line-strong bg-white/[0.04] py-1.5 pr-3 pl-2 text-[0.8rem] text-body backdrop-blur-md transition-colors hover:bg-white/[0.08]">
-			<span class="flex items-center gap-1.5 rounded-full bg-leaf/15 px-2 py-0.5 font-mono text-[0.68rem] font-medium text-leaf">
-				<span class="relative flex h-1.5 w-1.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-leaf opacity-70"></span><span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-leaf"></span></span>
-				Open
-			</span>
-			Local web &amp; software studio in Mishawaka, Indiana
-			<span class="text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
-		</a>
+		<div class="inline-flex flex-wrap items-center justify-center gap-2">
+			<a href="#contact" class="group inline-flex items-center gap-2.5 rounded-full border border-line-strong bg-surface py-1.5 pr-3.5 pl-2 text-[0.8rem] text-body shadow-sm transition-colors hover:bg-sand">
+				<span class="flex items-center gap-1.5 rounded-full bg-leaf/12 px-2.5 py-0.5 text-[0.68rem] font-semibold text-leaf">
+					<span class="relative flex h-1.5 w-1.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-leaf opacity-70"></span><span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-leaf"></span></span>
+					Mishawaka, IN
+				</span>
+				<span>Local web &amp; software studio serving Northern IN &amp; SW Michigan</span>
+				<span class="text-muted transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+			</a>
+		</div>
 
-		<h1 class="display mx-auto mt-8 max-w-[24ch] text-[clamp(2.4rem,5.8vw,5rem)]">
-			<span class="text-fade">Websites and software solutions for Michiana businesses, built by</span> <span class="serif-accent text-gradient pr-2">a&nbsp;local&nbsp;engineer</span> <span class="text-fade">you work with directly.</span>
+		<h1 class="display mx-auto mt-7 max-w-[22ch] text-[clamp(2.35rem,5.6vw,4.85rem)]">
+			<span class="text-fade">Custom websites &amp; software that bring Michiana businesses</span> <span class="serif-accent text-gradient pr-2">more calls &amp; customers.</span>
 		</h1>
 
-		<p class="mx-auto mt-7 max-w-[40rem] text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-body">
-			I design and build fast, custom websites and software solutions that bring in calls and customers and keep your business running smoothly. No agencies, no account managers, no templates.
+		<p class="mx-auto mt-6 max-w-[43rem] text-[clamp(1.05rem,1.55vw,1.22rem)] leading-relaxed text-body">
+			I’m Joe Hollenbach, a software engineer in Mishawaka. I design and hand-build fast, custom websites and software for small businesses across South Bend, Elkhart, Granger, and Niles—built to rank on Google and AI search and turn visitors into paying customers.
 		</p>
 
-		<div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-			<a href="#contact" class="btn-primary">
+		<div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+			<a href="#contact" class="btn-primary w-full sm:w-auto">
 				Get a free website review
 				<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 			</a>
-			<a href="/portfolio" class="btn-ghost">View portfolio</a>
+			<a href="/portfolio" class="btn-ghost w-full sm:w-auto">View portfolio</a>
 		</div>
-		<p class="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted">
-			Free and no obligation: I’ll look at your current site and tell you honestly whether it needs fixing or rebuilding. Prefer to talk? Call <a href="tel:+15742138502" class="font-medium text-ink underline-offset-4 hover:underline">(574) 213-8502</a>.
+
+		<p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted">
+			Free and no obligation: I’ll review your current site (or your plans for a new one) and tell you honestly what will move the needle. Prefer to talk? Call <a href="tel:+15742138502" class="font-semibold text-ink underline-offset-4 hover:underline">(574) 213-8502</a>.
 		</p>
+
+		<!-- Quick At-a-Glance Trust Bar -->
+		<dl class="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 text-left sm:grid-cols-4">
+			{trustPoints.map((pt) => (
+				<div class="card px-4 py-3.5">
+					<dt class="text-[0.92rem] font-semibold tracking-tight text-ink">{pt.label}</dt>
+					<dd class="mt-0.5 text-xs text-muted">{pt.sub}</dd>
+				</div>
+			))}
+		</dl>
 	</div>
 
 	<!-- Showcase: tilts back in 3D and flattens as it scrolls into view -->
-	<div class="container-x relative mt-20 sm:mt-24">
-		<div class="tilt-in relative mx-auto max-w-[880px]">
-			<div aria-hidden="true" class="absolute -inset-x-10 -top-10 bottom-0 -z-10 rounded-[3rem] bg-accent/25 blur-[90px]"></div>
-			<div class="card overflow-hidden !rounded-[1.4rem] !bg-surface/80 p-2 sm:p-2.5">
-				<figure class="overflow-hidden rounded-xl border border-line bg-night">
-					<div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
-						<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-						<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-						<span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-						<span class="ml-3 truncate rounded-md bg-white/[0.05] px-3 py-1 font-mono text-[0.68rem] text-muted">jhclaim.com</span>
+	<div class="container-x relative mt-14 sm:mt-18">
+		<div class="tilt-in relative mx-auto max-w-[1040px]">
+			<div aria-hidden="true" class="absolute -inset-x-10 -top-6 bottom-0 -z-10 rounded-[3rem] bg-accent/10 blur-[70px]"></div>
+
+			<div class="card overflow-hidden !rounded-[1.5rem] p-2.5 sm:p-3.5 shadow-[0_24px_60px_-18px_rgba(15,23,42,0.16)]">
+				<figure class="overflow-hidden rounded-xl border border-line bg-surface">
+					<div class="flex flex-wrap items-center justify-between gap-2 border-b border-line bg-sand/60 px-4 py-2.5">
+						<div class="flex items-center gap-2">
+							<span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
+							<span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
+							<span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
+							<span class="ml-2 truncate rounded-md border border-line bg-surface px-3 py-1 text-[0.68rem] text-ink">jhclaim.com</span>
+						</div>
+						<div class="hidden items-center gap-3 text-[0.68rem] text-muted sm:flex">
+							<span class="flex items-center gap-1.5 font-medium text-leaf"><span class="h-1.5 w-1.5 rounded-full bg-leaf"></span>Mobile-first</span>
+							<span>·</span>
+							<span>Local SEO &amp; Schema</span>
+							<span>·</span>
+							<span>Hand-built in Mishawaka</span>
+						</div>
 					</div>
-					<img src="/assets/work/jhclaims.webp" srcset={srcsetFor('/assets/work/jhclaims.webp')} sizes="(min-width: 920px) 860px, 100vw" alt="JH Claims Solution website, designed and built by Michiana Dev" width="1600" height="1000" fetchpriority="high" loading="eager" class="block aspect-[2/1] w-full object-cover object-top" />
+					<img
+						src="/assets/work/jhclaims.webp"
+						srcset={srcsetFor('/assets/work/jhclaims.webp')}
+						sizes="(min-width: 1040px) 1000px, 100vw"
+						alt="JH Claims Solution website, designed and built by Michiana Dev"
+						width="1600"
+						height="1000"
+						fetchpriority="high"
+						loading="eager"
+						class="block aspect-[2/1] w-full object-cover object-top"
+					/>
 				</figure>
+
+				<!-- Live Client Proof Strip inside the showcase frame -->
+				<div class="mt-3 grid gap-2.5 sm:grid-cols-3">
+					<a href="/portfolio#tristorm" class="group rounded-xl border border-line bg-paper p-4 transition-colors hover:border-line-strong hover:bg-sand/60">
+						<div class="flex items-center justify-between gap-2">
+							<span class="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-leaf">TriStorm Restoration</span>
+							<span class="text-xs text-gold" aria-label="5 out of 5 stars">★★★★★</span>
+						</div>
+						<p class="mt-1.5 text-sm font-medium text-ink">“The TriStorm Team loves working with Joe! He truly took the time to understand our company.”</p>
+						<p class="mt-2 text-xs text-muted">Hannah · Owner, Michiana Restoration →</p>
+					</a>
+
+					<a href="/portfolio#jh-claims" class="group rounded-xl border border-line bg-paper p-4 transition-colors hover:border-line-strong hover:bg-sand/60">
+						<div class="flex items-center justify-between gap-2">
+							<span class="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-accent">JH Claims Solution</span>
+							<span class="text-xs text-gold" aria-label="5 out of 5 stars">★★★★★</span>
+						</div>
+						<p class="mt-1.5 text-sm font-medium text-ink">“Joe’s work is impeccable. He’s a real pro. Highly recommended.”</p>
+						<p class="mt-2 text-xs text-muted">Josh · Owner, Public Adjusting →</p>
+					</a>
+
+					<a href="/portfolio#no-limit-roofing" class="group rounded-xl border border-line bg-paper p-4 transition-colors hover:border-line-strong hover:bg-sand/60">
+						<div class="flex items-center justify-between gap-2">
+							<span class="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-sky">No Limit Roofing</span>
+							<span class="text-[0.65rem] text-muted">5 Counties</span>
+						</div>
+						<p class="mt-1.5 text-sm font-medium text-ink">Built around above-the-fold free inspection requests and storm-claim clarity.</p>
+						<p class="mt-2 text-xs text-muted">See the roofing build →</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Service-area marquee -->
-	<div class="relative mt-20 border-y border-line py-6 sm:mt-28">
-		<p class="sr-only">Areas served: {areas.join(', ')}</p>
+	<div class="relative mt-16 border-y border-line py-5 sm:mt-24">
+		<p class="sr-only">Areas served: {areaNames.join(', ')}</p>
 		<div class="mask-fade-x overflow-hidden" aria-hidden="true">
-			<div class="flex w-max animate-marquee gap-12 pr-12 [animation-duration:70s] hover:[animation-play-state:paused]">
-				{[...areas, ...areas].map((t) => (
-					<span class="flex items-center gap-3 whitespace-nowrap font-mono text-[0.8rem] uppercase tracking-[0.16em] text-muted">
-						<span class="text-gradient">//</span>{t}
-					</span>
+			<div class="flex w-max animate-marquee gap-10 pr-10 [animation-duration:70s] hover:[animation-play-state:paused]">
+				{[...areas, ...areas].map((a) => (
+					<a
+						href={'slug' in a && a.slug ? `/service-areas/${a.slug}` : '/service-areas'}
+						tabindex="-1"
+						class="flex items-center gap-3 whitespace-nowrap text-[0.8rem] uppercase tracking-[0.16em] text-muted hover:text-ink"
+					>
+						<span class="text-accent">•</span>{a.name}, {a.state}
+					</a>
 				))}
 			</div>
 		</div>

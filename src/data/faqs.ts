@@ -12,51 +12,63 @@ export const faqSchema = (faqs: FaqItem[]) => ({
 });
 
 export const gbpFaq: FaqItem = {
-  q: 'Do you manage my Google profile after setup?',
-  a: 'No. I set it up, optimize it, and hand it over with a walkthrough and guide, so you own and run it.',
+  q: 'Do you manage my Google Business Profile monthly after setup?',
+  a: 'No—and that saves you a monthly agency retainer. I set up and optimize your Google Business Profile once, align it with your new website, and hand it over with a walkthrough and written guide so you own and run it yourself.',
 };
 
 export const ownershipFaq: FaqItem = {
-  q: 'Will I own my website?',
-  a: 'Yes. You own your domain, your content, and the finished site.',
+  q: 'Will I own my website and domain?',
+  a: 'Yes, 100%. You own your domain name, your content, and the finished website.',
 };
 
-/** Homepage FAQ: who I work with and how I work. */
+/** Homepage FAQ: who I work with, packages, local SEO/AI search, and how I work. */
 export const homeFaqs: FaqItem[] = [
   {
-    q: 'What kinds of businesses do you work with?',
-    a: 'Local Michiana businesses of all kinds. I have particular experience with field-service contractors (roofing, restoration, HVAC, plumbing) and restaurants. I also work with remote clients across the U.S.',
+    q: 'What kinds of Michiana small businesses do you work with?',
+    a: 'I work with small and medium businesses of every size across Northern Indiana and Southwest Michigan—from solo tradespeople and new neighborhood shops needing a simple starter site to established contractors, restaurants, professional and insurance offices, medical/dental practices, and B2B manufacturers.',
+  },
+  {
+    q: 'How is a website priced?',
+    a: 'Every project is quoted upfront around your scope after a free consultation—so you never pay for features you don’t need. Options range from a Simple Starter Site (1–3 pages for newer or solo businesses) to a full Business Website + Local Launch (5–8+ pages with one-time Google Business Profile setup and handoff) and custom software builds.',
+  },
+  {
+    q: 'Why hire a local engineer in Mishawaka instead of using WordPress/Wix or a big agency?',
+    a: 'DIY templates and bloated WordPress sites load slowly on mobile phones and look like everyone else’s site, while traditional marketing agencies often charge steep retainers and pass your project to junior account managers. At Michiana Dev, you work directly with me (Joe Hollenbach) right here in Mishawaka, get a hand-built site that loads in under a second, and get a clear fixed quote before work begins.',
+  },
+  {
+    q: 'How do you help my business rank on Google and in AI search tools?',
+    a: 'Every site is engineered from day one with fast mobile performance, dedicated service and town pages, clean semantic HTML, and structured JSON-LD schema markup. This gives both Google Search/Maps and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) the exact local signals they need to recommend your business.',
   },
   gbpFaq,
   {
-    q: 'Do you work with businesses outside Michiana?',
-    a: `Yes. I’m based in Mishawaka and work most closely with businesses across Michiana, including ${areaList}. I also work with remote clients anywhere in the U.S.`,
+    q: 'Which towns in Northern Indiana and Southwest Michigan do you serve?',
+    a: `I’m based in Mishawaka, Indiana and work closely with businesses across Michiana, including ${areaList}. I also work with remote clients anywhere in the U.S.`,
   },
   ownershipFaq,
 ];
 
-/** /services FAQ: pricing, timeline, hosting, RankRadius. */
+/** /services FAQ: packages, timeline, hosting, RankRadius. */
 export const servicesFaqs: FaqItem[] = [
   {
-    q: 'How much does a custom website cost?',
-    a: 'Websites start at $2,500 for a custom site of typically 5–8 pages, including local SEO and schema, a contact form, click-to-call, two rounds of revisions, and Google Analytics and Search Console setup. Website + Local Launch starts at $3,000 and adds Google Business Profile setup and handoff. Both come with $100/mo hosting. Add-ons: additional pages from $200 each, location pages from $150 each, and Google Business Profile setup on its own for $450. Custom sites and software, such as CMS sites, restaurant menus and online ordering, booking, e-commerce, and client portals, are quoted after a free consultation, and most range from $5,000–$15,000. All prices are starting prices, and you get a clear quote before any work begins.',
+    q: 'How do your website packages and quotes work?',
+    a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages), established businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom CMS, online ordering, or portal projects are scoped around your workflow.',
   },
   {
     q: 'How long does it take to build a website?',
-    a: 'Most small-business websites take 2–4 weeks from kickoff to launch, depending on scope and how quickly content and feedback come together. Custom software is scoped separately and delivered in milestones.',
+    a: 'Simple starter sites typically launch in 1–2 weeks, and full small-business websites take 2–4 weeks from kickoff to launch, depending on scope and how quickly content and feedback come together. Custom software is scoped separately and delivered in milestones.',
   },
   {
-    q: 'What’s included in the $100/month hosting and maintenance plan?',
-    a: 'Secure hosting with an SSL certificate, regular backups, and up to one hour per month of minor content updates — things like swapping photos, editing text, or updating hours, prices, and service areas. New pages, new features, and redesigns are not included and are quoted separately.',
+    q: 'What’s included in the hosting and maintenance plan?',
+    a: 'Secure hosting with an SSL certificate, regular backups, and up to one hour per month of minor content updates — things like swapping photos, editing text, or updating hours, prices, and service areas. New pages, new features, and redesigns are quoted separately.',
   },
   {
     q: 'Do you offer website hosting in Mishawaka and Michiana?',
-    a: 'Yes. I host the websites I build for businesses in Mishawaka, South Bend, and across Michiana. Hosting and maintenance is $100/mo: secure hosting with an SSL certificate, regular backups, and up to one hour per month of minor updates.',
+    a: 'Yes. I host the websites I build for businesses in Mishawaka, South Bend, Elkhart, and across Michiana, handling SSL security, backups, and monthly content updates.',
   },
   gbpFaq,
   {
     q: 'What is RankRadius?',
-    a: 'RankRadius is a local SEO platform I built and operate for field-service businesses, available as an optional $399/mo add-on. It pulls completed jobs from a company’s CRM, uses AI to turn short field notes into neighborhood-specific write-ups, matches them with Google reviews, and publishes them through a widget on the company’s own website. Learn more at rankradius.io.',
+    a: 'RankRadius is a local SEO platform I built and operate for field-service businesses, available as an optional add-on. It pulls completed jobs from a company’s CRM, uses AI to turn short field notes into neighborhood-specific write-ups, matches them with Google reviews, and publishes them through a widget on the company’s own website. Learn more at rankradius.io.',
   },
   ownershipFaq,
 ];

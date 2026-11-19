@@ -91,4 +91,4 @@ Much of this checklist, yes. Search Console, PageSpeed Insights, and consistent 
 
 ---
 
-Every site I build ships with this checklist already handled. See [what's included in a website](/services), or how I build for [contractors](/contractors) and [restaurants](/restaurants). If you'd like a website with the technical foundation done right, [let's talk](/#contact).
+Every site I build ships with this checklist already handled. See [what's included in a website](/services), or how I build for [contractors](/contractors), [restaurants](/restaurants), and [small businesses across Michiana](/small-business). If you'd like a website with the technical foundation done right, [let's talk](/#contact).

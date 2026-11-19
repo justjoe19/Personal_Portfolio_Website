@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero.astro';
-import ServicesSummary from '../components/ServicesSummary.astro';
 import WhoIWorkWith from '../components/WhoIWorkWith.astro';
 import CaseStudies from '../components/CaseStudies.astro';
-import Pricing from '../components/Pricing.astro';
+import WhyCustom from '../components/WhyCustom.astro';
+import ServicesSummary from '../components/ServicesSummary.astro';
 import AboutTeaser from '../components/AboutTeaser.astro';
+import Pricing from '../components/Pricing.astro';
+import LocalAreasStrip from '../components/LocalAreasStrip.astro';
 import Faq from '../components/Faq.astro';
 import { homeFaqs, faqSchema } from '../data/faqs';
 import Contact from '../components/Contact';
@@ -16,7 +18,11 @@ const faqs = homeFaqs;
 const faqJson = JSON.stringify(faqSchema(faqs));
 ---
 
-<Layout description="Local web and software studio in Mishawaka, IN. Fast, custom websites and software for South Bend and Michiana businesses. Websites start at $2,500." title="Websites & Software for Mishawaka & South Bend | Michiana Dev" isHome={true}>
+<Layout
+	title="Web Design Mishawaka & South Bend | Custom Small Business Websites | Michiana Dev"
+	description="Local web design and software studio in Mishawaka, IN. Fast, custom websites—from simple starter sites to full custom builds—for South Bend, Elkhart, Granger, and Michiana small businesses."
+	isHome={true}
+>
 	<script type="application/ld+json" is:inline set:html={faqJson} />
 
 	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
@@ -27,9 +33,11 @@ const faqJson = JSON.stringify(faqSchema(faqs));
 		<Hero />
 		<WhoIWorkWith />
 		<CaseStudies />
-		<AboutTeaser />
+		<WhyCustom />
 		<ServicesSummary />
+		<AboutTeaser />
 		<Pricing compact />
+		<LocalAreasStrip />
 		<Faq faqs={faqs} />
 		<Contact client:visible />
 	</main>

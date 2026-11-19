@@ -3,14 +3,21 @@ import { getEmail } from '../lib/email';
 import { track } from '../lib/analytics';
 
 const SERVICES = [
-  'New website',
-  'Website review',
-  'Website + Google profile setup',
+  'Free website review',
+  'Simple starter website',
+  'Business website + Google profile setup',
   'Custom website or software (CMS, ordering, portals)',
   'Not sure yet',
 ] as const;
 
-const INDUSTRIES = ['Contractor/home services', 'Restaurant', 'Other'] as const;
+const INDUSTRIES = [
+  'Contractor/home services',
+  'Restaurant',
+  'Professional, medical & insurance',
+  'Retail, shop & local service',
+  'Manufacturing & B2B',
+  'Other',
+] as const;
 type Industry = (typeof INDUSTRIES)[number];
 
 interface Props {
@@ -19,6 +26,9 @@ interface Props {
   /** Optional heading as [plain text, accented text]; defaults to the generic homepage heading. */
   heading?: [string, string];
   /** Optional intro paragraph; defaults to the generic homepage copy. */
+}
+
+interface ContactProps extends Props {
   intro?: string;
 }
 
@@ -28,9 +38,9 @@ const labelClass = 'mb-2 block text-sm font-semibold text-ink';
 
 export default function Contact({
   defaultIndustry,
-  heading = ['Let’s build', 'something great.'],
-  intro = 'Tell me about your business and what you want to build. I’ll come back with a clear scope, timeline, and quote. Websites start at $2,500, and the free website review comes with no obligation.',
-}: Props) {
+  heading = ['Get your free', 'website review.'],
+  intro = 'Tell me about your business and what you want your website or software to accomplish. I’ll reply within 1–2 business days with honest feedback, a clear scope, and a fixed upfront quote—from simple starter sites to custom builds, with zero obligation.',
+}: ContactProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   // Set after hydration so the address never appears in the server-rendered HTML.
   const [email, setEmail] = useState('');
@@ -67,7 +77,7 @@ export default function Contact({
     <section id="contact" className="relative border-t border-line py-24 sm:py-32">
       <div className="container-x grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div>
-          <p className="eyebrow">Contact</p>
+          <p className="eyebrow">Contact · Mishawaka, IN</p>
           <h2 className="display mt-5 text-[clamp(2.4rem,5.4vw,4.2rem)]">
             {heading[0]} <span className="serif-accent text-gradient">{heading[1]}</span>
           </h2>
@@ -77,20 +87,27 @@ export default function Contact({
 
           <dl className="mt-10 space-y-5">
             <div>
-              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Email</dt>
-              <dd className="mt-1">
-                <a href={email ? `mailto:${email}` : '#contact'} className="text-xl font-semibold text-ink hover:text-accent">{email || 'Email me'}</a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Phone</dt>
+              <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Direct Phone</dt>
               <dd className="mt-1">
                 <a href="tel:+15742138502" className="text-xl font-semibold text-ink hover:text-accent">(574) 213-8502</a>
               </dd>
             </div>
             <div>
-              <dt className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Elsewhere</dt>
-              <dd className="mt-1 flex gap-5">
+              <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Email</dt>
+              <dd className="mt-1">
+                <a href={email ? `mailto:${email}` : '#contact'} className="text-xl font-semibold text-ink hover:text-accent">{email || 'Email Joe'}</a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Location</dt>
+              <dd className="mt-1 text-base font-medium text-ink">
+                Mishawaka, IN 46544 · Serving Northern IN &amp; SW Michigan
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Profiles</dt>
+              <dd className="mt-1 flex flex-wrap gap-5">
+                <a href="https://share.google/Shycqyc3DYoD1z9DR" target="_blank" rel="noopener noreferrer" className="link-arrow">Google Business Profile</a>
                 <a href="https://www.linkedin.com/in/joe-hollenbach" target="_blank" rel="noopener noreferrer" className="link-arrow">LinkedIn</a>
                 <a href="https://github.com/justjoe19" target="_blank" rel="noopener noreferrer" className="link-arrow">GitHub</a>
               </dd>
@@ -98,14 +115,14 @@ export default function Contact({
           </dl>
         </div>
 
-        <div className="card p-6 sm:p-10 shadow-[0_40px_100px_-40px_oklch(0.74_0.15_270/0.35)]">
+        <div className="card p-6 sm:p-10 shadow-[0_24px_60px_-20px_rgba(15,23,42,0.12)]">
           {status === 'sent' ? (
             <div className="flex h-full flex-col items-center justify-center py-12 text-center" role="status">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-mint/10 text-mint">
                 <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
               </div>
               <h3 className="display mt-6 text-4xl">Message sent.</h3>
-              <p className="mt-3 max-w-xs text-body">Thanks for reaching out — I’ll get back to you within 1–2 business days.</p>
+              <p className="mt-3 max-w-xs text-body">Thanks for reaching out — I’ll get back to you personally within 1–2 business days.</p>
               <button type="button" onClick={() => setStatus('idle')} className="btn-ghost mt-8">Send another message</button>
             </div>
           ) : (
@@ -120,11 +137,11 @@ export default function Contact({
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className={labelClass}>Name</label>
+                  <label htmlFor="name" className={labelClass}>Your name</label>
                   <input type="text" name="name" id="name" autoComplete="name" required className={inputClass} />
                 </div>
                 <div>
-                  <label htmlFor="company" className={labelClass}>Business <span className="font-normal text-muted">(optional)</span></label>
+                  <label htmlFor="company" className={labelClass}>Business name <span className="font-normal text-muted">(optional)</span></label>
                   <input type="text" name="company" id="company" autoComplete="organization" className={inputClass} />
                 </div>
                 <div>
@@ -138,7 +155,7 @@ export default function Contact({
               </div>
 
               <fieldset>
-                <legend className={labelClass}>What do you need?</legend>
+                <legend className={labelClass}>How can I help?</legend>
                 <div className="flex flex-wrap gap-2">
                   {SERVICES.map((s, i) => (
                     <label key={s} className="cursor-pointer">
@@ -152,7 +169,7 @@ export default function Contact({
               </fieldset>
 
               <div>
-                <label htmlFor="industry" className={labelClass}>Industry <span className="font-normal text-muted">(optional)</span></label>
+                <label htmlFor="industry" className={labelClass}>Type of business <span className="font-normal text-muted">(optional)</span></label>
                 <select name="industry" id="industry" defaultValue={defaultIndustry ?? ''} className={inputClass}>
                   <option value="">Select one</option>
                   {INDUSTRIES.map((i) => (
@@ -162,18 +179,18 @@ export default function Contact({
               </div>
 
               <div>
-                <label htmlFor="message" className={labelClass}>Tell me about the project</label>
-                <textarea name="message" id="message" rows={5} required placeholder="What does your business do, and what would you like the site or software to do?" className={`${inputClass} resize-y`}></textarea>
+                <label htmlFor="message" className={labelClass}>Tell me about your business or website</label>
+                <textarea name="message" id="message" rows={5} required placeholder="If you have a current website, share the URL—or tell me what your business does and what you want the new site to accomplish." className={`${inputClass} resize-y`}></textarea>
               </div>
 
               {status === 'error' && (
-                <p className="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-300" role="alert">
+                <p className="rounded-xl border border-red-600/25 bg-red-500/10 px-4 py-3 text-sm text-red-700" role="alert">
                   Something went wrong sending your message. Please try again, or email {email} directly.
                 </p>
               )}
 
               <button type="submit" disabled={status === 'sending'} className="btn-primary w-full disabled:opacity-60">
-                {status === 'sending' ? 'Sending…' : 'Send message'}
+                {status === 'sending' ? 'Sending…' : 'Request free website review'}
               </button>
             </form>
           )}

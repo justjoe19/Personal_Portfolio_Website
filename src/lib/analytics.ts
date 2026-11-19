@@ -36,7 +36,7 @@ export function initAnalytics(): void {
     s.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
     document.head.appendChild(s);
   };
-  const schedule = () => ('requestIdleCallback' in window ? window.requestIdleCallback(load, { timeout: 4000 }) : window.setTimeout(load, 2000));
+  const schedule = () => (typeof window.requestIdleCallback === 'function' ? window.requestIdleCallback(load, { timeout: 4000 }) : setTimeout(load, 2000));
   if (document.readyState === 'complete') schedule();
   else window.addEventListener('load', schedule, { once: true });
 

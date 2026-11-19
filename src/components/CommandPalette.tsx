@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { OPEN_PALETTE_EVENT } from '../lib/events';
 import { projects } from '../data/projects';
+import { cityPages } from '../data/areas';
 import { getEmail } from '../lib/email';
 
 interface Command {
   id: string;
   label: string;
-  group: 'Navigate' | 'Pages' | 'Projects' | 'Actions';
+  group: 'Navigate' | 'Pages' | 'Service Areas' | 'Projects' | 'Actions';
   hint?: string;
   run: () => void | Promise<void>;
 }
@@ -25,22 +26,36 @@ export default function CommandPalette() {
 
   const commands = useMemo<Command[]>(
     () => [
-      { id: 'services', label: 'Services', group: 'Navigate', run: go('/services') },
-      { id: 'rankradius', label: 'RankRadius (add-on)', group: 'Navigate', run: go('/services#rankradius') },
-      { id: 'recent-projects', label: 'Recent projects', group: 'Navigate', run: go('/#portfolio') },
-      { id: 'pricing', label: 'Pricing', group: 'Navigate', hint: 'from $2,500', run: go('/services#pricing') },
-      { id: 'hosting', label: 'Hosting & maintenance', group: 'Navigate', hint: '$100/mo', run: go('/services#hosting-maintenance') },
+      { id: 'services', label: 'Services & Pricing', group: 'Navigate', run: go('/services') },
+      { id: 'pricing', label: 'Packages & Scope', group: 'Navigate', hint: 'custom quoted', run: go('/services#pricing') },
+      { id: 'hosting', label: 'Hosting & maintenance', group: 'Navigate', hint: 'monthly care', run: go('/services#hosting-maintenance') },
       { id: 'gbp', label: 'Google Business Profile setup', group: 'Navigate', hint: 'one-time', run: go('/services#google-business-profile') },
-      { id: 'about', label: 'About', group: 'Pages', run: go('/about') },
-      { id: 'faq', label: 'FAQ', group: 'Navigate', run: go('/#faq') },
+      { id: 'rankradius', label: 'RankRadius (field-service add-on)', group: 'Navigate', run: go('/services#rankradius') },
+      { id: 'recent-projects', label: 'Recent projects', group: 'Navigate', run: go('/#portfolio') },
+      { id: 'faq', label: 'Frequently Asked Questions', group: 'Navigate', run: go('/#faq') },
       { id: 'portfolio', label: 'Portfolio', group: 'Pages', run: go('/portfolio') },
       { id: 'contractors', label: 'Contractors & home services', group: 'Pages', run: go('/contractors') },
-      { id: 'restaurants', label: 'Restaurants', group: 'Pages', run: go('/restaurants') },
-      { id: 'contact-page', label: 'Contact', group: 'Pages', run: go('/contact') },
-      { id: 'service-areas', label: 'Service areas', group: 'Pages', run: go('/service-areas') },
-      { id: 'blog', label: 'Blog', group: 'Pages', run: go('/blog') },
-      { id: 'review', label: 'AI Review Responder demo', group: 'Pages', run: go('/review-responder') },
-      ...projects.map<Command>((p) => ({ id: `project-${p.slug}`, label: p.name, group: 'Projects', hint: p.kind, run: go(`/portfolio#${p.slug}`) })),
+      { id: 'restaurants', label: 'Restaurants & hospitality', group: 'Pages', run: go('/restaurants') },
+      { id: 'small-business', label: 'Small businesses & professional services', group: 'Pages', run: go('/small-business') },
+      { id: 'about', label: 'About Joe Hollenbach', group: 'Pages', run: go('/about') },
+      { id: 'contact-page', label: 'Contact / Free Website Review', group: 'Pages', run: go('/contact') },
+      { id: 'service-areas', label: 'All Michiana Service Areas', group: 'Pages', run: go('/service-areas') },
+      { id: 'blog', label: 'Blog & Local SEO Guides', group: 'Pages', run: go('/blog') },
+      { id: 'review', label: 'Free AI Review Responder tool', group: 'Pages', run: go('/review-responder') },
+      ...cityPages.map<Command>((c) => ({
+        id: `city-${c.slug}`,
+        label: `Web Design in ${c.name}, ${c.state}`,
+        group: 'Service Areas',
+        hint: c.county,
+        run: go(`/service-areas/${c.slug}`),
+      })),
+      ...projects.map<Command>((p) => ({
+        id: `project-${p.slug}`,
+        label: p.name,
+        group: 'Projects',
+        hint: p.kind,
+        run: go(`/portfolio#${p.slug}`),
+      })),
       { id: 'start', label: 'Get a free website review', group: 'Actions', hint: '↵', run: go('/#contact') },
       {
         id: 'email',
@@ -64,7 +79,7 @@ export default function CommandPalette() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return q ? commands.filter((c) => `${c.label} ${c.group}`.toLowerCase().includes(q)) : commands;
+    return q ? commands.filter((c) => `${c.label} ${c.group} ${c.hint ?? ''}`.toLowerCase().includes(q)) : commands;
   }, [commands, query]);
 
   useEffect(() => {
@@ -148,7 +163,7 @@ export default function CommandPalette() {
                   setActive(0);
                 }}
                 onKeyDown={onInputKey}
-                placeholder="Search pages, projects, or actions…"
+                placeholder="Search pages, Michiana cities, projects, or actions…"
                 className="h-14 w-full bg-transparent text-[0.95rem] text-ink placeholder:text-muted focus:outline-none"
                 role="combobox"
                 aria-expanded="true"
@@ -173,7 +188,7 @@ export default function CommandPalette() {
                       onMouseMove={() => setActive(i)}
                       onClick={() => runCommand(c)}
                       className={`flex cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-[0.92rem] ${
-                        i === active ? 'bg-white/[0.07] text-ink' : 'text-body'
+                        i === active ? 'bg-sand text-ink' : 'text-body'
                       }`}
                     >
                       <span>{c.label}</span>
