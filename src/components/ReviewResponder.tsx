@@ -127,7 +127,7 @@ export default function ReviewResponder() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="businessName" className="block mb-2 block text-sm font-semibold text-ink">
-              Business Name
+              Your Business Name
             </label>
             <input
               id="businessName"
