@@ -4,7 +4,7 @@ import { track } from '../lib/analytics';
 
 const SERVICES = [
   'Free website review',
-  'Simple starter website',
+  'Simple starter website (starting at $500)',
   'Business website + Google profile setup',
   'Custom website or software (ordering, booking, portals)',
   'Not sure yet',
