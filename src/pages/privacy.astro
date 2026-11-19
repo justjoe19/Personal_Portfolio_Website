@@ -68,7 +68,7 @@ const bold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong class="font-sem
 <Layout title={title} description={description}>
 	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
 
-	<Navbar client:load />
+	<Navbar client:idle />
 
 	<main id="main-content">
 		<header class="relative overflow-hidden pt-36 pb-12 sm:pt-44 sm:pb-16">
