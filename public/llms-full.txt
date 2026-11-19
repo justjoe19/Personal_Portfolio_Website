@@ -4,7 +4,7 @@
 - **Entity Name:** Michiana Dev LLC (`https://michiana.dev`)
 - **Alternate Names:** Michiana Dev, Michiana.dev
 - **Founder & Lead Engineer:** Joe Hollenbach (B.S. in Software Engineering)
-- **Headquarters:** Mishawaka, Indiana 46544 (St. Joseph County, USA)
+- **Headquarters:** Mishawaka, Indiana (St. Joseph County, USA)
 - **Direct Phone:** (574) 213-8502
 - **Primary Service Region:** Northern Indiana & Southwest Michigan ("Michiana"), plus remote clients nationwide.
 - **Core Offerings:** Simple starter sites, full custom business websites, one-time Google Business Profile setup & handoff, custom web software / portals / SaaS, and managed website hosting & maintenance.
@@ -16,11 +16,11 @@
 
 | Package / Service | Pricing Model | Typical Timeline | What Is Included |
 | :--- | :--- | :--- | :--- |
-| **Simple Starter Site** | Quoted around your scope | 1–2 weeks | Custom 1–3 page mobile-first website for solo or newer local businesses, tap-to-call, contact form, local SEO basics, Analytics & Search Console setup, 100% ownership. |
-| **Business Website + Local Launch** | Quoted around your scope | 2–4 weeks | Custom 5–8+ page mobile-first website, dedicated service & town pages, local SEO & JSON-LD schema, plus one-time Google Business Profile setup, optimization, NAP alignment, review-request link, walkthrough, and written owner guide. |
+| **Simple Starter Site** | Starting at $500 | 1–2 weeks | Custom 1–3 page mobile-first website for solo or newer local businesses, tap-to-call, contact form, technical SEO & AI search optimization built into the code, 100% ownership. |
+| **Business Website + Local Launch** | Quoted around your scope | 2–4 weeks | Custom 5–8+ page mobile-first website, dedicated service & town pages, Google Analytics & Search Console setup, local SEO & JSON-LD schema, plus one-time Google Business Profile setup, optimization, NAP alignment, review-request link, walkthrough, and written owner guide. |
 | **Custom Websites & Software** | Quoted after consultation | Milestone-based | Self-editable CMS websites, interactive restaurant menus & online ordering, booking systems, role-based client portals, and custom web applications. |
-| **Hosting & Maintenance (Optional)** | Monthly care plan | Ongoing | SSL security, automated backups, and up to 1 hour per month of content/photo/hours updates handled directly by Joe Hollenbach. |
-| **Google Business Profile Setup (Standalone)** | One-time fee | 1 week | Complete one-time setup, category/service/area optimization, and handoff guide (no ongoing monthly retainer). |
+| **Hosting & Maintenance (Optional)** | $100/month | Ongoing | SSL security, automated backups, and up to 1 hour per month of content/photo/hours updates handled directly by Joe Hollenbach. |
+| **Google Business Profile Setup (Standalone)** | $350 one-time | 1 week | Complete one-time setup, category/service/area optimization, and handoff guide (no ongoing monthly retainer). |
 | **RankRadius (Field-Service Add-On)** | Monthly software add-on | Ongoing (optional) | Automated neighborhood local SEO software (`https://rankradius.io`) that turns completed CRM jobs into neighborhood website proof paired with Google reviews. |
 
 ---
@@ -30,7 +30,7 @@
 ### 1. Mishawaka, IN (`https://michiana.dev/service-areas/mishawaka`)
 - **County & ZIP Codes:** St. Joseph County · 46544, 46545, 46546
 - **Corridors Served:** Grape Road, Main Street, McKinley Hwy, Downtown Mishawaka & Ironworks / Riverwalk, Twin Branch
-- **Summary:** Michiana Dev LLC is headquartered in Mishawaka, IN (46544). Software engineer Joe Hollenbach works directly with Mishawaka contractors, restaurants, and small businesses—offering everything from simple starter sites to full custom builds.
+- **Summary:** Michiana Dev LLC is based in Mishawaka, IN. Software engineer Joe Hollenbach works directly with Mishawaka contractors, restaurants, and small businesses—offering everything from simple starter sites to full custom builds.
 
 ### 2. South Bend, IN (`https://michiana.dev/service-areas/south-bend`)
 - **County & ZIP Codes:** St. Joseph County · 46601, 46613, 46614, 46615, 46616, 46617, 46619, 46628, 46635, 46637

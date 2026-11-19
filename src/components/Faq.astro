@@ -27,7 +27,7 @@ const {
 			<p class="eyebrow">{eyebrow}</p>
 			<h2 class="display mt-5 text-[clamp(2.2rem,4.6vw,3.3rem)]">{title}</h2>
 			<p class="mt-5 text-body">
-				Don’t see your question? <a data-email data-email-label href="/contact" class="link-arrow">Send me an email</a> or call <a href="tel:+15742138502" class="font-semibold text-ink hover:text-accent">(574) 213-8502</a>.
+				Don’t see your question? <a href="/contact" class="link-arrow">Send a message</a> or call <a href="tel:+15742138502" class="font-semibold text-ink hover:text-accent">(574) 213-8502</a>.
 			</p>
 			{showAllLink && (
 				<p class="mt-4">
@@ -37,12 +37,26 @@ const {
 		</div>
 
 		<dl class="divide-y divide-line border-t border-line-strong">
-			{faqs.map((faq) => (
-				<div class="py-7 first:pt-6">
-					<dt class="text-[1.1rem] font-semibold leading-snug text-ink">{faq.q}</dt>
-					<dd class="mt-3 max-w-2xl leading-relaxed text-body">{faq.a}</dd>
-				</div>
-			))}
+			{faqs.map((faq) => {
+				const parts = faq.a.split('rankradius.io');
+				return (
+					<div class="py-7 first:pt-6">
+						<dt class="text-[1.1rem] font-semibold leading-snug text-ink">{faq.q}</dt>
+						<dd class="mt-3 max-w-2xl leading-relaxed text-body">
+							{parts.map((part, idx) => (
+								<>
+									{part}
+									{idx < parts.length - 1 && (
+										<a href="https://rankradius.io" target="_blank" rel="noopener noreferrer" class="link-arrow">
+											rankradius.io
+										</a>
+									)}
+								</>
+							))}
+						</dd>
+					</div>
+				);
+			})}
 		</dl>
 	</div>
 </section>

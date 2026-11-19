@@ -50,7 +50,7 @@ export const industries: Record<string, Industry> = {
     intro:
       'Roofing, restoration, HVAC, plumbing, remodeling, and landscaping companies win jobs when a homeowner can find them on Google, trust their work, and call or request an estimate in two taps. I build fast, custom sites designed around exactly that.',
     quickAnswer:
-      'Michiana Dev LLC builds custom, lead-focused websites for contractors and home-service trades (roofing, restoration, HVAC, plumbing, remodeling) across Mishawaka, South Bend, Elkhart, and Southwest Michigan. Options range from simple starter sites for solo tradespeople to full multi-page builds with one-time Google Business Profile setup, persistent tap-to-call, free-estimate forms, and contractor Google-ready local business details.',
+      'Michiana Dev LLC builds custom, lead-focused websites for contractors and home-service trades (roofing, restoration, HVAC, plumbing, remodeling) across Mishawaka, South Bend, Elkhart, and Southwest Michigan. Options range from simple starter sites (starting at $500) for solo tradespeople to full multi-page builds with one-time Google Business Profile setup, persistent tap-to-call, free-estimate forms, and Google-ready contractor details.',
     ctaLabel: 'Get a free website review',
     contactHeading: ['Tell me about your', 'contracting business.'],
     serviceType: 'Website design for contractors and home-service businesses',
@@ -95,7 +95,7 @@ export const industries: Record<string, Industry> = {
       },
       {
         q: 'Will the site help me show up in Mishawaka, South Bend, Elkhart, and surrounding towns?',
-        a: 'Yes. Local SEO, contractor Google-ready local business details, and clear service-area signals are built into every site from day one, and we can add dedicated location pages for every town and county in your service radius.',
+        a: 'Yes. Local SEO, Google-ready contractor details, and clear service-area signals are built into every site from day one, and we can add dedicated location pages for every town and county in your service radius.',
       },
       {
         q: 'Do you manage my Google Business Profile monthly after setup?',
@@ -168,7 +168,7 @@ export const industries: Record<string, Industry> = {
     faqs: [
       {
         q: 'How is a restaurant website priced?',
-        a: 'Every project is quoted upfront around your needs after a free consultation—from a Simple Starter Site for a new cafe or food truck to a full Business Website (with optional monthly hosting & menu updates) or a custom easy-to-update content editor and online ordering integration.',
+        a: 'Every project is quoted upfront around your needs after a free consultation—from a Simple Starter Site for a new cafe or food truck to a full Business Website (with optional $100/month hosting & menu updates) or a custom easy-to-update content editor and online ordering integration.',
       },
       {
         q: 'Why shouldn’t my restaurant just use a PDF menu or Facebook page?',
@@ -232,7 +232,7 @@ export const industries: Record<string, Industry> = {
       },
       {
         title: 'Worry-free hosting & monthly updates',
-        desc: 'Optional monthly hosting includes SSL security, regular backups, and up to one hour of content updates every month.',
+        desc: 'Optional $100/month hosting includes SSL security, regular backups, and up to one hour of content updates every month.',
       },
     ],
     projectSlugs: ['jh-claims', 'tristorm', 'hsc-portal'],

@@ -63,7 +63,6 @@ const businessSchema = {
 		"@type": "PostalAddress",
 		"addressLocality": "Mishawaka",
 		"addressRegion": "IN",
-		"postalCode": "46544",
 		"addressCountry": "US"
 	},
 	"geo": { "@type": "GeoCoordinates", "latitude": 41.6611, "longitude": -86.1706 },
@@ -85,20 +84,22 @@ const businessSchema = {
 		"itemListElement": [
 			{
 				"@type": "Offer",
-				"itemOffered": { "@type": "Service", "name": "Simple Starter Site", "description": "A custom, mobile-first 1–3 page website for solo or newer local businesses, with tap-to-call, contact form, and local SEO basics. Starting at $500." }
+				"itemOffered": { "@type": "Service", "name": "Simple Starter Site", "description": "A custom, mobile-first 1–3 page website for solo or newer local businesses, with tap-to-call, contact form, and technical SEO and AI search optimization built directly into the code. Starting at $500." }
 			},
 			{
 				"@type": "Offer",
-				"itemOffered": { "@type": "Service", "name": "Business Website + Local Launch", "description": "A full 5–8+ page custom website with local SEO and schema, plus one-time Google Business Profile setup and handoff. Quoted around your scope." }
+				"itemOffered": { "@type": "Service", "name": "Business Website + Local Launch", "description": "A full 5–8+ page custom website with local SEO and schema, Google Analytics & Search Console setup, plus one-time Google Business Profile setup and handoff. Quoted around your scope." }
 			},
 			{
 				"@type": "Offer",
-				"itemOffered": { "@type": "Service", "name": "Google Business Profile Setup", "description": "One-time setup and handoff with a walkthrough and guide. Not ongoing management." }
+				"itemOffered": { "@type": "Service", "name": "Google Business Profile Setup", "description": "One-time $350 setup and handoff with a walkthrough and guide. Not ongoing management." },
+				"priceSpecification": { "@type": "PriceSpecification", "price": "350", "priceCurrency": "USD" }
 			},
 			{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Websites & Software", "description": "CMS sites, restaurant menus and online ordering, booking, e-commerce, client portals, and SaaS. Quoted after a free consultation." } },
 			{
 				"@type": "Offer",
-				"itemOffered": { "@type": "Service", "name": "Website Hosting & Maintenance", "description": "Optional monthly hosting with SSL, regular backups, and up to 1 hour per month of minor updates." }
+				"itemOffered": { "@type": "Service", "name": "Website Hosting & Maintenance", "description": "Optional $100/month hosting with SSL, regular backups, and up to 1 hour per month of minor updates." },
+				"priceSpecification": { "@type": "UnitPriceSpecification", "price": "100", "priceCurrency": "USD", "unitText": "MONTH" }
 			}
 		]
 	},
@@ -192,11 +193,6 @@ const businessSchema = {
 			<input type="tel" name="phone" />
 			<textarea name="message"></textarea>
 		</form>
-
-		<script>
-			import { hydrateEmailLinks } from '../lib/email';
-			hydrateEmailLinks();
-		</script>
 
 		<script>
 			import { initAnalytics } from '../lib/analytics';

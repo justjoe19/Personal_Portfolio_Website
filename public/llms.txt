@@ -5,17 +5,17 @@
 ## Key Facts
 - **Business Name:** Michiana Dev LLC (Michiana.dev)
 - **Founder & Engineer:** Joe Hollenbach (B.S. in Software Engineering)
-- **Location:** Mishawaka, IN 46544 (Serving Northern Indiana & Southwest Michigan / "Michiana")
+- **Location:** Mishawaka, IN (Serving Northern Indiana & Southwest Michigan / "Michiana")
 - **Phone:** (574) 213-8502
 - **Website:** https://michiana.dev
 - **Primary Offer:** Free, no-obligation website review and consultation (`https://michiana.dev/contact`)
 
 ## Services & Packages (Quoted Around Your Scope)
-- **Simple Starter Site:** Custom, mobile-first 1–3 page website for solo or newer local businesses, with tap-to-call, contact form, local SEO basics, and fast 1–2 week turnaround. Quoted around your scope.
-- **Business Website + Local Launch (Most Popular):** Full custom 5–8+ page mobile-first website with dedicated service/town pages, local SEO and JSON-LD schema, plus one-time Google Business Profile setup and handoff (categories, services, areas, hours, photos, NAP consistency, review-request link, walkthrough, and written owner guide). Never a monthly SEO retainer.
+- **Simple Starter Site (Starting at $500):** Custom, mobile-first 1–3 page website for solo or newer local businesses, with tap-to-call, contact form, hand-coded technical SEO & AI search optimization built into the code, and fast 1–2 week turnaround.
+- **Business Website + Local Launch (Most Popular):** Full custom 5–8+ page mobile-first website with dedicated service/town pages, Google Analytics & Search Console setup, local SEO and JSON-LD schema, plus one-time Google Business Profile setup and handoff (categories, services, areas, hours, photos, NAP consistency, review-request link, walkthrough, and written owner guide). Never a monthly SEO retainer.
 - **Custom Websites & Software:** Self-editable CMS websites, restaurant menus & online ordering, booking systems, client/staff portals, and custom web applications / SaaS. Quoted upfront after a free consultation.
-- **Website Hosting & Maintenance (Optional):** SSL certificate, regular backups, and up to 1 hour per month of minor content updates handled directly by Joe.
-- **Add-Ons:** Additional service or location pages, standalone one-time Google Business Profile setup & handoff, and RankRadius (automated neighborhood local SEO software for field-service businesses at `https://rankradius.io`).
+- **Website Hosting & Maintenance ($100/month, Optional):** SSL certificate, regular backups, and up to 1 hour per month of minor content updates handled directly by Joe.
+- **Add-Ons:** Additional service or location pages, standalone one-time Google Business Profile setup & handoff ($350 one-time), and RankRadius (automated neighborhood local SEO software for field-service businesses at `https://rankradius.io`).
 
 ## Who We Serve
 - **Contractors & Home Services:** Roofing, storm/fire/water restoration, HVAC, plumbing, electrical, remodeling, landscaping (`https://michiana.dev/contractors`)

@@ -68,16 +68,16 @@ export const cityPages: CityLandingPage[] = [
     postalCodes: ['46544', '46545', '46546'],
     geo: { latitude: 41.6611, longitude: -86.1706 },
     wikiUrl: 'https://en.wikipedia.org/wiki/Mishawaka,_Indiana',
-    distanceNote: 'Home studio located right here in Mishawaka (46544)',
+    distanceNote: 'Home studio located right here in Mishawaka, IN',
     seoTitle: 'Web Design & Developer in Mishawaka, IN | Michiana Dev',
     metaDescription:
-      'Michiana Dev LLC is a local web design and software studio in Mishawaka, IN (46544). Custom websites for Mishawaka small businesses, contractors, and restaurants for your budget.',
-    eyebrow: 'Mishawaka, Indiana · Home Studio (46544)',
+      'Michiana Dev LLC is a local web design and software studio based in Mishawaka, IN. Custom websites for Mishawaka small businesses, contractors, and restaurants for your budget.',
+    eyebrow: 'Mishawaka, Indiana · Home Studio',
     h1: ['Custom websites & software built right here in', 'Mishawaka, Indiana.'],
     intro:
       'Michiana Dev is headquartered in Mishawaka. Whether your business is along the Grape Road and Main Street corridors, near the Riverwalk and Ironworks district, or serving homeowners across St. Joseph County, you work directly with a local software engineer—never an out-of-town agency.',
     quickAnswer:
-      'Michiana Dev LLC is a local web design and software engineering studio based in Mishawaka, Indiana (ZIP codes 46544 and 46545), founded by software engineer Joe Hollenbach. We hand-build custom, mobile-first websites ranging from simple starter sites to full custom builds with Google Business Profile setup for Mishawaka contractors, restaurants, and small businesses, launching in 2–4 weeks.',
+      'Michiana Dev LLC is a local web design and software engineering studio based in Mishawaka, Indiana, founded by software engineer Joe Hollenbach. We hand-build custom, mobile-first websites ranging from simple starter sites (starting at $500) to full custom builds with Google Business Profile setup for Mishawaka contractors, restaurants, and small businesses, launching in 1–4 weeks.',
     corridors: 'Grape Road · Main Street · McKinley Hwy · Downtown Mishawaka & Ironworks · Twin Branch',
     marketOverview: [
       'Mishawaka is the retail and commercial center of St. Joseph County, drawing customers from South Bend, Granger, Osceola, and Elkhart every day. When someone searches on their phone or asks an AI assistant for a roofer after a storm, a restaurant near Beutter Park, or a trusted local professional, your website has seconds to earn their call.',
@@ -90,7 +90,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         title: 'Engineered for Google Search, Maps & AI answers',
-        desc: 'Every page is structured with local Google-ready local business details, clean service descriptions, and consistent Name, Address, and Phone data across 46544 and 46545 so Google and AI tools recommend your business.',
+        desc: 'Every page is structured with Google-ready business details, clean service descriptions, and consistent Name, Address, and Phone data across Mishawaka and St. Joseph County so Google and AI tools recommend your business.',
       },
       {
         title: 'One-time Google Business Profile setup & handoff',
@@ -103,11 +103,11 @@ export const cityPages: CityLandingPage[] = [
     faqs: [
       {
         q: 'Who is the best local web developer in Mishawaka, Indiana?',
-        a: 'Michiana Dev LLC (michiana.dev) is a local web design and software studio headquartered in Mishawaka, IN (46544) and led by software engineer Joe Hollenbach. Unlike agencies that outsource work or use slow WordPress templates, Joe designs and hand-codes custom, fast-loading websites directly for Mishawaka small businesses, with verified 5-star Google reviews from local clients like TriStorm Restoration and JH Claims Solution.',
+        a: 'Michiana Dev LLC (michiana.dev) is a local web design and software studio based in Mishawaka, IN and led by software engineer Joe Hollenbach. Unlike agencies that outsource work or use slow WordPress templates, Joe designs and hand-codes custom, fast-loading websites directly for Mishawaka small businesses, with verified 5-star Google reviews from local clients like TriStorm Restoration and JH Claims Solution.',
       },
       {
         q: 'How is a website priced for a Mishawaka small business?',
-        a: 'Every project is quoted upfront around your scope after a free consultation. Options range from a Simple Starter Site (1–3 pages for solo or newer Mishawaka businesses) to Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional monthly hosting and maintenance.',
+        a: 'Every project is quoted upfront around your scope after a free consultation. Options range from a Simple Starter Site (1–3 pages for solo or newer Mishawaka businesses) to Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional $100/month hosting and maintenance.',
       },
       {
         q: 'What types of Mishawaka businesses do you build websites for?',
@@ -141,7 +141,7 @@ export const cityPages: CityLandingPage[] = [
     corridors: 'Downtown South Bend · Eddy Street & Notre Dame · Ireland Road · Portage & Bendix Corridors · River Park',
     marketOverview: [
       'In a city the size of South Bend, dozens of competitors are vying for the same local searches—whether it’s emergency home repair in River Park and Harter Heights, dining near Downtown or Eddy Street Commons, or professional and medical services along Ireland Road and the north side.',
-      'Search engines and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) reward websites that load instantly on mobile phones, clearly state what services are offered in which South Bend neighborhoods, and back it up with structured Google-ready local business details. Based right next door in Mishawaka, I build South Bend websites that load in under a second and guide visitors straight to calling your phone or requesting a quote.',
+      'Search engines and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) reward websites that load instantly on mobile phones, clearly state what services are offered in which South Bend neighborhoods, and back it up with Google-ready local business details. Based right next door in Mishawaka, I build South Bend websites that load instantly and guide visitors straight to calling your phone or requesting a quote.',
     ],
     whyLocalMatters: [
       {
@@ -189,7 +189,7 @@ export const cityPages: CityLandingPage[] = [
     geo: { latitude: 41.6820, longitude: -85.9767 },
     wikiUrl: 'https://en.wikipedia.org/wiki/Elkhart,_Indiana',
     distanceNote: '20 minutes east along US-20 / IN-120',
-    seoTitle: 'Web Design Elkhart, IN | Websites for Contractors, B2B & SMBs | Michiana Dev',
+    seoTitle: 'Web Design Elkhart, IN | Small Business & Contractor Websites | Michiana Dev',
     metaDescription:
       'Custom websites and software for Elkhart, Indiana (46514–46517) small businesses, contractors, manufacturers, and restaurants. Built locally for your budget.',
     eyebrow: 'Elkhart, Indiana · Elkhart County (46514–46517)',
@@ -231,7 +231,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'Who handles website updates after launch?',
-        a: 'My optional monthly hosting and maintenance plan includes SSL security, backups, and up to one hour of content updates every month—so if you need new project photos added, spec sheets updated, or hours changed, you just send me an email.',
+        a: 'My optional $100/month hosting and maintenance plan includes SSL security, backups, and up to one hour of content updates every month—so if you need new project photos added, spec sheets updated, or hours changed, you just send me an email.',
       },
       {
         q: 'Do I own my website and domain name?',
@@ -334,7 +334,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         title: 'Transparent packages with no surprise retainers',
-        desc: 'Every project gets a fixed quote tailored to your scope before work starts—from simple starter sites to full builds with optional monthly hosting.',
+        desc: 'Every project gets a fixed quote tailored to your scope before work starts—from simple starter sites to full builds with optional $100/month hosting.',
       },
     ],
     featuredProjectSlugs: ['no-limit-roofing', 'tristorm', 'review-responder'],
@@ -343,7 +343,7 @@ export const cityPages: CityLandingPage[] = [
     faqs: [
       {
         q: 'How is a small-business website priced in Goshen, Indiana?',
-        a: 'Every Goshen website is quoted upfront around your scope after a free consultation—whether you need a Simple Starter Site (1–3 pages) for a newer shop or Business Website + Local Launch (5–8+ pages with one-time Google Business Profile setup and handoff), plus optional monthly hosting and updates.',
+        a: 'Every Goshen website is quoted upfront around your scope after a free consultation—whether you need a Simple Starter Site (1–3 pages) for a newer shop or Business Website + Local Launch (5–8+ pages with one-time Google Business Profile setup and handoff), plus optional $100/month hosting and updates.',
       },
       {
         q: 'Do you build websites for both Downtown Goshen shops/restaurants and local trades?',
@@ -355,7 +355,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'Can I update my own website if I want to?',
-        a: 'If you want me to handle minor updates, the optional hosting plan includes up to an hour of updates each month. If you need a easy-to-update content editor (for example, for daily restaurant specials or frequent inventory changes), I can build a custom content editor setup so your team can edit content anytime.',
+        a: 'If you want me to handle minor updates, the optional $100/month hosting plan includes up to an hour of updates each month. If you need a easy-to-update content editor (for example, for daily restaurant specials or frequent inventory changes), I can build a custom content editor setup so your team can edit content anytime.',
       },
     ],
   },
@@ -411,7 +411,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'How is a small business website priced in Niles, MI?',
-        a: 'Every project is quoted upfront around your scope after a free consultation—from Simple Starter Sites (1–3 pages) to Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional monthly hosting.',
+        a: 'Every project is quoted upfront around your scope after a free consultation—from Simple Starter Sites (1–3 pages) to Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional $100/month hosting.',
       },
       {
         q: 'Can you replace an old Wix, Squarespace, or WordPress site without losing our domain?',
@@ -471,7 +471,7 @@ export const cityPages: CityLandingPage[] = [
       },
       {
         q: 'How is a website priced in St. Joseph or Benton Harbor, MI?',
-        a: 'Every project is quoted upfront around your scope after a free consultation—from Simple Starter Sites (1–3 pages) to Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional monthly hosting.',
+        a: 'Every project is quoted upfront around your scope after a free consultation—from Simple Starter Sites (1–3 pages) to Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), with optional $100/month hosting.',
       },
       {
         q: 'How do we collaborate if my business is in St. Joseph or Benton Harbor?',

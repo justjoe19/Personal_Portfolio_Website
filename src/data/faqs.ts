@@ -13,7 +13,7 @@ export const faqSchema = (faqs: FaqItem[]) => ({
 
 export const gbpFaq: FaqItem = {
   q: 'Do you manage my Google Business Profile monthly after setup?',
-  a: 'No—and that saves you a monthly agency retainer. I set up and optimize your Google Business Profile once, align it with your new website, and hand it over with a walkthrough and written guide so you own and run it yourself.',
+  a: 'No—and that saves you a monthly agency retainer. I set up and optimize your Google Business Profile once (included in Business Website + Local Launch, or $350 one-time on its own), align it with your new website, and hand it over with a walkthrough and written guide so you own and run it yourself.',
 };
 
 export const ownershipFaq: FaqItem = {
@@ -25,19 +25,19 @@ export const ownershipFaq: FaqItem = {
 export const servicesFaqs: FaqItem[] = [
   {
     q: 'How do your website packages and quotes work?',
-    a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages), established businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom content-editor, online ordering, or portal projects are scoped around your workflow.',
+    a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages, starting at $500, with technical SEO and AI search optimization built directly into the code). Established businesses typically choose Business Website + Local Launch (5–8+ pages, Google Analytics & Search Console setup, and one-time Google Business Profile setup and handoff), and custom content-editor, online ordering, or portal projects are scoped around your workflow.',
   },
   {
     q: 'How long does it take to build a website?',
     a: 'Simple starter sites typically launch in 1–2 weeks, and full small-business websites take 2–4 weeks from kickoff to launch, depending on scope and how quickly content and feedback come together. Custom software is scoped separately and delivered in milestones.',
   },
   {
-    q: 'What’s included in the hosting and maintenance plan?',
+    q: 'What’s included in the $100/month hosting and maintenance plan?',
     a: 'Secure hosting with an SSL certificate, regular backups, and up to one hour per month of minor content updates — things like swapping photos, editing text, or updating hours, prices, and service areas. New pages, new features, and redesigns are quoted separately.',
   },
   {
     q: 'Do you offer website hosting in Mishawaka and Michiana?',
-    a: 'Yes. I host the websites I build for businesses in Mishawaka, South Bend, Elkhart, and across Michiana, handling SSL security, backups, and monthly content updates.',
+    a: 'Yes. I host the websites I build for businesses in Mishawaka, South Bend, Elkhart, and across Michiana, at $100/month—handling SSL security, backups, and up to an hour of monthly content updates.',
   },
   gbpFaq,
   {
@@ -71,7 +71,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'Which towns in Northern Indiana and Southwest Michigan do you serve?',
-        a: `I’m based in Mishawaka, Indiana (46544) and work closely with businesses across Michiana, including ${areaList}. I also work with remote clients anywhere in the U.S.`,
+        a: `I’m based in Mishawaka, Indiana and work closely with businesses across Michiana, including ${areaList}. I also work with remote clients anywhere in the U.S.`,
       },
       {
         q: 'What do you need from me to get started?',
@@ -87,11 +87,11 @@ export const faqCategories: FaqCategory[] = [
     faqs: [
       {
         q: 'How do your website packages and quotes work?',
-        a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages), established businesses typically choose Business Website + Local Launch (5–8+ pages plus one-time Google Business Profile setup and handoff), and custom content-editor, online ordering, or portal projects are scoped around your workflow.',
+        a: 'After a free consultation, you get a clear, fixed quote tailored to your business size and goals before any work begins. Smaller or newer businesses can start with a Simple Starter Site (1–3 pages, starting at $500), established businesses typically choose Business Website + Local Launch (5–8+ pages, Google Analytics & Search Console setup, plus one-time Google Business Profile setup and handoff), and custom content-editor, online ordering, or portal projects are scoped around your workflow.',
       },
       {
         q: 'What is included in a Simple Starter Site?',
-        a: 'A Simple Starter Site is a fast, custom 1–3 page website built for solo tradespeople or newer local businesses that need a credible presence without overbuilding. It includes mobile-first design, tap-to-call, a lead contact form, local Google & AI search basics, and Analytics + Search Console setup.',
+        a: 'A Simple Starter Site (starting at $500) is a fast, custom 1–3 page website built for solo tradespeople or newer local businesses that need a credible presence without overbuilding. It includes mobile-first design, tap-to-call, a lead contact form, and hand-coded technical SEO and AI search optimization built directly into the site’s code so Google and AI assistants can understand and recommend your business from day one. Google Analytics and Search Console setup are included in the Full Site package.',
       },
       {
         q: 'How long does it take to build and launch a website?',
@@ -103,7 +103,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'Can I update my website myself if I want to?',
-        a: 'If you prefer hands-off updates, my optional monthly hosting and maintenance plan includes up to one hour per month of text, photo, menu, or hours updates handled directly by me. If your team needs to edit menus, specials, or pages frequently on your own, I can build an easy-to-update content editor into your site.',
+        a: 'If you prefer hands-off updates, my optional $100/month hosting and maintenance plan includes up to one hour per month of text, photo, menu, or hours updates handled directly by me. If your team needs to edit menus, specials, or pages frequently on your own, I can build an easy-to-update content editor into your site.',
       },
     ],
   },
@@ -114,7 +114,7 @@ export const faqCategories: FaqCategory[] = [
     faqs: [
       {
         q: 'How do you help my business rank on Google and in AI search tools?',
-        a: 'Every site is engineered from day one with fast mobile performance, dedicated service and town pages, clear plain-English answers, and Google-ready local business details under the hood. This gives both Google Search/Maps and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) the exact local signals they need to recommend your business.',
+        a: 'Every site is engineered from day one with fast mobile performance, clear plain-English answers, and Google-ready local business details built directly into the code. On full multi-page builds, we also create dedicated service and Michiana town pages—giving Google Search, Maps, and AI answer engines (like ChatGPT, Perplexity, and Google AI Overviews) the exact local signals they need to recommend your business.',
       },
       gbpFaq,
       {
@@ -129,12 +129,12 @@ export const faqCategories: FaqCategory[] = [
     title: 'Hosting, security, and monthly updates',
     faqs: [
       {
-        q: 'What’s included in the hosting and maintenance plan?',
+        q: 'What’s included in the $100/month hosting and maintenance plan?',
         a: 'Secure hosting with an SSL certificate, regular backups, and up to one hour per month of minor content updates — things like swapping photos, editing text, or updating hours, prices, and service areas. New pages, new features, and redesigns are quoted separately.',
       },
       {
         q: 'Do you offer website hosting in Mishawaka and Michiana?',
-        a: 'Yes. I host the websites I build for businesses in Mishawaka, South Bend, Elkhart, and across Michiana, handling SSL security, backups, and monthly content updates.',
+        a: 'Yes. I host the websites I build for businesses in Mishawaka, South Bend, Elkhart, and across Michiana, at $100/month—handling SSL security, backups, and up to an hour of monthly content updates.',
       },
       {
         q: 'How does the free website review work?',

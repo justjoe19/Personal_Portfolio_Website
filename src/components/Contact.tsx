@@ -1,5 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react';
-import { getEmail } from '../lib/email';
+import { useState, type FormEvent } from 'react';
 import { track } from '../lib/analytics';
 
 const SERVICES = [
@@ -42,13 +41,6 @@ export default function Contact({
   intro = 'Tell me about your business and what you want your website or software to accomplish. I’ll reply within 1–2 business days with honest feedback, a clear scope, and a fixed upfront quote—from simple starter sites to custom builds, with zero obligation.',
 }: ContactProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
-  // Set after hydration so the address never appears in the server-rendered HTML.
-  const [email, setEmail] = useState('');
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setEmail(getEmail());
-  }, []);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -93,15 +85,15 @@ export default function Contact({
               </dd>
             </div>
             <div>
-              <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Email</dt>
-              <dd className="mt-1">
-                <a href={email ? `mailto:${email}` : '#contact'} className="text-xl font-semibold text-ink hover:text-accent">{email || 'Email Joe'}</a>
+              <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Response Time</dt>
+              <dd className="mt-1 text-base font-medium text-ink">
+                Usually within 1–2 business days
               </dd>
             </div>
             <div>
               <dt className="text-[0.7rem] uppercase tracking-[0.14em] text-muted">Location</dt>
               <dd className="mt-1 text-base font-medium text-ink">
-                Mishawaka, IN 46544 · Serving Northern IN &amp; SW Michigan
+                Mishawaka, IN · Serving Northern IN &amp; SW Michigan
               </dd>
             </div>
             <div>
@@ -185,7 +177,7 @@ export default function Contact({
 
               {status === 'error' && (
                 <p className="rounded-xl border border-red-600/25 bg-red-500/10 px-4 py-3 text-sm text-red-700" role="alert">
-                  Something went wrong sending your message. Please try again, or email {email} directly.
+                  Something went wrong sending your message. Please try again, or call (574) 213-8502 directly.
                 </p>
               )}
 

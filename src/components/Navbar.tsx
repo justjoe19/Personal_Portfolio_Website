@@ -6,6 +6,7 @@ const LINKS = [
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/service-areas', label: 'Service Areas' },
   { href: '/about', label: 'About' },
+  { href: '/faq', label: 'FAQ' },
 ];
 
 const INDUSTRIES = [
