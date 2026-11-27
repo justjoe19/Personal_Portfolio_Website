@@ -26,7 +26,7 @@
 - **TriStorm Restoration (`https://tristormrestoration.com`):** 24/7 emergency-response website for a family-owned Michiana fire, water, and storm restoration contractor.
 - **JH Claims Solution (`https://jhclaim.com`):** Credibility-first website for a multi-state public insurance adjusting firm.
 - **No Limit Roofing (`https://nolimitroofingin.com`):** Lead-focused roofing website covering five Northern Indiana and Southwest Michigan counties.
-- **Sebas Pros Lawn Care (`https://sebaspros.netlify.app`):** One-page website for a new Michiana lawn care and leaf cleanup business.
+- **Sebas Pros Lawn Care (`https://sebaspros.com`):** One-page website for a new Michiana lawn care and leaf cleanup business.
 - **RankRadius (`https://rankradius.io`):** Local SEO SaaS platform built and operated by Joe Hollenbach that turns completed field-service jobs into neighborhood website content.
 - **HSC Portal:** Full-stack healthcare appointment scheduling platform with role-based portals for patients, doctors, and administrators.
 - **AI Review Responder (`https://michiana.dev/review-responder`):** Free interactive AI tool for local business owners to generate polished replies to customer reviews.

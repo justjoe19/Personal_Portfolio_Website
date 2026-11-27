@@ -153,7 +153,7 @@ export const projects: Project[] = [
     image: '/assets/work/sebaspros.webp',
     width: 1600,
     height: 1000,
-    href: 'https://sebaspros.netlify.app',
+    href: 'https://sebaspros.com',
     linkLabel: 'Visit live site',
     external: true,
     built:
