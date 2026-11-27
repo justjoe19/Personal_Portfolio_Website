@@ -160,6 +160,13 @@ export const projects: Project[] = [
     external: true,
     built:
       'A bilingual (EN/ES) one-page website for a new lawn care business, with tap-to-call, an estimate form, starting prices, job photos, and Michiana local SEO.',
+    testimonial: {
+      quote:
+        'Really is talented at his job helped me make a website and walked me through the whole way. If I could I would recommend this guy to everybody who needs help making a website for their business he works wonders and is very good at communicating!',
+      name: 'Sebastian',
+      role: 'Owner, Sebas Pros Lawn Care',
+      href: 'https://share.google/Shycqyc3DYoD1z9DR',
+    },
   },
   {
     slug: 'rankradius',
