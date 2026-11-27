@@ -4,6 +4,7 @@ const widths: Record<string, number> = {
   '/assets/work/jhclaims.webp': 1600,
   '/assets/work/nolimit.webp': 1600,
   '/assets/work/tristorm.webp': 1600,
+  '/assets/work/sebaspros.webp': 1600,
   '/assets/work/rankradius.webp': 1600,
   '/assets/work/review-responder.webp': 1600,
   '/assets/183028.webp': 1024,

@@ -53,7 +53,7 @@ const softwareProjects: Project[] = showSoftwareStrip
 				)}
 			</div>
 
-			<div class:list={['mt-14 grid gap-6', cases.length === 1 ? 'max-w-2xl' : cases.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3']}>
+			<div class:list={['mt-14 grid gap-6', cases.length === 1 ? 'max-w-2xl' : cases.length === 2 || cases.length === 4 ? 'lg:grid-cols-2' : 'lg:grid-cols-3']}>
 				{cases.map((p) => (
 					<article class="spotlight card reveal group flex flex-col overflow-hidden p-2.5">
 						<a href={`/portfolio#${p.slug}`} class="block overflow-hidden rounded-xl border border-line bg-sand/50" aria-label={`${p.name}: view project details`}>
@@ -147,7 +147,7 @@ const softwareProjects: Project[] = showSoftwareStrip
 							</h3>
 						</div>
 						<a href="/portfolio" class="link-arrow text-sm shrink-0">
-							See all 6 projects <span aria-hidden="true">→</span>
+							See all {projects.length} projects <span aria-hidden="true">→</span>
 						</a>
 					</div>
 

@@ -132,6 +132,34 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: 'sebas-pros',
+    name: 'Sebas Pros Lawn Care',
+    kind: 'Website',
+    sector: 'Lawn care & leaf cleanup',
+    locationTag: 'Michiana · Local Startup',
+    outcomePill: 'Tap-to-Call Free Estimates',
+    summary:
+      'A one-page website for a young Michiana entrepreneur launching a lawn care and leaf cleanup business.',
+    challenge:
+      'A brand-new business needed to look established, show real yard work, and make it effortless for neighbors to ask for an estimate.',
+    solution:
+      'A fast, mobile-first page built around the company logo and job photos, with call, text, and estimate-form options, town-by-town Michiana coverage, and structured data for search engines and AI answers.',
+    highlights: [
+      'Call, text, and free-estimate paths always within reach on phones',
+      'Responsive AVIF and WebP photos with a before-and-after showcase',
+      'Michiana local SEO with structured data, sitemap, and llms.txt',
+    ],
+    stack: ['One-page site', 'Estimate form', 'Michiana local SEO', 'AI-search ready'],
+    image: '/assets/work/sebaspros.webp',
+    width: 1600,
+    height: 1000,
+    href: 'https://sebaspros.netlify.app',
+    linkLabel: 'Visit live site',
+    external: true,
+    built:
+      'A one-page website for a new lawn care business, with tap-to-call, an estimate form, job photos, and Michiana local SEO.',
+  },
+  {
     slug: 'rankradius',
     name: 'RankRadius',
     kind: 'Product',

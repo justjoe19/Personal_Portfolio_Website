@@ -7,7 +7,7 @@ import BlogCTA from '../components/BlogCTA.astro';
 import { projects } from '../data/projects';
 
 const filters = [
-	{ id: 'all', label: 'All Projects (6)' },
+	{ id: 'all', label: `All Projects (${projects.length})` },
 	{ id: 'Website', label: 'Client Websites' },
 	{ id: 'Software', label: 'Custom Software' },
 	{ id: 'Product', label: 'Products' },
@@ -29,7 +29,7 @@ const itemListSchema = JSON.stringify({
 
 <Layout
 	title="Portfolio — Michiana Small Business Websites & Software | Michiana Dev"
-	description="Client websites, custom software, and products hand-built by Michiana Dev in Mishawaka, IN, including TriStorm Restoration, JH Claims Solution, No Limit Roofing, and RankRadius."
+	description="Client websites, custom software, and products hand-built by Michiana Dev in Mishawaka, IN, including TriStorm Restoration, JH Claims Solution, No Limit Roofing, Sebas Pros Lawn Care, and RankRadius."
 >
 	<script type="application/ld+json" is:inline set:html={itemListSchema} />
 	<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper">Skip to main content</a>
