@@ -139,17 +139,19 @@ export const projects: Project[] = [
     locationTag: 'Michiana · Local Startup',
     outcomePill: 'Tap-to-Call Free Estimates',
     summary:
-      'A one-page website for a young Michiana entrepreneur launching a lawn care and leaf cleanup business.',
+      'A bilingual (English/Spanish) one-page website for a young Michiana entrepreneur launching a lawn care and leaf cleanup business.',
     challenge:
       'A brand-new business needed to look established, show real yard work, and make it effortless for neighbors to ask for an estimate.',
     solution:
-      'A fast, mobile-first page built around the company logo and job photos, with call, text, and estimate-form options, town-by-town Michiana coverage, and structured data for search engines and AI answers.',
+      'A fast, mobile-first page built around the company logo and job photos, with an English/Spanish switcher, clear starting prices, call, text, and spam-protected estimate-form options, town-by-town Michiana coverage, and structured data for search engines and AI answers.',
     highlights: [
       'Call, text, and free-estimate paths always within reach on phones',
+      'Full English and Spanish (EN | ES) versions, including the estimate form',
+      'Branded logo preview when the site is shared on Facebook or by text',
       'Responsive AVIF and WebP photos with a before-and-after showcase',
       'Michiana local SEO with structured data, sitemap, and llms.txt',
     ],
-    stack: ['One-page site', 'Estimate form', 'Michiana local SEO', 'AI-search ready'],
+    stack: ['Bilingual (EN / ES)', 'Estimate form', 'Michiana local SEO', 'AI-search ready'],
     image: '/assets/work/sebaspros.webp',
     width: 1600,
     height: 1000,
@@ -157,7 +159,7 @@ export const projects: Project[] = [
     linkLabel: 'Visit live site',
     external: true,
     built:
-      'A one-page website for a new lawn care business, with tap-to-call, an estimate form, job photos, and Michiana local SEO.',
+      'A bilingual (EN/ES) one-page website for a new lawn care business, with tap-to-call, an estimate form, starting prices, job photos, and Michiana local SEO.',
   },
   {
     slug: 'rankradius',

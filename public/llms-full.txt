@@ -70,7 +70,7 @@
 - **JH Claims Solution (`https://jhclaim.com`):** Credibility-first website for a multi-state public insurance adjusting firm.
   - *Client Review:* "Joe’s work is impeccable. He’s a real pro. Highly recommended." — Josh, Owner
 - **No Limit Roofing (`https://nolimitroofingin.com`):** Lead-focused roofing website covering five Indiana and Michigan counties with above-the-fold inspection booking.
-- **Sebas Pros Lawn Care (`https://sebaspros.com`):** One-page website with tap-to-call and an estimate form for a new Michiana lawn care and leaf cleanup business.
+- **Sebas Pros Lawn Care (`https://sebaspros.com`):** Bilingual (English/Spanish) one-page website with tap-to-call, starting prices, and an estimate form for a new Michiana lawn care and leaf cleanup business.
 - **RankRadius (`https://rankradius.io`):** Local SEO SaaS platform built and operated by Joe Hollenbach for field-service businesses.
 - **HSC Portal (`https://github.com/justjoe19/HSC_Portal`):** Full-stack healthcare scheduling platform with role-based portals for patients, providers, and administrators.
 - **AI Review Responder (`https://michiana.dev/review-responder`):** Free interactive AI review response generator built for local business owners.
